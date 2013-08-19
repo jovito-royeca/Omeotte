@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Game : NSObject
+@interface OGame : NSObject
 
 @end

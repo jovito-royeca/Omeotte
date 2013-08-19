@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
-#import "Game.h"
+#import "OGame.h"
 
-@implementation Game
+@implementation OGame
 
 @end
