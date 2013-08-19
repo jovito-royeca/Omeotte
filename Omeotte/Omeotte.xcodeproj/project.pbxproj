@@ -126,8 +126,8 @@
 		1195D27F17C2689900C4DA25 /* work overtime.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D21917C2689900C4DA25 /* work overtime.png */; };
 		1195D28517C2723600C4DA25 /* OGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28417C2723600C4DA25 /* OGame.m */; };
 		1195D28817C2728700C4DA25 /* OPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28717C2728700C4DA25 /* OPlayer.m */; };
-		1195D28B17C272A000C4DA25 /* OHand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28A17C272A000C4DA25 /* OHand.m */; };
 		1195D28E17C272B600C4DA25 /* OCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28D17C272B600C4DA25 /* OCard.m */; };
+		1195D29117C2772700C4DA25 /* ODeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D29017C2772700C4DA25 /* ODeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -267,10 +267,10 @@
 		1195D28417C2723600C4DA25 /* OGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGame.m; sourceTree = "<group>"; };
 		1195D28617C2728700C4DA25 /* OPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPlayer.h; sourceTree = "<group>"; };
 		1195D28717C2728700C4DA25 /* OPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPlayer.m; sourceTree = "<group>"; };
-		1195D28917C272A000C4DA25 /* OHand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHand.h; sourceTree = "<group>"; };
-		1195D28A17C272A000C4DA25 /* OHand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHand.m; sourceTree = "<group>"; };
 		1195D28C17C272B600C4DA25 /* OCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCard.h; sourceTree = "<group>"; };
 		1195D28D17C272B600C4DA25 /* OCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCard.m; sourceTree = "<group>"; };
+		1195D28F17C2772700C4DA25 /* ODeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODeck.h; sourceTree = "<group>"; };
+		1195D29017C2772700C4DA25 /* ODeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,10 +339,10 @@
 				1195D28417C2723600C4DA25 /* OGame.m */,
 				1195D28617C2728700C4DA25 /* OPlayer.h */,
 				1195D28717C2728700C4DA25 /* OPlayer.m */,
-				1195D28917C272A000C4DA25 /* OHand.h */,
-				1195D28A17C272A000C4DA25 /* OHand.m */,
 				1195D28C17C272B600C4DA25 /* OCard.h */,
 				1195D28D17C272B600C4DA25 /* OCard.m */,
+				1195D28F17C2772700C4DA25 /* ODeck.h */,
+				1195D29017C2772700C4DA25 /* ODeck.m */,
 			);
 			path = Omeotte;
 			sourceTree = "<group>";
@@ -713,8 +713,8 @@
 				1195D18B17C25F5E00C4DA25 /* AppDelegate.m in Sources */,
 				1195D28517C2723600C4DA25 /* OGame.m in Sources */,
 				1195D28817C2728700C4DA25 /* OPlayer.m in Sources */,
-				1195D28B17C272A000C4DA25 /* OHand.m in Sources */,
 				1195D28E17C272B600C4DA25 /* OCard.m in Sources */,
+				1195D29117C2772700C4DA25 /* ODeck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

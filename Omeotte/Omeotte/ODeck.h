@@ -1,5 +1,5 @@
 //
-//  OHand.h
+//  ODeck.h
 //  Omeotte
 //
 //  Created by Jovito Royeca on 8/19/13.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface OHand : NSObject
+@interface ODeck : NSObject
 
 @end
