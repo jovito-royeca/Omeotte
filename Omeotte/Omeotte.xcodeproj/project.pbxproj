@@ -28,7 +28,6 @@
 		1195D21D17C2689900C4DA25 /* barracks.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B717C2689800C4DA25 /* barracks.png */; };
 		1195D21E17C2689900C4DA25 /* basic wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B817C2689800C4DA25 /* basic wall.png */; };
 		1195D21F17C2689900C4DA25 /* battlements.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B917C2689800C4DA25 /* battlements.png */; };
-		1195D22017C2689900C4DA25 /* beast_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1BA17C2689800C4DA25 /* beast_card.png */; };
 		1195D22117C2689900C4DA25 /* beserker.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1BB17C2689800C4DA25 /* beserker.png */; };
 		1195D22217C2689900C4DA25 /* big wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1BC17C2689800C4DA25 /* big wall.png */; };
 		1195D22317C2689900C4DA25 /* brick shortage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1BD17C2689800C4DA25 /* brick shortage.png */; };
@@ -128,6 +127,10 @@
 		1195D28817C2728700C4DA25 /* OPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28717C2728700C4DA25 /* OPlayer.m */; };
 		1195D28E17C272B600C4DA25 /* OCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28D17C272B600C4DA25 /* OCard.m */; };
 		1195D29117C2772700C4DA25 /* ODeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D29017C2772700C4DA25 /* ODeck.m */; };
+		11D5CF5417C30E0600AA96BC /* beast_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5117C30E0600AA96BC /* beast_card.png */; };
+		11D5CF5517C30E0600AA96BC /* brick_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5217C30E0600AA96BC /* brick_card.png */; };
+		11D5CF5617C30E0600AA96BC /* gem_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5317C30E0600AA96BC /* gem_card.png */; };
+		11D5CF5A17C32F6A00AA96BC /* ORules.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D5CF5917C32F6A00AA96BC /* ORules.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,7 +170,6 @@
 		1195D1B717C2689800C4DA25 /* barracks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barracks.png; sourceTree = "<group>"; };
 		1195D1B817C2689800C4DA25 /* basic wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basic wall.png"; sourceTree = "<group>"; };
 		1195D1B917C2689800C4DA25 /* battlements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battlements.png; sourceTree = "<group>"; };
-		1195D1BA17C2689800C4DA25 /* beast_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beast_card.png; sourceTree = "<group>"; };
 		1195D1BB17C2689800C4DA25 /* beserker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beserker.png; sourceTree = "<group>"; };
 		1195D1BC17C2689800C4DA25 /* big wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big wall.png"; sourceTree = "<group>"; };
 		1195D1BD17C2689800C4DA25 /* brick shortage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brick shortage.png"; sourceTree = "<group>"; };
@@ -271,6 +273,12 @@
 		1195D28D17C272B600C4DA25 /* OCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCard.m; sourceTree = "<group>"; };
 		1195D28F17C2772700C4DA25 /* ODeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODeck.h; sourceTree = "<group>"; };
 		1195D29017C2772700C4DA25 /* ODeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODeck.m; sourceTree = "<group>"; };
+		11D5CF5117C30E0600AA96BC /* beast_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beast_card.png; sourceTree = "<group>"; };
+		11D5CF5217C30E0600AA96BC /* brick_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick_card.png; sourceTree = "<group>"; };
+		11D5CF5317C30E0600AA96BC /* gem_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gem_card.png; sourceTree = "<group>"; };
+		11D5CF5717C32DBC00AA96BC /* OConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OConstants.h; sourceTree = "<group>"; };
+		11D5CF5817C32F6900AA96BC /* ORules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORules.h; sourceTree = "<group>"; };
+		11D5CF5917C32F6A00AA96BC /* ORules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORules.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +351,9 @@
 				1195D28D17C272B600C4DA25 /* OCard.m */,
 				1195D28F17C2772700C4DA25 /* ODeck.h */,
 				1195D29017C2772700C4DA25 /* ODeck.m */,
+				11D5CF5717C32DBC00AA96BC /* OConstants.h */,
+				11D5CF5817C32F6900AA96BC /* ORules.h */,
+				11D5CF5917C32F6A00AA96BC /* ORules.m */,
 			);
 			path = Omeotte;
 			sourceTree = "<group>";
@@ -391,13 +402,13 @@
 		1195D1B317C2686800C4DA25 /* cards */ = {
 			isa = PBXGroup;
 			children = (
+				11D5CF5017C30DD100AA96BC /* blanks */,
 				1195D1B417C2689800C4DA25 /* amethyst.png */,
 				1195D1B517C2689800C4DA25 /* apprentice.png */,
 				1195D1B617C2689800C4DA25 /* bag of baubles.png */,
 				1195D1B717C2689800C4DA25 /* barracks.png */,
 				1195D1B817C2689800C4DA25 /* basic wall.png */,
 				1195D1B917C2689800C4DA25 /* battlements.png */,
-				1195D1BA17C2689800C4DA25 /* beast_card.png */,
 				1195D1BB17C2689800C4DA25 /* beserker.png */,
 				1195D1BC17C2689800C4DA25 /* big wall.png */,
 				1195D1BD17C2689800C4DA25 /* brick shortage.png */,
@@ -497,6 +508,16 @@
 			path = cards;
 			sourceTree = "<group>";
 		};
+		11D5CF5017C30DD100AA96BC /* blanks */ = {
+			isa = PBXGroup;
+			children = (
+				11D5CF5117C30E0600AA96BC /* beast_card.png */,
+				11D5CF5217C30E0600AA96BC /* brick_card.png */,
+				11D5CF5317C30E0600AA96BC /* gem_card.png */,
+			);
+			path = blanks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -579,7 +600,6 @@
 				1195D21D17C2689900C4DA25 /* barracks.png in Resources */,
 				1195D21E17C2689900C4DA25 /* basic wall.png in Resources */,
 				1195D21F17C2689900C4DA25 /* battlements.png in Resources */,
-				1195D22017C2689900C4DA25 /* beast_card.png in Resources */,
 				1195D22117C2689900C4DA25 /* beserker.png in Resources */,
 				1195D22217C2689900C4DA25 /* big wall.png in Resources */,
 				1195D22317C2689900C4DA25 /* brick shortage.png in Resources */,
@@ -675,6 +695,9 @@
 				1195D27D17C2689900C4DA25 /* warlord.png in Resources */,
 				1195D27E17C2689900C4DA25 /* werewolf.png in Resources */,
 				1195D27F17C2689900C4DA25 /* work overtime.png in Resources */,
+				11D5CF5417C30E0600AA96BC /* beast_card.png in Resources */,
+				11D5CF5517C30E0600AA96BC /* brick_card.png in Resources */,
+				11D5CF5617C30E0600AA96BC /* gem_card.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,6 +738,7 @@
 				1195D28817C2728700C4DA25 /* OPlayer.m in Sources */,
 				1195D28E17C272B600C4DA25 /* OCard.m in Sources */,
 				1195D29117C2772700C4DA25 /* ODeck.m in Sources */,
+				11D5CF5A17C32F6A00AA96BC /* ORules.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,6 +842,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
 				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -829,6 +854,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
 				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

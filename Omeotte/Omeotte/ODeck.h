@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#import "OCard.h"
+#import "OConstants.h"
+
 @interface ODeck : NSObject
+{
+    NSMutableArray *cardsInLibrary;
+    NSMutableArray *cardsInGraveyard;
+}
+
+-(void)shuffle;
+-(OCard*)draw;
 
 @end

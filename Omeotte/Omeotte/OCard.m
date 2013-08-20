@@ -10,4 +10,9 @@
 
 @implementation OCard
 
+@synthesize name;
+@synthesize image;
+@synthesize text;
+@synthesize cost;
+
 @end
