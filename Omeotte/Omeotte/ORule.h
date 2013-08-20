@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ORules : NSObject
+@interface ORule : NSObject
 
 @property(strong, nonatomic) NSString *name;
 
@@ -22,5 +22,7 @@
     
 @property int startingTower;
 @property int startingWall;
+
+@property int price;
 
 @end

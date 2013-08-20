@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
-#import "ORules.h"
+#import "ORule.h"
 
-@implementation ORules
+@implementation ORule
 
 @synthesize name;
 
@@ -22,4 +22,7 @@
 
 @synthesize startingTower;
 @synthesize startingWall;
+
+@synthesize price;
+
 @end
