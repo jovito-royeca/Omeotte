@@ -10,23 +10,23 @@
 
 #import "OConstants.h"
 
-typedef union
-{
-    int bricks;
-    int gems;
-    int recruits;
-} Cost;
+enum {
+    OQuarry = 0,
+    OMagic,
+    ODungeon
+};
+typedef NSUInteger OCardType;
 
 @interface OCard : NSObject
 
 @property(strong, nonatomic) NSString *name;
 @property(strong, nonatomic) NSString *image;
+@property int cost;
 @property(strong, nonatomic) NSString *text;
-@property Cost cost;
-@property Stats damage;
-@property Stats bonus;
-@property BOOL drawCard;
+@property(nonatomic) OCardType type;
 @property BOOL playAgain;
+@property Stats currentPlayer;
+@property Stats opponent;
 
 +(NSArray*)allCards;
 

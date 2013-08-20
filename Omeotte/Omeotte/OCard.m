@@ -12,12 +12,12 @@
 
 @synthesize name;
 @synthesize image;
-@synthesize text;
 @synthesize cost;
-@synthesize damage;
-@synthesize bonus;
-@synthesize drawCard;
+@synthesize text;
+@synthesize type;
 @synthesize playAgain;
+@synthesize currentPlayer;
+@synthesize opponent;
 
 NSMutableArray *_cards;
 
@@ -25,7 +25,45 @@ NSMutableArray *_cards;
 {
     if (!_cards)
     {
-        _cards = [[NSMutableArray alloc] init];
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"cards" ofType:@"plist"];
+        NSMutableArray *ma = [NSMutableArray arrayWithContentsOfFile:filePath];
+        _cards = [[NSMutableArray alloc] initWithCapacity:[ma count]];
+        
+        for (NSDictionary *dict in ma)
+        {
+            OCard *card = [[OCard alloc] init];
+            Stats cp = create_stats;
+            Stats op = create_stats;
+            
+            card.name = [dict valueForKey:@"name"];
+            card.image = [dict valueForKey:@"image"];
+            card.cost = [[dict valueForKey:@"cost"] integerValue];
+            card.text = [dict valueForKey:@"text"];
+            card.type = [[dict valueForKey:@"type"] integerValue];
+            card.playAgain = [[dict valueForKey:@"playAgain"] boolValue];
+            
+            cp->tower = [[dict valueForKey:@"currentTower"] integerValue];
+            cp->wall = [[dict valueForKey:@"currentWall"] integerValue];
+            cp->bricks = [[dict valueForKey:@"currentBricks"] integerValue];
+            cp->gems = [[dict valueForKey:@"currentGems"] integerValue];
+            cp->recruits = [[dict valueForKey:@"currentRecruits"] integerValue];
+            cp->quarries = [[dict valueForKey:@"currentQuarries"] integerValue];
+            cp->magics = [[dict valueForKey:@"currentMagics"] integerValue];
+            cp->dungeons = [[dict valueForKey:@"currentDungeons"] integerValue];
+            card.currentPlayer = cp;
+
+            op->tower = [[dict valueForKey:@"opponentTower"] integerValue];
+            op->wall = [[dict valueForKey:@"opponentWall"] integerValue];
+            op->bricks = [[dict valueForKey:@"opponentBricks"] integerValue];
+            op->gems = [[dict valueForKey:@"opponentGems"] integerValue];
+            op->recruits = [[dict valueForKey:@"opponentRecruits"] integerValue];
+            op->quarries = [[dict valueForKey:@"opponentQuarries"] integerValue];
+            op->magics = [[dict valueForKey:@"opponentMagics"] integerValue];
+            op->dungeons = [[dict valueForKey:@"opponentDungeons"] integerValue];
+            card.opponent = op;
+            
+            [_cards addObject:card];
+        }
     }
     
     return _cards;

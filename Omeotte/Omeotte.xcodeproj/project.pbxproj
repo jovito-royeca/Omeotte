@@ -131,7 +131,7 @@
 		11D5CF5517C30E0600AA96BC /* brick_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5217C30E0600AA96BC /* brick_card.png */; };
 		11D5CF5617C30E0600AA96BC /* gem_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5317C30E0600AA96BC /* gem_card.png */; };
 		11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D5CF5917C32F6A00AA96BC /* ORule.m */; };
-		11D5CF5D17C33CEC00AA96BC /* cards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5C17C33CEC00AA96BC /* cards.plist */; };
+		11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5C17C33CEC00AA96BC /* quarry.plist */; };
 		11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5E17C33D0A00AA96BC /* rules.plist */; };
 		11D5CF6117C35ECA00AA96BC /* all.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF6017C35ECA00AA96BC /* all.jpg */; };
 /* End PBXBuildFile section */
@@ -282,7 +282,7 @@
 		11D5CF5717C32DBC00AA96BC /* OConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OConstants.h; sourceTree = "<group>"; };
 		11D5CF5817C32F6900AA96BC /* ORule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORule.h; sourceTree = "<group>"; };
 		11D5CF5917C32F6A00AA96BC /* ORule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORule.m; sourceTree = "<group>"; };
-		11D5CF5C17C33CEC00AA96BC /* cards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cards.plist; sourceTree = "<group>"; };
+		11D5CF5C17C33CEC00AA96BC /* quarry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quarry.plist; sourceTree = "<group>"; };
 		11D5CF5E17C33D0A00AA96BC /* rules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = rules.plist; sourceTree = "<group>"; };
 		11D5CF6017C35ECA00AA96BC /* all.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = all.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -529,7 +529,7 @@
 		11D5CF5B17C33CD900AA96BC /* data */ = {
 			isa = PBXGroup;
 			children = (
-				11D5CF5C17C33CEC00AA96BC /* cards.plist */,
+				11D5CF5C17C33CEC00AA96BC /* quarry.plist */,
 				11D5CF5E17C33D0A00AA96BC /* rules.plist */,
 			);
 			path = data;
@@ -715,7 +715,7 @@
 				11D5CF5417C30E0600AA96BC /* beast_card.png in Resources */,
 				11D5CF5517C30E0600AA96BC /* brick_card.png in Resources */,
 				11D5CF5617C30E0600AA96BC /* gem_card.png in Resources */,
-				11D5CF5D17C33CEC00AA96BC /* cards.plist in Resources */,
+				11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */,
 				11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */,
 				11D5CF6117C35ECA00AA96BC /* all.jpg in Resources */,
 			);

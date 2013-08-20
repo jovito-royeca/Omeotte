@@ -35,6 +35,7 @@ NSMutableArray *_rules;
             
             rule.name = [dict valueForKey:@"name"];
             rule.location = [dict valueForKey:@"location"];
+
             base->tower = [[dict valueForKey:@"startingTower"] integerValue];
             base->wall = [[dict valueForKey:@"startingWall"] integerValue];
             base->bricks = [[dict valueForKey:@"startingBricks"] integerValue];
@@ -44,10 +45,12 @@ NSMutableArray *_rules;
             base->magics = [[dict valueForKey:@"startingMagics"] integerValue];
             base->dungeons = [[dict valueForKey:@"startingDungeons"] integerValue];
             rule.base = base;
+            
             rule.cardsInHand = [[dict valueForKey:@"cardsInHand"] integerValue];
             rule.winningTower = [[dict valueForKey:@"winningTower"] integerValue];
             rule.winningResource = [[dict valueForKey:@"winningResource"] integerValue];
             rule.price = [[dict valueForKey:@"price"] integerValue];
+
             [_rules addObject:rule];
         }
         

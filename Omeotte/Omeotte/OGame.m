@@ -31,8 +31,8 @@
     OPlayer *player1 = [[OPlayer alloc] init];
     OPlayer *player2 = [[OPlayer alloc] init];
     
-    [player1 drawInitialHand:[_rule maxCardsInHand]];
-    [player2 drawInitialHand:[_rule maxCardsInHand]];
+    [player1 drawInitialHand:[_rule cardsInHand]];
+    [player2 drawInitialHand:[_rule cardsInHand]];
     
     _players = [[NSArray alloc] initWithObjects:player1, player2, nil];
     _currentPlayer = player1;

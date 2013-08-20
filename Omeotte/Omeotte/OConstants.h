@@ -16,6 +16,16 @@
 
 #define create_stats ((Stats)malloc(sizeof(Stats)))
 
+#define set_stats(X,Y) ({ \
+    (X)->tower    += (Y)->tower; \
+    (X)->wall     += (Y)->wall; \
+    (X)->bricks   += (Y)->bricks; \
+    (X)->gems     += (Y)->gems; \
+    (X)->recruits += (Y)->recruits; \
+    (X)->quarries += (Y)->quarries; \
+    (X)->magics   += (Y)->magics; \
+    (X)->dungeons += (Y)->dungeons; })
+
 typedef struct
 {
     int tower;
