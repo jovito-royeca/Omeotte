@@ -8,21 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+#import "OConstants.h"
+
 @interface ORule : NSObject
 
 @property(strong, nonatomic) NSString *name;
-
-@property int startingBricks;
-@property int startingGems;
-@property int startingRecruits;
-    
-@property int startingMines;
-@property int startingMagics;
-@property int startingDungeons;
-    
-@property int startingTower;
-@property int startingWall;
-
+@property(strong, nonatomic) NSString *location;
+@property Stats base;
+@property int cardsInHand;
+@property int winningTower;
+@property int winningResource;
 @property int price;
+
++(NSArray*)allRules;
 
 @end

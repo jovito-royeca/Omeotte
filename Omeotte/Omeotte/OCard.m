@@ -14,5 +14,21 @@
 @synthesize image;
 @synthesize text;
 @synthesize cost;
+@synthesize damage;
+@synthesize bonus;
+@synthesize drawCard;
+@synthesize playAgain;
+
+NSMutableArray *_cards;
+
++(NSArray*)allCards
+{
+    if (!_cards)
+    {
+        _cards = [[NSMutableArray alloc] init];
+    }
+    
+    return _cards;
+}
 
 @end

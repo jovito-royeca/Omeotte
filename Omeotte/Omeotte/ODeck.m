@@ -10,15 +10,19 @@
 
 @implementation ODeck
 
+@synthesize cardsInLibrary;
+@synthesize cardsInGraveyard;
+
 -(id) init
 {
     self = [super init];
+
     if (self)
     {
         cardsInLibrary = [[NSMutableArray alloc] initWithCapacity:DECK_SIZE];
         cardsInGraveyard = [[NSMutableArray alloc] initWithCapacity:DECK_SIZE];
     }
-    return(self);
+    return self;
 }
 
 -(void)shuffle
@@ -26,7 +30,7 @@
     
 }
 
--(OCard*)draw
+-(OCard*)drawOnTop
 {
     OCard *card = [cardsInLibrary objectAtIndex:[cardsInLibrary count]-1];
     
@@ -35,10 +39,14 @@
     return card;
 }
 
+-(OCard*)drawRandom
+{
+    return [self drawOnTop];
+}
+
 -(void)discard:(OCard*)card
 {
     [cardsInGraveyard addObject:card];
 }
-
 
 @end

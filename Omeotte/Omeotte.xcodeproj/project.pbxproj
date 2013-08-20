@@ -133,6 +133,7 @@
 		11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D5CF5917C32F6A00AA96BC /* ORule.m */; };
 		11D5CF5D17C33CEC00AA96BC /* cards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5C17C33CEC00AA96BC /* cards.plist */; };
 		11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5E17C33D0A00AA96BC /* rules.plist */; };
+		11D5CF6117C35ECA00AA96BC /* all.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF6017C35ECA00AA96BC /* all.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -283,6 +284,7 @@
 		11D5CF5917C32F6A00AA96BC /* ORule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORule.m; sourceTree = "<group>"; };
 		11D5CF5C17C33CEC00AA96BC /* cards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cards.plist; sourceTree = "<group>"; };
 		11D5CF5E17C33D0A00AA96BC /* rules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = rules.plist; sourceTree = "<group>"; };
+		11D5CF6017C35ECA00AA96BC /* all.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = all.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,7 +409,7 @@
 		1195D1B317C2686800C4DA25 /* cards */ = {
 			isa = PBXGroup;
 			children = (
-				11D5CF5017C30DD100AA96BC /* blanks */,
+				11D5CF6017C35ECA00AA96BC /* all.jpg */,
 				1195D1B417C2689800C4DA25 /* amethyst.png */,
 				1195D1B517C2689800C4DA25 /* apprentice.png */,
 				1195D1B617C2689800C4DA25 /* bag of baubles.png */,
@@ -416,6 +418,7 @@
 				1195D1B917C2689800C4DA25 /* battlements.png */,
 				1195D1BB17C2689800C4DA25 /* beserker.png */,
 				1195D1BC17C2689800C4DA25 /* big wall.png */,
+				11D5CF5017C30DD100AA96BC /* blanks */,
 				1195D1BD17C2689800C4DA25 /* brick shortage.png */,
 				1195D1BE17C2689800C4DA25 /* collapse!.png */,
 				1195D1BF17C2689800C4DA25 /* copying the tech.png */,
@@ -427,9 +430,9 @@
 				1195D1C517C2689800C4DA25 /* crystallize.png */,
 				1195D1C617C2689900C4DA25 /* diamond.png */,
 				1195D1C717C2689900C4DA25 /* discord.png */,
-				1195D1C817C2689900C4DA25 /* dragon.png */,
 				1195D1C917C2689900C4DA25 /* dragon's eye.png */,
 				1195D1CA17C2689900C4DA25 /* dragon's heart.png */,
+				1195D1C817C2689900C4DA25 /* dragon.png */,
 				1195D1CB17C2689900C4DA25 /* dwarven miners.png */,
 				1195D1CC17C2689900C4DA25 /* dwarves.png */,
 				1195D1CD17C2689900C4DA25 /* earthquake.png */,
@@ -714,6 +717,7 @@
 				11D5CF5617C30E0600AA96BC /* gem_card.png in Resources */,
 				11D5CF5D17C33CEC00AA96BC /* cards.plist in Resources */,
 				11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */,
+				11D5CF6117C35ECA00AA96BC /* all.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

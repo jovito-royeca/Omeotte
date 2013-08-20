@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "OConstants.h"
+
 typedef union
 {
     int bricks;
@@ -15,46 +17,17 @@ typedef union
     int recruits;
 } Cost;
 
-typedef struct
-{
-    int bricks;
-    int gems;
-    int recruits;
-    
-    int mines;
-    int magics;
-    int dungeons;
-    
-    int tower;
-    int wall;
-
-} Damage;
-
-typedef struct
-{
-    int bricks;
-    int gems;
-    int recruits;
-    
-    int mines;
-    int magics;
-    int dungeons;
-    
-    int tower;
-    int wall;
-    
-    BOOL drawCard;
-    BOOL turnAgain;
-    
-} Bonus;
-
 @interface OCard : NSObject
 
 @property(strong, nonatomic) NSString *name;
 @property(strong, nonatomic) NSString *image;
 @property(strong, nonatomic) NSString *text;
 @property Cost cost;
-@property Damage damage;
-@property Bonus bonus;
+@property Stats damage;
+@property Stats bonus;
+@property BOOL drawCard;
+@property BOOL playAgain;
+
++(NSArray*)allCards;
 
 @end

@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "OCard.h"
+#import "OPlayer.h"
+#import "ORule.h"
+
 @interface OGame : NSObject
+
+-(id) initWithRule:(ORule*)rule;
 
 @end

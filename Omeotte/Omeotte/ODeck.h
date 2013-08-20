@@ -12,12 +12,13 @@
 #import "OConstants.h"
 
 @interface ODeck : NSObject
-{
-    NSMutableArray *cardsInLibrary;
-    NSMutableArray *cardsInGraveyard;
-}
+
+@property(readonly) NSMutableArray *cardsInLibrary;
+@property(readonly) NSMutableArray *cardsInGraveyard;
 
 -(void)shuffle;
--(OCard*)draw;
+-(OCard*)drawOnTop;
+-(OCard*)drawRandom;
+-(void)discard:(OCard*)card;
 
 @end
