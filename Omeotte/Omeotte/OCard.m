@@ -75,8 +75,7 @@ NSMutableArray *_cards;
                 NSArray *ops = [dict valueForKey:@"ops"];
                 if (ops)
                 {
-                    CFMutableArrayRef arrayRef = CFArrayCreateMutable(kCFAllocatorDefault, 0, NULL);
-                    NSMutableArray *cardOps = (NSMutableArray *)arrayRef;
+                    NSMutableArray *cardOps = [[NSMutableArray alloc] initWithCapacity:[ops count]];
                     
                     for (NSDictionary *x in ops)
                     {
@@ -100,7 +99,17 @@ NSMutableArray *_cards;
                                 break;
                             }
                         }
-                        [cardOps addObject:(id)o];
+                        /*
+                         structs in NSArray...
+                         
+                         // add:
+                         [array addObject:[NSValue value:&p withObjCType:@encode(struct Point)]];
+                         
+                         // extract:
+                         struct Point p;
+                         [[array objectAtIndex:i] getValue:&p];
+                         */
+                        [cardOps addObject:[NSValue value:o withObjCType:@encode(struct _Ops)]];
                     }
                     card.ops = cardOps;
                 }

@@ -10,7 +10,6 @@
 		1137991F17C49ADF00794158 /* magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137991E17C49ADF00794158 /* magic.plist */; };
 		1137992117C49AF000794158 /* dungeon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137992017C49AF000794158 /* dungeon.plist */; };
 		1137992417C4D2B300794158 /* Omeotte.c in Sources */ = {isa = PBXBuildFile; fileRef = 1137992317C4D2B300794158 /* Omeotte.c */; };
-		1137992617C4FFA400794158 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1137992517C4FFA300794158 /* CoreFoundation.framework */; };
 		1195D17B17C25F5E00C4DA25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17A17C25F5E00C4DA25 /* UIKit.framework */; };
 		1195D17D17C25F5E00C4DA25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17C17C25F5E00C4DA25 /* Foundation.framework */; };
 		1195D17F17C25F5E00C4DA25 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17E17C25F5E00C4DA25 /* CoreGraphics.framework */; };
@@ -300,7 +299,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1137992617C4FFA400794158 /* CoreFoundation.framework in Frameworks */,
 				1195D17B17C25F5E00C4DA25 /* UIKit.framework in Frameworks */,
 				1195D17D17C25F5E00C4DA25 /* Foundation.framework in Frameworks */,
 				1195D17F17C25F5E00C4DA25 /* CoreGraphics.framework in Frameworks */,

@@ -21,7 +21,7 @@ enum
 };
 typedef int CardType;
 
-typedef struct
+typedef struct _Stats
 {
     int tower;
     int wall;
@@ -63,7 +63,7 @@ enum
 };
 typedef int OpType;
 
-typedef struct
+typedef struct _Ops
 {
     int op1;
     int op2;

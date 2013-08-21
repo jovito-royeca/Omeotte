@@ -86,8 +86,9 @@
         
         for (i=0; i<count; i++)
         {
-            Ops o = [card.ops objectAtIndex:i];
-            do_ops(o, self.base, target.base);
+            struct _Ops o;
+            [[card.ops objectAtIndex:i] getValue:&o];
+            do_ops(&o, self.base, target.base);
         }
     }
 
