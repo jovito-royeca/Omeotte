@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1137991F17C49ADF00794158 /* magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137991E17C49ADF00794158 /* magic.plist */; };
+		1137992117C49AF000794158 /* dungeon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137992017C49AF000794158 /* dungeon.plist */; };
+		1137992417C4D2B300794158 /* Omeotte.c in Sources */ = {isa = PBXBuildFile; fileRef = 1137992317C4D2B300794158 /* Omeotte.c */; };
+		1137992617C4FFA400794158 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1137992517C4FFA300794158 /* CoreFoundation.framework */; };
 		1195D17B17C25F5E00C4DA25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17A17C25F5E00C4DA25 /* UIKit.framework */; };
 		1195D17D17C25F5E00C4DA25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17C17C25F5E00C4DA25 /* Foundation.framework */; };
 		1195D17F17C25F5E00C4DA25 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17E17C25F5E00C4DA25 /* CoreGraphics.framework */; };
@@ -147,6 +151,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1137991E17C49ADF00794158 /* magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic.plist; sourceTree = "<group>"; };
+		1137992017C49AF000794158 /* dungeon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dungeon.plist; sourceTree = "<group>"; };
+		1137992217C4AFA900794158 /* Omeotte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Omeotte.h; sourceTree = "<group>"; };
+		1137992317C4D2B300794158 /* Omeotte.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Omeotte.c; sourceTree = "<group>"; };
+		1137992517C4FFA300794158 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		1195D17717C25F5E00C4DA25 /* Omeotte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omeotte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1195D17A17C25F5E00C4DA25 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1195D17C17C25F5E00C4DA25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -279,7 +288,6 @@
 		11D5CF5117C30E0600AA96BC /* beast_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beast_card.png; sourceTree = "<group>"; };
 		11D5CF5217C30E0600AA96BC /* brick_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick_card.png; sourceTree = "<group>"; };
 		11D5CF5317C30E0600AA96BC /* gem_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gem_card.png; sourceTree = "<group>"; };
-		11D5CF5717C32DBC00AA96BC /* OConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OConstants.h; sourceTree = "<group>"; };
 		11D5CF5817C32F6900AA96BC /* ORule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORule.h; sourceTree = "<group>"; };
 		11D5CF5917C32F6A00AA96BC /* ORule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORule.m; sourceTree = "<group>"; };
 		11D5CF5C17C33CEC00AA96BC /* quarry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quarry.plist; sourceTree = "<group>"; };
@@ -292,6 +300,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1137992617C4FFA400794158 /* CoreFoundation.framework in Frameworks */,
 				1195D17B17C25F5E00C4DA25 /* UIKit.framework in Frameworks */,
 				1195D17D17C25F5E00C4DA25 /* Foundation.framework in Frameworks */,
 				1195D17F17C25F5E00C4DA25 /* CoreGraphics.framework in Frameworks */,
@@ -314,6 +323,7 @@
 		1195D16E17C25F5E00C4DA25 = {
 			isa = PBXGroup;
 			children = (
+				1137992517C4FFA300794158 /* CoreFoundation.framework */,
 				1195D18017C25F5E00C4DA25 /* Omeotte */,
 				1195D19E17C25F5E00C4DA25 /* OmeotteTests */,
 				1195D17917C25F5E00C4DA25 /* Frameworks */,
@@ -344,23 +354,24 @@
 		1195D18017C25F5E00C4DA25 /* Omeotte */ = {
 			isa = PBXGroup;
 			children = (
-				11D5CF5B17C33CD900AA96BC /* data */,
-				1195D1B317C2686800C4DA25 /* cards */,
-				1195D1AF17C261CE00C4DA25 /* docs */,
 				1195D18917C25F5E00C4DA25 /* AppDelegate.h */,
 				1195D18A17C25F5E00C4DA25 /* AppDelegate.m */,
-				1195D18117C25F5E00C4DA25 /* Supporting Files */,
-				1195D28317C2723600C4DA25 /* OGame.h */,
-				1195D28417C2723600C4DA25 /* OGame.m */,
-				1195D28617C2728700C4DA25 /* OPlayer.h */,
-				1195D28717C2728700C4DA25 /* OPlayer.m */,
+				1195D1B317C2686800C4DA25 /* cards */,
+				11D5CF5B17C33CD900AA96BC /* data */,
+				1195D1AF17C261CE00C4DA25 /* docs */,
 				1195D28C17C272B600C4DA25 /* OCard.h */,
 				1195D28D17C272B600C4DA25 /* OCard.m */,
 				1195D28F17C2772700C4DA25 /* ODeck.h */,
 				1195D29017C2772700C4DA25 /* ODeck.m */,
-				11D5CF5717C32DBC00AA96BC /* OConstants.h */,
+				1195D28317C2723600C4DA25 /* OGame.h */,
+				1195D28417C2723600C4DA25 /* OGame.m */,
+				1137992317C4D2B300794158 /* Omeotte.c */,
+				1137992217C4AFA900794158 /* Omeotte.h */,
+				1195D28617C2728700C4DA25 /* OPlayer.h */,
+				1195D28717C2728700C4DA25 /* OPlayer.m */,
 				11D5CF5817C32F6900AA96BC /* ORule.h */,
 				11D5CF5917C32F6A00AA96BC /* ORule.m */,
+				1195D18117C25F5E00C4DA25 /* Supporting Files */,
 			);
 			path = Omeotte;
 			sourceTree = "<group>";
@@ -531,6 +542,8 @@
 			children = (
 				11D5CF5C17C33CEC00AA96BC /* quarry.plist */,
 				11D5CF5E17C33D0A00AA96BC /* rules.plist */,
+				1137991E17C49ADF00794158 /* magic.plist */,
+				1137992017C49AF000794158 /* dungeon.plist */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -718,6 +731,8 @@
 				11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */,
 				11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */,
 				11D5CF6117C35ECA00AA96BC /* all.jpg in Resources */,
+				1137991F17C49ADF00794158 /* magic.plist in Resources */,
+				1137992117C49AF000794158 /* dungeon.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,6 +774,7 @@
 				1195D28E17C272B600C4DA25 /* OCard.m in Sources */,
 				1195D29117C2772700C4DA25 /* ODeck.m in Sources */,
 				11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */,
+				1137992417C4D2B300794158 /* Omeotte.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

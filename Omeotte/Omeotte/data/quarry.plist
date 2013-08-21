@@ -13,38 +13,16 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>0</integer>
-		<key>currentBricks</key>
-		<integer>-8</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>-8</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>2</integer>
+			<integer>10</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>-8</integer>
+			<integer>-8</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -57,38 +35,16 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>0</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>-1</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>-1</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+			<integer>13</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>-1</integer>
+			<integer>-1</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -101,38 +57,20 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<true/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>0</integer>
-		<key>currentBricks</key>
-		<integer>2</integer>
-		<key>currentGems</key>
-		<integer>2</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>2</integer>
-		<key>opponentGems</key>
-		<integer>2</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>2</integer>
+			<integer>3</integer>
+			<integer>10</integer>
+			<integer>11</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>2</integer>
+			<integer>2</integer>
+			<integer>2</integer>
+			<integer>2</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -145,38 +83,18 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>10</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>5</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>-1</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>1</integer>
+			<integer>3</integer>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>10</integer>
+			<integer>5</integer>
+			<integer>-1</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -189,38 +107,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<true/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>1</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>1</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>1</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -233,38 +127,18 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>1</integer>
-		<key>currentWall</key>
-		<integer>1</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>2</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>0</integer>
+			<integer>1</integer>
+			<integer>4</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>1</integer>
+			<integer>1</integer>
+			<integer>2</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -277,38 +151,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>3</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>1</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>3</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -321,38 +171,18 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>0</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>4</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>1</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>1</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>3</integer>
+			<integer>5</integer>
+			<integer>13</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>4</integer>
+			<integer>1</integer>
+			<integer>1</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -365,38 +195,16 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>5</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>-6</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>1</integer>
+			<integer>3</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>5</integer>
+			<integer>-6</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -409,38 +217,31 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>3</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>1</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>3</integer>
+		</array>
+		<key>ops</key>
+		<array>
+			<dict>
+				<key>op1</key>
+				<integer>1</integer>
+				<key>op2</key>
+				<integer>-1</integer>
+				<key>opResult</key>
+				<integer>0</integer>
+				<key>opTarget</key>
+				<integer>1</integer>
+				<key>opValue</key>
+				<integer>3</integer>
+				<key>opType</key>
+				<integer>0</integer>
+			</dict>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -453,38 +254,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>0</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>1</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>1</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -497,38 +274,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>4</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>1</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>4</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -541,38 +294,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>0</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>-1</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>13</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>-1</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -585,38 +314,31 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>0</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>1</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>1</integer>
+		</array>
+		<key>ops</key>
+		<array>
+			<dict>
+				<key>op1</key>
+				<integer>5</integer>
+				<key>op2</key>
+				<integer>13</integer>
+				<key>opResult</key>
+				<integer>-1</integer>
+				<key>opTarget</key>
+				<integer>5</integer>
+				<key>opValue</key>
+				<integer>1</integer>
+				<key>opType</key>
+				<integer>0</integer>
+			</dict>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -629,38 +351,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>6</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>1</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>6</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -673,38 +371,23 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>0</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>ops</key>
+		<array>
+			<dict>
+				<key>op1</key>
+				<integer>5</integer>
+				<key>op2</key>
+				<integer>13</integer>
+				<key>opResult</key>
+				<integer>-1</integer>
+				<key>opTarget</key>
+				<integer>5</integer>
+				<key>opValue</key>
+				<integer>13</integer>
+				<key>opType</key>
+				<integer>1</integer>
+			</dict>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -717,38 +400,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>0</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -761,38 +420,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>0</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>2</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -805,38 +440,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>4</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>1</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -849,38 +460,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>9</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>-5</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -893,38 +480,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<true/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>-5</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>-5</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -937,38 +500,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>8</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -981,38 +520,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<true/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>0</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>1</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -1025,38 +540,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>7</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>7</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -1069,38 +560,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>5</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>1</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -1113,38 +580,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>6</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>6</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -1157,38 +600,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>3</integer>
-		<key>currentWall</key>
-		<integer>6</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -1201,38 +620,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>12</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -1245,38 +640,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>7</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>-6</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -1289,38 +660,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>5</integer>
-		<key>currentWall</key>
-		<integer>8</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -1333,38 +680,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>15</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -1377,38 +700,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>0</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -1421,38 +720,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>0</integer>
-		<key>currentWall</key>
-		<integer>6</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>-10</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -1465,38 +740,14 @@
 		<integer>0</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>currentTower</key>
-		<integer>8</integer>
-		<key>currentWall</key>
-		<integer>20</integer>
-		<key>currentBricks</key>
-		<integer>0</integer>
-		<key>currentGems</key>
-		<integer>0</integer>
-		<key>currentRecruits</key>
-		<integer>0</integer>
-		<key>currentQuarries</key>
-		<integer>0</integer>
-		<key>currentMagics</key>
-		<integer>0</integer>
-		<key>currentDungeons</key>
-		<integer>0</integer>
-		<key>opponentTower</key>
-		<integer>0</integer>
-		<key>opponentWall</key>
-		<integer>0</integer>
-		<key>opponentBricks</key>
-		<integer>0</integer>
-		<key>opponentGems</key>
-		<integer>0</integer>
-		<key>opponentRecruits</key>
-		<integer>0</integer>
-		<key>opponentQuarries</key>
-		<integer>0</integer>
-		<key>opponentMagics</key>
-		<integer>0</integer>
-		<key>opponentDungeons</key>
-		<integer>0</integer>
+		<key>statFields</key>
+		<array>
+			<integer>5</integer>
+		</array>
+		<key>statValues</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 </array>
 </plist>

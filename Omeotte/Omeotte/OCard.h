@@ -6,16 +6,10 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
+#import  <CoreFoundation/CoreFoundation.h>
 #import <Foundation/Foundation.h>
 
-#import "OConstants.h"
-
-enum {
-    OQuarry = 0,
-    OMagic,
-    ODungeon
-};
-typedef NSUInteger OCardType;
+#include "Omeotte.h"
 
 @interface OCard : NSObject
 
@@ -23,10 +17,10 @@ typedef NSUInteger OCardType;
 @property(strong, nonatomic) NSString *image;
 @property int cost;
 @property(strong, nonatomic) NSString *text;
-@property(nonatomic) OCardType type;
+@property(nonatomic) CardType type;
 @property BOOL playAgain;
-@property Stats currentPlayer;
-@property Stats opponent;
+@property(strong,nonatomic) NSDictionary *statFields;
+@property(strong,nonatomic) NSMutableArray *ops;
 
 +(NSArray*)allCards;
 

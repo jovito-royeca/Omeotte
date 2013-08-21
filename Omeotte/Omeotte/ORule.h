@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "OConstants.h"
+#include "Omeotte.h"
 
 @interface ORule : NSObject
 

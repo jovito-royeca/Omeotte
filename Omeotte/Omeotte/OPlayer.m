@@ -46,15 +46,15 @@
 {
     switch (card.type)
     {
-        case (OQuarry):
+        case (Quarry):
         {
             return self.base->bricks >= card.cost;
         }
-        case (OMagic):
+        case (Magic):
         {
             return self.base->gems >= card.cost;
         }
-        case (ODungeon):
+        case (Dungeon):
         {
             return self.base->recruits >= card.cost;
         }
@@ -80,9 +80,30 @@
 
 -(void) play:(OCard*)card onTarget:(OPlayer*)target
 {
-    set_stats(self.base, card.currentPlayer);
-    set_stats(target.base, card.opponent);
-    
+    if (card.ops)
+    {
+        int i, count = [card.ops count];
+        
+        for (i=0; i<count; i++)
+        {
+            Ops o = [card.ops objectAtIndex:i];
+            do_ops(o, self.base, target.base);
+        }
+    }
+
+    if (card.statFields)
+    {
+        for (NSNumber *i in [card.statFields allKeys])
+        {
+            int w = [i intValue];
+            int x = [[card.statFields objectForKey:i] intValue];
+            Stats y = self.base;
+            Stats z = target.base;
+        
+            set_statsfield(w, x, y, z);
+        }
+    }
+
     if (card.playAgain)
     {
         

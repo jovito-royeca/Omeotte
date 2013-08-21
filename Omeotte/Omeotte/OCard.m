@@ -16,8 +16,8 @@
 @synthesize text;
 @synthesize type;
 @synthesize playAgain;
-@synthesize currentPlayer;
-@synthesize opponent;
+@synthesize statFields;
+@synthesize ops;
 
 NSMutableArray *_cards;
 
@@ -25,44 +25,88 @@ NSMutableArray *_cards;
 {
     if (!_cards)
     {
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"cards" ofType:@"plist"];
-        NSMutableArray *ma = [NSMutableArray arrayWithContentsOfFile:filePath];
-        _cards = [[NSMutableArray alloc] initWithCapacity:[ma count]];
+        _cards = [[NSMutableArray alloc] init];
+        NSArray *cards = [NSArray arrayWithObjects:@"quarry", @"magic", @"dungeon", nil];
         
-        for (NSDictionary *dict in ma)
+        for (NSString *card in cards)
         {
-            OCard *card = [[OCard alloc] init];
-            Stats cp = create_stats;
-            Stats op = create_stats;
+            NSString *plistPath;
+            NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                      NSUserDomainMask, YES) objectAtIndex:0];
+            plistPath = [rootPath stringByAppendingPathComponent:[NSString stringWithFormat:@"data/%@.plist", card]];
+            if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath])
+            {
+                plistPath = [[NSBundle mainBundle] pathForResource:card ofType:@"plist"];
+            }
             
-            card.name = [dict valueForKey:@"name"];
-            card.image = [dict valueForKey:@"image"];
-            card.cost = [[dict valueForKey:@"cost"] integerValue];
-            card.text = [dict valueForKey:@"text"];
-            card.type = [[dict valueForKey:@"type"] integerValue];
-            card.playAgain = [[dict valueForKey:@"playAgain"] boolValue];
+            NSMutableArray *ma = [NSMutableArray arrayWithContentsOfFile:plistPath];
+            for (NSDictionary *dict in ma)
+            {
+                OCard *card = [[OCard alloc] init];
             
-            cp->tower = [[dict valueForKey:@"currentTower"] integerValue];
-            cp->wall = [[dict valueForKey:@"currentWall"] integerValue];
-            cp->bricks = [[dict valueForKey:@"currentBricks"] integerValue];
-            cp->gems = [[dict valueForKey:@"currentGems"] integerValue];
-            cp->recruits = [[dict valueForKey:@"currentRecruits"] integerValue];
-            cp->quarries = [[dict valueForKey:@"currentQuarries"] integerValue];
-            cp->magics = [[dict valueForKey:@"currentMagics"] integerValue];
-            cp->dungeons = [[dict valueForKey:@"currentDungeons"] integerValue];
-            card.currentPlayer = cp;
-
-            op->tower = [[dict valueForKey:@"opponentTower"] integerValue];
-            op->wall = [[dict valueForKey:@"opponentWall"] integerValue];
-            op->bricks = [[dict valueForKey:@"opponentBricks"] integerValue];
-            op->gems = [[dict valueForKey:@"opponentGems"] integerValue];
-            op->recruits = [[dict valueForKey:@"opponentRecruits"] integerValue];
-            op->quarries = [[dict valueForKey:@"opponentQuarries"] integerValue];
-            op->magics = [[dict valueForKey:@"opponentMagics"] integerValue];
-            op->dungeons = [[dict valueForKey:@"opponentDungeons"] integerValue];
-            card.opponent = op;
+                card.name = [dict valueForKey:@"name"];
+                card.image = [dict valueForKey:@"image"];
+                card.cost = [[dict valueForKey:@"cost"] intValue];
+                card.text = [dict valueForKey:@"text"];
+                switch ([[dict valueForKey:@"type"] intValue])
+                {
+                    case 0:
+                    {
+                        card.type = Quarry;
+                        break;
+                    }
+                    case 1:
+                    {
+                        card.type = Magic;
+                        break;
+                    }
+                    case 2:
+                    {
+                        card.type = Dungeon;
+                        break;
+                    }
+                }
+                card.playAgain = [[dict valueForKey:@"playAgain"] boolValue];
+                if ([dict valueForKey:@"statFields"] && [dict valueForKey:@"statValues"])
+                {
+                    card.statFields = [NSDictionary dictionaryWithObjectsAndKeys:[dict valueForKey:@"statFields"], [dict valueForKey:@"statValues"], nil];
+                }
             
-            [_cards addObject:card];
+                NSArray *ops = [dict valueForKey:@"ops"];
+                if (ops)
+                {
+                    CFMutableArrayRef arrayRef = CFArrayCreateMutable(kCFAllocatorDefault, 0, NULL);
+                    NSMutableArray *cardOps = (NSMutableArray *)arrayRef;
+                    
+                    for (NSDictionary *x in ops)
+                    {
+                        Ops o = create_ops;
+                        
+                        o->op1 = [[x valueForKey:@"op1"] intValue];
+                        o->op2 = [[x valueForKey:@"op2"] intValue];
+                        o->opResult = [[x valueForKey:@"opResult"] intValue];
+                        o->opTarget = [[x valueForKey:@"opTarget"] intValue];
+                        o->opValue = [[x valueForKey:@"opValue"] intValue];
+                        switch ([[x valueForKey:@"opType"] intValue])
+                        {
+                            case 0:
+                            {
+                                o->opType = Eval;
+                                break;
+                            }
+                            case 1:
+                            {
+                                o->opType = Eq;
+                                break;
+                            }
+                        }
+                        [cardOps addObject:(id)o];
+                    }
+                    card.ops = cardOps;
+                }
+            
+                [_cards addObject:card];
+            }
         }
     }
     

@@ -36,20 +36,20 @@ NSMutableArray *_rules;
             rule.name = [dict valueForKey:@"name"];
             rule.location = [dict valueForKey:@"location"];
 
-            base->tower = [[dict valueForKey:@"startingTower"] integerValue];
-            base->wall = [[dict valueForKey:@"startingWall"] integerValue];
-            base->bricks = [[dict valueForKey:@"startingBricks"] integerValue];
-            base->gems = [[dict valueForKey:@"startingGems"] integerValue];
-            base->recruits = [[dict valueForKey:@"startingRecruits"] integerValue];
-            base->quarries = [[dict valueForKey:@"startingQuarries"] integerValue];
-            base->magics = [[dict valueForKey:@"startingMagics"] integerValue];
-            base->dungeons = [[dict valueForKey:@"startingDungeons"] integerValue];
+            base->tower = [[dict valueForKey:@"startingTower"] intValue];
+            base->wall = [[dict valueForKey:@"startingWall"] intValue];
+            base->bricks = [[dict valueForKey:@"startingBricks"] intValue];
+            base->gems = [[dict valueForKey:@"startingGems"] intValue];
+            base->recruits = [[dict valueForKey:@"startingRecruits"] intValue];
+            base->quarries = [[dict valueForKey:@"startingQuarries"] intValue];
+            base->magics = [[dict valueForKey:@"startingMagics"] intValue];
+            base->dungeons = [[dict valueForKey:@"startingDungeons"] intValue];
             rule.base = base;
             
-            rule.cardsInHand = [[dict valueForKey:@"cardsInHand"] integerValue];
-            rule.winningTower = [[dict valueForKey:@"winningTower"] integerValue];
-            rule.winningResource = [[dict valueForKey:@"winningResource"] integerValue];
-            rule.price = [[dict valueForKey:@"price"] integerValue];
+            rule.cardsInHand = [[dict valueForKey:@"cardsInHand"] intValue];
+            rule.winningTower = [[dict valueForKey:@"winningTower"] intValue];
+            rule.winningResource = [[dict valueForKey:@"winningResource"] intValue];
+            rule.price = [[dict valueForKey:@"price"] intValue];
 
             [_rules addObject:rule];
         }

@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 #import "OCard.h"
-#import "OConstants.h"
 #import "ODeck.h"
+#import "Omeotte.h"
 
 @interface OPlayer : NSObject
 
