@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+{
+    SPViewController *_viewController;
+}
 
 - (void)dealloc
 {
@@ -18,9 +21,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+//    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+//    self.window.backgroundColor = [UIColor whiteColor];
+    
+    CGRect screenBounds = [UIScreen mainScreen].bounds;
+    _window = [[UIWindow alloc] initWithFrame:screenBounds];
+    
+    _viewController = [[SPViewController alloc] init];
+    
+    // Enable some common settings here:
+    //
+    // _viewController.showStats = YES;
+    // _viewController.multitouchEnabled = YES;
+    // _viewController.preferredFramesPerSecond = 60;
+    
+    [_viewController startWithRoot:[SPGame class] supportHighResolutions:YES doubleOnPad:YES];
+    
+    [_window setRootViewController:_viewController];
+    
     [self.window makeKeyAndVisible];
     
     return YES;

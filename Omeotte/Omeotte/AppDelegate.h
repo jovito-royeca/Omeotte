@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SPViewController.h"
 
 #import "ORule.h"
+#import "SPGame.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

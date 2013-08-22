@@ -10,6 +10,15 @@
 		1137991F17C49ADF00794158 /* magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137991E17C49ADF00794158 /* magic.plist */; };
 		1137992117C49AF000794158 /* dungeon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137992017C49AF000794158 /* dungeon.plist */; };
 		1137992417C4D2B300794158 /* Omeotte.c in Sources */ = {isa = PBXBuildFile; fileRef = 1137992317C4D2B300794158 /* Omeotte.c */; };
+		11722F5317C636BF00014D16 /* libSparrow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F4F17C635EE00014D16 /* libSparrow.a */; };
+		11722F5517C636CB00014D16 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5417C636CB00014D16 /* libz.dylib */; };
+		11722F5717C636DA00014D16 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5617C636DA00014D16 /* GLKit.framework */; };
+		11722F5917C6382D00014D16 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5817C6382D00014D16 /* OpenGLES.framework */; };
+		11722F5B17C6383A00014D16 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5A17C6383A00014D16 /* QuartzCore.framework */; };
+		11722F5D17C6384C00014D16 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5C17C6384C00014D16 /* AVFoundation.framework */; };
+		11722F5F17C6385700014D16 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5E17C6385700014D16 /* AudioToolbox.framework */; };
+		11722F6117C6386400014D16 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F6017C6386400014D16 /* OpenAL.framework */; };
+		11722F6417C63B2900014D16 /* SPGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 11722F6317C63B2900014D16 /* SPGame.m */; };
 		1195D17B17C25F5E00C4DA25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17A17C25F5E00C4DA25 /* UIKit.framework */; };
 		1195D17D17C25F5E00C4DA25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17C17C25F5E00C4DA25 /* Foundation.framework */; };
 		1195D17F17C25F5E00C4DA25 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17E17C25F5E00C4DA25 /* CoreGraphics.framework */; };
@@ -24,7 +33,6 @@
 		1195D19B17C25F5E00C4DA25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17C17C25F5E00C4DA25 /* Foundation.framework */; };
 		1195D1A317C25F5F00C4DA25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1A117C25F5F00C4DA25 /* InfoPlist.strings */; };
 		1195D1A617C25F5F00C4DA25 /* OmeotteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D1A517C25F5F00C4DA25 /* OmeotteTests.m */; };
-		1195D1B117C2620E00C4DA25 /* rules.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B017C2620E00C4DA25 /* rules.txt */; };
 		1195D21A17C2689900C4DA25 /* amethyst.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B417C2689800C4DA25 /* amethyst.png */; };
 		1195D21B17C2689900C4DA25 /* apprentice.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B517C2689800C4DA25 /* apprentice.png */; };
 		1195D21C17C2689900C4DA25 /* bag of baubles.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B617C2689800C4DA25 /* bag of baubles.png */; };
@@ -140,6 +148,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		11722F4E17C635EE00014D16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11722F4917C635EE00014D16 /* Sparrow.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DEFE4BC2101B317600E22471;
+			remoteInfo = Sparrow;
+		};
+		11722F5017C635EE00014D16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11722F4917C635EE00014D16 /* Sparrow.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DEEA9335101E32A30071DD21;
+			remoteInfo = UnitTests;
+		};
 		1195D19C17C25F5E00C4DA25 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1195D16F17C25F5E00C4DA25 /* Project object */;
@@ -154,7 +176,16 @@
 		1137992017C49AF000794158 /* dungeon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dungeon.plist; sourceTree = "<group>"; };
 		1137992217C4AFA900794158 /* Omeotte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Omeotte.h; sourceTree = "<group>"; };
 		1137992317C4D2B300794158 /* Omeotte.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Omeotte.c; sourceTree = "<group>"; };
-		1137992517C4FFA300794158 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		11722F4917C635EE00014D16 /* Sparrow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparrow.xcodeproj; path = "../Sparrow-Framework/sparrow/src/Sparrow.xcodeproj"; sourceTree = "<group>"; };
+		11722F5417C636CB00014D16 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		11722F5617C636DA00014D16 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		11722F5817C6382D00014D16 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		11722F5A17C6383A00014D16 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		11722F5C17C6384C00014D16 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		11722F5E17C6385700014D16 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		11722F6017C6386400014D16 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		11722F6217C63B2900014D16 /* SPGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGame.h; sourceTree = "<group>"; };
+		11722F6317C63B2900014D16 /* SPGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGame.m; sourceTree = "<group>"; };
 		1195D17717C25F5E00C4DA25 /* Omeotte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omeotte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1195D17A17C25F5E00C4DA25 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1195D17C17C25F5E00C4DA25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -174,7 +205,6 @@
 		1195D1A217C25F5F00C4DA25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1195D1A417C25F5F00C4DA25 /* OmeotteTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmeotteTests.h; sourceTree = "<group>"; };
 		1195D1A517C25F5F00C4DA25 /* OmeotteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmeotteTests.m; sourceTree = "<group>"; };
-		1195D1B017C2620E00C4DA25 /* rules.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rules.txt; path = docs/rules.txt; sourceTree = "<group>"; };
 		1195D1B417C2689800C4DA25 /* amethyst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amethyst.png; sourceTree = "<group>"; };
 		1195D1B517C2689800C4DA25 /* apprentice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apprentice.png; sourceTree = "<group>"; };
 		1195D1B617C2689800C4DA25 /* bag of baubles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bag of baubles.png"; sourceTree = "<group>"; };
@@ -299,6 +329,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11722F6117C6386400014D16 /* OpenAL.framework in Frameworks */,
+				11722F5F17C6385700014D16 /* AudioToolbox.framework in Frameworks */,
+				11722F5D17C6384C00014D16 /* AVFoundation.framework in Frameworks */,
+				11722F5B17C6383A00014D16 /* QuartzCore.framework in Frameworks */,
+				11722F5917C6382D00014D16 /* OpenGLES.framework in Frameworks */,
+				11722F5717C636DA00014D16 /* GLKit.framework in Frameworks */,
+				11722F5517C636CB00014D16 /* libz.dylib in Frameworks */,
+				11722F5317C636BF00014D16 /* libSparrow.a in Frameworks */,
 				1195D17B17C25F5E00C4DA25 /* UIKit.framework in Frameworks */,
 				1195D17D17C25F5E00C4DA25 /* Foundation.framework in Frameworks */,
 				1195D17F17C25F5E00C4DA25 /* CoreGraphics.framework in Frameworks */,
@@ -318,10 +356,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11722F4A17C635EE00014D16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11722F4F17C635EE00014D16 /* libSparrow.a */,
+				11722F5117C635EE00014D16 /* UnitTest.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1195D16E17C25F5E00C4DA25 = {
 			isa = PBXGroup;
 			children = (
-				1137992517C4FFA300794158 /* CoreFoundation.framework */,
+				11722F4917C635EE00014D16 /* Sparrow.xcodeproj */,
 				1195D18017C25F5E00C4DA25 /* Omeotte */,
 				1195D19E17C25F5E00C4DA25 /* OmeotteTests */,
 				1195D17917C25F5E00C4DA25 /* Frameworks */,
@@ -341,10 +388,17 @@
 		1195D17917C25F5E00C4DA25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1195D17A17C25F5E00C4DA25 /* UIKit.framework */,
-				1195D17C17C25F5E00C4DA25 /* Foundation.framework */,
+				11722F5E17C6385700014D16 /* AudioToolbox.framework */,
+				11722F5C17C6384C00014D16 /* AVFoundation.framework */,
 				1195D17E17C25F5E00C4DA25 /* CoreGraphics.framework */,
+				1195D17C17C25F5E00C4DA25 /* Foundation.framework */,
+				11722F5617C636DA00014D16 /* GLKit.framework */,
+				11722F5417C636CB00014D16 /* libz.dylib */,
+				11722F6017C6386400014D16 /* OpenAL.framework */,
+				11722F5817C6382D00014D16 /* OpenGLES.framework */,
+				11722F5A17C6383A00014D16 /* QuartzCore.framework */,
 				1195D19817C25F5E00C4DA25 /* SenTestingKit.framework */,
+				1195D17A17C25F5E00C4DA25 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -356,7 +410,6 @@
 				1195D18A17C25F5E00C4DA25 /* AppDelegate.m */,
 				1195D1B317C2686800C4DA25 /* cards */,
 				11D5CF5B17C33CD900AA96BC /* data */,
-				1195D1AF17C261CE00C4DA25 /* docs */,
 				1195D28C17C272B600C4DA25 /* OCard.h */,
 				1195D28D17C272B600C4DA25 /* OCard.m */,
 				1195D28F17C2772700C4DA25 /* ODeck.h */,
@@ -369,6 +422,8 @@
 				1195D28717C2728700C4DA25 /* OPlayer.m */,
 				11D5CF5817C32F6900AA96BC /* ORule.h */,
 				11D5CF5917C32F6A00AA96BC /* ORule.m */,
+				11722F6217C63B2900014D16 /* SPGame.h */,
+				11722F6317C63B2900014D16 /* SPGame.m */,
 				1195D18117C25F5E00C4DA25 /* Supporting Files */,
 			);
 			path = Omeotte;
@@ -405,14 +460,6 @@
 				1195D1A117C25F5F00C4DA25 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1195D1AF17C261CE00C4DA25 /* docs */ = {
-			isa = PBXGroup;
-			children = (
-				1195D1B017C2620E00C4DA25 /* rules.txt */,
-			);
-			name = docs;
 			sourceTree = "<group>";
 		};
 		1195D1B317C2686800C4DA25 /* cards */ = {
@@ -604,6 +651,12 @@
 			mainGroup = 1195D16E17C25F5E00C4DA25;
 			productRefGroup = 1195D17817C25F5E00C4DA25 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 11722F4A17C635EE00014D16 /* Products */;
+					ProjectRef = 11722F4917C635EE00014D16 /* Sparrow.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1195D17617C25F5E00C4DA25 /* Omeotte */,
@@ -611,6 +664,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		11722F4F17C635EE00014D16 /* libSparrow.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSparrow.a;
+			remoteRef = 11722F4E17C635EE00014D16 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		11722F5117C635EE00014D16 /* UnitTest.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UnitTest.octest;
+			remoteRef = 11722F5017C635EE00014D16 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1195D17517C25F5E00C4DA25 /* Resources */ = {
@@ -621,7 +691,6 @@
 				1195D18D17C25F5E00C4DA25 /* Default.png in Resources */,
 				1195D18F17C25F5E00C4DA25 /* Default@2x.png in Resources */,
 				1195D19117C25F5E00C4DA25 /* Default-568h@2x.png in Resources */,
-				1195D1B117C2620E00C4DA25 /* rules.txt in Resources */,
 				1195D21A17C2689900C4DA25 /* amethyst.png in Resources */,
 				1195D21B17C2689900C4DA25 /* apprentice.png in Resources */,
 				1195D21C17C2689900C4DA25 /* bag of baubles.png in Resources */,
@@ -773,6 +842,7 @@
 				1195D29117C2772700C4DA25 /* ODeck.m in Sources */,
 				11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */,
 				1137992417C4D2B300794158 /* Omeotte.c in Sources */,
+				11722F6417C63B2900014D16 /* SPGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -877,7 +947,12 @@
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
 				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../Sparrow-Framework/sparrow/src/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -889,7 +964,12 @@
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
 				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../Sparrow-Framework/sparrow/src/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
