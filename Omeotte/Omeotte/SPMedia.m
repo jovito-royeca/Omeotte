@@ -3,10 +3,10 @@
 //  AppScaffold
 //
 
-#import "Media.h"
+#import "SPMedia.h"
 
 
-@implementation Media
+@implementation SPMedia
 
 static SPTextureAtlas *atlas = NULL;
 static NSMutableDictionary *sounds = NULL;
@@ -16,7 +16,7 @@ static NSMutableDictionary *sounds = NULL;
 + (void)initAtlas
 {
     if (!atlas)
-        atlas = [[SPTextureAtlas alloc] initWithContentsOfFile:@"atlas.xml"];
+        atlas = [[SPTextureAtlas alloc] initWithContentsOfFile:@"arcomage deck.xml"];
 }
 
 + (void)releaseAtlas

@@ -4,8 +4,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Sparrow.h"
 
-@interface Media : NSObject 
+@interface SPMedia : NSObject 
 
 + (void)initAtlas;
 + (void)releaseAtlas;

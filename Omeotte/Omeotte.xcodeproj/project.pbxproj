@@ -19,6 +19,9 @@
 		11722F5F17C6385700014D16 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5E17C6385700014D16 /* AudioToolbox.framework */; };
 		11722F6117C6386400014D16 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F6017C6386400014D16 /* OpenAL.framework */; };
 		11722F6417C63B2900014D16 /* SPGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 11722F6317C63B2900014D16 /* SPGame.m */; };
+		11722F6B17C640CC00014D16 /* SPMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 11722F6A17C640CC00014D16 /* SPMedia.m */; };
+		11722F7317C64D9400014D16 /* arcomage deck.xml in Resources */ = {isa = PBXBuildFile; fileRef = 11722F7217C64D9400014D16 /* arcomage deck.xml */; };
+		11722F7517C64E0900014D16 /* arcomage deck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11722F7417C64E0900014D16 /* arcomage deck.jpg */; };
 		1195D17B17C25F5E00C4DA25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17A17C25F5E00C4DA25 /* UIKit.framework */; };
 		1195D17D17C25F5E00C4DA25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17C17C25F5E00C4DA25 /* Foundation.framework */; };
 		1195D17F17C25F5E00C4DA25 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17E17C25F5E00C4DA25 /* CoreGraphics.framework */; };
@@ -33,118 +36,13 @@
 		1195D19B17C25F5E00C4DA25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17C17C25F5E00C4DA25 /* Foundation.framework */; };
 		1195D1A317C25F5F00C4DA25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1A117C25F5F00C4DA25 /* InfoPlist.strings */; };
 		1195D1A617C25F5F00C4DA25 /* OmeotteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D1A517C25F5F00C4DA25 /* OmeotteTests.m */; };
-		1195D21A17C2689900C4DA25 /* amethyst.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B417C2689800C4DA25 /* amethyst.png */; };
-		1195D21B17C2689900C4DA25 /* apprentice.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B517C2689800C4DA25 /* apprentice.png */; };
-		1195D21C17C2689900C4DA25 /* bag of baubles.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B617C2689800C4DA25 /* bag of baubles.png */; };
-		1195D21D17C2689900C4DA25 /* barracks.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B717C2689800C4DA25 /* barracks.png */; };
-		1195D21E17C2689900C4DA25 /* basic wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B817C2689800C4DA25 /* basic wall.png */; };
-		1195D21F17C2689900C4DA25 /* battlements.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1B917C2689800C4DA25 /* battlements.png */; };
-		1195D22117C2689900C4DA25 /* beserker.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1BB17C2689800C4DA25 /* beserker.png */; };
-		1195D22217C2689900C4DA25 /* big wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1BC17C2689800C4DA25 /* big wall.png */; };
-		1195D22317C2689900C4DA25 /* brick shortage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1BD17C2689800C4DA25 /* brick shortage.png */; };
-		1195D22417C2689900C4DA25 /* collapse!.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1BE17C2689800C4DA25 /* collapse!.png */; };
-		1195D22517C2689900C4DA25 /* copying the tech.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1BF17C2689800C4DA25 /* copying the tech.png */; };
-		1195D22617C2689900C4DA25 /* corrosion cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1C017C2689800C4DA25 /* corrosion cloud.png */; };
-		1195D22717C2689900C4DA25 /* crumblestone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1C117C2689800C4DA25 /* crumblestone.png */; };
-		1195D22817C2689900C4DA25 /* crystal matrix.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1C217C2689800C4DA25 /* crystal matrix.png */; };
-		1195D22917C2689900C4DA25 /* crystal rocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1C317C2689800C4DA25 /* crystal rocks.png */; };
-		1195D22A17C2689900C4DA25 /* crystal shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1C417C2689800C4DA25 /* crystal shield.png */; };
-		1195D22B17C2689900C4DA25 /* crystallize.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1C517C2689800C4DA25 /* crystallize.png */; };
-		1195D22C17C2689900C4DA25 /* diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1C617C2689900C4DA25 /* diamond.png */; };
-		1195D22D17C2689900C4DA25 /* discord.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1C717C2689900C4DA25 /* discord.png */; };
-		1195D22E17C2689900C4DA25 /* dragon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1C817C2689900C4DA25 /* dragon.png */; };
-		1195D22F17C2689900C4DA25 /* dragon's eye.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1C917C2689900C4DA25 /* dragon's eye.png */; };
-		1195D23017C2689900C4DA25 /* dragon's heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1CA17C2689900C4DA25 /* dragon's heart.png */; };
-		1195D23117C2689900C4DA25 /* dwarven miners.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1CB17C2689900C4DA25 /* dwarven miners.png */; };
-		1195D23217C2689900C4DA25 /* dwarves.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1CC17C2689900C4DA25 /* dwarves.png */; };
-		1195D23317C2689900C4DA25 /* earthquake.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1CD17C2689900C4DA25 /* earthquake.png */; };
-		1195D23417C2689900C4DA25 /* elven archers.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1CE17C2689900C4DA25 /* elven archers.png */; };
-		1195D23517C2689900C4DA25 /* elven scout.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1CF17C2689900C4DA25 /* elven scout.png */; };
-		1195D23617C2689900C4DA25 /* emerald.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1D017C2689900C4DA25 /* emerald.png */; };
-		1195D23717C2689900C4DA25 /* empathy gem.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1D117C2689900C4DA25 /* empathy gem.png */; };
-		1195D23817C2689900C4DA25 /* Faerie.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1D217C2689900C4DA25 /* Faerie.png */; };
-		1195D23917C2689900C4DA25 /* fire ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1D317C2689900C4DA25 /* fire ruby.png */; };
-		1195D23A17C2689900C4DA25 /* flood water.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1D417C2689900C4DA25 /* flood water.png */; };
-		1195D23B17C2689900C4DA25 /* focussed designs.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1D517C2689900C4DA25 /* focussed designs.png */; };
-		1195D23C17C2689900C4DA25 /* forced labour.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1D617C2689900C4DA25 /* forced labour.png */; };
-		1195D23D17C2689900C4DA25 /* foundations.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1D717C2689900C4DA25 /* foundations.png */; };
-		1195D23E17C2689900C4DA25 /* friendly terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1D817C2689900C4DA25 /* friendly terrain.png */; };
-		1195D23F17C2689900C4DA25 /* full moon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1D917C2689900C4DA25 /* full moon.png */; };
-		1195D24017C2689900C4DA25 /* gem spear.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1DA17C2689900C4DA25 /* gem spear.png */; };
-		1195D24117C2689900C4DA25 /* gemstone flaw.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1DB17C2689900C4DA25 /* gemstone flaw.png */; };
-		1195D24217C2689900C4DA25 /* gnome.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1DC17C2689900C4DA25 /* gnome.png */; };
-		1195D24317C2689900C4DA25 /* goblin archers.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1DD17C2689900C4DA25 /* goblin archers.png */; };
-		1195D24417C2689900C4DA25 /* goblin mob.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1DE17C2689900C4DA25 /* goblin mob.png */; };
-		1195D24517C2689900C4DA25 /* great wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1DF17C2689900C4DA25 /* great wall.png */; };
-		1195D24617C2689900C4DA25 /* harmonic ore.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1E017C2689900C4DA25 /* harmonic ore.png */; };
-		1195D24717C2689900C4DA25 /* harmonic vibe.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1E117C2689900C4DA25 /* harmonic vibe.png */; };
-		1195D24817C2689900C4DA25 /* imp.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1E217C2689900C4DA25 /* imp.png */; };
-		1195D24917C2689900C4DA25 /* innovations.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1E317C2689900C4DA25 /* innovations.png */; };
-		1195D24A17C2689900C4DA25 /* lava jewel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1E417C2689900C4DA25 /* lava jewel.png */; };
-		1195D24B17C2689900C4DA25 /* lightning shard.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1E517C2689900C4DA25 /* lightning shard.png */; };
-		1195D24C17C2689900C4DA25 /* little snakes.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1E617C2689900C4DA25 /* little snakes.png */; };
-		1195D24D17C2689900C4DA25 /* lodestone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1E717C2689900C4DA25 /* lodestone.png */; };
-		1195D24E17C2689900C4DA25 /* lucky cache.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1E817C2689900C4DA25 /* lucky cache.png */; };
-		1195D24F17C2689900C4DA25 /* mad cow disease.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1E917C2689900C4DA25 /* mad cow disease.png */; };
-		1195D25017C2689900C4DA25 /* miners.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1EA17C2689900C4DA25 /* miners.png */; };
-		1195D25117C2689900C4DA25 /* minotaur.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1EB17C2689900C4DA25 /* minotaur.png */; };
-		1195D25217C2689900C4DA25 /* mondowall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1EC17C2689900C4DA25 /* mondowall.png */; };
-		1195D25317C2689900C4DA25 /* moody goblins.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1ED17C2689900C4DA25 /* moody goblins.png */; };
-		1195D25417C2689900C4DA25 /* mother lode.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1EE17C2689900C4DA25 /* mother lode.png */; };
-		1195D25517C2689900C4DA25 /* new equipment.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1EF17C2689900C4DA25 /* new equipment.png */; };
-		1195D25617C2689900C4DA25 /* ogre.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1F017C2689900C4DA25 /* ogre.png */; };
-		1195D25717C2689900C4DA25 /* orc.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1F117C2689900C4DA25 /* orc.png */; };
-		1195D25817C2689900C4DA25 /* parity.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1F217C2689900C4DA25 /* parity.png */; };
-		1195D25917C2689900C4DA25 /* pearl of wisdom.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1F317C2689900C4DA25 /* pearl of wisdom.png */; };
-		1195D25A17C2689900C4DA25 /* pegasus lancer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1F417C2689900C4DA25 /* pegasus lancer.png */; };
-		1195D25B17C2689900C4DA25 /* phase jewel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1F517C2689900C4DA25 /* phase jewel.png */; };
-		1195D25C17C2689900C4DA25 /* portculis.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1F617C2689900C4DA25 /* portculis.png */; };
-		1195D25D17C2689900C4DA25 /* power burn.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1F717C2689900C4DA25 /* power burn.png */; };
-		1195D25E17C2689900C4DA25 /* prism.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1F817C2689900C4DA25 /* prism.png */; };
-		1195D25F17C2689900C4DA25 /* quarry's help.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1F917C2689900C4DA25 /* quarry's help.png */; };
-		1195D26017C2689900C4DA25 /* quartz.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1FA17C2689900C4DA25 /* quartz.png */; };
-		1195D26117C2689900C4DA25 /* rabid sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1FB17C2689900C4DA25 /* rabid sheep.png */; };
-		1195D26217C2689900C4DA25 /* rainbow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1FC17C2689900C4DA25 /* rainbow.png */; };
-		1195D26317C2689900C4DA25 /* reinforced wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1FD17C2689900C4DA25 /* reinforced wall.png */; };
-		1195D26417C2689900C4DA25 /* rock garden.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1FE17C2689900C4DA25 /* rock garden.png */; };
-		1195D26517C2689900C4DA25 /* rock launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1FF17C2689900C4DA25 /* rock launcher.png */; };
-		1195D26617C2689900C4DA25 /* rock stompers.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20017C2689900C4DA25 /* rock stompers.png */; };
-		1195D26717C2689900C4DA25 /* ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20117C2689900C4DA25 /* ruby.png */; };
-		1195D26817C2689900C4DA25 /* sanctuary.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20217C2689900C4DA25 /* sanctuary.png */; };
-		1195D26917C2689900C4DA25 /* sapphire.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20317C2689900C4DA25 /* sapphire.png */; };
-		1195D26A17C2689900C4DA25 /* secret room.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20417C2689900C4DA25 /* secret room.png */; };
-		1195D26B17C2689900C4DA25 /* shadow faerie.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20517C2689900C4DA25 /* shadow faerie.png */; };
-		1195D26C17C2689900C4DA25 /* shatterer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20617C2689900C4DA25 /* shatterer.png */; };
-		1195D26D17C2689900C4DA25 /* shift.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20717C2689900C4DA25 /* shift.png */; };
-		1195D26E17C2689900C4DA25 /* slasher.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20817C2689900C4DA25 /* slasher.png */; };
-		1195D26F17C2689900C4DA25 /* smoky quartz.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20917C2689900C4DA25 /* smoky quartz.png */; };
-		1195D27017C2689900C4DA25 /* solar flare.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20A17C2689900C4DA25 /* solar flare.png */; };
-		1195D27117C2689900C4DA25 /* spearman.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20B17C2689900C4DA25 /* spearman.png */; };
-		1195D27217C2689900C4DA25 /* spell weavers.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20C17C2689900C4DA25 /* spell weavers.png */; };
-		1195D27317C2689900C4DA25 /* spizzer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20D17C2689900C4DA25 /* spizzer.png */; };
-		1195D27417C2689900C4DA25 /* stone giant.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20E17C2689900C4DA25 /* stone giant.png */; };
-		1195D27517C2689900C4DA25 /* strip mine.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D20F17C2689900C4DA25 /* strip mine.png */; };
-		1195D27617C2689900C4DA25 /* succubus.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D21017C2689900C4DA25 /* succubus.png */; };
-		1195D27717C2689900C4DA25 /* thief.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D21117C2689900C4DA25 /* thief.png */; };
-		1195D27817C2689900C4DA25 /* tower gremlin.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D21217C2689900C4DA25 /* tower gremlin.png */; };
-		1195D27917C2689900C4DA25 /* tremors.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D21317C2689900C4DA25 /* tremors.png */; };
-		1195D27A17C2689900C4DA25 /* troll trainer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D21417C2689900C4DA25 /* troll trainer.png */; };
-		1195D27B17C2689900C4DA25 /* unicorn.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D21517C2689900C4DA25 /* unicorn.png */; };
-		1195D27C17C2689900C4DA25 /* vampire.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D21617C2689900C4DA25 /* vampire.png */; };
-		1195D27D17C2689900C4DA25 /* warlord.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D21717C2689900C4DA25 /* warlord.png */; };
-		1195D27E17C2689900C4DA25 /* werewolf.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D21817C2689900C4DA25 /* werewolf.png */; };
-		1195D27F17C2689900C4DA25 /* work overtime.png in Resources */ = {isa = PBXBuildFile; fileRef = 1195D21917C2689900C4DA25 /* work overtime.png */; };
 		1195D28517C2723600C4DA25 /* OGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28417C2723600C4DA25 /* OGame.m */; };
 		1195D28817C2728700C4DA25 /* OPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28717C2728700C4DA25 /* OPlayer.m */; };
 		1195D28E17C272B600C4DA25 /* OCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28D17C272B600C4DA25 /* OCard.m */; };
 		1195D29117C2772700C4DA25 /* ODeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D29017C2772700C4DA25 /* ODeck.m */; };
-		11D5CF5417C30E0600AA96BC /* beast_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5117C30E0600AA96BC /* beast_card.png */; };
-		11D5CF5517C30E0600AA96BC /* brick_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5217C30E0600AA96BC /* brick_card.png */; };
-		11D5CF5617C30E0600AA96BC /* gem_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5317C30E0600AA96BC /* gem_card.png */; };
 		11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D5CF5917C32F6A00AA96BC /* ORule.m */; };
 		11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5C17C33CEC00AA96BC /* quarry.plist */; };
 		11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5E17C33D0A00AA96BC /* rules.plist */; };
-		11D5CF6117C35ECA00AA96BC /* all.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF6017C35ECA00AA96BC /* all.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +84,10 @@
 		11722F6017C6386400014D16 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		11722F6217C63B2900014D16 /* SPGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGame.h; sourceTree = "<group>"; };
 		11722F6317C63B2900014D16 /* SPGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGame.m; sourceTree = "<group>"; };
+		11722F6917C640CC00014D16 /* SPMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMedia.h; sourceTree = "<group>"; };
+		11722F6A17C640CC00014D16 /* SPMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMedia.m; sourceTree = "<group>"; };
+		11722F7217C64D9400014D16 /* arcomage deck.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "arcomage deck.xml"; sourceTree = "<group>"; };
+		11722F7417C64E0900014D16 /* arcomage deck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "arcomage deck.jpg"; sourceTree = "<group>"; };
 		1195D17717C25F5E00C4DA25 /* Omeotte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omeotte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1195D17A17C25F5E00C4DA25 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1195D17C17C25F5E00C4DA25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -205,107 +107,6 @@
 		1195D1A217C25F5F00C4DA25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1195D1A417C25F5F00C4DA25 /* OmeotteTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmeotteTests.h; sourceTree = "<group>"; };
 		1195D1A517C25F5F00C4DA25 /* OmeotteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmeotteTests.m; sourceTree = "<group>"; };
-		1195D1B417C2689800C4DA25 /* amethyst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amethyst.png; sourceTree = "<group>"; };
-		1195D1B517C2689800C4DA25 /* apprentice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apprentice.png; sourceTree = "<group>"; };
-		1195D1B617C2689800C4DA25 /* bag of baubles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bag of baubles.png"; sourceTree = "<group>"; };
-		1195D1B717C2689800C4DA25 /* barracks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barracks.png; sourceTree = "<group>"; };
-		1195D1B817C2689800C4DA25 /* basic wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basic wall.png"; sourceTree = "<group>"; };
-		1195D1B917C2689800C4DA25 /* battlements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battlements.png; sourceTree = "<group>"; };
-		1195D1BB17C2689800C4DA25 /* beserker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beserker.png; sourceTree = "<group>"; };
-		1195D1BC17C2689800C4DA25 /* big wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big wall.png"; sourceTree = "<group>"; };
-		1195D1BD17C2689800C4DA25 /* brick shortage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brick shortage.png"; sourceTree = "<group>"; };
-		1195D1BE17C2689800C4DA25 /* collapse!.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collapse!.png"; sourceTree = "<group>"; };
-		1195D1BF17C2689800C4DA25 /* copying the tech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "copying the tech.png"; sourceTree = "<group>"; };
-		1195D1C017C2689800C4DA25 /* corrosion cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "corrosion cloud.png"; sourceTree = "<group>"; };
-		1195D1C117C2689800C4DA25 /* crumblestone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crumblestone.png; sourceTree = "<group>"; };
-		1195D1C217C2689800C4DA25 /* crystal matrix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crystal matrix.png"; sourceTree = "<group>"; };
-		1195D1C317C2689800C4DA25 /* crystal rocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crystal rocks.png"; sourceTree = "<group>"; };
-		1195D1C417C2689800C4DA25 /* crystal shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crystal shield.png"; sourceTree = "<group>"; };
-		1195D1C517C2689800C4DA25 /* crystallize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crystallize.png; sourceTree = "<group>"; };
-		1195D1C617C2689900C4DA25 /* diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamond.png; sourceTree = "<group>"; };
-		1195D1C717C2689900C4DA25 /* discord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discord.png; sourceTree = "<group>"; };
-		1195D1C817C2689900C4DA25 /* dragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dragon.png; sourceTree = "<group>"; };
-		1195D1C917C2689900C4DA25 /* dragon's eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dragon's eye.png"; sourceTree = "<group>"; };
-		1195D1CA17C2689900C4DA25 /* dragon's heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dragon's heart.png"; sourceTree = "<group>"; };
-		1195D1CB17C2689900C4DA25 /* dwarven miners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dwarven miners.png"; sourceTree = "<group>"; };
-		1195D1CC17C2689900C4DA25 /* dwarves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwarves.png; sourceTree = "<group>"; };
-		1195D1CD17C2689900C4DA25 /* earthquake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earthquake.png; sourceTree = "<group>"; };
-		1195D1CE17C2689900C4DA25 /* elven archers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elven archers.png"; sourceTree = "<group>"; };
-		1195D1CF17C2689900C4DA25 /* elven scout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elven scout.png"; sourceTree = "<group>"; };
-		1195D1D017C2689900C4DA25 /* emerald.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emerald.png; sourceTree = "<group>"; };
-		1195D1D117C2689900C4DA25 /* empathy gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empathy gem.png"; sourceTree = "<group>"; };
-		1195D1D217C2689900C4DA25 /* Faerie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Faerie.png; sourceTree = "<group>"; };
-		1195D1D317C2689900C4DA25 /* fire ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fire ruby.png"; sourceTree = "<group>"; };
-		1195D1D417C2689900C4DA25 /* flood water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flood water.png"; sourceTree = "<group>"; };
-		1195D1D517C2689900C4DA25 /* focussed designs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "focussed designs.png"; sourceTree = "<group>"; };
-		1195D1D617C2689900C4DA25 /* forced labour.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forced labour.png"; sourceTree = "<group>"; };
-		1195D1D717C2689900C4DA25 /* foundations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foundations.png; sourceTree = "<group>"; };
-		1195D1D817C2689900C4DA25 /* friendly terrain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friendly terrain.png"; sourceTree = "<group>"; };
-		1195D1D917C2689900C4DA25 /* full moon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full moon.png"; sourceTree = "<group>"; };
-		1195D1DA17C2689900C4DA25 /* gem spear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gem spear.png"; sourceTree = "<group>"; };
-		1195D1DB17C2689900C4DA25 /* gemstone flaw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gemstone flaw.png"; sourceTree = "<group>"; };
-		1195D1DC17C2689900C4DA25 /* gnome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gnome.png; sourceTree = "<group>"; };
-		1195D1DD17C2689900C4DA25 /* goblin archers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goblin archers.png"; sourceTree = "<group>"; };
-		1195D1DE17C2689900C4DA25 /* goblin mob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goblin mob.png"; sourceTree = "<group>"; };
-		1195D1DF17C2689900C4DA25 /* great wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "great wall.png"; sourceTree = "<group>"; };
-		1195D1E017C2689900C4DA25 /* harmonic ore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "harmonic ore.png"; sourceTree = "<group>"; };
-		1195D1E117C2689900C4DA25 /* harmonic vibe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "harmonic vibe.png"; sourceTree = "<group>"; };
-		1195D1E217C2689900C4DA25 /* imp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imp.png; sourceTree = "<group>"; };
-		1195D1E317C2689900C4DA25 /* innovations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = innovations.png; sourceTree = "<group>"; };
-		1195D1E417C2689900C4DA25 /* lava jewel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lava jewel.png"; sourceTree = "<group>"; };
-		1195D1E517C2689900C4DA25 /* lightning shard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightning shard.png"; sourceTree = "<group>"; };
-		1195D1E617C2689900C4DA25 /* little snakes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "little snakes.png"; sourceTree = "<group>"; };
-		1195D1E717C2689900C4DA25 /* lodestone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lodestone.png; sourceTree = "<group>"; };
-		1195D1E817C2689900C4DA25 /* lucky cache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lucky cache.png"; sourceTree = "<group>"; };
-		1195D1E917C2689900C4DA25 /* mad cow disease.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mad cow disease.png"; sourceTree = "<group>"; };
-		1195D1EA17C2689900C4DA25 /* miners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = miners.png; sourceTree = "<group>"; };
-		1195D1EB17C2689900C4DA25 /* minotaur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minotaur.png; sourceTree = "<group>"; };
-		1195D1EC17C2689900C4DA25 /* mondowall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mondowall.png; sourceTree = "<group>"; };
-		1195D1ED17C2689900C4DA25 /* moody goblins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moody goblins.png"; sourceTree = "<group>"; };
-		1195D1EE17C2689900C4DA25 /* mother lode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mother lode.png"; sourceTree = "<group>"; };
-		1195D1EF17C2689900C4DA25 /* new equipment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new equipment.png"; sourceTree = "<group>"; };
-		1195D1F017C2689900C4DA25 /* ogre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ogre.png; sourceTree = "<group>"; };
-		1195D1F117C2689900C4DA25 /* orc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orc.png; sourceTree = "<group>"; };
-		1195D1F217C2689900C4DA25 /* parity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parity.png; sourceTree = "<group>"; };
-		1195D1F317C2689900C4DA25 /* pearl of wisdom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pearl of wisdom.png"; sourceTree = "<group>"; };
-		1195D1F417C2689900C4DA25 /* pegasus lancer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pegasus lancer.png"; sourceTree = "<group>"; };
-		1195D1F517C2689900C4DA25 /* phase jewel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phase jewel.png"; sourceTree = "<group>"; };
-		1195D1F617C2689900C4DA25 /* portculis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = portculis.png; sourceTree = "<group>"; };
-		1195D1F717C2689900C4DA25 /* power burn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "power burn.png"; sourceTree = "<group>"; };
-		1195D1F817C2689900C4DA25 /* prism.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prism.png; sourceTree = "<group>"; };
-		1195D1F917C2689900C4DA25 /* quarry's help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quarry's help.png"; sourceTree = "<group>"; };
-		1195D1FA17C2689900C4DA25 /* quartz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quartz.png; sourceTree = "<group>"; };
-		1195D1FB17C2689900C4DA25 /* rabid sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rabid sheep.png"; sourceTree = "<group>"; };
-		1195D1FC17C2689900C4DA25 /* rainbow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rainbow.png; sourceTree = "<group>"; };
-		1195D1FD17C2689900C4DA25 /* reinforced wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reinforced wall.png"; sourceTree = "<group>"; };
-		1195D1FE17C2689900C4DA25 /* rock garden.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rock garden.png"; sourceTree = "<group>"; };
-		1195D1FF17C2689900C4DA25 /* rock launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rock launcher.png"; sourceTree = "<group>"; };
-		1195D20017C2689900C4DA25 /* rock stompers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rock stompers.png"; sourceTree = "<group>"; };
-		1195D20117C2689900C4DA25 /* ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruby.png; sourceTree = "<group>"; };
-		1195D20217C2689900C4DA25 /* sanctuary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sanctuary.png; sourceTree = "<group>"; };
-		1195D20317C2689900C4DA25 /* sapphire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sapphire.png; sourceTree = "<group>"; };
-		1195D20417C2689900C4DA25 /* secret room.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "secret room.png"; sourceTree = "<group>"; };
-		1195D20517C2689900C4DA25 /* shadow faerie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadow faerie.png"; sourceTree = "<group>"; };
-		1195D20617C2689900C4DA25 /* shatterer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shatterer.png; sourceTree = "<group>"; };
-		1195D20717C2689900C4DA25 /* shift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shift.png; sourceTree = "<group>"; };
-		1195D20817C2689900C4DA25 /* slasher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slasher.png; sourceTree = "<group>"; };
-		1195D20917C2689900C4DA25 /* smoky quartz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "smoky quartz.png"; sourceTree = "<group>"; };
-		1195D20A17C2689900C4DA25 /* solar flare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "solar flare.png"; sourceTree = "<group>"; };
-		1195D20B17C2689900C4DA25 /* spearman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spearman.png; sourceTree = "<group>"; };
-		1195D20C17C2689900C4DA25 /* spell weavers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spell weavers.png"; sourceTree = "<group>"; };
-		1195D20D17C2689900C4DA25 /* spizzer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spizzer.png; sourceTree = "<group>"; };
-		1195D20E17C2689900C4DA25 /* stone giant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stone giant.png"; sourceTree = "<group>"; };
-		1195D20F17C2689900C4DA25 /* strip mine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "strip mine.png"; sourceTree = "<group>"; };
-		1195D21017C2689900C4DA25 /* succubus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = succubus.png; sourceTree = "<group>"; };
-		1195D21117C2689900C4DA25 /* thief.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thief.png; sourceTree = "<group>"; };
-		1195D21217C2689900C4DA25 /* tower gremlin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tower gremlin.png"; sourceTree = "<group>"; };
-		1195D21317C2689900C4DA25 /* tremors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tremors.png; sourceTree = "<group>"; };
-		1195D21417C2689900C4DA25 /* troll trainer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "troll trainer.png"; sourceTree = "<group>"; };
-		1195D21517C2689900C4DA25 /* unicorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unicorn.png; sourceTree = "<group>"; };
-		1195D21617C2689900C4DA25 /* vampire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vampire.png; sourceTree = "<group>"; };
-		1195D21717C2689900C4DA25 /* warlord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warlord.png; sourceTree = "<group>"; };
-		1195D21817C2689900C4DA25 /* werewolf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = werewolf.png; sourceTree = "<group>"; };
-		1195D21917C2689900C4DA25 /* work overtime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work overtime.png"; sourceTree = "<group>"; };
 		1195D28317C2723600C4DA25 /* OGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGame.h; sourceTree = "<group>"; };
 		1195D28417C2723600C4DA25 /* OGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGame.m; sourceTree = "<group>"; };
 		1195D28617C2728700C4DA25 /* OPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPlayer.h; sourceTree = "<group>"; };
@@ -314,14 +115,10 @@
 		1195D28D17C272B600C4DA25 /* OCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCard.m; sourceTree = "<group>"; };
 		1195D28F17C2772700C4DA25 /* ODeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODeck.h; sourceTree = "<group>"; };
 		1195D29017C2772700C4DA25 /* ODeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODeck.m; sourceTree = "<group>"; };
-		11D5CF5117C30E0600AA96BC /* beast_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beast_card.png; sourceTree = "<group>"; };
-		11D5CF5217C30E0600AA96BC /* brick_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick_card.png; sourceTree = "<group>"; };
-		11D5CF5317C30E0600AA96BC /* gem_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gem_card.png; sourceTree = "<group>"; };
 		11D5CF5817C32F6900AA96BC /* ORule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORule.h; sourceTree = "<group>"; };
 		11D5CF5917C32F6A00AA96BC /* ORule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORule.m; sourceTree = "<group>"; };
 		11D5CF5C17C33CEC00AA96BC /* quarry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quarry.plist; sourceTree = "<group>"; };
 		11D5CF5E17C33D0A00AA96BC /* rules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = rules.plist; sourceTree = "<group>"; };
-		11D5CF6017C35ECA00AA96BC /* all.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = all.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,11 +165,11 @@
 		1195D16E17C25F5E00C4DA25 = {
 			isa = PBXGroup;
 			children = (
-				11722F4917C635EE00014D16 /* Sparrow.xcodeproj */,
+				1195D17917C25F5E00C4DA25 /* Frameworks */,
 				1195D18017C25F5E00C4DA25 /* Omeotte */,
 				1195D19E17C25F5E00C4DA25 /* OmeotteTests */,
-				1195D17917C25F5E00C4DA25 /* Frameworks */,
 				1195D17817C25F5E00C4DA25 /* Products */,
+				11722F4917C635EE00014D16 /* Sparrow.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -408,7 +205,6 @@
 			children = (
 				1195D18917C25F5E00C4DA25 /* AppDelegate.h */,
 				1195D18A17C25F5E00C4DA25 /* AppDelegate.m */,
-				1195D1B317C2686800C4DA25 /* cards */,
 				11D5CF5B17C33CD900AA96BC /* data */,
 				1195D28C17C272B600C4DA25 /* OCard.h */,
 				1195D28D17C272B600C4DA25 /* OCard.m */,
@@ -424,6 +220,8 @@
 				11D5CF5917C32F6A00AA96BC /* ORule.m */,
 				11722F6217C63B2900014D16 /* SPGame.h */,
 				11722F6317C63B2900014D16 /* SPGame.m */,
+				11722F6917C640CC00014D16 /* SPMedia.h */,
+				11722F6A17C640CC00014D16 /* SPMedia.m */,
 				1195D18117C25F5E00C4DA25 /* Supporting Files */,
 			);
 			path = Omeotte;
@@ -462,133 +260,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1195D1B317C2686800C4DA25 /* cards */ = {
-			isa = PBXGroup;
-			children = (
-				11D5CF6017C35ECA00AA96BC /* all.jpg */,
-				1195D1B417C2689800C4DA25 /* amethyst.png */,
-				1195D1B517C2689800C4DA25 /* apprentice.png */,
-				1195D1B617C2689800C4DA25 /* bag of baubles.png */,
-				1195D1B717C2689800C4DA25 /* barracks.png */,
-				1195D1B817C2689800C4DA25 /* basic wall.png */,
-				1195D1B917C2689800C4DA25 /* battlements.png */,
-				1195D1BB17C2689800C4DA25 /* beserker.png */,
-				1195D1BC17C2689800C4DA25 /* big wall.png */,
-				11D5CF5017C30DD100AA96BC /* blanks */,
-				1195D1BD17C2689800C4DA25 /* brick shortage.png */,
-				1195D1BE17C2689800C4DA25 /* collapse!.png */,
-				1195D1BF17C2689800C4DA25 /* copying the tech.png */,
-				1195D1C017C2689800C4DA25 /* corrosion cloud.png */,
-				1195D1C117C2689800C4DA25 /* crumblestone.png */,
-				1195D1C217C2689800C4DA25 /* crystal matrix.png */,
-				1195D1C317C2689800C4DA25 /* crystal rocks.png */,
-				1195D1C417C2689800C4DA25 /* crystal shield.png */,
-				1195D1C517C2689800C4DA25 /* crystallize.png */,
-				1195D1C617C2689900C4DA25 /* diamond.png */,
-				1195D1C717C2689900C4DA25 /* discord.png */,
-				1195D1C917C2689900C4DA25 /* dragon's eye.png */,
-				1195D1CA17C2689900C4DA25 /* dragon's heart.png */,
-				1195D1C817C2689900C4DA25 /* dragon.png */,
-				1195D1CB17C2689900C4DA25 /* dwarven miners.png */,
-				1195D1CC17C2689900C4DA25 /* dwarves.png */,
-				1195D1CD17C2689900C4DA25 /* earthquake.png */,
-				1195D1CE17C2689900C4DA25 /* elven archers.png */,
-				1195D1CF17C2689900C4DA25 /* elven scout.png */,
-				1195D1D017C2689900C4DA25 /* emerald.png */,
-				1195D1D117C2689900C4DA25 /* empathy gem.png */,
-				1195D1D217C2689900C4DA25 /* Faerie.png */,
-				1195D1D317C2689900C4DA25 /* fire ruby.png */,
-				1195D1D417C2689900C4DA25 /* flood water.png */,
-				1195D1D517C2689900C4DA25 /* focussed designs.png */,
-				1195D1D617C2689900C4DA25 /* forced labour.png */,
-				1195D1D717C2689900C4DA25 /* foundations.png */,
-				1195D1D817C2689900C4DA25 /* friendly terrain.png */,
-				1195D1D917C2689900C4DA25 /* full moon.png */,
-				1195D1DA17C2689900C4DA25 /* gem spear.png */,
-				1195D1DB17C2689900C4DA25 /* gemstone flaw.png */,
-				1195D1DC17C2689900C4DA25 /* gnome.png */,
-				1195D1DD17C2689900C4DA25 /* goblin archers.png */,
-				1195D1DE17C2689900C4DA25 /* goblin mob.png */,
-				1195D1DF17C2689900C4DA25 /* great wall.png */,
-				1195D1E017C2689900C4DA25 /* harmonic ore.png */,
-				1195D1E117C2689900C4DA25 /* harmonic vibe.png */,
-				1195D1E217C2689900C4DA25 /* imp.png */,
-				1195D1E317C2689900C4DA25 /* innovations.png */,
-				1195D1E417C2689900C4DA25 /* lava jewel.png */,
-				1195D1E517C2689900C4DA25 /* lightning shard.png */,
-				1195D1E617C2689900C4DA25 /* little snakes.png */,
-				1195D1E717C2689900C4DA25 /* lodestone.png */,
-				1195D1E817C2689900C4DA25 /* lucky cache.png */,
-				1195D1E917C2689900C4DA25 /* mad cow disease.png */,
-				1195D1EA17C2689900C4DA25 /* miners.png */,
-				1195D1EB17C2689900C4DA25 /* minotaur.png */,
-				1195D1EC17C2689900C4DA25 /* mondowall.png */,
-				1195D1ED17C2689900C4DA25 /* moody goblins.png */,
-				1195D1EE17C2689900C4DA25 /* mother lode.png */,
-				1195D1EF17C2689900C4DA25 /* new equipment.png */,
-				1195D1F017C2689900C4DA25 /* ogre.png */,
-				1195D1F117C2689900C4DA25 /* orc.png */,
-				1195D1F217C2689900C4DA25 /* parity.png */,
-				1195D1F317C2689900C4DA25 /* pearl of wisdom.png */,
-				1195D1F417C2689900C4DA25 /* pegasus lancer.png */,
-				1195D1F517C2689900C4DA25 /* phase jewel.png */,
-				1195D1F617C2689900C4DA25 /* portculis.png */,
-				1195D1F717C2689900C4DA25 /* power burn.png */,
-				1195D1F817C2689900C4DA25 /* prism.png */,
-				1195D1F917C2689900C4DA25 /* quarry's help.png */,
-				1195D1FA17C2689900C4DA25 /* quartz.png */,
-				1195D1FB17C2689900C4DA25 /* rabid sheep.png */,
-				1195D1FC17C2689900C4DA25 /* rainbow.png */,
-				1195D1FD17C2689900C4DA25 /* reinforced wall.png */,
-				1195D1FE17C2689900C4DA25 /* rock garden.png */,
-				1195D1FF17C2689900C4DA25 /* rock launcher.png */,
-				1195D20017C2689900C4DA25 /* rock stompers.png */,
-				1195D20117C2689900C4DA25 /* ruby.png */,
-				1195D20217C2689900C4DA25 /* sanctuary.png */,
-				1195D20317C2689900C4DA25 /* sapphire.png */,
-				1195D20417C2689900C4DA25 /* secret room.png */,
-				1195D20517C2689900C4DA25 /* shadow faerie.png */,
-				1195D20617C2689900C4DA25 /* shatterer.png */,
-				1195D20717C2689900C4DA25 /* shift.png */,
-				1195D20817C2689900C4DA25 /* slasher.png */,
-				1195D20917C2689900C4DA25 /* smoky quartz.png */,
-				1195D20A17C2689900C4DA25 /* solar flare.png */,
-				1195D20B17C2689900C4DA25 /* spearman.png */,
-				1195D20C17C2689900C4DA25 /* spell weavers.png */,
-				1195D20D17C2689900C4DA25 /* spizzer.png */,
-				1195D20E17C2689900C4DA25 /* stone giant.png */,
-				1195D20F17C2689900C4DA25 /* strip mine.png */,
-				1195D21017C2689900C4DA25 /* succubus.png */,
-				1195D21117C2689900C4DA25 /* thief.png */,
-				1195D21217C2689900C4DA25 /* tower gremlin.png */,
-				1195D21317C2689900C4DA25 /* tremors.png */,
-				1195D21417C2689900C4DA25 /* troll trainer.png */,
-				1195D21517C2689900C4DA25 /* unicorn.png */,
-				1195D21617C2689900C4DA25 /* vampire.png */,
-				1195D21717C2689900C4DA25 /* warlord.png */,
-				1195D21817C2689900C4DA25 /* werewolf.png */,
-				1195D21917C2689900C4DA25 /* work overtime.png */,
-			);
-			path = cards;
-			sourceTree = "<group>";
-		};
-		11D5CF5017C30DD100AA96BC /* blanks */ = {
-			isa = PBXGroup;
-			children = (
-				11D5CF5117C30E0600AA96BC /* beast_card.png */,
-				11D5CF5217C30E0600AA96BC /* brick_card.png */,
-				11D5CF5317C30E0600AA96BC /* gem_card.png */,
-			);
-			path = blanks;
-			sourceTree = "<group>";
-		};
 		11D5CF5B17C33CD900AA96BC /* data */ = {
 			isa = PBXGroup;
 			children = (
+				11722F7417C64E0900014D16 /* arcomage deck.jpg */,
+				11722F7217C64D9400014D16 /* arcomage deck.xml */,
+				1137992017C49AF000794158 /* dungeon.plist */,
+				1137991E17C49ADF00794158 /* magic.plist */,
 				11D5CF5C17C33CEC00AA96BC /* quarry.plist */,
 				11D5CF5E17C33D0A00AA96BC /* rules.plist */,
-				1137991E17C49ADF00794158 /* magic.plist */,
-				1137992017C49AF000794158 /* dungeon.plist */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -691,115 +371,12 @@
 				1195D18D17C25F5E00C4DA25 /* Default.png in Resources */,
 				1195D18F17C25F5E00C4DA25 /* Default@2x.png in Resources */,
 				1195D19117C25F5E00C4DA25 /* Default-568h@2x.png in Resources */,
-				1195D21A17C2689900C4DA25 /* amethyst.png in Resources */,
-				1195D21B17C2689900C4DA25 /* apprentice.png in Resources */,
-				1195D21C17C2689900C4DA25 /* bag of baubles.png in Resources */,
-				1195D21D17C2689900C4DA25 /* barracks.png in Resources */,
-				1195D21E17C2689900C4DA25 /* basic wall.png in Resources */,
-				1195D21F17C2689900C4DA25 /* battlements.png in Resources */,
-				1195D22117C2689900C4DA25 /* beserker.png in Resources */,
-				1195D22217C2689900C4DA25 /* big wall.png in Resources */,
-				1195D22317C2689900C4DA25 /* brick shortage.png in Resources */,
-				1195D22417C2689900C4DA25 /* collapse!.png in Resources */,
-				1195D22517C2689900C4DA25 /* copying the tech.png in Resources */,
-				1195D22617C2689900C4DA25 /* corrosion cloud.png in Resources */,
-				1195D22717C2689900C4DA25 /* crumblestone.png in Resources */,
-				1195D22817C2689900C4DA25 /* crystal matrix.png in Resources */,
-				1195D22917C2689900C4DA25 /* crystal rocks.png in Resources */,
-				1195D22A17C2689900C4DA25 /* crystal shield.png in Resources */,
-				1195D22B17C2689900C4DA25 /* crystallize.png in Resources */,
-				1195D22C17C2689900C4DA25 /* diamond.png in Resources */,
-				1195D22D17C2689900C4DA25 /* discord.png in Resources */,
-				1195D22E17C2689900C4DA25 /* dragon.png in Resources */,
-				1195D22F17C2689900C4DA25 /* dragon's eye.png in Resources */,
-				1195D23017C2689900C4DA25 /* dragon's heart.png in Resources */,
-				1195D23117C2689900C4DA25 /* dwarven miners.png in Resources */,
-				1195D23217C2689900C4DA25 /* dwarves.png in Resources */,
-				1195D23317C2689900C4DA25 /* earthquake.png in Resources */,
-				1195D23417C2689900C4DA25 /* elven archers.png in Resources */,
-				1195D23517C2689900C4DA25 /* elven scout.png in Resources */,
-				1195D23617C2689900C4DA25 /* emerald.png in Resources */,
-				1195D23717C2689900C4DA25 /* empathy gem.png in Resources */,
-				1195D23817C2689900C4DA25 /* Faerie.png in Resources */,
-				1195D23917C2689900C4DA25 /* fire ruby.png in Resources */,
-				1195D23A17C2689900C4DA25 /* flood water.png in Resources */,
-				1195D23B17C2689900C4DA25 /* focussed designs.png in Resources */,
-				1195D23C17C2689900C4DA25 /* forced labour.png in Resources */,
-				1195D23D17C2689900C4DA25 /* foundations.png in Resources */,
-				1195D23E17C2689900C4DA25 /* friendly terrain.png in Resources */,
-				1195D23F17C2689900C4DA25 /* full moon.png in Resources */,
-				1195D24017C2689900C4DA25 /* gem spear.png in Resources */,
-				1195D24117C2689900C4DA25 /* gemstone flaw.png in Resources */,
-				1195D24217C2689900C4DA25 /* gnome.png in Resources */,
-				1195D24317C2689900C4DA25 /* goblin archers.png in Resources */,
-				1195D24417C2689900C4DA25 /* goblin mob.png in Resources */,
-				1195D24517C2689900C4DA25 /* great wall.png in Resources */,
-				1195D24617C2689900C4DA25 /* harmonic ore.png in Resources */,
-				1195D24717C2689900C4DA25 /* harmonic vibe.png in Resources */,
-				1195D24817C2689900C4DA25 /* imp.png in Resources */,
-				1195D24917C2689900C4DA25 /* innovations.png in Resources */,
-				1195D24A17C2689900C4DA25 /* lava jewel.png in Resources */,
-				1195D24B17C2689900C4DA25 /* lightning shard.png in Resources */,
-				1195D24C17C2689900C4DA25 /* little snakes.png in Resources */,
-				1195D24D17C2689900C4DA25 /* lodestone.png in Resources */,
-				1195D24E17C2689900C4DA25 /* lucky cache.png in Resources */,
-				1195D24F17C2689900C4DA25 /* mad cow disease.png in Resources */,
-				1195D25017C2689900C4DA25 /* miners.png in Resources */,
-				1195D25117C2689900C4DA25 /* minotaur.png in Resources */,
-				1195D25217C2689900C4DA25 /* mondowall.png in Resources */,
-				1195D25317C2689900C4DA25 /* moody goblins.png in Resources */,
-				1195D25417C2689900C4DA25 /* mother lode.png in Resources */,
-				1195D25517C2689900C4DA25 /* new equipment.png in Resources */,
-				1195D25617C2689900C4DA25 /* ogre.png in Resources */,
-				1195D25717C2689900C4DA25 /* orc.png in Resources */,
-				1195D25817C2689900C4DA25 /* parity.png in Resources */,
-				1195D25917C2689900C4DA25 /* pearl of wisdom.png in Resources */,
-				1195D25A17C2689900C4DA25 /* pegasus lancer.png in Resources */,
-				1195D25B17C2689900C4DA25 /* phase jewel.png in Resources */,
-				1195D25C17C2689900C4DA25 /* portculis.png in Resources */,
-				1195D25D17C2689900C4DA25 /* power burn.png in Resources */,
-				1195D25E17C2689900C4DA25 /* prism.png in Resources */,
-				1195D25F17C2689900C4DA25 /* quarry's help.png in Resources */,
-				1195D26017C2689900C4DA25 /* quartz.png in Resources */,
-				1195D26117C2689900C4DA25 /* rabid sheep.png in Resources */,
-				1195D26217C2689900C4DA25 /* rainbow.png in Resources */,
-				1195D26317C2689900C4DA25 /* reinforced wall.png in Resources */,
-				1195D26417C2689900C4DA25 /* rock garden.png in Resources */,
-				1195D26517C2689900C4DA25 /* rock launcher.png in Resources */,
-				1195D26617C2689900C4DA25 /* rock stompers.png in Resources */,
-				1195D26717C2689900C4DA25 /* ruby.png in Resources */,
-				1195D26817C2689900C4DA25 /* sanctuary.png in Resources */,
-				1195D26917C2689900C4DA25 /* sapphire.png in Resources */,
-				1195D26A17C2689900C4DA25 /* secret room.png in Resources */,
-				1195D26B17C2689900C4DA25 /* shadow faerie.png in Resources */,
-				1195D26C17C2689900C4DA25 /* shatterer.png in Resources */,
-				1195D26D17C2689900C4DA25 /* shift.png in Resources */,
-				1195D26E17C2689900C4DA25 /* slasher.png in Resources */,
-				1195D26F17C2689900C4DA25 /* smoky quartz.png in Resources */,
-				1195D27017C2689900C4DA25 /* solar flare.png in Resources */,
-				1195D27117C2689900C4DA25 /* spearman.png in Resources */,
-				1195D27217C2689900C4DA25 /* spell weavers.png in Resources */,
-				1195D27317C2689900C4DA25 /* spizzer.png in Resources */,
-				1195D27417C2689900C4DA25 /* stone giant.png in Resources */,
-				1195D27517C2689900C4DA25 /* strip mine.png in Resources */,
-				1195D27617C2689900C4DA25 /* succubus.png in Resources */,
-				1195D27717C2689900C4DA25 /* thief.png in Resources */,
-				1195D27817C2689900C4DA25 /* tower gremlin.png in Resources */,
-				1195D27917C2689900C4DA25 /* tremors.png in Resources */,
-				1195D27A17C2689900C4DA25 /* troll trainer.png in Resources */,
-				1195D27B17C2689900C4DA25 /* unicorn.png in Resources */,
-				1195D27C17C2689900C4DA25 /* vampire.png in Resources */,
-				1195D27D17C2689900C4DA25 /* warlord.png in Resources */,
-				1195D27E17C2689900C4DA25 /* werewolf.png in Resources */,
-				1195D27F17C2689900C4DA25 /* work overtime.png in Resources */,
-				11D5CF5417C30E0600AA96BC /* beast_card.png in Resources */,
-				11D5CF5517C30E0600AA96BC /* brick_card.png in Resources */,
-				11D5CF5617C30E0600AA96BC /* gem_card.png in Resources */,
 				11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */,
 				11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */,
-				11D5CF6117C35ECA00AA96BC /* all.jpg in Resources */,
 				1137991F17C49ADF00794158 /* magic.plist in Resources */,
 				1137992117C49AF000794158 /* dungeon.plist in Resources */,
+				11722F7317C64D9400014D16 /* arcomage deck.xml in Resources */,
+				11722F7517C64E0900014D16 /* arcomage deck.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -843,6 +420,7 @@
 				11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */,
 				1137992417C4D2B300794158 /* Omeotte.c in Sources */,
 				11722F6417C63B2900014D16 /* SPGame.m in Sources */,
+				11722F6B17C640CC00014D16 /* SPMedia.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

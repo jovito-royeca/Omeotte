@@ -41,7 +41,7 @@
     [_window setRootViewController:_viewController];
     
     [self.window makeKeyAndVisible];
-    
+    NSLog(@"high...");
     return YES;
 }
 

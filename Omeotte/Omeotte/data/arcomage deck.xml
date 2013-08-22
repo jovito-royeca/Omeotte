@@ -1,0 +1,10 @@
+<TextureAtlas imagePath="arcomage deck.jpg">
+    <SubTexture name="Brick Shortage" x="0" y="0" width="95" height="128"/>
+    <SubTexture name="Lucky Cache" x="95" y="0" width="95" height="128"/>
+    
+    <SubTexture name="Quartz" x="0" y="512" width="95" height="128"/>
+    <SubTexture name="Smoky Quartz" x="95" y="512" width="95" height="128"/>
+    
+    <SubTexture name="Mad Cow Disease" x="0" y="1024" width="95" height="128"/>
+    <SubTexture name="Faerie" x="95" y="1024" width="95" height="128"/>
+</TextureAtlas>

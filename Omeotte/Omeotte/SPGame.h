@@ -6,9 +6,11 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
-#import "SPQuad.h"
-#import "SPSprite.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIDevice.h>
 
+#import "SPSprite.h"
+#import "SPMedia.h"
 
 @interface SPGame : SPSprite
 
