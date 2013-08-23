@@ -36,7 +36,7 @@
 {
     [super dealloc];
     // release any resources here
-    [SPMedia releaseAtlas];
+    [SPMedia releaseAllAtlas];
 //    [SPMedia releaseSound];
 }
 
@@ -53,52 +53,54 @@
     // that way, you will be able to access your textures and sounds throughout your
     // application, without duplicating any resources.
     
-    [SPMedia initAtlas];      // loads your texture atlas -> see Media.h/Media.m
-//    [SPMedia initSound];      // loads all your sounds    -> see Media.h/Media.m
+    NSString *deck = @"arcomage deck.jpg";
+    
+    [SPMedia initAtlas:deck];
+//    [SPMedia initSound];
     
     
     // Create some placeholder content: a background image, the Sparrow logo, and a text field.
     // The positions are updated when the device is rotated. To make that easy, we put all objects
     // in one sprite (_contents): it will simply be rotated to be upright when the device rotates.
 
-    CGRect screenBounds = [UIScreen mainScreen].bounds;
+//    CGRect screenBounds = [UIScreen mainScreen].bounds;
     int width = 95;//screenBounds.size.height/6;
     
     
     _contents = [SPSprite sprite];
     [self addChild:_contents];
 
-    SPTexture *t = [SPMedia atlasTexture:@"Brick Shortage"];
+    SPTexture *t = [SPMedia texture:@"Brick Shortage" fromAtlas:deck];
     SPImage *ti = [SPImage imageWithTexture:t];
     ti.x = 0;
     ti.y = 0;
     [_contents addChild:ti];
     
-    SPTexture *t2 = [SPMedia atlasTexture:@"Lucky Cache"];
+    SPTexture *t2 = [SPMedia texture:@"Lucky Cache" fromAtlas:deck];
     SPImage *ti2 = [SPImage imageWithTexture:t2];
     ti2.x = width;
     ti2.y = 0;
     [_contents addChild:ti2];
     
-    SPTexture *t3 = [SPMedia atlasTexture:@"Quartz"];
+    SPTexture *t3 = [SPMedia texture:@"Quartz" fromAtlas:deck];
     SPImage *ti3 = [SPImage imageWithTexture:t3];
     ti3.x = width*2;
     ti3.y = 0;
     [_contents addChild:ti3];
     
-    SPTexture *t4 = [SPMedia atlasTexture:@"Smoky Quartz"];
+    SPTexture *t4 = [SPMedia texture:@"Smoky Quartz" fromAtlas:deck];
     SPImage *ti4 = [SPImage imageWithTexture:t4];
     ti4.x = width*3;
     ti4.y = 0;
     [_contents addChild:ti4];
     
-    SPTexture *t5 = [SPMedia atlasTexture:@"Mad Cow Disease"];
+    SPTexture *t5 = [SPMedia texture:@"Mad Cow Disease" fromAtlas:deck];
     SPImage *ti5 = [SPImage imageWithTexture:t5];
     ti5.x = width*4;
     ti5.y = 0;
     [_contents addChild:ti5];
     
-    SPTexture *t6 = [SPMedia atlasTexture:@"Faerie"];
+    SPTexture *t6 = [SPMedia texture:@"Faerie" fromAtlas:deck];
     SPImage *ti6 = [SPImage imageWithTexture:t6];
     ti6.x = width*5;
     ti6.y = 0;

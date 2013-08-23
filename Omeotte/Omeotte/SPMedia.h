@@ -8,11 +8,12 @@
 
 @interface SPMedia : NSObject 
 
-+ (void)initAtlas;
-+ (void)releaseAtlas;
++ (void)initAtlas:(NSString *)name;
++ (void)releaseAtlas:(NSString *)name;
++ (void)releaseAllAtlas;
 
-+ (SPTexture *)atlasTexture:(NSString *)name;
-+ (NSArray *)atlasTexturesWithPrefix:(NSString *)prefix;
++ (SPTexture *)texture:(NSString *)name fromAtlas:(NSString *)atlas;
++ (NSArray *)texturesWithPrefix:(NSString *)prefix fromAtlas:(NSString *)atlas;
 
 + (void)initSound;
 + (void)releaseSound;

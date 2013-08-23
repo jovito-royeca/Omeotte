@@ -8,32 +8,51 @@
 
 @implementation SPMedia
 
-static SPTextureAtlas *atlas = NULL;
+static NSMutableDictionary *atlases = NULL;
 static NSMutableDictionary *sounds = NULL;
 
 #pragma mark Texture Atlas
 
-+ (void)initAtlas
+
++ (void)initAtlas:(NSString *)name
 {
-    if (!atlas)
-        atlas = [[SPTextureAtlas alloc] initWithContentsOfFile:@"arcomage deck.xml"];
+    if (!atlases)
+        atlases = [[NSMutableDictionary alloc] init];
+    
+    if (![atlases objectForKey:name])
+    {
+        SPTextureAtlas *atlas = [[SPTextureAtlas alloc] initWithContentsOfFile:name];
+        [atlases setValue:atlas forKey:name];
+    }
 }
 
-+ (void)releaseAtlas
++ (void)releaseAtlas:(NSString *)name
 {
-    atlas = nil;
+    if (atlases)
+    {
+        [atlases removeObjectForKey:name];
+    }
 }
 
-+ (SPTexture *)atlasTexture:(NSString *)name
++ (void)releaseAllAtlas;
 {
-    if (!atlas) [self initAtlas];
-    return [atlas textureByName:name];
+    if (atlases)
+    {
+        [atlases removeAllObjects];
+    }
+    atlases = nil;
 }
 
-+ (NSArray *)atlasTexturesWithPrefix:(NSString *)prefix
++ (SPTexture *)texture:(NSString *)name fromAtlas:(NSString *)atlas;
 {
-    if (!atlas) [self initAtlas];
-    return [atlas texturesStartingWith:prefix];
+    [self initAtlas:atlas];
+    return [[atlases objectForKey:atlas] textureByName:name];
+}
+
++ (NSArray *)texturesWithPrefix:(NSString *)prefix fromAtlas:(NSString *)atlas
+{
+    [self initAtlas:atlas];
+    return [[atlases objectForKey:atlas] texturesStartingWith:prefix];
 }
 
 #pragma mark Audio
