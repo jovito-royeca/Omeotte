@@ -7,21 +7,21 @@
 		<string>Emerald Inn</string>
 		<key>location</key>
 		<string>Tularean Forest</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>20</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>5</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>5</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>5</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>5</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>2</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>2</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>2</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
@@ -37,21 +37,21 @@
 		<string>Griffin&apos;s rest</string>
 		<key>location</key>
 		<string>Erathia</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>20</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>5</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>5</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>5</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>5</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>2</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>2</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>2</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
@@ -67,21 +67,21 @@
 		<string>On the House</string>
 		<key>location</key>
 		<string>Harmondale</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>15</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>5</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>10</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>10</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>10</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>2</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>2</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>2</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
@@ -97,21 +97,21 @@
 		<string>The Potted Pixie</string>
 		<key>location</key>
 		<string>Avlee</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>10</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>20</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>15</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>5</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>10</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>3</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>1</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>2</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
@@ -127,21 +127,21 @@
 		<string>The Snobbish Goblin</string>
 		<key>location</key>
 		<string>Deyja</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>25</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>10</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>5</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>5</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>5</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>3</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>3</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>3</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
@@ -157,21 +157,21 @@
 		<string>The Loyal Mercenary</string>
 		<key>location</key>
 		<string>Tatalia</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>10</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>20</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>15</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>5</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>10</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>3</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>1</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>2</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
@@ -187,21 +187,21 @@
 		<string>Familiar Place</string>
 		<key>location</key>
 		<string>Bracada Desert</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>20</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>10</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>5</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>5</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>5</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>3</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>3</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>3</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
@@ -217,21 +217,21 @@
 		<string>Miner&apos;s Only</string>
 		<key>location</key>
 		<string>Barrow Downs</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>20</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>50</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>5</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>5</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>25</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>1</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>1</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>5</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
@@ -247,21 +247,21 @@
 		<string>Grogg&apos;s Grog</string>
 		<key>location</key>
 		<string>Stone City</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>50</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>50</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>20</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>10</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>20</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>5</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>3</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>5</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
@@ -277,21 +277,21 @@
 		<string>The Laughing Monk</string>
 		<key>location</key>
 		<string>Evenmorn Islands</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>20</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>10</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>25</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>25</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>25</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>5</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>5</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>5</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
@@ -307,21 +307,21 @@
 		<string>The Blessed Brew</string>
 		<key>location</key>
 		<string>Celeste</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>30</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>15</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>10</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>10</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>10</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>4</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>4</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>4</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
@@ -337,21 +337,21 @@
 		<string>Fortune&apos;s Folly</string>
 		<key>location</key>
 		<string>Nighon</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>20</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>10</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>15</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>15</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>15</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>1</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>1</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>1</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
@@ -367,21 +367,21 @@
 		<string>The Vampyre Lounge</string>
 		<key>location</key>
 		<string>The Pit</string>
-		<key>startingTower</key>
+		<key>tower</key>
 		<integer>30</integer>
-		<key>startingWall</key>
+		<key>wall</key>
 		<integer>15</integer>
-		<key>startingBricks</key>
+		<key>bricks</key>
 		<integer>10</integer>
-		<key>startingGems</key>
+		<key>gems</key>
 		<integer>10</integer>
-		<key>startingRecruits</key>
+		<key>recruits</key>
 		<integer>10</integer>
-		<key>startingQuarries</key>
+		<key>quarries</key>
 		<integer>4</integer>
-		<key>startingMagics</key>
+		<key>magics</key>
 		<integer>4</integer>
-		<key>startingDungeons</key>
+		<key>dungeons</key>
 		<integer>4</integer>
 		<key>cardsInHand</key>
 		<integer>5</integer>
