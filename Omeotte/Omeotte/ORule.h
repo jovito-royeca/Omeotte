@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#include "Omeotte.h"
+#include "Stats.h"
 
 @interface ORule : NSObject
 
-@property(strong, nonatomic) NSString *name;
-@property(strong, nonatomic) NSString *location;
-@property Stats base;
+@property(strong,nonatomic) NSString *name;
+@property(strong,nonatomic) NSString *location;
+@property(strong,nonatomic) Stats *base;
 @property int cardsInHand;
 @property int winningTower;
 @property int winningResource;

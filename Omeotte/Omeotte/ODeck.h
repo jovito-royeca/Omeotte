@@ -10,8 +10,6 @@
 
 #import "OCard.h"
 
-#include "Omeotte.h"
-
 @interface ODeck : NSObject
 
 @property(readonly) NSMutableArray *cardsInLibrary;

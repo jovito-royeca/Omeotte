@@ -19,8 +19,8 @@
 
     if (self)
     {
-        cardsInLibrary = [[NSMutableArray alloc] initWithCapacity:DECK_SIZE];
-        cardsInGraveyard = [[NSMutableArray alloc] initWithCapacity:DECK_SIZE];
+        cardsInLibrary = [[NSMutableArray alloc] initWithCapacity:500];
+        cardsInGraveyard = [[NSMutableArray alloc] initWithCapacity:500];
     }
     return self;
 }

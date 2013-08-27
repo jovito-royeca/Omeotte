@@ -20,8 +20,8 @@
 
     if (self)
     {
-        base = create_stats;
-        cardsInHand = [[NSMutableArray alloc] initWithCapacity:MAX_PLAYER_HAND];
+        base = [[Stats alloc] init];
+        cardsInHand = [[NSMutableArray alloc] initWithCapacity:6];
         deck = [[ODeck alloc] init];
         
         [deck shuffle];
@@ -44,23 +44,9 @@
 
 -(BOOL) canPlayCard:(OCard*)card
 {
-    switch (card.type)
-    {
-        case (Quarry):
-        {
-            return self.base->bricks >= card.cost;
-        }
-        case (Magic):
-        {
-            return self.base->gems >= card.cost;
-        }
-        case (Dungeon):
-        {
-            return self.base->recruits >= card.cost;
-        }
-        default:
-            return NO;
-    }
+    return self.base.bricks >= card.cost.bricks &&
+           self.base.gems >= card.cost.gems &&
+           self.base.recruits >= card.cost.recruits;
 }
 
 -(void) draw
@@ -80,7 +66,7 @@
 
 -(void) play:(OCard*)card onTarget:(OPlayer*)target
 {
-    if (card.ops)
+    /*if (card.ops)
     {
         int i, count = [card.ops count];
         
@@ -107,8 +93,8 @@
 
     if (card.playAgain)
     {
-        
-    }
+     
+    }*/
 }
 
 -(void) discard:(OCard*)card

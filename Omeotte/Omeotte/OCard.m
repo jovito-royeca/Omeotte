@@ -11,13 +11,11 @@
 @implementation OCard
 
 @synthesize name;
-@synthesize image;
 @synthesize cost;
 @synthesize text;
-@synthesize type;
 @synthesize playAgain;
-@synthesize statFields;
-@synthesize ops;
+@synthesize effects;
+@synthesize eval;
 
 NSMutableArray *_cards;
 
@@ -45,60 +43,34 @@ NSMutableArray *_cards;
                 OCard *card = [[OCard alloc] init];
             
                 card.name = [dict valueForKey:@"name"];
-                card.image = [dict valueForKey:@"image"];
-                card.cost = [[dict valueForKey:@"cost"] intValue];
+
+                NSDictionary *costDict = [dict valueForKey:@"cost"];
+                Stats *cost = [[[Stats alloc] init] autorelease];
+                if ([costDict objectForKey:@"bricks"])
+                {
+                    cost.bricks = [[costDict objectForKey:@"bricks"] intValue];
+                }
+                if ([costDict objectForKey:@"gems"])
+                {
+                    cost.gems = [[costDict objectForKey:@"gems"] intValue];
+                }
+                if ([costDict objectForKey:@"recruits"])
+                {
+                    cost.recruits = [[costDict objectForKey:@"recruits"] intValue];
+                }
+                card.cost = cost;
                 card.text = [dict valueForKey:@"text"];
-                switch ([[dict valueForKey:@"type"] intValue])
-                {
-                    case 0:
-                    {
-                        card.type = Quarry;
-                        break;
-                    }
-                    case 1:
-                    {
-                        card.type = Magic;
-                        break;
-                    }
-                    case 2:
-                    {
-                        card.type = Dungeon;
-                        break;
-                    }
-                }
                 card.playAgain = [[dict valueForKey:@"playAgain"] boolValue];
-                if ([dict valueForKey:@"statFields"] && [dict valueForKey:@"statValues"])
-                {
-                    card.statFields = [NSDictionary dictionaryWithObjectsAndKeys:[dict valueForKey:@"statFields"], [dict valueForKey:@"statValues"], nil];
-                }
             
-                NSArray *ops = [dict valueForKey:@"ops"];
-                if (ops)
+                NSArray *_effects = [dict valueForKey:@"effects"];
+                if (_effects)
                 {
-                    NSMutableArray *cardOps = [[NSMutableArray alloc] initWithCapacity:[ops count]];
+                    NSMutableArray *effectsArr = [[NSMutableArray alloc] init];
                     
-                    for (NSDictionary *x in ops)
+                    for (NSDictionary *x in _effects)
                     {
-                        Ops o = create_ops;
+                        Effect e = [self createEffect:x];
                         
-                        o->op1 = [[x valueForKey:@"op1"] intValue];
-                        o->op2 = [[x valueForKey:@"op2"] intValue];
-                        o->opResult = [[x valueForKey:@"opResult"] intValue];
-                        o->opTarget = [[x valueForKey:@"opTarget"] intValue];
-                        o->opValue = [[x valueForKey:@"opValue"] intValue];
-                        switch ([[x valueForKey:@"opType"] intValue])
-                        {
-                            case 0:
-                            {
-                                o->opType = Eval;
-                                break;
-                            }
-                            case 1:
-                            {
-                                o->opType = Eq;
-                                break;
-                            }
-                        }
                         /*
                          structs in NSArray...
                          
@@ -109,17 +81,35 @@ NSMutableArray *_cards;
                          struct Point p;
                          [[array objectAtIndex:i] getValue:&p];
                          */
-                        [cardOps addObject:[NSValue value:o withObjCType:@encode(struct _Ops)]];
+                        [effectsArr addObject:[NSValue value:e withObjCType:@encode(struct _Effect)]];
                     }
-                    card.ops = cardOps;
+                    card.effects = effectsArr;
                 }
             
+                NSDictionary *_eval = [dict valueForKey:@"eval"];
+                if (_eval)
+                {
+                    
+//                    card.eval = evalDict;
+                }
+                
                 [_cards addObject:card];
             }
         }
     }
     
     return _cards;
+}
+
++ (Effect) createEffect:(NSDictionary*)dict
+{
+    Effect e = create(Effect);
+    
+    e->field =  [[dict valueForKey:@"field"] intValue];
+    e->value = [[dict valueForKey:@"value"] intValue];
+    e->target = [[dict valueForKey:@"target"] intValue];
+    
+    return e;
 }
 
 @end

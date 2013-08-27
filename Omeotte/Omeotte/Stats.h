@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define create(X) ((X)malloc(sizeof(X)))
+
 typedef enum
 {
     None     = -1,

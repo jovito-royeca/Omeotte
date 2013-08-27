@@ -6,418 +6,532 @@
 		<key>name</key>
 		<string>Full Moon</string>
 		<key>cost</key>
-		<integer>0</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Increases each player's Dungeon level by one. You receive three recruits.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Increases each player&apos;s Dungeon level by one. You receive three recruits.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Mad Cow Disease</string>
 		<key>cost</key>
-		<integer>0</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Each player loses six recruits.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Faerie</string>
 		<key>cost</key>
-		<integer>1</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does two damage. Play an additional card.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Moody Goblins</string>
 		<key>cost</key>
-		<integer>1</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does four damage. You lose three gems.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Elven Scout</string>
 		<key>cost</key>
-		<integer>2</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Draw one card and then discard one card. Play an additional card.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Gnome</string>
 		<key>cost</key>
-		<integer>2</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does three damage. You receive one gem.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Spearman</string>
 		<key>cost</key>
-		<integer>2</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Does two damage. Does one additional damage if your wall is greater than your opponent's wall when this card is played.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does two damage. Does one additional damage if your wall is greater than your opponent&apos;s wall when this card is played.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Goblin Mob</string>
 		<key>cost</key>
-		<integer>3</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does six damage. You take three damage.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Minotaur</string>
 		<key>cost</key>
-		<integer>3</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Increases your Dungeon level by one.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Orc</string>
 		<key>cost</key>
-		<integer>3</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does five damage.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Berserker</string>
 		<key>cost</key>
-		<integer>4</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does eight damage. Does three damage to your tower.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Goblin Archers</string>
 		<key>cost</key>
-		<integer>4</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Does three damage to your opponent's tower. You take three damage.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does three damage to your opponent&apos;s tower. You take three damage.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Dwarves</string>
 		<key>cost</key>
-		<integer>5</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does four damage. Increases your wall by three.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Imp</string>
 		<key>cost</key>
-		<integer>5</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does six damage. Each player loses five bricks, gems and recruits.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Slasher</string>
 		<key>cost</key>
-		<integer>5</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does six damage.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Little Snakes</string>
 		<key>cost</key>
-		<integer>6</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Does four damage to your opponent's tower.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does four damage to your opponent&apos;s tower.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Ogre</string>
 		<key>cost</key>
-		<integer>6</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does seven damage.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Rabid Sheep</string>
 		<key>cost</key>
-		<integer>6</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does six damage. Your opponent loses three recruits.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Shadow Faerie</string>
 		<key>cost</key>
-		<integer>6</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Does two damage to your opponent's tower. Play an additional card.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does two damage to your opponent&apos;s tower. Play an additional card.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -427,305 +541,382 @@
 		<integer>7</integer>
 		<key>text</key>
 		<string>Increases your Dungeon level by two.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Spizzer</string>
 		<key>cost</key>
-		<integer>8</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Does six damage. Does ten damage instead if opponent's wall was at zero when this card was played.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does six damage. Does ten damage instead if opponent&apos;s wall was at zero when this card was played.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Tower Gremlin</string>
 		<key>cost</key>
-		<integer>8</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does two damage. Increases your wall by four. Increases your tower by two.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Unicorn</string>
 		<key>cost</key>
-		<integer>9</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Does eight damage. Does twelve damage instead if your Magic level is higher than your opponent's Magic level.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does eight damage. Does twelve damage instead if your Magic level is higher than your opponent&apos;s Magic level.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Werewolf</string>
 		<key>cost</key>
-		<integer>9</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does nine damage.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Elven Archers</string>
 		<key>cost</key>
-		<integer>10</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Does six damage. Does six damage to your opponent's tower instead if your wall is greater than your opponent's wall.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does six damage. Does six damage to your opponent&apos;s tower instead if your wall is greater than your opponent&apos;s wall.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Corrosion Cloud</string>
 		<key>cost</key>
-		<integer>11</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Does ten damage. Does seven damage instead if your opponent's wall was at zero when this card was played.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does ten damage. Does seven damage instead if your opponent&apos;s wall was at zero when this card was played.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Rock Stompers</string>
 		<key>cost</key>
-		<integer>11</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Does eight damage. Reduces your opponent's Quarry level by one.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does eight damage. Reduces your opponent&apos;s Quarry level by one.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Thief</string>
 		<key>cost</key>
-		<integer>12</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Reduces your opponent's gems by ten. Reduces your opponent's bricks by five. You gain half of that amount, rounded up.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Reduces your opponent&apos;s gems by ten. Reduces your opponent&apos;s bricks by five. You gain half of that amount, rounded up.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Warlord</string>
 		<key>cost</key>
-		<integer>13</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does thirteen damage. You lose three gems.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Succubus</string>
 		<key>cost</key>
-		<integer>14</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Does five damage to your opponent's tower. Your opponent loses eight recruits.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does five damage to your opponent&apos;s tower. Your opponent loses eight recruits.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Stone Giant</string>
 		<key>cost</key>
-		<integer>15</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
 		<string>Does ten damage. Increases your wall by four.</string>
-		<key>type</key>
-		<integer>2</integer>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Vampire</string>
 		<key>cost</key>
-		<integer>17</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Does ten damage. Your opponent loses five recruits. Reduces your opponent's Dungeon level by one.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does ten damage. Your opponent loses five recruits. Reduces your opponent&apos;s Dungeon level by one.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Pegasus Lancer</string>
 		<key>cost</key>
-		<integer>18</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>0</integer>
+		</dict>
 		<key>text</key>
-		<string>Does twelve damage to your opponent's tower.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does twelve damage to your opponent&apos;s tower.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -734,20 +925,19 @@
 		<key>cost</key>
 		<integer>25</integer>
 		<key>text</key>
-		<string>Does twenty damage. Your opponent loses ten gems. Reduces your opponent's Dungeon level by one.</string>
-		<key>type</key>
-		<integer>2</integer>
+		<string>Does twenty damage. Your opponent loses ten gems. Reduces your opponent&apos;s Dungeon level by one.</string>
 		<key>playAgain</key>
 		<false/>
-		<key>statFields</key>
+		<key>effects</key>
 		<array>
-			<integer>2</integer>
-			<integer>10</integer>
-		</array>
-		<key>statValues</key>
-		<array>
-			<integer>-8</integer>
-			<integer>-8</integer>
+			<dict>
+				<key>field</key>
+				<integer>0</integer>
+				<key>value</key>
+				<integer>0</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
 		</array>
 	</dict>
 </array>

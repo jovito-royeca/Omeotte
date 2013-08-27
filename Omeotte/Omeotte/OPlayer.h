@@ -10,11 +10,11 @@
 
 #import "OCard.h"
 #import "ODeck.h"
-#import "Omeotte.h"
+#import "Stats.h"
 
 @interface OPlayer : NSObject
 
-@property Stats base;
+@property(strong,nonatomic) Stats *base;
 @property(strong,nonatomic) NSMutableArray *cardsInHand;
 @property(strong,nonatomic) ODeck *deck;
 

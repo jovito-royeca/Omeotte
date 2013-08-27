@@ -31,21 +31,21 @@ NSMutableArray *_rules;
         for (NSDictionary *dict in ma)
         {
             ORule *rule = [[ORule alloc] init];
-            Stats base = create_stats;
             
             rule.name = [dict valueForKey:@"name"];
             rule.location = [dict valueForKey:@"location"];
-
-            base->tower = [[dict valueForKey:@"startingTower"] intValue];
-            base->wall = [[dict valueForKey:@"startingWall"] intValue];
-            base->bricks = [[dict valueForKey:@"startingBricks"] intValue];
-            base->gems = [[dict valueForKey:@"startingGems"] intValue];
-            base->recruits = [[dict valueForKey:@"startingRecruits"] intValue];
-            base->quarries = [[dict valueForKey:@"startingQuarries"] intValue];
-            base->magics = [[dict valueForKey:@"startingMagics"] intValue];
-            base->dungeons = [[dict valueForKey:@"startingDungeons"] intValue];
-            rule.base = base;
             
+            Stats *base = [[Stats alloc] init];
+            base.tower = [[dict valueForKey:@"tower"] intValue];
+            base.wall = [[dict valueForKey:@"wall"] intValue];
+            base.bricks = [[dict valueForKey:@"bricks"] intValue];
+            base.gems = [[dict valueForKey:@"gems"] intValue];
+            base.recruits = [[dict valueForKey:@"recruits"] intValue];
+            base.quarries = [[dict valueForKey:@"quarries"] intValue];
+            base.magics = [[dict valueForKey:@"magics"] intValue];
+            base.dungeons = [[dict valueForKey:@"dungeons"] intValue];
+            rule.base = base;
+
             rule.cardsInHand = [[dict valueForKey:@"cardsInHand"] intValue];
             rule.winningTower = [[dict valueForKey:@"winningTower"] intValue];
             rule.winningResource = [[dict valueForKey:@"winningResource"] intValue];

@@ -9,19 +9,15 @@
 #import  <CoreFoundation/CoreFoundation.h>
 #import <Foundation/Foundation.h>
 
-#include "Omeotte.h"
+#import "Stats.h"
 
 @interface OCard : NSObject
 
 @property(strong, nonatomic) NSString *name;
-@property(strong, nonatomic) NSString *image;
-@property int cost;
+@property(strong, nonatomic) Stats *cost;
 @property(strong, nonatomic) NSString *text;
-@property(nonatomic) CardType type;
-@property BOOL playAgain;
-@property(strong,nonatomic) NSDictionary *statFields;
-@property(strong,nonatomic) NSMutableArray *ops;
-
-+(NSArray*)allCards;
+@property(nonatomic) BOOL playAgain;
+@property(strong,nonatomic) NSArray *effects;
+@property(nonatomic) Eval eval;
 
 @end
