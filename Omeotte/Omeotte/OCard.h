@@ -20,4 +20,6 @@
 @property(strong,nonatomic) NSArray *effects;
 @property(nonatomic) Eval eval;
 
++(NSArray*)allCards;
+
 @end

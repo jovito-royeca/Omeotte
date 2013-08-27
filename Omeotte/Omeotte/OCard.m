@@ -24,7 +24,7 @@ NSMutableArray *_cards;
     if (!_cards)
     {
         _cards = [[NSMutableArray alloc] init];
-        NSArray *cards = [NSArray arrayWithObjects:@"quarry", @"magic", @"dungeon", nil];
+        NSArray *cards = [NSArray arrayWithObjects:@"quarry", /*@"magic", @"dungeon",*/ nil];
         
         for (NSString *card in cards)
         {

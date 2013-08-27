@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1137991F17C49ADF00794158 /* magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137991E17C49ADF00794158 /* magic.plist */; };
 		1137992117C49AF000794158 /* dungeon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137992017C49AF000794158 /* dungeon.plist */; };
+		115097A917CC94E0005576BF /* SPCardsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 115097A817CC94E0005576BF /* SPCardsTest.m */; };
 		11722F5317C636BF00014D16 /* libSparrow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F4F17C635EE00014D16 /* libSparrow.a */; };
 		11722F5517C636CB00014D16 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5417C636CB00014D16 /* libz.dylib */; };
 		11722F5717C636DA00014D16 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5617C636DA00014D16 /* GLKit.framework */; };
@@ -72,6 +73,8 @@
 /* Begin PBXFileReference section */
 		1137991E17C49ADF00794158 /* magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic.plist; sourceTree = "<group>"; };
 		1137992017C49AF000794158 /* dungeon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dungeon.plist; sourceTree = "<group>"; };
+		115097A717CC94E0005576BF /* SPCardsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCardsTest.h; sourceTree = "<group>"; };
+		115097A817CC94E0005576BF /* SPCardsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCardsTest.m; sourceTree = "<group>"; };
 		11722F4917C635EE00014D16 /* Sparrow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparrow.xcodeproj; path = "../Sparrow-Framework/sparrow/src/Sparrow.xcodeproj"; sourceTree = "<group>"; };
 		11722F5417C636CB00014D16 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		11722F5617C636DA00014D16 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -216,6 +219,8 @@
 				1195D28717C2728700C4DA25 /* OPlayer.m */,
 				11D5CF5817C32F6900AA96BC /* ORule.h */,
 				11D5CF5917C32F6A00AA96BC /* ORule.m */,
+				115097A717CC94E0005576BF /* SPCardsTest.h */,
+				115097A817CC94E0005576BF /* SPCardsTest.m */,
 				11722F6217C63B2900014D16 /* SPGame.h */,
 				11722F6317C63B2900014D16 /* SPGame.m */,
 				11722F6917C640CC00014D16 /* SPMedia.h */,
@@ -421,6 +426,7 @@
 				11722F6417C63B2900014D16 /* SPGame.m in Sources */,
 				11722F6B17C640CC00014D16 /* SPMedia.m in Sources */,
 				118E688617C74BD8007801CD /* Stats.m in Sources */,
+				115097A917CC94E0005576BF /* SPCardsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

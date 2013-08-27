@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "ORule.h"
-#import "SPGame.h"
+#import "SPCardsTest.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

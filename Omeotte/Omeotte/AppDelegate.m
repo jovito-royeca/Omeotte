@@ -36,12 +36,11 @@
     // _viewController.multitouchEnabled = YES;
     // _viewController.preferredFramesPerSecond = 60;
     
-    [_viewController startWithRoot:[SPGame class] supportHighResolutions:YES doubleOnPad:YES];
+    [_viewController startWithRoot:[SPCardsTest class] supportHighResolutions:YES doubleOnPad:YES];
     
     [_window setRootViewController:_viewController];
     
     [self.window makeKeyAndVisible];
-    NSLog(@"high...");
     return YES;
 }
 
