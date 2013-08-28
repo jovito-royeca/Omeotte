@@ -18,6 +18,8 @@
 		<string>Each player loses eight bricks.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -46,6 +48,8 @@
 		<string>Each player&apos;s Quarry level is reduced by one.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -74,6 +78,8 @@
 		<string>Each player receives two bricks and two gems. Play an additional card.</string>
 		<key>playAgain</key>
 		<true/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -102,6 +108,8 @@
 		<string>Increases your wall by ten. You receive five gems. Your Quarry level is reduced by one.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -120,7 +128,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -130,6 +138,8 @@
 		<string>Increases your wall by one. Play an additional card.</string>
 		<key>playAgain</key>
 		<true/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -148,7 +158,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -158,6 +168,8 @@
 		<string>Increases your wall and tower by one each. You receive two recruits.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -176,7 +188,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -186,6 +198,8 @@
 		<string>Increases your wall by three.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -204,7 +218,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -214,6 +228,8 @@
 		<string>You receive four gems. Each player&apos;s Quarry level increases by one.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -232,7 +248,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -242,6 +258,8 @@
 		<string>Increases your wall by five. You lose six gems.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -260,7 +278,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>3</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -270,6 +288,8 @@
 		<string>Increases your wall by three. Increases your wall by an additional three if your wall was at 0 when you played this card.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -336,7 +356,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>3</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -346,6 +366,8 @@
 		<string>Increases your Quarry level by one.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -364,7 +386,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>3</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -374,6 +396,8 @@
 		<string>Increases your wall by four.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -392,7 +416,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>4</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -402,6 +426,8 @@
 		<string>Reduces your opponent&apos;s Quarry level by one.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -420,7 +446,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>4</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -430,6 +456,8 @@
 		<string>Increases your Quarry level by one. Increases your Quarry level by an additional one if your Quarry level was lower than your opponents when you played this card.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -465,7 +493,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>5</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -475,6 +503,8 @@
 		<string>Increases your wall by six.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -493,7 +523,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>5</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -503,6 +533,8 @@
 		<string>Increases your Quarry level to match your opponent&apos;s Quarry level. This does not lower your Quarry level if you&apos;re Quarry level is higher.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -538,7 +570,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>6</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -548,6 +580,8 @@
 		<string>The player or players with the lowest wall take two damage to their tower and their Dungeon levels are reduced by one.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -566,7 +600,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>6</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -576,6 +610,8 @@
 		<string>Increases your Quarry level by two.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -594,7 +630,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>7</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -604,6 +640,8 @@
 		<string>Increases your wall by four. Increases your Quarry level by one.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -622,7 +660,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>7</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -632,6 +670,8 @@
 		<string>Increases your wall by nine. You lose five recruits.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -650,7 +690,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>7</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -660,6 +700,8 @@
 		<string>Deals five damage to all walls. Play an additional card.</string>
 		<key>playAgain</key>
 		<true/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -678,7 +720,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>8</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -688,6 +730,8 @@
 		<string>Increases your wall by eight.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -706,7 +750,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>8</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -716,6 +760,8 @@
 		<string>Increases your Magic level by one. Play an additional card.</string>
 		<key>playAgain</key>
 		<true/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -734,7 +780,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>9</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -744,6 +790,8 @@
 		<string>Increases your wall by seven. You gain seven gems.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -762,7 +810,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>9</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -772,6 +820,8 @@
 		<string>Increases your wall by five. Increases your Dungeon level by one.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -790,7 +840,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>10</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -800,6 +850,8 @@
 		<string>Increases your wall by six. You gain six recruits. Increases your Dungeon level by one if your dungeon level is lower than your opponent&apos;s Dungeon level.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -818,7 +870,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>11</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -828,6 +880,8 @@
 		<string>Increases your wall by six. Increases your tower by three.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -846,7 +900,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>13</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -856,6 +910,8 @@
 		<string>Increases your wall by twelve.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -874,7 +930,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>14</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -884,6 +940,8 @@
 		<string>Increases your wall by seven. Does six damage to the enemy.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -902,7 +960,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>15</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -912,6 +970,8 @@
 		<string>Increases your wall by eight. Increases your tower by five.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -930,7 +990,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>16</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -940,6 +1000,8 @@
 		<string>Increases your wall by fifteen.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -958,7 +1020,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>17</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -968,6 +1030,8 @@
 		<string>Switch your wall with the opponent&apos;s wall.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -986,7 +1050,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>18</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -996,6 +1060,8 @@
 		<string>Increases your wall by six. Does ten damage to the enemy.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -1014,7 +1080,7 @@
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
-			<integer>0</integer>
+			<integer>24</integer>
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
@@ -1024,6 +1090,8 @@
 		<string>Increases your wall by twenty. Increases your tower by eight.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>0</integer>
 		<key>effects</key>
 		<array>
 			<dict>

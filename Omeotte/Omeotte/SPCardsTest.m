@@ -47,7 +47,7 @@ NSString *deck = @"arcomage deck.xml";
 
 - (void)setup
 {
-    _cards = [OCard allCards];
+    _cards = [[OCard allCards] retain];
 
     [SPMedia initAtlas:deck];
     
@@ -131,6 +131,37 @@ NSString *deck = @"arcomage deck.xml";
     if (texture)
     {
         [_image setTexture:texture];
+    }
+    else
+    {
+        NSString *blank = nil;
+        
+        switch (card.type)
+        {
+            case Quarry:
+            {
+                blank = @"quarry_blank";
+                break;
+            }
+            case Magic:
+            {
+                blank = @"magic_blank";
+                break;
+            }
+            case Dungeon:
+            {
+                blank = @"dungeon_blank";
+                break;
+            }
+            case Mixed:
+            default:
+            {
+                blank = @"blank";
+                break;
+            }
+        }
+        
+        [_image setTexture:[SPMedia texture:blank fromAtlas:deck]];
     }
 }
 

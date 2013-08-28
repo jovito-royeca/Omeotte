@@ -14,16 +14,17 @@
 @synthesize cost;
 @synthesize text;
 @synthesize playAgain;
+@synthesize type;
 @synthesize effects;
 @synthesize eval;
 
-NSMutableArray *_cards;
+NSArray *_cards;
 
 +(NSArray*)allCards
 {
     if (!_cards)
     {
-        _cards = [[NSMutableArray alloc] init];
+        NSMutableArray *_macards = [[NSMutableArray alloc] init];
         NSArray *cards = [NSArray arrayWithObjects:@"quarry", /*@"magic", @"dungeon",*/ nil];
         
         for (NSString *card in cards)
@@ -61,6 +62,7 @@ NSMutableArray *_cards;
                 card.cost = cost;
                 card.text = [dict valueForKey:@"text"];
                 card.playAgain = [[dict valueForKey:@"playAgain"] boolValue];
+                card.type = [[dict valueForKey:@"type"] intValue];
             
                 NSArray *_effects = [dict valueForKey:@"effects"];
                 if (_effects)
@@ -93,9 +95,12 @@ NSMutableArray *_cards;
 //                    card.eval = evalDict;
                 }
                 
-                [_cards addObject:card];
+                [_macards addObject:card];
             }
         }
+        
+        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+        _cards=[_macards sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
     }
     
     return _cards;

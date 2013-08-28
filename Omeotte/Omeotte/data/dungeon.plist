@@ -18,6 +18,8 @@
 		<string>Increases each player&apos;s Dungeon level by one. You receive three recruits.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -46,6 +48,8 @@
 		<string>Each player loses six recruits.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -68,12 +72,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>text</key>
 		<string>Does two damage. Play an additional card.</string>
 		<key>playAgain</key>
-		<false/>
+		<true/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -96,12 +102,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>text</key>
 		<string>Does four damage. You lose three gems.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -124,12 +132,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<key>text</key>
 		<string>Draw one card and then discard one card. Play an additional card.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -152,12 +162,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<key>text</key>
 		<string>Does three damage. You receive one gem.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -180,12 +192,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<key>text</key>
 		<string>Does two damage. Does one additional damage if your wall is greater than your opponent&apos;s wall when this card is played.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -208,12 +222,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>3</integer>
 		</dict>
 		<key>text</key>
 		<string>Does six damage. You take three damage.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -236,12 +252,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>3</integer>
 		</dict>
 		<key>text</key>
 		<string>Increases your Dungeon level by one.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -264,12 +282,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>3</integer>
 		</dict>
 		<key>text</key>
 		<string>Does five damage.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -292,12 +312,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>4</integer>
 		</dict>
 		<key>text</key>
 		<string>Does eight damage. Does three damage to your tower.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -320,12 +342,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>4</integer>
 		</dict>
 		<key>text</key>
 		<string>Does three damage to your opponent&apos;s tower. You take three damage.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -348,12 +372,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>5</integer>
 		</dict>
 		<key>text</key>
 		<string>Does four damage. Increases your wall by three.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -376,12 +402,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>5</integer>
 		</dict>
 		<key>text</key>
 		<string>Does six damage. Each player loses five bricks, gems and recruits.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -404,12 +432,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>5</integer>
 		</dict>
 		<key>text</key>
 		<string>Does six damage.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -432,12 +462,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>6</integer>
 		</dict>
 		<key>text</key>
 		<string>Does four damage to your opponent&apos;s tower.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -460,12 +492,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>6</integer>
 		</dict>
 		<key>text</key>
 		<string>Does seven damage.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -488,12 +522,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>6</integer>
 		</dict>
 		<key>text</key>
 		<string>Does six damage. Your opponent loses three recruits.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -516,12 +552,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>6</integer>
 		</dict>
 		<key>text</key>
 		<string>Does two damage to your opponent&apos;s tower. Play an additional card.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -538,11 +576,20 @@
 		<key>name</key>
 		<string>Troll Trainer</string>
 		<key>cost</key>
-		<integer>7</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>7</integer>
+		</dict>
 		<key>text</key>
 		<string>Increases your Dungeon level by two.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -565,12 +612,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>8</integer>
 		</dict>
 		<key>text</key>
 		<string>Does six damage. Does ten damage instead if opponent&apos;s wall was at zero when this card was played.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -593,12 +642,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>8</integer>
 		</dict>
 		<key>text</key>
 		<string>Does two damage. Increases your wall by four. Increases your tower by two.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -621,12 +672,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>9</integer>
 		</dict>
 		<key>text</key>
 		<string>Does eight damage. Does twelve damage instead if your Magic level is higher than your opponent&apos;s Magic level.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -649,12 +702,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>9</integer>
 		</dict>
 		<key>text</key>
 		<string>Does nine damage.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -677,12 +732,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>10</integer>
 		</dict>
 		<key>text</key>
 		<string>Does six damage. Does six damage to your opponent&apos;s tower instead if your wall is greater than your opponent&apos;s wall.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -705,12 +762,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>11</integer>
 		</dict>
 		<key>text</key>
 		<string>Does ten damage. Does seven damage instead if your opponent&apos;s wall was at zero when this card was played.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -733,12 +792,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>11</integer>
 		</dict>
 		<key>text</key>
 		<string>Does eight damage. Reduces your opponent&apos;s Quarry level by one.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -761,12 +822,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>12</integer>
 		</dict>
 		<key>text</key>
 		<string>Reduces your opponent&apos;s gems by ten. Reduces your opponent&apos;s bricks by five. You gain half of that amount, rounded up.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -789,12 +852,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>13</integer>
 		</dict>
 		<key>text</key>
 		<string>Does thirteen damage. You lose three gems.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -817,12 +882,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>14</integer>
 		</dict>
 		<key>text</key>
 		<string>Does five damage to your opponent&apos;s tower. Your opponent loses eight recruits.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -845,12 +912,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>15</integer>
 		</dict>
 		<key>text</key>
 		<string>Does ten damage. Increases your wall by four.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -873,12 +942,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>17</integer>
 		</dict>
 		<key>text</key>
 		<string>Does ten damage. Your opponent loses five recruits. Reduces your opponent&apos;s Dungeon level by one.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -901,12 +972,14 @@
 			<key>gems</key>
 			<integer>0</integer>
 			<key>recruits</key>
-			<integer>0</integer>
+			<integer>18</integer>
 		</dict>
 		<key>text</key>
 		<string>Does twelve damage to your opponent&apos;s tower.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
@@ -923,11 +996,20 @@
 		<key>name</key>
 		<string>Dragon</string>
 		<key>cost</key>
-		<integer>25</integer>
+		<dict>
+			<key>bricks</key>
+			<integer>0</integer>
+			<key>gems</key>
+			<integer>0</integer>
+			<key>recruits</key>
+			<integer>15</integer>
+		</dict>
 		<key>text</key>
 		<string>Does twenty damage. Your opponent loses ten gems. Reduces your opponent&apos;s Dungeon level by one.</string>
 		<key>playAgain</key>
 		<false/>
+		<key>type</key>
+		<integer>2</integer>
 		<key>effects</key>
 		<array>
 			<dict>
