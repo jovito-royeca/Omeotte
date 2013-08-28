@@ -11,7 +11,6 @@
 @implementation OGame
 {
     NSArray *_players;
-    OPlayer *_currentPlayer;
     ORule* _rule;
 }
 
@@ -32,24 +31,42 @@
     OPlayer *player2 = [[OPlayer alloc] init];
     
     [player1 drawInitialHand:[_rule cardsInHand]];
+    [player1.base setStats:_rule.base];
+    
     [player2 drawInitialHand:[_rule cardsInHand]];
+    [player2.base setStats:_rule.base];
     
     _players = [[NSArray alloc] initWithObjects:player1, player2, nil];
-    _currentPlayer = player1;
 }
 
 -(void) gameLoop
 {
-    BOOL over = NO;
+    BOOL gameOver = NO;
     
     do
     {
-        for (OPlayer *p in _players)
+        int i = 0, count = [_players count];
+        
+        for (i=0; i<count; i++)
         {
-//            [p play:<#(OCard *)#> onTarget:<#(OPlayer *)#>]
+            OPlayer *current = [_players objectAtIndex:i];
+            OPlayer *target = (i == count-1) ? [_players objectAtIndex:i-1] : [_players objectAtIndex:i+1];
+            OCard *card = [current chooseCardToPlay];
+            
+            [current draw];
+            [current startTurn];
+            if ([current canPlayCard:card])
+            {
+                [current play:card onTarget:target];
+            }
+            
+            if (current.base.tower == 0 || target.base.tower == 0)
+            {
+                gameOver = YES;
+            }
         }
     }
-    while (!over);
+    while (!gameOver);
 }
 
 @end

@@ -54,6 +54,13 @@
     [[self cardsInHand] addObject:[deck drawOnTop]];
 }
 
+-(void) startTurn
+{
+    self.base.bricks += self.base.quarries;
+    self.base.gems += self.base.magics;
+    self.base.recruits += self.base.dungeons;
+}
+
 -(OCard*) chooseCardToPlay
 {
     return nil;
