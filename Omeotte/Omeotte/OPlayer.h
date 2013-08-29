@@ -21,7 +21,7 @@
 -(void) drawInitialHand:(int)maxHand;
 -(BOOL) shouldDiscard:(int)maxHand;
 -(BOOL) canPlayCard:(OCard*)card;
--(void) draw;
+-(OCard*) draw;
 -(void) startTurn;
 -(OCard*) chooseCardToPlay;
 -(OCard*) chooseCardToDiscard;

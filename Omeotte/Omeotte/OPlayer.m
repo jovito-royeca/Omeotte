@@ -49,9 +49,12 @@
            self.base.recruits >= card.cost.recruits;
 }
 
--(void) draw
+-(OCard*) draw
 {
-    [[self cardsInHand] addObject:[deck drawOnTop]];
+    OCard *card = [deck drawOnTop];
+    
+    [[self cardsInHand] addObject:card];
+    return card;
 }
 
 -(void) startTurn

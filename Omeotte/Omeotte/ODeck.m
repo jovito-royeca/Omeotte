@@ -21,6 +21,14 @@
     {
         cardsInLibrary = [[NSMutableArray alloc] initWithCapacity:500];
         cardsInGraveyard = [[NSMutableArray alloc] initWithCapacity:500];
+        NSArray *cards = [OCard allCards];
+        
+        for (int i=0; i<500; i++)
+        {
+            NSUInteger random = arc4random() % [cards count];
+
+            [cardsInLibrary addObject:[cards objectAtIndex:random]];
+        }
     }
     return self;
 }
@@ -41,7 +49,12 @@
 
 -(OCard*)drawRandom
 {
-    return [self drawOnTop];
+    NSUInteger random = arc4random() % [cardsInLibrary count];
+    OCard *card = [cardsInLibrary objectAtIndex:random];
+    
+    [cardsInLibrary removeLastObject];
+    [cardsInGraveyard addObject:card];
+    return card;
 }
 
 -(void)discard:(OCard*)card

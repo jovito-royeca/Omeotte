@@ -209,4 +209,9 @@
     return result;
 }
 
+//+(NSString*) description
+//{
+//    return [NSString stringWithFormat:@"tower=%d, wall=%d, bricks=%d, gems=%d, recruits=%d, quarries=%d, magics=%d, dungeons=%d",
+//            [self tower], [self wall], [self bricks], [self gems], [self recruits], [self quarries], [self magics], [self dungeons]];
+//}
 @end

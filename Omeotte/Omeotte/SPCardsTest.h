@@ -7,12 +7,12 @@
 //
 
 #import "OCard.h"
+#import "OPlayer.h"
 #import "SPSprite.h"
 #import "SPMedia.h"
 
-@interface SPCardsTest : SPSprite <UITableViewDelegate, UITableViewDataSource>
-{
-    NSArray *_cards;
-}
+@interface SPCardsTest : SPSprite
+
+@property (strong, nonatomic) NSMutableArray *cards;
 
 @end

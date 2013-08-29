@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "OGame.h"
 #import "ORule.h"
 #import "SPCardsTest.h"
 

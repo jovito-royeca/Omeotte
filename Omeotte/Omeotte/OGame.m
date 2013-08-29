@@ -10,19 +10,101 @@
 
 @implementation OGame
 {
-    NSArray *_players;
-    ORule* _rule;
+    OPlayer *_currentPlayer;
+    NSString *_deck;
 }
 
--(id) initWithRule:(ORule*)rule
+@synthesize hand;
+
+-(id) init
 {
     self = [super init];
     
     if (self)
     {
-        _rule = rule;
+        [self setup];
+        [self initPlayers];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+    
+    for (SPImage *img in hand)
+    {
+        [img removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
+    }
+    [hand release];
+    
+    [SPMedia releaseAllAtlas];
+    //    [SPMedia releaseSound];
+}
+
+- (void)setup
+{
+    _deck = @"arcomage deck.xml";
+    
+    [SPMedia initAtlas:_deck];
+    
+    hand = [[NSMutableArray alloc] initWithCapacity:6];
+    
+    // Lay the Cards
+    int stageWidth = Sparrow.stage.width;
+    int stageHeight = Sparrow.stage.height;
+    int cardWidth = stageWidth/6;
+    int cardHeight = (cardWidth*128)/95;
+    int currentX = 0;
+    for (int i=0; i<6; i++)
+    {
+        SPImage *img = [[SPImage alloc] initWithWidth:cardWidth height:cardHeight];
+        SPTexture *texture = [SPMedia texture:@"blank" fromAtlas:_deck];
+        
+        img.texture = texture;
+        img.x = currentX;
+        img.y = stageHeight-img.height;
+        currentX += img.width;
+        [self addChild:img];
+        [img addEventListener:@selector(onCardTouched:) atObject:self
+                      forType:SP_EVENT_TYPE_TOUCH];
+        
+        [hand addObject:img];
+    }
+}
+
+- (void)onCardTouched:(SPTouchEvent*)event
+{
+    int stageWidth = Sparrow.stage.width;
+    int stageHeight = Sparrow.stage.height;
+    int cardWidth = stageWidth/6;
+    int cardHeight = (cardWidth*128)/95;
+    
+    SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
+    SPImage *img = (SPImage*)event.target;
+    int index = [hand indexOfObject:img];
+    OCard *card = [[_currentPlayer cardsInHand] objectAtIndex:index];
+    
+    if (touch)
+    {
+        SPPoint *touchPosition = [touch locationInSpace:self];
+        BOOL play = touchPosition.y < (stageHeight-cardHeight);
+        
+        NSLog(@"Touch position ended (%f, %f)", touchPosition.x, touchPosition.y);
+        
+        if (play)
+        {
+            NSLog(@"Playing... %@", [card name]);
+        }
+        else
+        {
+            NSLog(@"Discarding... %@", [card name]);
+        }
+        
+        OCard *newCard = [_currentPlayer draw];
+        SPTexture *texture = [SPMedia texture:[newCard name] fromAtlas:_deck];
+        img.texture = texture;
+    }
 }
 
 -(void) initPlayers
@@ -37,6 +119,15 @@
     [player2.base setStats:_rule.base];
     
     _players = [[NSArray alloc] initWithObjects:player1, player2, nil];
+
+    // player1 draws cards
+    for (int i=0; i<player1.cardsInHand.count; i++)
+    {
+        SPImage *img = [hand objectAtIndex:i];
+        OCard *card = [player1.cardsInHand objectAtIndex:i];
+        SPTexture *texture = [SPMedia texture:[card name] fromAtlas:_deck];
+        img.texture = texture;
+    }
 }
 
 -(void) gameLoop
