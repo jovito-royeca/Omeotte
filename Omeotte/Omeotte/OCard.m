@@ -100,7 +100,8 @@ NSArray *_cards;
         }
         
         NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-        _cards=[_macards sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+//        _cards=[_macards sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+        _cards = [[NSArray alloc] initWithArray:_macards];
     }
     
     return _cards;

@@ -41,21 +41,16 @@
     _deck = @"arcomage deck.xml";
     
     [SPMedia initAtlas:_deck];
+    SPImage *img = [[SPImage alloc] initWithWidth:95 height:128];
     
-    cards = [[NSMutableArray alloc] initWithCapacity:6];
-    
-//    // Test Coords
-//    SPImage *swiss = [[SPImage alloc] initWithContentsOfFile:@"swiss.gif"];
-//    [swiss addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(SPTouchEvent *event)
-//    {
-//        SPTouch *touch = [[event.touches allObjects] objectAtIndex:0];
-//        SPPoint *localTouchPosition = [touch locationInSpace:self];
-//        swiss.x = localTouchPosition.x;
-//        swiss.y = localTouchPosition.y;
-//        
-//         NSLog(@"x=%f, y=%f", swiss.x, swiss.y);
-//    }];
-//    [self addChild:swiss];
+    [self addChild:img];
+    for (OCard *card in [OCard allCards])
+    {
+        NSLog(@"%@", [card name]);
+        
+        SPTexture *texture = [SPMedia texture:[card name] fromAtlas:_deck];
+        img.texture = texture;
+    }
 }
 
 @end

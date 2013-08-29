@@ -22,8 +22,13 @@
     
     if (self)
     {
+        NSArray *rules = [ORule allRules];
+        NSUInteger random = arc4random() % [rules count];
+        self.rule = [rules objectAtIndex:random];
+        
         [self setup];
         [self initPlayers];
+//        [self gameLoop];
     }
     return self;
 }
@@ -119,12 +124,14 @@
     [player2.base setStats:_rule.base];
     
     _players = [[NSArray alloc] initWithObjects:player1, player2, nil];
+}
 
-    // player1 draws cards
-    for (int i=0; i<player1.cardsInHand.count; i++)
+-(void) showHand:(OPlayer*)player
+{
+    for (int i=0; i<player.cardsInHand.count; i++)
     {
         SPImage *img = [hand objectAtIndex:i];
-        OCard *card = [player1.cardsInHand objectAtIndex:i];
+        OCard *card = [player.cardsInHand objectAtIndex:i];
         SPTexture *texture = [SPMedia texture:[card name] fromAtlas:_deck];
         img.texture = texture;
     }

@@ -23,4 +23,8 @@
 
 //-(id) initWithRule:(ORule*)rule;
 
+-(void) initPlayers;
+-(void) showHand:(OPlayer*)player;
+-(void) gameLoop;
+
 @end

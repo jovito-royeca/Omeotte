@@ -22,9 +22,9 @@
     <SubTexture name="Strip Mine" x="760" y="128" width="95" height="128"/>
     <SubTexture name="Reinforced Wall" x="855" y="128" width="95" height="128"/>
     
-    <SubTexture name="Porticulis" x="0" y="256" width="95" height="128"/>
+    <SubTexture name="Porticulus" x="0" y="256" width="95" height="128"/>
     <SubTexture name="Crystal Rocks" x="95" y="256" width="95" height="128"/>
-    <SubTexture name="Harminic Ore" x="190" y="256" width="95" height="128"/>
+    <SubTexture name="Harmonic Ore" x="190" y="256" width="95" height="128"/>
     <SubTexture name="Mondo Wall" x="285" y="256" width="95" height="128"/>
     <SubTexture name="Focused Designs" x="380" y="256" width="95" height="128"/>
     <SubTexture name="Great Wall" x="475" y="256" width="95" height="128"/>
@@ -65,12 +65,12 @@
     <SubTexture name="Fire Ruby" x="0" y="768" width="95" height="128"/>
     <SubTexture name="Quarry's Help" x="95" y="768" width="95" height="128"/>
     <SubTexture name="Crystal Shield" x="190" y="768" width="95" height="128"/>
-    <SubTexture name="Emphaty Gem" x="285" y="768" width="95" height="128"/>
+    <SubTexture name="Empathy Gem" x="285" y="768" width="95" height="128"/>
     <SubTexture name="Diamond" x="380" y="768" width="95" height="128"/>
     <SubTexture name="Sanctuary" x="475" y="768" width="95" height="128"/>
     <SubTexture name="Lava Jewel" x="570" y="768" width="95" height="128"/>
     <SubTexture name="Dragon's Eye" x="665" y="768" width="95" height="128"/>
-    <SubTexture name="Crystalize" x="760" y="768" width="95" height="128"/>
+    <SubTexture name="Crystallize" x="760" y="768" width="95" height="128"/>
     <SubTexture name="Bag of Baubles" x="855" y="768" width="95" height="128"/>
 
     <SubTexture name="Rainbow" x="0" y="896" width="95" height="128"/>

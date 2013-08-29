@@ -113,4 +113,10 @@
     [[self deck] discard:card];
 }
 
+//+(NSString*) description
+//{
+//    return [NSString stringWithFormat:@"tower=%d, wall=%d, bricks=%d, gems=%d, recruits=%d, quarries=%d, magics=%d, dungeons=%d",
+//            base.tower, self.base.wall, self.base.bricks, self.base.gems, self.base.recruits, self.base.quarries, self.base.magics, self.base.dungeons];
+//}
+
 @end
