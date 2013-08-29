@@ -11,7 +11,7 @@
 @implementation OPlayer
 
 @synthesize base;
-@synthesize cardsInHand;
+@synthesize hand;
 @synthesize deck;
 
 -(id) init
@@ -21,7 +21,7 @@
     if (self)
     {
         base = [[Stats alloc] init];
-        cardsInHand = [[NSMutableArray alloc] initWithCapacity:6];
+        hand = [[NSMutableArray alloc] initWithCapacity:6];
         deck = [[ODeck alloc] init];
         
         [deck shuffle];
@@ -39,7 +39,7 @@
 
 -(BOOL) shouldDiscard:(int)maxHand
 {
-    return [[self cardsInHand] count] < maxHand;
+    return [[self hand] count] < maxHand;
 }
 
 -(BOOL) canPlayCard:(OCard*)card
@@ -47,13 +47,14 @@
     return self.base.bricks >= card.cost.bricks &&
            self.base.gems >= card.cost.gems &&
            self.base.recruits >= card.cost.recruits;
+    NSLog(@"high");
 }
 
 -(OCard*) draw
 {
     OCard *card = [deck drawOnTop];
     
-    [[self cardsInHand] addObject:card];
+    [[self hand] addObject:card];
     return card;
 }
 
@@ -109,7 +110,7 @@
 
 -(void) discard:(OCard*)card
 {
-    [[self cardsInHand] removeObject:card];
+    [[self hand] removeObject:card];
     [[self deck] discard:card];
 }
 

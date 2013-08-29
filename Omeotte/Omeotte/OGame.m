@@ -28,7 +28,7 @@
         
         [self setup];
         [self initPlayers];
-//        [self gameLoop];
+        [self gameLoop];
     }
     return self;
 }
@@ -88,7 +88,7 @@
     SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
     SPImage *img = (SPImage*)event.target;
     int index = [hand indexOfObject:img];
-    OCard *card = [[_currentPlayer cardsInHand] objectAtIndex:index];
+    OCard *card = [[_currentPlayer hand] objectAtIndex:index];
     
     if (touch)
     {
@@ -128,12 +128,14 @@
 
 -(void) showHand:(OPlayer*)player
 {
-    for (int i=0; i<player.cardsInHand.count; i++)
+    for (int i=0; i<player.hand.count; i++)
     {
         SPImage *img = [hand objectAtIndex:i];
-        OCard *card = [player.cardsInHand objectAtIndex:i];
+        OCard *card = [player.hand objectAtIndex:i];
         SPTexture *texture = [SPMedia texture:[card name] fromAtlas:_deck];
+        
         img.texture = texture;
+        img.alpha = [player canPlayCard:card] ? 1.0 : 0.5;
     }
 }
 
@@ -151,7 +153,11 @@
             OPlayer *target = (i == count-1) ? [_players objectAtIndex:i-1] : [_players objectAtIndex:i+1];
             OCard *card = [current chooseCardToPlay];
             
-            [current draw];
+            [self showHand:current];
+            if ([current.hand count] < self.rule.cardsInHand)
+            {
+                [current draw];
+            }
             [current startTurn];
             if ([current canPlayCard:card])
             {
@@ -163,8 +169,11 @@
                 gameOver = YES;
             }
         }
+        break;
     }
     while (!gameOver);
+    
+    NSLog(@"Game Over.");
 }
 
 @end
