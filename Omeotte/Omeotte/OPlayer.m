@@ -13,6 +13,7 @@
 @synthesize base;
 @synthesize hand;
 @synthesize deck;
+@synthesize ai;
 
 -(id) init
 {
@@ -29,12 +30,18 @@
     return self;
 }
 
--(void) drawInitialHand:(int)maxHand
+-(NSArray*) draw:(int)num
 {
-    for (int i=0; i<maxHand; i++)
+    NSMutableArray *cards = [[NSMutableArray alloc] init];
+    
+    for (int i=0; i<num; i++)
     {
-        [self draw];
+        OCard *card = [deck drawOnTop];
+        
+        [[self hand] addObject:card];
+        [cards addObject:card];
     }
+    return cards;
 }
 
 -(BOOL) shouldDiscard:(int)maxHand
@@ -47,18 +54,9 @@
     return self.base.bricks >= card.cost.bricks &&
            self.base.gems >= card.cost.gems &&
            self.base.recruits >= card.cost.recruits;
-    NSLog(@"high");
 }
 
--(OCard*) draw
-{
-    OCard *card = [deck drawOnTop];
-    
-    [[self hand] addObject:card];
-    return card;
-}
-
--(void) startTurn
+-(void) upkeep
 {
     self.base.bricks += self.base.quarries;
     self.base.gems += self.base.magics;
@@ -106,6 +104,8 @@
     {
      
     }*/
+    
+    [self discard:card];
 }
 
 -(void) discard:(OCard*)card

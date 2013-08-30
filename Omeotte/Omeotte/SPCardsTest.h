@@ -9,7 +9,7 @@
 #import "OCard.h"
 #import "OPlayer.h"
 #import "SPSprite.h"
-#import "SPMedia.h"
+#import "OMedia.h"
 
 @interface SPCardsTest : SPSprite
 

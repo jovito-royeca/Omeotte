@@ -12,8 +12,16 @@
 #import "OCard.h"
 #import "OPlayer.h"
 #import "ORule.h"
-#import "SPMedia.h"
+#import "OMedia.h"
 
+typedef enum
+{
+    Upkeep = 0,
+    Draw,
+    Main,
+    Victory,
+    Discard
+} GamePhase;
 
 @interface OGame : SPSprite
 
@@ -25,6 +33,5 @@
 
 -(void) initPlayers;
 -(void) showHand:(OPlayer*)player;
--(void) gameLoop;
 
 @end

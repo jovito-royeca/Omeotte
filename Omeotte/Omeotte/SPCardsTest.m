@@ -30,7 +30,7 @@
 
 //    [_button removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TRIGGERED];
     [cards release];
-    [SPMedia releaseAllAtlas];
+    [OMedia releaseAllAtlas];
     //    [SPMedia releaseSound];
     
     
@@ -40,7 +40,7 @@
 {
     _deck = @"arcomage deck.xml";
     
-    [SPMedia initAtlas:_deck];
+    [OMedia initAtlas:_deck];
     SPImage *img = [[SPImage alloc] initWithWidth:95 height:128];
     
     [self addChild:img];
@@ -48,7 +48,7 @@
     {
         NSLog(@"%@", [card name]);
         
-        SPTexture *texture = [SPMedia texture:[card name] fromAtlas:_deck];
+        SPTexture *texture = [OMedia texture:[card name] fromAtlas:_deck];
         img.texture = texture;
     }
 }

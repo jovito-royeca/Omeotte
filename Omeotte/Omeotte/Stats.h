@@ -23,12 +23,11 @@ typedef enum
     Dungeons = 7
 } StatField;
 
-enum
+typedef enum
 {
     Current = 0,
     Opponent,
-};
-typedef int EffectTarget;
+} EffectTarget;
 
 typedef struct _Effect
 {

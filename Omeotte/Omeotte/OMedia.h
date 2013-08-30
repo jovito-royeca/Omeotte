@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "Sparrow.h"
 
-@interface SPMedia : NSObject 
+@interface OMedia : NSObject 
 
 + (void)initAtlas:(NSString *)name;
 + (void)releaseAtlas:(NSString *)name;

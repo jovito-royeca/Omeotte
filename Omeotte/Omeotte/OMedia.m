@@ -3,10 +3,10 @@
 //  AppScaffold
 //
 
-#import "SPMedia.h"
+#import "OMedia.h"
 
 
-@implementation SPMedia
+@implementation OMedia
 
 static NSMutableDictionary *atlases = NULL;
 static NSMutableDictionary *sounds = NULL;

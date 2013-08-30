@@ -43,7 +43,6 @@
     OCard *card = [cardsInLibrary objectAtIndex:[cardsInLibrary count]-1];
     
     [cardsInLibrary removeLastObject];
-    [cardsInGraveyard addObject:card];
     return card;
 }
 
@@ -53,7 +52,6 @@
     OCard *card = [cardsInLibrary objectAtIndex:random];
     
     [cardsInLibrary removeLastObject];
-    [cardsInGraveyard addObject:card];
     return card;
 }
 

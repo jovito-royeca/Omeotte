@@ -18,7 +18,7 @@
 		11722F5D17C6384C00014D16 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5C17C6384C00014D16 /* AVFoundation.framework */; };
 		11722F5F17C6385700014D16 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5E17C6385700014D16 /* AudioToolbox.framework */; };
 		11722F6117C6386400014D16 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F6017C6386400014D16 /* OpenAL.framework */; };
-		11722F6B17C640CC00014D16 /* SPMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 11722F6A17C640CC00014D16 /* SPMedia.m */; };
+		11722F6B17C640CC00014D16 /* OMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 11722F6A17C640CC00014D16 /* OMedia.m */; };
 		11722F7317C64D9400014D16 /* arcomage deck.xml in Resources */ = {isa = PBXBuildFile; fileRef = 11722F7217C64D9400014D16 /* arcomage deck.xml */; };
 		11722F7517C64E0900014D16 /* arcomage deck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11722F7417C64E0900014D16 /* arcomage deck.jpg */; };
 		118E688617C74BD8007801CD /* Stats.m in Sources */ = {isa = PBXBuildFile; fileRef = 118E688517C74BD8007801CD /* Stats.m */; };
@@ -82,8 +82,8 @@
 		11722F5C17C6384C00014D16 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		11722F5E17C6385700014D16 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		11722F6017C6386400014D16 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
-		11722F6917C640CC00014D16 /* SPMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMedia.h; sourceTree = "<group>"; };
-		11722F6A17C640CC00014D16 /* SPMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMedia.m; sourceTree = "<group>"; };
+		11722F6917C640CC00014D16 /* OMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMedia.h; sourceTree = "<group>"; };
+		11722F6A17C640CC00014D16 /* OMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMedia.m; sourceTree = "<group>"; };
 		11722F7217C64D9400014D16 /* arcomage deck.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "arcomage deck.xml"; sourceTree = "<group>"; };
 		11722F7417C64E0900014D16 /* arcomage deck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "arcomage deck.jpg"; sourceTree = "<group>"; };
 		118E688417C74BD8007801CD /* Stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stats.h; sourceTree = "<group>"; };
@@ -242,8 +242,8 @@
 				11D5CF5917C32F6A00AA96BC /* ORule.m */,
 				115097A717CC94E0005576BF /* SPCardsTest.h */,
 				115097A817CC94E0005576BF /* SPCardsTest.m */,
-				11722F6917C640CC00014D16 /* SPMedia.h */,
-				11722F6A17C640CC00014D16 /* SPMedia.m */,
+				11722F6917C640CC00014D16 /* OMedia.h */,
+				11722F6A17C640CC00014D16 /* OMedia.m */,
 				118E688417C74BD8007801CD /* Stats.h */,
 				118E688517C74BD8007801CD /* Stats.m */,
 				1195D18117C25F5E00C4DA25 /* Supporting Files */,
@@ -442,7 +442,7 @@
 				1195D28E17C272B600C4DA25 /* OCard.m in Sources */,
 				1195D29117C2772700C4DA25 /* ODeck.m in Sources */,
 				11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */,
-				11722F6B17C640CC00014D16 /* SPMedia.m in Sources */,
+				11722F6B17C640CC00014D16 /* OMedia.m in Sources */,
 				118E688617C74BD8007801CD /* Stats.m in Sources */,
 				115097A917CC94E0005576BF /* SPCardsTest.m in Sources */,
 			);

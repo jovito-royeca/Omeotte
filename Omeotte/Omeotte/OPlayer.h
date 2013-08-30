@@ -17,14 +17,14 @@
 @property(strong,nonatomic) Stats *base;
 @property(strong,nonatomic) NSMutableArray *hand;
 @property(strong,nonatomic) ODeck *deck;
+@property(nonatomic) BOOL ai;
 
--(void) drawInitialHand:(int)maxHand;
+//-(void) drawInitialHand:(int)maxHand;
 -(BOOL) shouldDiscard:(int)maxHand;
 -(BOOL) canPlayCard:(OCard*)card;
--(OCard*) draw;
--(void) startTurn;
+-(NSArray*) draw:(int)num;
+-(void) upkeep;
 -(OCard*) chooseCardToPlay;
--(OCard*) chooseCardToDiscard;
 -(void) play:(OCard*)card onTarget:(OPlayer*)target;
 -(void) discard:(OCard*)card;
 

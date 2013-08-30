@@ -12,8 +12,12 @@
 {
     OPlayer *_currentPlayer;
     NSString *_deck;
+    SPTexture *_blankTexture;
+    GamePhase _gamePhase;
 }
 
+@synthesize players;
+@synthesize rule;
 @synthesize hand;
 
 -(id) init
@@ -22,13 +26,17 @@
     
     if (self)
     {
+        // Get a random Rule; Modify this later to pick a Rule
         NSArray *rules = [ORule allRules];
         NSUInteger random = arc4random() % [rules count];
-        self.rule = [rules objectAtIndex:random];
+        rule = [rules objectAtIndex:random];
+        
+        _gamePhase = Upkeep;
         
         [self setup];
         [self initPlayers];
-        [self gameLoop];
+//        [self gameLoop];
+        [self addEventListener:@selector(gameLoop:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
     }
     return self;
 }
@@ -43,7 +51,7 @@
     }
     [hand release];
     
-    [SPMedia releaseAllAtlas];
+    [OMedia releaseAllAtlas];
     //    [SPMedia releaseSound];
 }
 
@@ -51,11 +59,15 @@
 {
     _deck = @"arcomage deck.xml";
     
-    [SPMedia initAtlas:_deck];
+    [OMedia initAtlas:_deck];
     
     hand = [[NSMutableArray alloc] initWithCapacity:6];
+    _blankTexture = [OMedia texture:@"blank" fromAtlas:_deck];
     
-    // Lay the Cards
+    // To do: lay the background
+    // ...
+    
+    // Cards
     int stageWidth = Sparrow.stage.width;
     int stageHeight = Sparrow.stage.height;
     int cardWidth = stageWidth/6;
@@ -64,9 +76,8 @@
     for (int i=0; i<6; i++)
     {
         SPImage *img = [[SPImage alloc] initWithWidth:cardWidth height:cardHeight];
-        SPTexture *texture = [SPMedia texture:@"blank" fromAtlas:_deck];
         
-        img.texture = texture;
+        img.texture = _blankTexture;
         img.x = currentX;
         img.y = stageHeight-img.height;
         currentX += img.width;
@@ -76,6 +87,12 @@
         
         [hand addObject:img];
     }
+    
+    // To do: lay the Player stats
+    // ...
+    
+    // To do: lay the Castles and Walls
+    // ...
 }
 
 - (void)onCardTouched:(SPTouchEvent*)event
@@ -90,25 +107,32 @@
     int index = [hand indexOfObject:img];
     OCard *card = [[_currentPlayer hand] objectAtIndex:index];
     
-    if (touch)
+    if (card && touch)
     {
         SPPoint *touchPosition = [touch locationInSpace:self];
         BOOL play = touchPosition.y < (stageHeight-cardHeight);
         
-        NSLog(@"Touch position ended (%f, %f)", touchPosition.x, touchPosition.y);
-        
         if (play)
         {
-            NSLog(@"Playing... %@", [card name]);
+            if ([_currentPlayer canPlayCard:card])
+            {
+                NSLog(@"Playing... %@", [card name]);
+                [_currentPlayer play:card onTarget:[self opponentPlayer]];
+                [_currentPlayer discard:card];
+                
+                img.texture = _blankTexture;
+                [hand removeObject:card];
+            }
+            
+            if (!card.playAgain)
+                _gamePhase = Victory;
         }
         else
         {
             NSLog(@"Discarding... %@", [card name]);
+            [_currentPlayer discard:card];
+            _gamePhase = Upkeep;
         }
-        
-        OCard *newCard = [_currentPlayer draw];
-        SPTexture *texture = [SPMedia texture:[newCard name] fromAtlas:_deck];
-        img.texture = texture;
     }
 }
 
@@ -117,13 +141,15 @@
     OPlayer *player1 = [[OPlayer alloc] init];
     OPlayer *player2 = [[OPlayer alloc] init];
     
-    [player1 drawInitialHand:[_rule cardsInHand]];
-    [player1.base setStats:_rule.base];
+    [player1 draw:[rule cardsInHand]];
+    [player1.base setStats:rule.base];
     
-    [player2 drawInitialHand:[_rule cardsInHand]];
-    [player2.base setStats:_rule.base];
+    [player2 draw:[rule cardsInHand]];
+    [player2.base setStats:rule.base];
     
-    _players = [[NSArray alloc] initWithObjects:player1, player2, nil];
+    _currentPlayer = player1;
+    player2.ai = YES;
+    players = [[NSArray alloc] initWithObjects:player1, player2, nil];
 }
 
 -(void) showHand:(OPlayer*)player
@@ -132,48 +158,102 @@
     {
         SPImage *img = [hand objectAtIndex:i];
         OCard *card = [player.hand objectAtIndex:i];
-        SPTexture *texture = [SPMedia texture:[card name] fromAtlas:_deck];
         
-        img.texture = texture;
-        img.alpha = [player canPlayCard:card] ? 1.0 : 0.5;
+        if (card)
+        {
+            SPTexture *texture = [OMedia texture:[card name] fromAtlas:_deck];
+        
+            img.texture = texture;
+            img.alpha = [player canPlayCard:card] ? 1.0 : 0.5;
+        }
+        else
+        {
+            img.texture = _blankTexture;
+        }
     }
 }
 
--(void) gameLoop
+-(void) addCardsToHand:(NSArray*)cards
 {
-    BOOL gameOver = NO;
-    
-    do
+    for (OCard* card in cards)
     {
-        int i = 0, count = [_players count];
-        
-        for (i=0; i<count; i++)
+        for (SPImage *img in hand)
         {
-            OPlayer *current = [_players objectAtIndex:i];
-            OPlayer *target = (i == count-1) ? [_players objectAtIndex:i-1] : [_players objectAtIndex:i+1];
-            OCard *card = [current chooseCardToPlay];
-            
-            [self showHand:current];
-            if ([current.hand count] < self.rule.cardsInHand)
+            if (img.texture == _blankTexture)
             {
-                [current draw];
-            }
-            [current startTurn];
-            if ([current canPlayCard:card])
-            {
-                [current play:card onTarget:target];
-            }
-            
-            if (current.base.tower == 0 || target.base.tower == 0)
-            {
-                gameOver = YES;
+                SPTexture *texture = [OMedia texture:[card name] fromAtlas:_deck];
+                
+                img.texture = texture;
+                img.alpha = [_currentPlayer canPlayCard:card] ? 1.0 : 0.5;
             }
         }
-        break;
     }
-    while (!gameOver);
+}
+
+-(OPlayer*) opponentPlayer
+{
+    int i = [players indexOfObject:_currentPlayer];
+    int count = [players count];
+    return (i == count-1) ? [players objectAtIndex:i-1] : [players objectAtIndex:i+1];
+}
+
+-(void) gameLoop:(SPEnterFrameEvent*)event
+{
+    OPlayer *opponent = [self opponentPlayer];
     
-    NSLog(@"Game Over.");
+    switch (_gamePhase)
+    {
+        case Upkeep:
+        {
+            [self showHand:_currentPlayer];
+            [_currentPlayer upkeep];
+            _gamePhase = Draw;
+            break;
+        }
+        case Draw:
+        {
+            int cardsToDraw = rule.cardsInHand - [_currentPlayer.hand count];
+            if (cardsToDraw > 0)
+            {
+                [self addCardsToHand:[_currentPlayer draw:cardsToDraw]];
+            }
+            _gamePhase = Main;
+            break;
+        }
+        case Main:
+        {
+            if (_currentPlayer.ai)
+            {
+                OCard *card = [_currentPlayer chooseCardToPlay];
+                
+                if (card && [_currentPlayer canPlayCard:card])
+                {
+                    [_currentPlayer play:card onTarget:opponent];
+                }
+                
+                if (!card.playAgain)
+                    _gamePhase = Victory;
+            }
+            break;
+        }
+        case Victory:
+        {
+            if (_currentPlayer.base.tower == 0 || opponent.base.tower == 0)
+            {
+                NSLog(@"Game Over");
+            }
+            break;
+        }
+        case Discard:
+        {
+            if ([_currentPlayer shouldDiscard:rule.cardsInHand])
+            {
+//                [_currentPlayer discard];
+            }
+            _gamePhase = Upkeep;
+            _currentPlayer = opponent;
+        }
+    }
 }
 
 @end
