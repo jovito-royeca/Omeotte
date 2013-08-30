@@ -14,6 +14,7 @@
 
 @interface OPlayer : NSObject
 
+@property(strong,nonatomic) NSString *name;
 @property(strong,nonatomic) Stats *base;
 @property(strong,nonatomic) NSMutableArray *hand;
 @property(strong,nonatomic) ODeck *deck;

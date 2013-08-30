@@ -10,6 +10,7 @@
 
 @implementation OPlayer
 
+@synthesize name;
 @synthesize base;
 @synthesize hand;
 @synthesize deck;
@@ -46,7 +47,7 @@
 
 -(BOOL) shouldDiscard:(int)maxHand
 {
-    return [hand count] < maxHand;
+    return [hand count] > maxHand;
 }
 
 -(BOOL) canPlayCard:(OCard*)card
@@ -75,13 +76,27 @@
         }
     }
     
-    NSUInteger random = arc4random() % [cards count];
-    return [cards objectAtIndex:random];
+    if (cards.count == 0)
+    {
+        return nil;
+    }
+    else if (cards.count == 1)
+    {
+        return [cards objectAtIndex:0];
+    }
+    else if (cards.count > 1)
+    {
+        NSUInteger random = arc4random() % [cards count];
+        return [cards objectAtIndex:random];
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 -(OCard*) chooseCardToDiscard
 {
-    NSMutableArray *cards = [[NSMutableArray alloc] init];
     OCard *highest = nil;
     
     for (OCard *card in hand)
@@ -104,35 +119,35 @@
 
 -(void) play:(OCard*)card onTarget:(OPlayer*)target
 {
-    /*if (card.ops)
+    base.bricks -= card.cost.bricks;
+    base.gems -= card.cost.gems;
+    base.recruits -= card.cost.recruits;
+    
+    if (card.effects)
     {
-        int i, count = [card.ops count];
-        
-        for (i=0; i<count; i++)
+        for (int i=0; i<card.effects.count; i++)
         {
-            struct _Ops o;
-            [[card.ops objectAtIndex:i] getValue:&o];
-            do_ops(&o, self.base, target.base);
+            struct _Effect e;
+            [[card.effects objectAtIndex:i] getValue:&e];
+
+            switch (e.target)
+            {
+                case Current:
+                {
+                    [base setStatField:e.field withValue:e.value];
+                    break;
+                }
+                case Opponent:
+                {
+                    [target.base setStatField:e.field withValue:e.value];
+                    break;
+                }
+            }
         }
     }
-
-    if (card.statFields)
-    {
-        for (NSNumber *i in [card.statFields allKeys])
-        {
-            int w = [i intValue];
-            int x = [[card.statFields objectForKey:i] intValue];
-            Stats y = self.base;
-            Stats z = target.base;
-        
-            set_statsfield(w, x, y, z);
-        }
-    }
-
-    if (card.playAgain)
-    {
-     
-    }*/
+    
+    // To Do: handle ops
+    // ...
     
     [self discard:card];
 }

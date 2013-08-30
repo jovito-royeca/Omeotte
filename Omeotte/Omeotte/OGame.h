@@ -25,6 +25,19 @@ typedef enum
 
 @interface OGame : SPSprite
 
+@property (strong, nonatomic) SPTextField *txtPlayer1Name;
+@property (strong, nonatomic) SPTextField *txtPlayer1Tower;
+@property (strong, nonatomic) SPTextField *txtPlayer1Wall;
+@property (strong, nonatomic) SPTextField *txtPlayer1Quarries;
+@property (strong, nonatomic) SPTextField *txtPlayer1Magics;
+@property (strong, nonatomic) SPTextField *txtPlayer1Dungeons;
+@property (strong, nonatomic) SPTextField *txtPlayer2Name;
+@property (strong, nonatomic) SPTextField *txtPlayer2Tower;
+@property (strong, nonatomic) SPTextField *txtPlayer2Wall;
+@property (strong, nonatomic) SPTextField *txtPlayer2Quarries;
+@property (strong, nonatomic) SPTextField *txtPlayer2Magics;
+@property (strong, nonatomic) SPTextField *txtPlayer2Dungeons;
+
 @property (strong, nonatomic) NSArray *players;
 @property (strong, nonatomic) ORule* rule;
 @property (strong, nonatomic) NSMutableArray *hand;
@@ -32,6 +45,6 @@ typedef enum
 //-(id) initWithRule:(ORule*)rule;
 
 -(void) initPlayers;
--(void) showHand:(OPlayer*)player;
+-(void) showHand;
 
 @end

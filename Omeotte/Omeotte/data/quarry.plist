@@ -24,11 +24,19 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>-8</integer>
 				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>2</integer>
+				<key>value</key>
+				<integer>-8</integer>
+				<key>target</key>
+				<integer>1</integer>
 			</dict>
 		</array>
 	</dict>
@@ -54,11 +62,19 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>-1</integer>
 				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>5</integer>
+				<key>value</key>
+				<integer>-1</integer>
+				<key>target</key>
+				<integer>1</integer>
 			</dict>
 		</array>
 	</dict>
@@ -84,11 +100,35 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>3</integer>
+				<key>value</key>
+				<integer>2</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>2</integer>
+				<key>value</key>
+				<integer>2</integer>
+				<key>target</key>
+				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>3</integer>
+				<key>value</key>
+				<integer>2</integer>
+				<key>target</key>
+				<integer>1</integer>
 			</dict>
 		</array>
 	</dict>
@@ -114,9 +154,25 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
+				<integer>10</integer>
+				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>3</integer>
+				<key>value</key>
+				<integer>5</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>5</integer>
+				<key>value</key>
+				<integer>-1</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -144,9 +200,9 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -174,9 +230,25 @@
 		<array>
 			<dict>
 				<key>field</key>
+				<integer>1</integer>
+				<key>value</key>
+				<integer>10</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
 				<integer>0</integer>
 				<key>value</key>
+				<integer>10</integer>
+				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>4</integer>
+				<key>value</key>
+				<integer>2</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -204,9 +276,9 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>3</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -234,11 +306,27 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>3</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>4</integer>
 				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>5</integer>
+				<key>value</key>
+				<integer>1</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>5</integer>
+				<key>value</key>
+				<integer>1</integer>
+				<key>target</key>
+				<integer>1</integer>
 			</dict>
 		</array>
 	</dict>
@@ -264,9 +352,17 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
+				<integer>5</integer>
+				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>3</integer>
+				<key>value</key>
+				<integer>-6</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -294,9 +390,9 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>3</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -372,9 +468,9 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -402,9 +498,9 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>4</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -432,11 +528,11 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>-1</integer>
 				<key>target</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 		</array>
 	</dict>
@@ -462,9 +558,9 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -509,9 +605,9 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>6</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -616,9 +712,9 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -646,9 +742,17 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
+				<integer>4</integer>
+				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>5</integer>
+				<key>value</key>
+				<integer>1</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -676,9 +780,17 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
+				<integer>9</integer>
+				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>4</integer>
+				<key>value</key>
+				<integer>-5</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -706,11 +818,19 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>-5</integer>
 				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>1</integer>
+				<key>value</key>
+				<integer>-5</integer>
+				<key>target</key>
+				<integer>1</integer>
 			</dict>
 		</array>
 	</dict>
@@ -736,9 +856,9 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>8</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -766,9 +886,9 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>6</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -796,9 +916,17 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
+				<integer>7</integer>
+				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>3</integer>
+				<key>value</key>
+				<integer>7</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -826,9 +954,17 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
+				<integer>5</integer>
+				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>7</integer>
+				<key>value</key>
+				<integer>1</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -856,9 +992,17 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
+				<integer>6</integer>
+				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>4</integer>
+				<key>value</key>
+				<integer>6</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -886,9 +1030,17 @@
 		<array>
 			<dict>
 				<key>field</key>
+				<integer>1</integer>
+				<key>value</key>
+				<integer>6</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
 				<integer>0</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>3</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -916,9 +1068,9 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>12</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -946,11 +1098,19 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>7</integer>
 				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>1</integer>
+				<key>value</key>
+				<integer>-6</integer>
+				<key>target</key>
+				<integer>1</integer>
 			</dict>
 		</array>
 	</dict>
@@ -976,9 +1136,17 @@
 		<array>
 			<dict>
 				<key>field</key>
+				<integer>1</integer>
+				<key>value</key>
+				<integer>8</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
 				<integer>0</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -1006,9 +1174,9 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>15</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -1066,11 +1234,19 @@
 		<array>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>6</integer>
 				<key>target</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
+				<integer>1</integer>
+				<key>value</key>
+				<integer>10</integer>
+				<key>target</key>
+				<integer>1</integer>
 			</dict>
 		</array>
 	</dict>
@@ -1096,9 +1272,17 @@
 		<array>
 			<dict>
 				<key>field</key>
+				<integer>1</integer>
+				<key>value</key>
+				<integer>20</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>field</key>
 				<integer>0</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>8</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
