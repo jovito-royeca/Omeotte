@@ -38,7 +38,7 @@
     {
         OCard *card = [deck drawOnTop];
         
-        [[self hand] addObject:card];
+        [hand addObject:card];
         [cards addObject:card];
     }
     return cards;
@@ -46,7 +46,7 @@
 
 -(BOOL) shouldDiscard:(int)maxHand
 {
-    return [[self hand] count] < maxHand;
+    return [hand count] < maxHand;
 }
 
 -(BOOL) canPlayCard:(OCard*)card
@@ -110,8 +110,8 @@
 
 -(void) discard:(OCard*)card
 {
-    [[self hand] removeObject:card];
-    [[self deck] discard:card];
+    [hand removeObject:card];
+    [deck discard:card];
 }
 
 //+(NSString*) description

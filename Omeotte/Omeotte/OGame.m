@@ -120,8 +120,9 @@
                 [_currentPlayer play:card onTarget:[self opponentPlayer]];
                 [_currentPlayer discard:card];
                 
-                img.texture = _blankTexture;
-                [hand removeObject:card];
+//                img.texture = _blankTexture;
+//                [hand removeObject:card];
+                [self showHand:_currentPlayer];
             }
             
             if (!card.playAgain)
@@ -154,21 +155,24 @@
 
 -(void) showHand:(OPlayer*)player
 {
-    for (int i=0; i<player.hand.count; i++)
+    for (int i=0; i<hand.count; i++)
     {
         SPImage *img = [hand objectAtIndex:i];
-        OCard *card = [player.hand objectAtIndex:i];
+        OCard *card = nil;
+        
+        if (i <= player.hand.count-1)
+        {
+             card = [player.hand objectAtIndex:i];
+        }
         
         if (card)
         {
-            SPTexture *texture = [OMedia texture:[card name] fromAtlas:_deck];
-        
-            img.texture = texture;
-            img.alpha = [player canPlayCard:card] ? 1.0 : 0.5;
+            [self displayCard:card inImageHolder:img];
         }
         else
         {
             img.texture = _blankTexture;
+            img.alpha = 1.0;
         }
     }
 }
@@ -181,13 +185,18 @@
         {
             if (img.texture == _blankTexture)
             {
-                SPTexture *texture = [OMedia texture:[card name] fromAtlas:_deck];
-                
-                img.texture = texture;
-                img.alpha = [_currentPlayer canPlayCard:card] ? 1.0 : 0.5;
+                [self displayCard:card inImageHolder:img];
             }
         }
     }
+}
+
+-(void) displayCard:(OCard*) card inImageHolder:(SPImage*)img
+{
+    SPTexture *texture = [OMedia texture:[card name] fromAtlas:_deck];
+
+    img.texture = texture;
+    img.alpha = [_currentPlayer canPlayCard:card] ? 1.0 : 0.4;
 }
 
 -(OPlayer*) opponentPlayer
