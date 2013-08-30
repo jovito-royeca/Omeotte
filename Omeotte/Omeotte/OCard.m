@@ -117,4 +117,9 @@ NSArray *_cards;
     return e;
 }
 
+-(int) totalCost
+{
+    return cost.bricks + cost.gems + cost.recruits;
+}
+
 @end

@@ -68,22 +68,18 @@
     // ...
     
     // Cards
-    int stageWidth = Sparrow.stage.width;
-    int stageHeight = Sparrow.stage.height;
-    int cardWidth = stageWidth/6;
-    int cardHeight = (cardWidth*128)/95;
+    CGRect rect = [self cardRect];
     int currentX = 0;
     for (int i=0; i<6; i++)
     {
-        SPImage *img = [[SPImage alloc] initWithWidth:cardWidth height:cardHeight];
+        SPImage *img = [[SPImage alloc] initWithWidth:rect.size.width height:rect.size.height];
         
         img.texture = _blankTexture;
         img.x = currentX;
-        img.y = stageHeight-img.height;
+        img.y = Sparrow.stage.height-img.height;
         currentX += img.width;
         [self addChild:img];
-        [img addEventListener:@selector(onCardTouched:) atObject:self
-                      forType:SP_EVENT_TYPE_TOUCH];
+        [img addEventListener:@selector(onCardTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         
         [hand addObject:img];
     }
@@ -97,42 +93,35 @@
 
 - (void)onCardTouched:(SPTouchEvent*)event
 {
-    int stageWidth = Sparrow.stage.width;
-    int stageHeight = Sparrow.stage.height;
-    int cardWidth = stageWidth/6;
-    int cardHeight = (cardWidth*128)/95;
-    
+    if (_currentPlayer.ai)
+    {
+        return;
+    }
+
     SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
     SPImage *img = (SPImage*)event.target;
     int index = [hand indexOfObject:img];
-    OCard *card = [[_currentPlayer hand] objectAtIndex:index];
+    OCard *card = nil;
+    
+    if (index <= [_currentPlayer.hand count] -1)
+    {
+        card = [_currentPlayer.hand objectAtIndex:index];
+    }
     
     if (card && touch)
     {
+        CGRect rect = [self cardRect];
+        
         SPPoint *touchPosition = [touch locationInSpace:self];
-        BOOL play = touchPosition.y < (stageHeight-cardHeight);
+        BOOL play = touchPosition.y < (Sparrow.stage.height-rect.size.height);
         
         if (play)
         {
-            if ([_currentPlayer canPlayCard:card])
-            {
-                NSLog(@"Playing... %@", [card name]);
-                [_currentPlayer play:card onTarget:[self opponentPlayer]];
-                [_currentPlayer discard:card];
-                
-//                img.texture = _blankTexture;
-//                [hand removeObject:card];
-                [self showHand:_currentPlayer];
-            }
-            
-            if (!card.playAgain)
-                _gamePhase = Victory;
+            [self playCard:card];
         }
         else
         {
-            NSLog(@"Discarding... %@", [card name]);
-            [_currentPlayer discard:card];
-            _gamePhase = Upkeep;
+            [self discardCard:card];
         }
     }
 }
@@ -155,24 +144,38 @@
 
 -(void) showHand:(OPlayer*)player
 {
-    for (int i=0; i<hand.count; i++)
+    if (_currentPlayer.ai)
     {
-        SPImage *img = [hand objectAtIndex:i];
-        OCard *card = nil;
-        
-        if (i <= player.hand.count-1)
+        for (int i=0; i<hand.count; i++)
         {
-             card = [player.hand objectAtIndex:i];
-        }
-        
-        if (card)
-        {
-            [self displayCard:card inImageHolder:img];
-        }
-        else
-        {
+            SPImage *img = [hand objectAtIndex:i];
+            
             img.texture = _blankTexture;
             img.alpha = 1.0;
+        }
+    }
+    
+    else
+    {
+        for (int i=0; i<hand.count; i++)
+        {
+            SPImage *img = [hand objectAtIndex:i];
+            OCard *card = nil;
+        
+            if (i <= player.hand.count-1)
+            {
+                card = [player.hand objectAtIndex:i];
+            }
+        
+            if (card)
+            {
+                [self displayCard:card inImageHolder:img];
+            }
+            else
+            {
+                img.texture = _blankTexture;
+                img.alpha = 1.0;
+            }
         }
     }
 }
@@ -191,6 +194,29 @@
     }
 }
 
+-(void) playCard:(OCard*) card
+{
+    if ([_currentPlayer canPlayCard:card])
+    {
+        NSLog(@"Playing... %@", [card name]);
+        [_currentPlayer play:card onTarget:[self opponentPlayer]];
+        [_currentPlayer discard:card];
+        [self showHand:_currentPlayer];
+        
+        if (card.playAgain)
+            _gamePhase = Upkeep;
+        else
+            _gamePhase = Discard;
+    }
+}
+
+-(void) discardCard:(OCard*) card
+{
+    NSLog(@"Discarding... %@", [card name]);
+    [_currentPlayer discard:card];
+    _gamePhase = Discard;
+}
+
 -(void) displayCard:(OCard*) card inImageHolder:(SPImage*)img
 {
     SPTexture *texture = [OMedia texture:[card name] fromAtlas:_deck];
@@ -204,6 +230,16 @@
     int i = [players indexOfObject:_currentPlayer];
     int count = [players count];
     return (i == count-1) ? [players objectAtIndex:i-1] : [players objectAtIndex:i+1];
+}
+
+-(CGRect) cardRect
+{
+    int stageWidth = Sparrow.stage.width;
+//    int stageHeight = Sparrow.stage.height;
+    int cardWidth = stageWidth/6;
+    int cardHeight = (cardWidth*128)/95;
+    
+    return CGRectMake(0, 0, cardWidth, cardHeight);
 }
 
 -(void) gameLoop:(SPEnterFrameEvent*)event
@@ -235,13 +271,7 @@
             {
                 OCard *card = [_currentPlayer chooseCardToPlay];
                 
-                if (card && [_currentPlayer canPlayCard:card])
-                {
-                    [_currentPlayer play:card onTarget:opponent];
-                }
-                
-                if (!card.playAgain)
-                    _gamePhase = Victory;
+                [self playCard:card];
             }
             break;
         }
@@ -255,9 +285,14 @@
         }
         case Discard:
         {
-            if ([_currentPlayer shouldDiscard:rule.cardsInHand])
+            if (_currentPlayer.ai)
             {
-//                [_currentPlayer discard];
+                if ([_currentPlayer shouldDiscard:rule.cardsInHand])
+                {
+                    OCard *card = [_currentPlayer chooseCardToDiscard];
+                    
+                    [self discardCard:card];
+                }
             }
             _gamePhase = Upkeep;
             _currentPlayer = opponent;

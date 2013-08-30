@@ -32,4 +32,6 @@ typedef int CardType;
 
 +(NSArray*)allCards;
 
+-(int) totalCost;
+
 @end

@@ -65,12 +65,41 @@
 
 -(OCard*) chooseCardToPlay
 {
-    return nil;
+    NSMutableArray *cards = [[NSMutableArray alloc] init];
+    
+    for (OCard *card in hand)
+    {
+        if ([self canPlayCard:card])
+        {
+            [cards addObject:card];
+        }
+    }
+    
+    NSUInteger random = arc4random() % [cards count];
+    return [cards objectAtIndex:random];
 }
 
 -(OCard*) chooseCardToDiscard
 {
-    return nil;
+    NSMutableArray *cards = [[NSMutableArray alloc] init];
+    OCard *highest = nil;
+    
+    for (OCard *card in hand)
+    {
+        if (highest)
+        {
+            if (card.totalCost > highest.totalCost)
+            {
+                highest = card;
+            }
+        }
+        else
+        {
+            highest = card;
+        }
+    }
+    
+    return highest;
 }
 
 -(void) play:(OCard*)card onTarget:(OPlayer*)target
