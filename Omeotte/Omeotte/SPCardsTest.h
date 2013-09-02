@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
+#import "Sparrow.h"
+
 #import "OCard.h"
 #import "OPlayer.h"
-#import "SPSprite.h"
 #import "OMedia.h"
 
 @interface SPCardsTest : SPSprite

@@ -28,7 +28,6 @@
 {
     [super dealloc];
 
-//    [_button removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TRIGGERED];
     [cards release];
     [OMedia releaseAllAtlas];
     //    [SPMedia releaseSound];

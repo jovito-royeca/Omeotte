@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Sparrow.h"
 
 #import "OGame.h"
 #import "ORule.h"
 #import "SPCardsTest.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+{
+    SPViewController *_viewController;
+    UIWindow *_window;
+}
 
 @end
