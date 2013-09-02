@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110C941917D36C9E0029DC16 /* OCardUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 110C941817D36C9E0029DC16 /* OCardUI.m */; };
 		1137991F17C49ADF00794158 /* magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137991E17C49ADF00794158 /* magic.plist */; };
 		1137992117C49AF000794158 /* dungeon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137992017C49AF000794158 /* dungeon.plist */; };
+		1148A85A17D4083300D7E3B3 /* OBattle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A85917D4083300D7E3B3 /* OBattle.m */; };
+		1148A86317D4109400D7E3B3 /* OMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A86217D4109400D7E3B3 /* OMenu.m */; };
+		1148A86617D411E200D7E3B3 /* OButtonTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A86517D411E200D7E3B3 /* OButtonTexture.m */; };
 		115097A917CC94E0005576BF /* SPCardsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 115097A817CC94E0005576BF /* SPCardsTest.m */; };
 		11722F5317C636BF00014D16 /* libSparrow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F4F17C635EE00014D16 /* libSparrow.a */; };
 		11722F5517C636CB00014D16 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5417C636CB00014D16 /* libz.dylib */; };
@@ -70,8 +74,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		110C941717D36C9E0029DC16 /* OCardUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCardUI.h; sourceTree = "<group>"; };
+		110C941817D36C9E0029DC16 /* OCardUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCardUI.m; sourceTree = "<group>"; };
 		1137991E17C49ADF00794158 /* magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic.plist; sourceTree = "<group>"; };
 		1137992017C49AF000794158 /* dungeon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dungeon.plist; sourceTree = "<group>"; };
+		1148A85817D4083300D7E3B3 /* OBattle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBattle.h; sourceTree = "<group>"; };
+		1148A85917D4083300D7E3B3 /* OBattle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBattle.m; sourceTree = "<group>"; };
+		1148A86117D4109400D7E3B3 /* OMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMenu.h; sourceTree = "<group>"; };
+		1148A86217D4109400D7E3B3 /* OMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMenu.m; sourceTree = "<group>"; };
+		1148A86417D411E200D7E3B3 /* OButtonTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OButtonTexture.h; sourceTree = "<group>"; };
+		1148A86517D411E200D7E3B3 /* OButtonTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OButtonTexture.m; sourceTree = "<group>"; };
 		115097A717CC94E0005576BF /* SPCardsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCardsTest.h; sourceTree = "<group>"; };
 		115097A817CC94E0005576BF /* SPCardsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCardsTest.m; sourceTree = "<group>"; };
 		11722F4917C635EE00014D16 /* Sparrow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparrow.xcodeproj; path = "../Sparrow-Framework/sparrow/src/Sparrow.xcodeproj"; sourceTree = "<group>"; };
@@ -176,6 +188,32 @@
 			path = graphics;
 			sourceTree = "<group>";
 		};
+		1148A85F17D40FE500D7E3B3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1148A85817D4083300D7E3B3 /* OBattle.h */,
+				1148A85917D4083300D7E3B3 /* OBattle.m */,
+				1195D28317C2723600C4DA25 /* OGame.h */,
+				1195D28417C2723600C4DA25 /* OGame.m */,
+				1148A86117D4109400D7E3B3 /* OMenu.h */,
+				1148A86217D4109400D7E3B3 /* OMenu.m */,
+				115097A717CC94E0005576BF /* SPCardsTest.h */,
+				115097A817CC94E0005576BF /* SPCardsTest.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		1148A86017D4100500D7E3B3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				110C941717D36C9E0029DC16 /* OCardUI.h */,
+				110C941817D36C9E0029DC16 /* OCardUI.m */,
+				1148A86417D411E200D7E3B3 /* OButtonTexture.h */,
+				1148A86517D411E200D7E3B3 /* OButtonTexture.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		11722F4A17C635EE00014D16 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,19 +272,17 @@
 				1195D28D17C272B600C4DA25 /* OCard.m */,
 				1195D28F17C2772700C4DA25 /* ODeck.h */,
 				1195D29017C2772700C4DA25 /* ODeck.m */,
-				1195D28317C2723600C4DA25 /* OGame.h */,
-				1195D28417C2723600C4DA25 /* OGame.m */,
+				11722F6917C640CC00014D16 /* OMedia.h */,
+				11722F6A17C640CC00014D16 /* OMedia.m */,
 				1195D28617C2728700C4DA25 /* OPlayer.h */,
 				1195D28717C2728700C4DA25 /* OPlayer.m */,
 				11D5CF5817C32F6900AA96BC /* ORule.h */,
 				11D5CF5917C32F6A00AA96BC /* ORule.m */,
-				115097A717CC94E0005576BF /* SPCardsTest.h */,
-				115097A817CC94E0005576BF /* SPCardsTest.m */,
-				11722F6917C640CC00014D16 /* OMedia.h */,
-				11722F6A17C640CC00014D16 /* OMedia.m */,
+				1148A85F17D40FE500D7E3B3 /* Scenes */,
 				118E688417C74BD8007801CD /* Stats.h */,
 				118E688517C74BD8007801CD /* Stats.m */,
 				1195D18117C25F5E00C4DA25 /* Supporting Files */,
+				1148A86017D4100500D7E3B3 /* UI */,
 			);
 			path = Omeotte;
 			sourceTree = "<group>";
@@ -445,6 +481,10 @@
 				11722F6B17C640CC00014D16 /* OMedia.m in Sources */,
 				118E688617C74BD8007801CD /* Stats.m in Sources */,
 				115097A917CC94E0005576BF /* SPCardsTest.m in Sources */,
+				110C941917D36C9E0029DC16 /* OCardUI.m in Sources */,
+				1148A85A17D4083300D7E3B3 /* OBattle.m in Sources */,
+				1148A86317D4109400D7E3B3 /* OMenu.m in Sources */,
+				1148A86617D411E200D7E3B3 /* OButtonTexture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
