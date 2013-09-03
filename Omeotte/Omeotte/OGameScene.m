@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
-#import "OGame.h"
-#import "OBattle.h"
+#import "OGameScene.h"
+#import "OBattleScene.h"
 
-@implementation OGame
+@implementation OGameScene
 
 - (id)init
 {
     if ((self = [super init]))
     {
-        OMenu *menuScene = [[OMenu alloc] init];
+        OMenuScene *menuScene = [[OMenuScene alloc] init];
         [self showScene:menuScene];
     }
     return self;

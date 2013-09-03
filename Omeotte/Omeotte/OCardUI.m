@@ -9,6 +9,10 @@
 #import "OCardUI.h"
 
 @implementation OCardUI
+{
+    float _width;
+    float _height;
+}
 
 @synthesize card;
 @synthesize lblName;
@@ -27,10 +31,12 @@
     [lblText release];
 }
 
-- (id)init
+-(id) initWithWidth:(float)width height:(float)height
 {
     if ((self = [super init]))
     {
+        _width = width;
+        _height = height;
         [self setup];
     }
     return self;

@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
-#import "SPCardsTest.h"
+#import "SPCardsTestScene.h"
 
-@implementation SPCardsTest
+@implementation SPCardsTestScene
 {
     NSString *_deck;
 }

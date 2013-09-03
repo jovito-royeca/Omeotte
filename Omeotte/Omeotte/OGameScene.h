@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Sparrow.h"
 
-#import "OBattle.h"
-#import "OMenu.h"
+#import "OBattleScene.h"
+#import "OMenuScene.h"
 
-@interface OGame : SPSprite
+@interface OGameScene : SPSprite
 {
     SPSprite *_currentScene;
 }

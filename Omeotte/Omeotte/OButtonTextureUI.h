@@ -8,7 +8,7 @@
 
 #import "Sparrow.h"
 
-@interface OButtonTexture : SPTexture
+@interface OButtonTextureUI : SPTexture
 
 - (id)initWithWidth:(float)width
              height:(float)height

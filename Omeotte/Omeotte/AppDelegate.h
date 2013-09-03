@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Sparrow.h"
 
-#import "OGame.h"
+#import "OGameScene.h"
 #import "ORule.h"
-#import "SPCardsTest.h"
+#import "SPCardsTestScene.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {

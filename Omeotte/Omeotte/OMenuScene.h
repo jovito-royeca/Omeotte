@@ -8,10 +8,10 @@
 
 #import "Sparrow.h"
 
-#import "OBattle.h"
-#import "OButtonTexture.h"
-#import "OGame.h"
+#import "OBattleScene.h"
+#import "OButtonTextureUI.h"
+#import "OGameScene.h"
 
-@interface OMenu : SPSprite
+@interface OMenuScene : SPSprite
 
 @end

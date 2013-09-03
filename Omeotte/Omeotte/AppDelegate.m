@@ -40,7 +40,7 @@
     _viewController.multitouchEnabled = YES;
     _viewController.preferredFramesPerSecond = 60;
   
-    [_viewController startWithRoot:[OGame class] supportHighResolutions:YES doubleOnPad:YES];
+    [_viewController startWithRoot:[OGameScene class] supportHighResolutions:YES doubleOnPad:YES];
 //    _viewController.onRootCreated = ^(OGame *game)
 //	{
 //	    // access your game instance here

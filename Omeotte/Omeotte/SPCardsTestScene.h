@@ -12,7 +12,7 @@
 #import "OPlayer.h"
 #import "OMedia.h"
 
-@interface SPCardsTest : SPSprite
+@interface SPCardsTestScene : SPSprite
 
 @property (strong, nonatomic) NSMutableArray *cards;
 

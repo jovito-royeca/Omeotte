@@ -19,5 +19,6 @@
 @property(strong,nonatomic) SPImage *imgArt;
 @property(strong,nonatomic) SPTextField *lblText;
 
+-(id) initWithWidth:(float)width height:(float)height;
 
 @end

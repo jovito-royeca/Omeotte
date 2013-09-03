@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
-#import "OBattle.h"
+#import "OBattleScene.h"
 
-@implementation OBattle
+@implementation OBattleScene
 
 @synthesize txtPlayer1Name;
 @synthesize txtPlayer1Tower;

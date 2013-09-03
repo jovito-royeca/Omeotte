@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
-#import "OButtonTexture.h"
+#import "OButtonTextureUI.h"
 
-@implementation OButtonTexture
+@implementation OButtonTextureUI
 
 - (id)initWithWidth:(float)width
              height:(float)height

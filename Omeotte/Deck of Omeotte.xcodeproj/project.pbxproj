@@ -10,10 +10,10 @@
 		110C941917D36C9E0029DC16 /* OCardUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 110C941817D36C9E0029DC16 /* OCardUI.m */; };
 		1137991F17C49ADF00794158 /* magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137991E17C49ADF00794158 /* magic.plist */; };
 		1137992117C49AF000794158 /* dungeon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137992017C49AF000794158 /* dungeon.plist */; };
-		1148A85A17D4083300D7E3B3 /* OBattle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A85917D4083300D7E3B3 /* OBattle.m */; };
-		1148A86317D4109400D7E3B3 /* OMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A86217D4109400D7E3B3 /* OMenu.m */; };
-		1148A86617D411E200D7E3B3 /* OButtonTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A86517D411E200D7E3B3 /* OButtonTexture.m */; };
-		115097A917CC94E0005576BF /* SPCardsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 115097A817CC94E0005576BF /* SPCardsTest.m */; };
+		1148A85A17D4083300D7E3B3 /* OBattleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A85917D4083300D7E3B3 /* OBattleScene.m */; };
+		1148A86617D411E200D7E3B3 /* OButtonTextureUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A86517D411E200D7E3B3 /* OButtonTextureUI.m */; };
+		1148A86C17D4227C00D7E3B3 /* OMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A86B17D4227C00D7E3B3 /* OMenuScene.m */; };
+		115097A917CC94E0005576BF /* SPCardsTestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 115097A817CC94E0005576BF /* SPCardsTestScene.m */; };
 		11722F5317C636BF00014D16 /* libSparrow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F4F17C635EE00014D16 /* libSparrow.a */; };
 		11722F5517C636CB00014D16 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5417C636CB00014D16 /* libz.dylib */; };
 		11722F5717C636DA00014D16 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5617C636DA00014D16 /* GLKit.framework */; };
@@ -40,7 +40,7 @@
 		1195D19B17C25F5E00C4DA25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17C17C25F5E00C4DA25 /* Foundation.framework */; };
 		1195D1A317C25F5F00C4DA25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1A117C25F5F00C4DA25 /* InfoPlist.strings */; };
 		1195D1A617C25F5F00C4DA25 /* OmeotteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D1A517C25F5F00C4DA25 /* OmeotteTests.m */; };
-		1195D28517C2723600C4DA25 /* OGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28417C2723600C4DA25 /* OGame.m */; };
+		1195D28517C2723600C4DA25 /* OGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28417C2723600C4DA25 /* OGameScene.m */; };
 		1195D28817C2728700C4DA25 /* OPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28717C2728700C4DA25 /* OPlayer.m */; };
 		1195D28E17C272B600C4DA25 /* OCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28D17C272B600C4DA25 /* OCard.m */; };
 		1195D29117C2772700C4DA25 /* ODeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D29017C2772700C4DA25 /* ODeck.m */; };
@@ -78,14 +78,14 @@
 		110C941817D36C9E0029DC16 /* OCardUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCardUI.m; sourceTree = "<group>"; };
 		1137991E17C49ADF00794158 /* magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic.plist; sourceTree = "<group>"; };
 		1137992017C49AF000794158 /* dungeon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dungeon.plist; sourceTree = "<group>"; };
-		1148A85817D4083300D7E3B3 /* OBattle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBattle.h; sourceTree = "<group>"; };
-		1148A85917D4083300D7E3B3 /* OBattle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBattle.m; sourceTree = "<group>"; };
-		1148A86117D4109400D7E3B3 /* OMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMenu.h; sourceTree = "<group>"; };
-		1148A86217D4109400D7E3B3 /* OMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMenu.m; sourceTree = "<group>"; };
-		1148A86417D411E200D7E3B3 /* OButtonTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OButtonTexture.h; sourceTree = "<group>"; };
-		1148A86517D411E200D7E3B3 /* OButtonTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OButtonTexture.m; sourceTree = "<group>"; };
-		115097A717CC94E0005576BF /* SPCardsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCardsTest.h; sourceTree = "<group>"; };
-		115097A817CC94E0005576BF /* SPCardsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCardsTest.m; sourceTree = "<group>"; };
+		1148A85817D4083300D7E3B3 /* OBattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBattleScene.h; sourceTree = "<group>"; };
+		1148A85917D4083300D7E3B3 /* OBattleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBattleScene.m; sourceTree = "<group>"; };
+		1148A86117D4109400D7E3B3 /* OMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMenuScene.h; sourceTree = "<group>"; };
+		1148A86417D411E200D7E3B3 /* OButtonTextureUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OButtonTextureUI.h; sourceTree = "<group>"; };
+		1148A86517D411E200D7E3B3 /* OButtonTextureUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OButtonTextureUI.m; sourceTree = "<group>"; };
+		1148A86B17D4227C00D7E3B3 /* OMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMenuScene.m; sourceTree = "<group>"; };
+		115097A717CC94E0005576BF /* SPCardsTestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCardsTestScene.h; sourceTree = "<group>"; };
+		115097A817CC94E0005576BF /* SPCardsTestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCardsTestScene.m; sourceTree = "<group>"; };
 		11722F4917C635EE00014D16 /* Sparrow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparrow.xcodeproj; path = "../Sparrow-Framework/sparrow/src/Sparrow.xcodeproj"; sourceTree = "<group>"; };
 		11722F5417C636CB00014D16 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		11722F5617C636DA00014D16 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -100,27 +100,27 @@
 		11722F7417C64E0900014D16 /* arcomage deck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "arcomage deck.jpg"; sourceTree = "<group>"; };
 		118E688417C74BD8007801CD /* Stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stats.h; sourceTree = "<group>"; };
 		118E688517C74BD8007801CD /* Stats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stats.m; sourceTree = "<group>"; };
-		1195D17717C25F5E00C4DA25 /* Omeotte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omeotte.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1195D17717C25F5E00C4DA25 /* Deck of Omeotte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deck of Omeotte.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1195D17A17C25F5E00C4DA25 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1195D17C17C25F5E00C4DA25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1195D17E17C25F5E00C4DA25 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1195D18217C25F5E00C4DA25 /* Omeotte-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Omeotte-Info.plist"; sourceTree = "<group>"; };
+		1195D18217C25F5E00C4DA25 /* Deck of Omeotte-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Deck of Omeotte-Info.plist"; sourceTree = "<group>"; };
 		1195D18417C25F5E00C4DA25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1195D18617C25F5E00C4DA25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1195D18817C25F5E00C4DA25 /* Omeotte-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Omeotte-Prefix.pch"; sourceTree = "<group>"; };
+		1195D18817C25F5E00C4DA25 /* Deck of Omeotte-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Deck of Omeotte-Prefix.pch"; sourceTree = "<group>"; };
 		1195D18917C25F5E00C4DA25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1195D18A17C25F5E00C4DA25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1195D18C17C25F5E00C4DA25 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1195D18E17C25F5E00C4DA25 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1195D19017C25F5E00C4DA25 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		1195D19717C25F5E00C4DA25 /* OmeotteTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmeotteTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1195D19717C25F5E00C4DA25 /* Deck of OmeotteTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Deck of OmeotteTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1195D19817C25F5E00C4DA25 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		1195D1A017C25F5E00C4DA25 /* OmeotteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OmeotteTests-Info.plist"; sourceTree = "<group>"; };
+		1195D1A017C25F5E00C4DA25 /* Deck of OmeotteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Deck of OmeotteTests-Info.plist"; sourceTree = "<group>"; };
 		1195D1A217C25F5F00C4DA25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1195D1A417C25F5F00C4DA25 /* OmeotteTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmeotteTests.h; sourceTree = "<group>"; };
 		1195D1A517C25F5F00C4DA25 /* OmeotteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmeotteTests.m; sourceTree = "<group>"; };
-		1195D28317C2723600C4DA25 /* OGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGame.h; sourceTree = "<group>"; };
-		1195D28417C2723600C4DA25 /* OGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGame.m; sourceTree = "<group>"; };
+		1195D28317C2723600C4DA25 /* OGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGameScene.h; sourceTree = "<group>"; };
+		1195D28417C2723600C4DA25 /* OGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGameScene.m; sourceTree = "<group>"; };
 		1195D28617C2728700C4DA25 /* OPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPlayer.h; sourceTree = "<group>"; };
 		1195D28717C2728700C4DA25 /* OPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPlayer.m; sourceTree = "<group>"; };
 		1195D28C17C272B600C4DA25 /* OCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCard.h; sourceTree = "<group>"; };
@@ -191,14 +191,14 @@
 		1148A85F17D40FE500D7E3B3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				1148A85817D4083300D7E3B3 /* OBattle.h */,
-				1148A85917D4083300D7E3B3 /* OBattle.m */,
-				1195D28317C2723600C4DA25 /* OGame.h */,
-				1195D28417C2723600C4DA25 /* OGame.m */,
-				1148A86117D4109400D7E3B3 /* OMenu.h */,
-				1148A86217D4109400D7E3B3 /* OMenu.m */,
-				115097A717CC94E0005576BF /* SPCardsTest.h */,
-				115097A817CC94E0005576BF /* SPCardsTest.m */,
+				1148A85817D4083300D7E3B3 /* OBattleScene.h */,
+				1148A85917D4083300D7E3B3 /* OBattleScene.m */,
+				1195D28317C2723600C4DA25 /* OGameScene.h */,
+				1195D28417C2723600C4DA25 /* OGameScene.m */,
+				1148A86117D4109400D7E3B3 /* OMenuScene.h */,
+				1148A86B17D4227C00D7E3B3 /* OMenuScene.m */,
+				115097A717CC94E0005576BF /* SPCardsTestScene.h */,
+				115097A817CC94E0005576BF /* SPCardsTestScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -208,8 +208,8 @@
 			children = (
 				110C941717D36C9E0029DC16 /* OCardUI.h */,
 				110C941817D36C9E0029DC16 /* OCardUI.m */,
-				1148A86417D411E200D7E3B3 /* OButtonTexture.h */,
-				1148A86517D411E200D7E3B3 /* OButtonTexture.m */,
+				1148A86417D411E200D7E3B3 /* OButtonTextureUI.h */,
+				1148A86517D411E200D7E3B3 /* OButtonTextureUI.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -237,8 +237,8 @@
 		1195D17817C25F5E00C4DA25 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1195D17717C25F5E00C4DA25 /* Omeotte.app */,
-				1195D19717C25F5E00C4DA25 /* OmeotteTests.octest */,
+				1195D17717C25F5E00C4DA25 /* Deck of Omeotte.app */,
+				1195D19717C25F5E00C4DA25 /* Deck of OmeotteTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -290,10 +290,10 @@
 		1195D18117C25F5E00C4DA25 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1195D18217C25F5E00C4DA25 /* Omeotte-Info.plist */,
+				1195D18217C25F5E00C4DA25 /* Deck of Omeotte-Info.plist */,
 				1195D18317C25F5E00C4DA25 /* InfoPlist.strings */,
 				1195D18617C25F5E00C4DA25 /* main.m */,
-				1195D18817C25F5E00C4DA25 /* Omeotte-Prefix.pch */,
+				1195D18817C25F5E00C4DA25 /* Deck of Omeotte-Prefix.pch */,
 				1195D18C17C25F5E00C4DA25 /* Default.png */,
 				1195D18E17C25F5E00C4DA25 /* Default@2x.png */,
 				1195D19017C25F5E00C4DA25 /* Default-568h@2x.png */,
@@ -314,7 +314,7 @@
 		1195D19F17C25F5E00C4DA25 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1195D1A017C25F5E00C4DA25 /* OmeotteTests-Info.plist */,
+				1195D1A017C25F5E00C4DA25 /* Deck of OmeotteTests-Info.plist */,
 				1195D1A117C25F5F00C4DA25 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -336,9 +336,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1195D17617C25F5E00C4DA25 /* Omeotte */ = {
+		1195D17617C25F5E00C4DA25 /* Deck of Omeotte */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1195D1A917C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "Omeotte" */;
+			buildConfigurationList = 1195D1A917C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "Deck of Omeotte" */;
 			buildPhases = (
 				1195D17317C25F5E00C4DA25 /* Sources */,
 				1195D17417C25F5E00C4DA25 /* Frameworks */,
@@ -348,14 +348,14 @@
 			);
 			dependencies = (
 			);
-			name = Omeotte;
+			name = "Deck of Omeotte";
 			productName = Omeotte;
-			productReference = 1195D17717C25F5E00C4DA25 /* Omeotte.app */;
+			productReference = 1195D17717C25F5E00C4DA25 /* Deck of Omeotte.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1195D19617C25F5E00C4DA25 /* OmeotteTests */ = {
+		1195D19617C25F5E00C4DA25 /* Deck of OmeotteTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1195D1AC17C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "OmeotteTests" */;
+			buildConfigurationList = 1195D1AC17C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "Deck of OmeotteTests" */;
 			buildPhases = (
 				1195D19217C25F5E00C4DA25 /* Sources */,
 				1195D19317C25F5E00C4DA25 /* Frameworks */,
@@ -367,9 +367,9 @@
 			dependencies = (
 				1195D19D17C25F5E00C4DA25 /* PBXTargetDependency */,
 			);
-			name = OmeotteTests;
+			name = "Deck of OmeotteTests";
 			productName = OmeotteTests;
-			productReference = 1195D19717C25F5E00C4DA25 /* OmeotteTests.octest */;
+			productReference = 1195D19717C25F5E00C4DA25 /* Deck of OmeotteTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -381,7 +381,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "JJJ Software";
 			};
-			buildConfigurationList = 1195D17217C25F5E00C4DA25 /* Build configuration list for PBXProject "Omeotte" */;
+			buildConfigurationList = 1195D17217C25F5E00C4DA25 /* Build configuration list for PBXProject "Deck of Omeotte" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -399,8 +399,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				1195D17617C25F5E00C4DA25 /* Omeotte */,
-				1195D19617C25F5E00C4DA25 /* OmeotteTests */,
+				1195D17617C25F5E00C4DA25 /* Deck of Omeotte */,
+				1195D19617C25F5E00C4DA25 /* Deck of OmeotteTests */,
 			);
 		};
 /* End PBXProject section */
@@ -473,18 +473,18 @@
 			files = (
 				1195D18717C25F5E00C4DA25 /* main.m in Sources */,
 				1195D18B17C25F5E00C4DA25 /* AppDelegate.m in Sources */,
-				1195D28517C2723600C4DA25 /* OGame.m in Sources */,
+				1195D28517C2723600C4DA25 /* OGameScene.m in Sources */,
 				1195D28817C2728700C4DA25 /* OPlayer.m in Sources */,
 				1195D28E17C272B600C4DA25 /* OCard.m in Sources */,
 				1195D29117C2772700C4DA25 /* ODeck.m in Sources */,
 				11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */,
 				11722F6B17C640CC00014D16 /* OMedia.m in Sources */,
 				118E688617C74BD8007801CD /* Stats.m in Sources */,
-				115097A917CC94E0005576BF /* SPCardsTest.m in Sources */,
+				115097A917CC94E0005576BF /* SPCardsTestScene.m in Sources */,
 				110C941917D36C9E0029DC16 /* OCardUI.m in Sources */,
-				1148A85A17D4083300D7E3B3 /* OBattle.m in Sources */,
-				1148A86317D4109400D7E3B3 /* OMenu.m in Sources */,
-				1148A86617D411E200D7E3B3 /* OButtonTexture.m in Sources */,
+				1148A85A17D4083300D7E3B3 /* OBattleScene.m in Sources */,
+				1148A86617D411E200D7E3B3 /* OButtonTextureUI.m in Sources */,
+				1148A86C17D4227C00D7E3B3 /* OMenuScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +501,7 @@
 /* Begin PBXTargetDependency section */
 		1195D19D17C25F5E00C4DA25 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1195D17617C25F5E00C4DA25 /* Omeotte */;
+			target = 1195D17617C25F5E00C4DA25 /* Deck of Omeotte */;
 			targetProxy = 1195D19C17C25F5E00C4DA25 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -550,7 +550,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -574,7 +574,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -586,14 +586,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
-				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
+				GCC_PREFIX_HEADER = "Omeotte/Deck of Omeotte-Prefix.pch";
+				INFOPLIST_FILE = "Omeotte/Deck of Omeotte-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Deck of Omeotte";
 				USER_HEADER_SEARCH_PATHS = "../Sparrow-Framework/sparrow/src/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -603,14 +603,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
-				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
+				GCC_PREFIX_HEADER = "Omeotte/Deck of Omeotte-Prefix.pch";
+				INFOPLIST_FILE = "Omeotte/Deck of Omeotte-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Deck of Omeotte";
 				USER_HEADER_SEARCH_PATHS = "../Sparrow-Framework/sparrow/src/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -626,8 +626,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
-				INFOPLIST_FILE = "OmeotteTests/OmeotteTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "OmeotteTests/Deck of OmeotteTests-Info.plist";
+				PRODUCT_NAME = "Deck of OmeotteTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -643,8 +643,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
-				INFOPLIST_FILE = "OmeotteTests/OmeotteTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "OmeotteTests/Deck of OmeotteTests-Info.plist";
+				PRODUCT_NAME = "Deck of OmeotteTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -653,7 +653,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1195D17217C25F5E00C4DA25 /* Build configuration list for PBXProject "Omeotte" */ = {
+		1195D17217C25F5E00C4DA25 /* Build configuration list for PBXProject "Deck of Omeotte" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1195D1A717C25F5F00C4DA25 /* Debug */,
@@ -662,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1195D1A917C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "Omeotte" */ = {
+		1195D1A917C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "Deck of Omeotte" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1195D1AA17C25F5F00C4DA25 /* Debug */,
@@ -671,7 +671,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1195D1AC17C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "OmeotteTests" */ = {
+		1195D1AC17C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "Deck of OmeotteTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1195D1AD17C25F5F00C4DA25 /* Debug */,

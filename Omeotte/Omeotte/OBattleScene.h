@@ -22,7 +22,7 @@ typedef enum
     Discard
 } GamePhase;
 
-@interface OBattle : SPSprite
+@interface OBattleScene : SPSprite
 {
     OPlayer *_currentPlayer;
     NSString *_deck;
