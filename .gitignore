@@ -7,8 +7,10 @@
 *.mode2v3
 *.perspectivev3
 *.xcuserstate
+omeotte.xcworkspace/xcuserdata/jovitoroyeca.xcuserdatad/UserInterfaceState.xcuserstate
 project.xcworkspace/
 xcuserdata/
+.idea
  
 # Generated files
 *.o
