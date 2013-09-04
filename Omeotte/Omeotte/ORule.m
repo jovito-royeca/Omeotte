@@ -56,6 +56,7 @@ NSMutableArray *_rules;
         
     }
     
+    [_rules retain];
     return _rules;
 }
 

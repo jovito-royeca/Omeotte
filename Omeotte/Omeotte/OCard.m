@@ -103,6 +103,7 @@ NSArray *_cards;
         _cards=[_macards sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
     }
     
+    [_cards retain];
     return _cards;
 }
 

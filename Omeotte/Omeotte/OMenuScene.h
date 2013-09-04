@@ -11,6 +11,7 @@
 #import "OBattleScene.h"
 #import "OButtonTextureUI.h"
 #import "OGameScene.h"
+#import "Omeotte.h"
 
 @interface OMenuScene : SPSprite
 

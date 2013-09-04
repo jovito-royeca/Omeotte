@@ -56,6 +56,20 @@
         [img removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
     }
     [hand release];
+    [rule release];
+    [players release];
+    [txtPlayer1Name release];
+    [txtPlayer1Tower release];
+    [txtPlayer1Wall release];
+    [txtPlayer1Quarries release];
+    [txtPlayer1Magics release];
+    [txtPlayer1Dungeons release];
+    [txtPlayer2Name release];
+    [txtPlayer2Tower release];
+    [txtPlayer2Wall release];
+    [txtPlayer2Quarries release];
+    [txtPlayer2Magics release];
+    [txtPlayer2Dungeons release];
     
     [OMedia releaseAllAtlas];
     //    [SPMedia releaseSound];
@@ -77,7 +91,7 @@
     // ...
     
     // To do: lay the Player stats
-    txtPlayer1Name = [[SPTextField alloc] initWithWidth:stageWidth/2 height:15];
+    txtPlayer1Name = [[SPTextField alloc] initWithWidth:stageWidth/3 height:15];
     txtPlayer1Name.color = 0xff0000;
     txtPlayer1Name.hAlign = SPHAlignLeft;
     txtPlayer1Name.x = currentX;
@@ -159,17 +173,35 @@
     txtPlayer1Wall.y = currentY;
     [self addChild:txtPlayer1Wall];
     
-    // AI
+    // Exit
     currentX = txtPlayer1Name.width;
     currentY = 0;
-    txtPlayer2Name = [[SPTextField alloc] initWithWidth:stageWidth/2 height:15];
+    OButtonTextureUI *texture = [[OButtonTextureUI alloc] initWithWidth:stageWidth/3 height:15 cornerRadius:3 strokeWidth:2 strokeColor:0xFFFFFF gloss:NO startColor:0x0000FF endColor:0x0000FF];
+    SPButton *btnPlay = [SPButton buttonWithUpState:texture text:@"Exit"];
+    btnPlay.fontColor = 0xFFFFFF;
+    btnPlay.fontSize = 15;
+    btnPlay.x = txtPlayer1Name.width;
+    [btnPlay addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
+    {
+        OMenuScene *menu = [[OMenuScene alloc] init];
+        OGameScene* game = (OGameScene*)self.root;
+        
+        [game showScene:menu];
+    }];
+    [self addChild:btnPlay];
+    
+    // AI
+    currentX = txtPlayer1Name.width*2;
+    currentY = 0;
+    txtPlayer2Name = [[SPTextField alloc] initWithWidth:stageWidth/3 height:15];
     txtPlayer2Name.color = 0x0000ff;
     txtPlayer2Name.hAlign = SPHAlignLeft;
     txtPlayer2Name.x = currentX;
     txtPlayer2Name.y = currentY;
+    txtPlayer2Name.hAlign = SPHAlignRight;
     [self addChild:txtPlayer2Name];
     
-    currentX = txtPlayer1Name.width;
+    currentX = txtPlayer1Name.width*2;
     currentY = txtPlayer2Name.height+30;
     SPTextField *lblPlayer2Quarries = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Quarries:"];
     lblPlayer2Quarries.color = 0x0000ff;
@@ -177,14 +209,14 @@
     lblPlayer2Quarries.x = currentX;
     lblPlayer2Quarries.y = currentY;
     [self addChild:lblPlayer2Quarries];
-    currentX = lblPlayer2Quarries.width + stageWidth/2;
+    currentX = lblPlayer2Quarries.width + txtPlayer1Name.width*2;
     txtPlayer2Quarries = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
     txtPlayer2Quarries.color = 0x0000ff;
     txtPlayer2Quarries.x = currentX;
     txtPlayer2Quarries.y = currentY;
     [self addChild:txtPlayer2Quarries];
     
-    currentX = txtPlayer1Name.width;
+    currentX = txtPlayer1Name.width*2;
     currentY += lblPlayer2Quarries.height;
     SPTextField *lblPlayer2Magics = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Magics:"];
     lblPlayer2Magics.color = 0x0000ff;
@@ -192,14 +224,14 @@
     lblPlayer2Magics.x = currentX;
     lblPlayer2Magics.y = currentY;
     [self addChild:lblPlayer2Magics];
-    currentX = lblPlayer2Magics.width + stageWidth/2;
+    currentX = lblPlayer2Magics.width + txtPlayer1Name.width*2;
     txtPlayer2Magics = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
     txtPlayer2Magics.color = 0x0000ff;
     txtPlayer2Magics.x = currentX;
     txtPlayer2Magics.y = currentY;
     [self addChild:txtPlayer2Magics];
     
-    currentX = txtPlayer1Name.width;
+    currentX = txtPlayer1Name.width*2;
     currentY += lblPlayer2Magics.height;
     SPTextField *lblPlayer2Dungeons = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Dungeons:"];
     lblPlayer2Dungeons.color = 0x0000ff;
@@ -207,14 +239,14 @@
     lblPlayer2Dungeons.x = currentX;
     lblPlayer2Dungeons.y = currentY;
     [self addChild:lblPlayer2Dungeons];
-    currentX = lblPlayer2Dungeons.width + stageWidth/2;
+    currentX = lblPlayer2Dungeons.width + txtPlayer1Name.width*2;
     txtPlayer2Dungeons = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
     txtPlayer2Dungeons.color = 0x0000ff;
     txtPlayer2Dungeons.x = currentX;
     txtPlayer2Dungeons.y = currentY;
     [self addChild:txtPlayer2Dungeons];
     
-    currentX = txtPlayer1Name.width;
+    currentX = txtPlayer1Name.width*2;
     currentY += lblPlayer2Dungeons.height+30;
     SPTextField *lblPlayer2Tower = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Tower:"];
     lblPlayer2Tower.color = 0x0000ff;
@@ -222,14 +254,14 @@
     lblPlayer2Tower.x = currentX;
     lblPlayer2Tower.y = currentY;
     [self addChild:lblPlayer2Tower];
-    currentX = lblPlayer1Tower.width + stageWidth/2;
+    currentX = lblPlayer1Tower.width + txtPlayer1Name.width*2;
     txtPlayer2Tower = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
     txtPlayer2Tower.color = 0x0000ff;
     txtPlayer2Tower.x = currentX;
     txtPlayer2Tower.y = currentY;
     [self addChild:txtPlayer2Tower];
     
-    currentX = txtPlayer1Name.width;
+    currentX = txtPlayer1Name.width*2;
     currentY += lblPlayer2Tower.height;
     SPTextField *lblPlayer2Wall = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Wall:"];
     lblPlayer2Wall.color = 0x0000ff;
@@ -237,7 +269,7 @@
     lblPlayer2Wall.x = currentX;
     lblPlayer2Wall.y = currentY;
     [self addChild:lblPlayer2Wall];
-    currentX = lblPlayer2Wall.width + stageWidth/2;
+    currentX = lblPlayer2Wall.width + txtPlayer1Name.width*2;
     txtPlayer2Wall = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
     txtPlayer2Wall.color = 0x0000ff;
     txtPlayer2Wall.x = currentX;

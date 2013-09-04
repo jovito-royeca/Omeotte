@@ -76,6 +76,7 @@
 /* Begin PBXFileReference section */
 		110C941717D36C9E0029DC16 /* OCardUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCardUI.h; sourceTree = "<group>"; };
 		110C941817D36C9E0029DC16 /* OCardUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCardUI.m; sourceTree = "<group>"; };
+		11306C7E17D6BE0200156E78 /* Omeotte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Omeotte.h; sourceTree = "<group>"; };
 		1137991E17C49ADF00794158 /* magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic.plist; sourceTree = "<group>"; };
 		1137992017C49AF000794158 /* dungeon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dungeon.plist; sourceTree = "<group>"; };
 		1148A85817D4083300D7E3B3 /* OBattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBattleScene.h; sourceTree = "<group>"; };
@@ -274,6 +275,7 @@
 				1195D29017C2772700C4DA25 /* ODeck.m */,
 				11722F6917C640CC00014D16 /* OMedia.h */,
 				11722F6A17C640CC00014D16 /* OMedia.m */,
+				11306C7E17D6BE0200156E78 /* Omeotte.h */,
 				1195D28617C2728700C4DA25 /* OPlayer.h */,
 				1195D28717C2728700C4DA25 /* OPlayer.m */,
 				11D5CF5817C32F6900AA96BC /* ORule.h */,
