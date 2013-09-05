@@ -24,6 +24,7 @@
 @synthesize txtPlayer2Dungeons;
 
 @synthesize players;
+@synthesize winners;
 @synthesize rule;
 @synthesize hand;
 
@@ -58,6 +59,7 @@
     [hand release];
     [rule release];
     [players release];
+    [winners release];
     [txtPlayer1Name release];
     [txtPlayer1Tower release];
     [txtPlayer1Wall release];
@@ -84,7 +86,7 @@
     hand = [[NSMutableArray alloc] initWithCapacity:6];
     
     int stageWidth = Sparrow.stage.width;
-    int stageHeight = Sparrow.stage.height;
+//    int stageHeight = Sparrow.stage.height;
     int currentX = 0, currentY = 0;
     
     // To do: lay the background
@@ -100,14 +102,14 @@
     
     currentX = 0;
     currentY = txtPlayer1Name.height+30;
-    SPTextField *lblPlayer1Quarries = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Quarries:"];
+    SPTextField *lblPlayer1Quarries = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Quarries:"];
     lblPlayer1Quarries.color = 0xff0000;
     lblPlayer1Quarries.hAlign = SPHAlignLeft;
     lblPlayer1Quarries.x = currentX;
     lblPlayer1Quarries.y = currentY;
     [self addChild:lblPlayer1Quarries];
     currentX = lblPlayer1Quarries.width;
-    txtPlayer1Quarries = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
+    txtPlayer1Quarries = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
     txtPlayer1Quarries.color = 0xff0000;
     txtPlayer1Quarries.x = currentX;
     txtPlayer1Quarries.y = currentY;
@@ -115,14 +117,14 @@
     
     currentX = 0;
     currentY += lblPlayer1Quarries.height;
-    SPTextField *lblPlayer1Magics = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Magics:"];
+    SPTextField *lblPlayer1Magics = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Magics:"];
     lblPlayer1Magics.color = 0xff0000;
     lblPlayer1Magics.hAlign = SPHAlignLeft;
     lblPlayer1Magics.x = currentX;
     lblPlayer1Magics.y = currentY;
     [self addChild:lblPlayer1Magics];
     currentX = lblPlayer1Magics.width;
-    txtPlayer1Magics = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
+    txtPlayer1Magics = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
     txtPlayer1Magics.color = 0xff0000;
     txtPlayer1Magics.x = currentX;
     txtPlayer1Magics.y = currentY;
@@ -130,14 +132,14 @@
     
     currentX = 0;
     currentY += lblPlayer1Magics.height;
-    SPTextField *lblPlayer1Dungeons = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Dungeons:"];
+    SPTextField *lblPlayer1Dungeons = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Dungeons:"];
     lblPlayer1Dungeons.color = 0xff0000;
     lblPlayer1Dungeons.hAlign = SPHAlignLeft;
     lblPlayer1Dungeons.x = currentX;
     lblPlayer1Dungeons.y = currentY;
     [self addChild:lblPlayer1Dungeons];
     currentX = lblPlayer1Dungeons.width;
-    txtPlayer1Dungeons = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
+    txtPlayer1Dungeons = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
     txtPlayer1Dungeons.color = 0xff0000;
     txtPlayer1Dungeons.x = currentX;
     txtPlayer1Dungeons.y = currentY;
@@ -145,14 +147,14 @@
     
     currentX = 0;
     currentY += lblPlayer1Dungeons.height+30;
-    SPTextField *lblPlayer1Tower = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Tower:"];
+    SPTextField *lblPlayer1Tower = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Tower:"];
     lblPlayer1Tower.color = 0xff0000;
     lblPlayer1Tower.hAlign = SPHAlignLeft;
     lblPlayer1Tower.x = currentX;
     lblPlayer1Tower.y = currentY;
     [self addChild:lblPlayer1Tower];
     currentX = lblPlayer1Tower.width;
-    txtPlayer1Tower = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
+    txtPlayer1Tower = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
     txtPlayer1Tower.color = 0xff0000;
     txtPlayer1Tower.x = currentX;
     txtPlayer1Tower.y = currentY;
@@ -160,14 +162,14 @@
     
     currentX = 0;
     currentY += lblPlayer1Tower.height;
-    SPTextField *lblPlayer1Wall = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Wall:"];
+    SPTextField *lblPlayer1Wall = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Wall:"];
     lblPlayer1Wall.color = 0xff0000;
     lblPlayer1Wall.hAlign = SPHAlignLeft;
     lblPlayer1Wall.x = currentX;
     lblPlayer1Wall.y = currentY;
     [self addChild:lblPlayer1Wall];
     currentX = lblPlayer1Wall.width;
-    txtPlayer1Wall = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
+    txtPlayer1Wall = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
     txtPlayer1Wall.color = 0xff0000;
     txtPlayer1Wall.x = currentX;
     txtPlayer1Wall.y = currentY;
@@ -176,19 +178,13 @@
     // Exit
     currentX = txtPlayer1Name.width;
     currentY = 0;
-    OButtonTextureUI *texture = [[OButtonTextureUI alloc] initWithWidth:stageWidth/3 height:15 cornerRadius:3 strokeWidth:2 strokeColor:0xFFFFFF gloss:NO startColor:0x0000FF endColor:0x0000FF];
-    SPButton *btnPlay = [SPButton buttonWithUpState:texture text:@"Exit"];
-    btnPlay.fontColor = 0xFFFFFF;
-    btnPlay.fontSize = 15;
-    btnPlay.x = txtPlayer1Name.width;
-    [btnPlay addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
-    {
-        OMenuScene *menu = [[OMenuScene alloc] init];
-        OGameScene* game = (OGameScene*)self.root;
-        
-        [game showScene:menu];
-    }];
-    [self addChild:btnPlay];
+    OButtonTextureUI *texture = [[OButtonTextureUI alloc] initWithWidth:stageWidth/3 height:15 cornerRadius:3 strokeWidth:2 strokeColor:0xFFFFFF gloss:NO startColor:0xff0000 endColor:0x0000ff];
+    SPButton *btnExit = [SPButton buttonWithUpState:texture text:@"Exit"];
+    btnExit.fontColor = 0xffffff;
+    btnExit.fontSize = 15;
+    btnExit.x = txtPlayer1Name.width;
+    [btnExit addEventListener:@selector(showMenu:) atObject:self forType:SP_EVENT_TYPE_TRIGGERED];
+    [self addChild:btnExit];
     
     // AI
     currentX = txtPlayer1Name.width*2;
@@ -203,14 +199,14 @@
     
     currentX = txtPlayer1Name.width*2;
     currentY = txtPlayer2Name.height+30;
-    SPTextField *lblPlayer2Quarries = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Quarries:"];
+    SPTextField *lblPlayer2Quarries = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Quarries:"];
     lblPlayer2Quarries.color = 0x0000ff;
     lblPlayer2Quarries.hAlign = SPHAlignLeft;
     lblPlayer2Quarries.x = currentX;
     lblPlayer2Quarries.y = currentY;
     [self addChild:lblPlayer2Quarries];
     currentX = lblPlayer2Quarries.width + txtPlayer1Name.width*2;
-    txtPlayer2Quarries = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
+    txtPlayer2Quarries = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
     txtPlayer2Quarries.color = 0x0000ff;
     txtPlayer2Quarries.x = currentX;
     txtPlayer2Quarries.y = currentY;
@@ -218,14 +214,14 @@
     
     currentX = txtPlayer1Name.width*2;
     currentY += lblPlayer2Quarries.height;
-    SPTextField *lblPlayer2Magics = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Magics:"];
+    SPTextField *lblPlayer2Magics = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Magics:"];
     lblPlayer2Magics.color = 0x0000ff;
     lblPlayer2Magics.hAlign = SPHAlignLeft;
     lblPlayer2Magics.x = currentX;
     lblPlayer2Magics.y = currentY;
     [self addChild:lblPlayer2Magics];
     currentX = lblPlayer2Magics.width + txtPlayer1Name.width*2;
-    txtPlayer2Magics = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
+    txtPlayer2Magics = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
     txtPlayer2Magics.color = 0x0000ff;
     txtPlayer2Magics.x = currentX;
     txtPlayer2Magics.y = currentY;
@@ -233,14 +229,14 @@
     
     currentX = txtPlayer1Name.width*2;
     currentY += lblPlayer2Magics.height;
-    SPTextField *lblPlayer2Dungeons = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Dungeons:"];
+    SPTextField *lblPlayer2Dungeons = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Dungeons:"];
     lblPlayer2Dungeons.color = 0x0000ff;
     lblPlayer2Dungeons.hAlign = SPHAlignLeft;
     lblPlayer2Dungeons.x = currentX;
     lblPlayer2Dungeons.y = currentY;
     [self addChild:lblPlayer2Dungeons];
     currentX = lblPlayer2Dungeons.width + txtPlayer1Name.width*2;
-    txtPlayer2Dungeons = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
+    txtPlayer2Dungeons = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
     txtPlayer2Dungeons.color = 0x0000ff;
     txtPlayer2Dungeons.x = currentX;
     txtPlayer2Dungeons.y = currentY;
@@ -248,14 +244,14 @@
     
     currentX = txtPlayer1Name.width*2;
     currentY += lblPlayer2Dungeons.height+30;
-    SPTextField *lblPlayer2Tower = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Tower:"];
+    SPTextField *lblPlayer2Tower = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Tower:"];
     lblPlayer2Tower.color = 0x0000ff;
     lblPlayer2Tower.hAlign = SPHAlignLeft;
     lblPlayer2Tower.x = currentX;
     lblPlayer2Tower.y = currentY;
     [self addChild:lblPlayer2Tower];
     currentX = lblPlayer1Tower.width + txtPlayer1Name.width*2;
-    txtPlayer2Tower = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
+    txtPlayer2Tower = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
     txtPlayer2Tower.color = 0x0000ff;
     txtPlayer2Tower.x = currentX;
     txtPlayer2Tower.y = currentY;
@@ -263,14 +259,14 @@
     
     currentX = txtPlayer1Name.width*2;
     currentY += lblPlayer2Tower.height;
-    SPTextField *lblPlayer2Wall = [[SPTextField alloc] initWithWidth:stageWidth/8 height:15 text:@"Wall:"];
+    SPTextField *lblPlayer2Wall = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Wall:"];
     lblPlayer2Wall.color = 0x0000ff;
     lblPlayer2Wall.hAlign = SPHAlignLeft;
     lblPlayer2Wall.x = currentX;
     lblPlayer2Wall.y = currentY;
     [self addChild:lblPlayer2Wall];
     currentX = lblPlayer2Wall.width + txtPlayer1Name.width*2;
-    txtPlayer2Wall = [[SPTextField alloc] initWithWidth:(stageWidth/8)*3 height:15];
+    txtPlayer2Wall = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
     txtPlayer2Wall.color = 0x0000ff;
     txtPlayer2Wall.x = currentX;
     txtPlayer2Wall.y = currentY;
@@ -325,6 +321,15 @@
         {
             [self playCard:card];
             [self updateStats];
+            [self checkWinner];
+            
+            if (_gamePhase == Victory)
+                return;
+
+            if (card.playAgain)
+                _gamePhase = Upkeep;
+            else
+                _gamePhase = Discard;
         }
         else
         {
@@ -381,11 +386,6 @@
         [_currentPlayer play:card onTarget:[self opponentPlayer]];
         [_currentPlayer discard:card];
         [self showHand];
-        
-        if (card.playAgain)
-            _gamePhase = Upkeep;
-        else
-            _gamePhase = Discard;
     }
 }
 
@@ -439,6 +439,57 @@
     txtPlayer2Dungeons.text = [NSString stringWithFormat:@"%d/%d", player2.base.recruits, player2.base.dungeons];
 }
 
+-(void) checkWinner
+{
+    if (!winners)
+    {
+        winners = [[NSMutableArray alloc] initWithCapacity:2];
+    }
+    [winners removeAllObjects];
+    
+    OPlayer *opponentPlayer = [self opponentPlayer];
+    
+    if (_currentPlayer.base.tower > 0 && opponentPlayer.base.tower <= 0)
+    {
+        [winners addObject:_currentPlayer];
+    }
+    else if (opponentPlayer.base.tower > 0 &&  _currentPlayer.base.tower <= 0)
+    {
+        [winners addObject:opponentPlayer];
+    }
+    else
+    {
+        if (_currentPlayer.base.tower >= rule.winningTower ||
+            _currentPlayer.base.bricks >= rule.winningResource ||
+            _currentPlayer.base.gems >= rule.winningResource ||
+            _currentPlayer.base.recruits >= rule.winningResource)
+        {
+            [winners addObject:_currentPlayer];
+        }
+        
+        if (opponentPlayer.base.tower >= rule.winningTower ||
+            opponentPlayer.base.bricks >= rule.winningResource ||
+            opponentPlayer.base.gems >= rule.winningResource ||
+            opponentPlayer.base.recruits >= rule.winningResource)
+        {
+            [winners addObject:opponentPlayer];
+        }
+    }
+    
+    if (winners.count > 0)
+    {
+        _gamePhase = Victory;
+    }
+}
+
+-(void) showMenu
+{
+    OMenuScene *menu = [[OMenuScene alloc] init];
+    OGameScene* game = (OGameScene*)self.root;
+    
+    [game showScene:menu];
+}
+
 -(void) gameLoop:(SPEnterFrameEvent*)event
 {
     OPlayer *opponent = [self opponentPlayer];
@@ -474,27 +525,51 @@
                 {
                     [self playCard:card];
                     [self updateStats];
+                    [self checkWinner];
+                    
+                    if (_gamePhase == Victory)
+                        break;
+                    
+                    if (card.playAgain)
+                        _gamePhase = Upkeep;
+                    else
+                        _gamePhase = Discard;
                 }
             }
             break;
         }
         case Victory:
         {
-            NSMutableArray *winners = [[NSMutableArray alloc] initWithCapacity:2];
+            NSString *message = nil;
             
-            for (OPlayer *p in players)
+            switch (winners.count)
             {
-                if (p.base.bricks == rule.base.bricks ||
-                    p.base.gems == rule.base.gems ||
-                    p.base.recruits == rule.base.recruits)
-                {
-                    [winners addObject:p];
-                }
+                case 1:
+                    if ([winners containsObject:_currentPlayer])
+                    {
+                        message = @"Victory";
+                    }
+                    else if ([winners containsObject:[self opponentPlayer]])
+                    {
+                        message = @"Defeat";
+                    }
+                    break;
+                case 2:
+                    message = @"Draw";
+                    break;
+                default:
+                    break;
             }
             
-            if (winners.count > 0)
+            if (message)
             {
-                NSLog(@"Game Over");
+                UIAlertView *alertMessage =  [[UIAlertView alloc] initWithTitle:@"Game Over"
+                                                                        message:message
+                                                                       delegate:nil
+                                                              cancelButtonTitle:nil
+                                                              otherButtonTitles:@"OK", nil];
+                [alertMessage show];
+                [self showMenu];
             }
             
             break;

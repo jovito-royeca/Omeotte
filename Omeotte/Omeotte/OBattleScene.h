@@ -45,6 +45,7 @@ typedef enum
 @property (strong, nonatomic) SPTextField *txtPlayer2Dungeons;
 
 @property (strong, nonatomic) NSArray *players;
+@property (strong, nonatomic) NSMutableArray *winners;
 @property (strong, nonatomic) ORule* rule;
 @property (strong, nonatomic) NSMutableArray *hand;
 
