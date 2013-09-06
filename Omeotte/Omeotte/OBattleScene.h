@@ -27,6 +27,7 @@ typedef enum
 @interface OBattleScene : SPSprite
 {
     OPlayer *_currentPlayer;
+    OCard *_currentCard;
     NSString *_deck;
     GamePhase _gamePhase;
 }

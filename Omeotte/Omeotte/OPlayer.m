@@ -47,7 +47,17 @@
 
 -(BOOL) shouldDiscard:(int)maxHand
 {
-    return [hand count] > maxHand;
+    BOOL canPlay = NO;
+
+    for (OCard* card in hand)
+    {
+        canPlay = [self canPlayCard:card];
+
+        if (canPlay)
+            break;
+    }
+
+    return [hand count] >= maxHand && !canPlay;
 }
 
 -(BOOL) canPlayCard:(OCard*)card

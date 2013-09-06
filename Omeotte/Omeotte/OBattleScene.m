@@ -183,7 +183,7 @@
     btnExit.fontColor = 0xffffff;
     btnExit.fontSize = 15;
     btnExit.x = txtPlayer1Name.width;
-    [btnExit addEventListener:@selector(showMenu:) atObject:self forType:SP_EVENT_TYPE_TRIGGERED];
+    [btnExit addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TRIGGERED];
     [self addChild:btnExit];
     
     // AI
@@ -293,6 +293,70 @@
     // ...
 }
 
+-(void) initPlayers
+{
+    OPlayer *player1 = [[OPlayer alloc] init];
+    OPlayer *player2 = [[OPlayer alloc] init];
+
+    [player1 draw:[rule cardsInHand]];
+    [player1.base setStats:rule.base];
+    player1.name = @"Player 1";
+    // to compensate during first Upkeep...
+    player1.base.bricks -= rule.base.bricks;
+    player1.base.gems -= rule.base.gems;
+    player1.base.recruits -= rule.base.recruits;
+
+    [player2 draw:[rule cardsInHand]];
+    [player2.base setStats:rule.base];
+    player2.name = @"A.I.";
+    // to compensate during first Upkeep...
+    player2.base.bricks -= rule.base.bricks;
+    player2.base.gems -= rule.base.gems;
+    player2.base.recruits -= rule.base.recruits;
+
+    _currentPlayer = player1;
+    player2.ai = YES;
+    players = [[NSArray alloc] initWithObjects:player1, player2, nil];
+
+    txtPlayer1Name.text = player1.name;
+    txtPlayer2Name.text = player2.name;
+}
+
+-(void) gameLoop:(SPEnterFrameEvent*)event
+{
+    OPlayer *opponentPlayer = [self opponentPlayer];
+
+    switch (_gamePhase)
+    {
+        case Upkeep:
+        {
+            [self upkeepPhase];
+            break;
+        }
+        case Draw:
+        {
+            [self drawPhase];
+            break;
+        }
+        case Main:
+        {
+            [self mainPhase];
+            break;
+        }
+        case Victory:
+        {
+            [self victoryPhase];
+            break;
+        }
+        case Discard:
+        {
+            [self discardPhase];
+            _currentPlayer = opponentPlayer;
+            break;
+        }
+    }
+}
+
 - (void)onCardTouched:(SPTouchEvent*)event
 {
     if (_currentPlayer.ai)
@@ -319,44 +383,14 @@
         
         if (play)
         {
-            [self playCard:card];
-            [self updateStats];
-            [self checkWinner];
-            
-            if (_gamePhase == Victory)
-                return;
-
-            if (card.playAgain)
-                _gamePhase = Upkeep;
-            else
-                _gamePhase = Discard;
+            _currentCard = card;
         }
         else
         {
             [self discardCard:card];
+            _gamePhase = Discard;
         }
     }
-}
-
--(void) initPlayers
-{
-    OPlayer *player1 = [[OPlayer alloc] init];
-    OPlayer *player2 = [[OPlayer alloc] init];
-    
-    [player1 draw:[rule cardsInHand]];
-    [player1.base setStats:rule.base];
-    player1.name = @"Player 1";
-    
-    [player2 draw:[rule cardsInHand]];
-    [player2.base setStats:rule.base];
-    player2.name = @"A.I.";
-    
-    _currentPlayer = player1;
-    player2.ai = YES;
-    players = [[NSArray alloc] initWithObjects:player1, player2, nil];
-    
-    txtPlayer1Name.text = player1.name;
-    txtPlayer2Name.text = player2.name;
 }
 
 -(void) showHand
@@ -385,7 +419,6 @@
         NSLog(@"%@ playing... %@", _currentPlayer.name, [card name]);
         [_currentPlayer play:card onTarget:[self opponentPlayer]];
         [_currentPlayer discard:card];
-        [self showHand];
     }
 }
 
@@ -490,105 +523,113 @@
     [game showScene:menu];
 }
 
--(void) gameLoop:(SPEnterFrameEvent*)event
+-(void) upkeepPhase
 {
-    OPlayer *opponent = [self opponentPlayer];
+    [_currentPlayer upkeep];
+    [self updateStats];
+    [self showHand];
+    _gamePhase = Draw;
+}
+
+-(void) drawPhase
+{
+    int cardsToDraw = rule.cardsInHand - [_currentPlayer.hand count];
     
-    switch (_gamePhase)
+    if (cardsToDraw > 0)
     {
-        case Upkeep:
-        {
-            [_currentPlayer upkeep];
-            [self updateStats];
-            [self showHand];
-            _gamePhase = Draw;
-            break;
-        }
-        case Draw:
-        {
-            int cardsToDraw = rule.cardsInHand - [_currentPlayer.hand count];
-            if (cardsToDraw > 0)
-            {
-                [_currentPlayer draw:cardsToDraw];
-                [self showHand];
-            }
-            _gamePhase = Main;
-            break;
-        }
-        case Main:
-        {
-            if (_currentPlayer.ai)
-            {
-                OCard *card = [_currentPlayer chooseCardToPlay];
-                
-                if (card)
-                {
-                    [self playCard:card];
-                    [self updateStats];
-                    [self checkWinner];
-                    
-                    if (_gamePhase == Victory)
-                        break;
-                    
-                    if (card.playAgain)
-                        _gamePhase = Upkeep;
-                    else
-                        _gamePhase = Discard;
-                }
-            }
-            break;
-        }
-        case Victory:
-        {
-            NSString *message = nil;
+        [_currentPlayer draw:cardsToDraw];
+        [self showHand];
+    }
+    _gamePhase = Main;
+}
+
+-(void) mainPhase
+{
+    if (_currentPlayer.ai)
+    {
+        _currentCard = [_currentPlayer chooseCardToPlay];
+    }
+    
+    if (_currentCard)
+    {
+        [self playCard:_currentCard];
+        [self showHand];
+        [self updateStats];
+        [self checkWinner];
             
-            switch (winners.count)
-            {
-                case 1:
-                    if ([winners containsObject:_currentPlayer])
-                    {
-                        message = @"Victory";
-                    }
-                    else if ([winners containsObject:[self opponentPlayer]])
-                    {
-                        message = @"Defeat";
-                    }
-                    break;
-                case 2:
-                    message = @"Draw";
-                    break;
-                default:
-                    break;
-            }
-            
-            if (message)
-            {
-                UIAlertView *alertMessage =  [[UIAlertView alloc] initWithTitle:@"Game Over"
-                                                                        message:message
-                                                                       delegate:nil
-                                                              cancelButtonTitle:nil
-                                                              otherButtonTitles:@"OK", nil];
-                [alertMessage show];
-                [self showMenu];
-            }
-            
-            break;
-        }
-        case Discard:
+        if (_gamePhase != Victory)
         {
-            if (_currentPlayer.ai)
-            {
-                if ([_currentPlayer shouldDiscard:rule.cardsInHand])
-                {
-                    OCard *card = [_currentPlayer chooseCardToDiscard];
-                    
-                    [self discardCard:card];
-                }
-            }
-            _gamePhase = Upkeep;
-            _currentPlayer = opponent;
+            _gamePhase = _currentCard.playAgain ? Upkeep : Discard;
+        }
+
+        _currentCard = nil;
+    }
+    else
+    {
+        if (_currentPlayer.ai)
+        {
+            _gamePhase = Discard;
+            _currentCard = [_currentPlayer chooseCardToDiscard];
         }
     }
+}
+
+-(void) victoryPhase
+{
+    NSString *message = nil;
+    
+    switch (winners.count)
+    {
+        case 1:
+        {
+            if ([winners containsObject:_currentPlayer])
+            {
+                message = @"Victory";
+            }
+            else if ([winners containsObject:[self opponentPlayer]])
+            {
+                message = @"Defeat";
+            }
+            break;
+        }
+        case 2:
+        {
+            message = @"Draw";
+            break;
+        }
+        default:
+            break;
+    }
+    
+    if (message)
+    {
+        UIAlertView *alertMessage =  [[UIAlertView alloc] initWithTitle:@"Game Over"
+                                                                message:message
+                                                               delegate:nil
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:@"OK", nil];
+        [alertMessage show];
+        [self showMenu];
+    }
+}
+
+-(void) discardPhase
+{
+    if (_currentPlayer.ai)
+    {
+        if ([_currentPlayer shouldDiscard:rule.cardsInHand])
+        {
+            _currentCard = [_currentPlayer chooseCardToDiscard];
+        }
+    }
+    
+    if (_currentCard)
+    {
+        [self discardCard:_currentCard];
+    }
+
+    _gamePhase = Upkeep;
+    _currentCard = nil;
 }
 
 @end

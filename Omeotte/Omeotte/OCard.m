@@ -24,7 +24,7 @@ NSArray *_cards;
 {
     if (!_cards)
     {
-        NSMutableArray *_macards = [[NSMutableArray alloc] init];
+        NSMutableArray *macards = [[NSMutableArray alloc] init];
         NSArray *cards = [NSArray arrayWithObjects:@"quarry", @"magic", @"dungeon", nil];
         
         for (NSString *card in cards)
@@ -95,12 +95,12 @@ NSArray *_cards;
 //                    card.eval = evalDict;
                 }
                 
-                [_macards addObject:card];
+                [macards addObject:card];
             }
         }
         
         NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-        _cards=[_macards sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+        _cards=[macards sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
     }
     
     [_cards retain];
