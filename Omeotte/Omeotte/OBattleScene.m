@@ -188,10 +188,10 @@
     [btnExit addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TRIGGERED];
     [container addChild:btnExit];
     currentY = 1;
-    txtTimer = [[SPTextField alloc] initWithWidth:stageWidth/3 height:15 text:@"60"];
+    txtTimer = [[SPTextField alloc] initWithWidth:stageWidth/3 height:20 text:[NSString stringWithFormat:@"%d", GAME_TURN]];
     txtTimer.color = 0xffffff;
     txtTimer.x = currentX;
-    txtTimer.y = btnExit.height;
+    txtTimer.y = btnExit.height+10;
     [container addChild:txtTimer];
     [self addChild:container];
     
@@ -597,8 +597,11 @@
 
 - (void)timerTick:(NSTimer *)timer
 {
-    elapsedTurnTime--;
-    txtTimer.text = [NSString stringWithFormat:@"%@%d", (elapsedTurnTime < 10 ? @"0" : @""), elapsedTurnTime];
+    if (_timer)
+    {
+        elapsedTurnTime--;
+        txtTimer.text = [NSString stringWithFormat:@"%@%d", (elapsedTurnTime < 10 ? @"0" : @""), elapsedTurnTime];
+    }
 }
 
 -(void) switchTurn:(OPlayer*)activePlayer
@@ -606,6 +609,7 @@
     _gamePhase = Upkeep;
     _currentPlayer = activePlayer;
     _currentCard = nil;
+    [_timer invalidate];
     _timer = nil;
 }
 

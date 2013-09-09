@@ -15,7 +15,7 @@
 #import "OPlayer.h"
 #import "ORule.h"
 
-#define        GAME_TURN      60 // seconds
+#define        GAME_TURN      30 // seconds
 
 typedef enum
 {
