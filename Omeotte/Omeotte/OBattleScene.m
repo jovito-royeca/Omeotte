@@ -22,6 +22,7 @@
 @synthesize txtPlayer2Quarries;
 @synthesize txtPlayer2Magics;
 @synthesize txtPlayer2Dungeons;
+@synthesize txtTimer;
 
 @synthesize players;
 @synthesize winners;
@@ -178,13 +179,21 @@
     // Exit
     currentX = txtPlayer1Name.width;
     currentY = 0;
+    SPSprite *container = [[SPSprite alloc] init];
     OButtonTextureUI *texture = [[OButtonTextureUI alloc] initWithWidth:stageWidth/3 height:15 cornerRadius:3 strokeWidth:2 strokeColor:0xFFFFFF gloss:NO startColor:0xff0000 endColor:0x0000ff];
     SPButton *btnExit = [SPButton buttonWithUpState:texture text:@"Exit"];
     btnExit.fontColor = 0xffffff;
     btnExit.fontSize = 15;
-    btnExit.x = txtPlayer1Name.width;
+    btnExit.x = currentX;
     [btnExit addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TRIGGERED];
-    [self addChild:btnExit];
+    [container addChild:btnExit];
+    currentY = 1;
+    txtTimer = [[SPTextField alloc] initWithWidth:stageWidth/3 height:15 text:@"60"];
+    txtTimer.color = 0xffffff;
+    txtTimer.x = currentX;
+    txtTimer.y = btnExit.height;
+    [container addChild:txtTimer];
+    [self addChild:container];
     
     // AI
     currentX = txtPlayer1Name.width*2;
@@ -324,8 +333,6 @@
 
 -(void) gameLoop:(SPEnterFrameEvent*)event
 {
-    OPlayer *opponentPlayer = [self opponentPlayer];
-
     switch (_gamePhase)
     {
         case Upkeep:
@@ -346,12 +353,6 @@
         case Victory:
         {
             [self victoryPhase];
-            break;
-        }
-        case Discard:
-        {
-            [self discardPhase];
-            _currentPlayer = opponentPlayer;
             break;
         }
     }
@@ -388,7 +389,7 @@
         else
         {
             [self discardCard:card];
-            _gamePhase = Discard;
+            [self switchTurn:[self opponentPlayer]];
         }
     }
 }
@@ -426,7 +427,6 @@
 {
     NSLog(@"%@ discarding... %@", _currentPlayer.name, [card name]);
     [_currentPlayer discard:card];
-    _gamePhase = Discard;
 }
 
 -(void) displayCard:(OCard*) card inImageHolder:(SPImage*)img
@@ -545,6 +545,18 @@
 
 -(void) mainPhase
 {
+    OPlayer *opponentPlayer = [self opponentPlayer];
+
+    if (!_timer)
+    {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                  target:self
+                                                selector:@selector(timerTick:)
+                                                userInfo:nil
+                                                 repeats:YES];
+        elapsedTurnTime = GAME_TURN;
+    }
+
     if (_currentPlayer.ai)
     {
         _currentCard = [_currentPlayer chooseCardToPlay];
@@ -556,22 +568,45 @@
         [self showHand];
         [self updateStats];
         [self checkWinner];
-            
+
         if (_gamePhase != Victory)
         {
-            _gamePhase = _currentCard.playAgain ? Upkeep : Discard;
+            [self switchTurn:_currentCard.playAgain ? _currentPlayer : opponentPlayer];
         }
-
-        _currentCard = nil;
     }
     else
     {
         if (_currentPlayer.ai)
         {
-            _gamePhase = Discard;
             _currentCard = [_currentPlayer chooseCardToDiscard];
+
+            if (_currentCard)
+            {
+                [self discardCard:_currentCard];
+            }
+
+            [self switchTurn:opponentPlayer];
         }
     }
+
+    if (elapsedTurnTime <= 0)
+    {
+        [self switchTurn:opponentPlayer];
+    }
+}
+
+- (void)timerTick:(NSTimer *)timer
+{
+    elapsedTurnTime--;
+    txtTimer.text = [NSString stringWithFormat:@"%@%d", (elapsedTurnTime < 10 ? @"0" : @""), elapsedTurnTime];
+}
+
+-(void) switchTurn:(OPlayer*)activePlayer
+{
+    _gamePhase = Upkeep;
+    _currentPlayer = activePlayer;
+    _currentCard = nil;
+    _timer = nil;
 }
 
 -(void) victoryPhase
@@ -611,25 +646,6 @@
         [alertMessage show];
         [self showMenu];
     }
-}
-
--(void) discardPhase
-{
-    if (_currentPlayer.ai)
-    {
-        if ([_currentPlayer shouldDiscard:rule.cardsInHand])
-        {
-            _currentCard = [_currentPlayer chooseCardToDiscard];
-        }
-    }
-    
-    if (_currentCard)
-    {
-        [self discardCard:_currentCard];
-    }
-
-    _gamePhase = Upkeep;
-    _currentCard = nil;
 }
 
 @end

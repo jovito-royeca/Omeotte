@@ -15,13 +15,15 @@
 #import "OPlayer.h"
 #import "ORule.h"
 
+#define        GAME_TURN      60 // seconds
+
 typedef enum
 {
     Upkeep = 0,
     Draw,
     Main,
-    Victory,
-    Discard
+    Victory
+//    Discard
 } GamePhase;
 
 @interface OBattleScene : SPSprite
@@ -30,6 +32,8 @@ typedef enum
     OCard *_currentCard;
     NSString *_deck;
     GamePhase _gamePhase;
+    NSTimer *_timer;
+    int elapsedTurnTime;
 }
 
 @property (strong, nonatomic) SPTextField *txtPlayer1Name;
@@ -44,6 +48,7 @@ typedef enum
 @property (strong, nonatomic) SPTextField *txtPlayer2Quarries;
 @property (strong, nonatomic) SPTextField *txtPlayer2Magics;
 @property (strong, nonatomic) SPTextField *txtPlayer2Dungeons;
+@property (strong, nonatomic) SPTextField *txtTimer;
 
 @property (strong, nonatomic) NSArray *players;
 @property (strong, nonatomic) NSMutableArray *winners;
