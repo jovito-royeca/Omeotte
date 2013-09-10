@@ -11,7 +11,7 @@
 
 #import "OGameScene.h"
 #import "ORule.h"
-#import "SPCardsTestScene.h"
+#import "CardTestScene.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {

@@ -10,6 +10,7 @@
 
 #import "OButtonTextureUI.h"
 #import "OCard.h"
+#import "OCardUI.h"
 #import "OMedia.h"
 #import "OMenuScene.h"
 #import "OPlayer.h"

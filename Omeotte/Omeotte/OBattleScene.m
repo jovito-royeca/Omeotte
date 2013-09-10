@@ -53,9 +53,9 @@
 {
     [super dealloc];
     
-    for (SPImage *img in hand)
+    for (OCardUI *card in hand)
     {
-        [img removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
+        [card removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
     }
     [hand release];
     [rule release];
@@ -286,16 +286,16 @@
     currentX = 0; currentY = 0;
     for (int i=0; i<6; i++)
     {
-        SPImage *img = [[SPImage alloc] initWithWidth:rect.size.width height:rect.size.height];
+        OCardUI *card = [[OCardUI alloc] initWithWidth:rect.size.width height:rect.size.height];
+
+//        card.texture = [OMedia texture:@"blank" fromAtlas:_deck];
+        card.x = currentX;
+        card.y = Sparrow.stage.height-rect.size.height;
+        currentX += rect.size.width;
+        [self addChild:card];
+        [card addEventListener:@selector(onCardTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         
-        img.texture = [OMedia texture:@"blank" fromAtlas:_deck];
-        img.x = currentX;
-        img.y = Sparrow.stage.height-img.height;
-        currentX += img.width;
-        [self addChild:img];
-        [img addEventListener:@selector(onCardTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
-        
-        [hand addObject:img];
+        [hand addObject:card];
     }
     
     // To do: lay the Castles and Walls
@@ -366,27 +366,26 @@
     }
     
     SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
-    SPImage *img = (SPImage*)event.target;
-    int index = [hand indexOfObject:img];
+    OCardUI *cardUI = (OCardUI*)event.target;
+    int index = [hand indexOfObject:cardUI];
     OCard *card = nil;
     
     if (index <= [_currentPlayer.hand count] -1)
     {
-        card = [_currentPlayer.hand objectAtIndex:index];
+        card = cardUI.card;
     }
     
     if (card && touch)
     {
         CGRect rect = [self cardRect];
-        
         SPPoint *touchPosition = [touch locationInSpace:self];
-        BOOL play = touchPosition.y < (Sparrow.stage.height-rect.size.height);
-        
-        if (play)
+        int arena = Sparrow.stage.height-rect.size.height;
+
+        if (touchPosition.y < arena)
         {
             _currentCard = card;
         }
-        else
+        else if (touchPosition.y > arena)
         {
             [self discardCard:card];
             [self switchTurn:[self opponentPlayer]];
@@ -398,18 +397,11 @@
 {
     for (int j=0; j<_currentPlayer.hand.count; j++)
     {
-        SPImage *img = [hand objectAtIndex:j];
+        OCardUI *cardUI = [hand objectAtIndex:j];
         OCard *card = [_currentPlayer.hand objectAtIndex:j];
         
-        [self displayCard:card inImageHolder:img];
-    }
-    
-    for (int i=_currentPlayer.hand.count; i<hand.count; i++)
-    {
-        SPImage *img = [hand objectAtIndex:i];
-        
-        img.texture = [OMedia texture:@"blank" fromAtlas:_deck];
-        img.alpha = 1.0;
+        cardUI.card = card;
+        cardUI.alpha = [_currentPlayer canPlayCard:card] ? 1.0 : 0.2;
     }
 }
 
@@ -419,7 +411,27 @@
     {
         NSLog(@"%@ playing... %@", _currentPlayer.name, [card name]);
         [_currentPlayer play:card onTarget:[self opponentPlayer]];
-        [_currentPlayer discard:card];
+        OPlayer *opponent = [self opponentPlayer];
+        NSLog(@"Tower/Wall [%d/%d], Bricks/Quarries[%d/+%d], Gems/Magics [%d/+%d], Recruits/Dungeons [%d/+%d] :%@",
+            _currentPlayer.base.tower,
+            _currentPlayer.base.wall,
+            _currentPlayer.base.bricks,
+            _currentPlayer.base.quarries,
+            _currentPlayer.base.gems,
+            _currentPlayer.base.magics,
+            _currentPlayer.base.recruits,
+            _currentPlayer.base.dungeons,
+            _currentPlayer.name);
+        NSLog(@"Tower/Wall [%d/%d], Bricks/Quarries[%d/+%d], Gems/Magics [%d/+%d], Recruits/Dungeons [%d/+%d] :%@",
+                opponent.base.tower,
+                opponent.base.wall,
+                opponent.base.bricks,
+                opponent.base.quarries,
+                opponent.base.gems,
+                opponent.base.magics,
+                opponent.base.recruits,
+                opponent.base.dungeons,
+                opponent.name);
     }
 }
 
@@ -597,11 +609,8 @@
 
 - (void)timerTick:(NSTimer *)timer
 {
-    if (_timer)
-    {
-        elapsedTurnTime--;
-        txtTimer.text = [NSString stringWithFormat:@"%@%d", (elapsedTurnTime < 10 ? @"0" : @""), elapsedTurnTime];
-    }
+    elapsedTurnTime--;
+    txtTimer.text = [NSString stringWithFormat:@"%@%d", (elapsedTurnTime < 10 ? @"0" : @""), elapsedTurnTime];
 }
 
 -(void) switchTurn:(OPlayer*)activePlayer

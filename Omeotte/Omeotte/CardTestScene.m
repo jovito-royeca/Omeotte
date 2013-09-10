@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
-#import "SPCardsTestScene.h"
+#import "CardTestScene.h"
 
-@implementation SPCardsTestScene
+@implementation CardTestScene
 {
     NSString *_deck;
 }
@@ -40,15 +40,17 @@
     _deck = @"arcomage deck.xml";
     
     [OMedia initAtlas:_deck];
-    SPImage *img = [[SPImage alloc] initWithWidth:95 height:128];
+    OCardUI *cardUI = [[OCardUI alloc] initWithWidth:95 height:128];
     
-    [self addChild:img];
+    [self addChild:cardUI];
     for (OCard *card in [OCard allCards])
     {
         NSLog(@"%@", [card name]);
         
-        SPTexture *texture = [OMedia texture:[card name] fromAtlas:_deck];
-        img.texture = texture;
+//        SPTexture *texture = [OMedia texture:[card name] fromAtlas:_deck];
+//        img.texture = texture;
+        [cardUI setCard:card];
+        break;
     }
 }
 

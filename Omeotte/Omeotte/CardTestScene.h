@@ -9,10 +9,11 @@
 #import "Sparrow.h"
 
 #import "OCard.h"
+#import "OCardUI.h"
 #import "OPlayer.h"
 #import "OMedia.h"
 
-@interface SPCardsTestScene : SPSprite
+@interface CardTestScene : SPSprite
 
 @property (strong, nonatomic) NSMutableArray *cards;
 

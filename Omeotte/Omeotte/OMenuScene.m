@@ -53,10 +53,10 @@
     btnSinglePlayer.y = currentY;
     [btnSinglePlayer addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
      {
-         OBattleScene *battle = [[OBattleScene alloc] init];
+         OBattleScene *scene = [[OBattleScene alloc] init];
          OGameScene* game = (OGameScene*)self.root;
          
-         [game showScene:battle];
+         [game showScene:scene];
      }];
     [self addChild:btnSinglePlayer];
     
@@ -86,18 +86,21 @@
      }];
     [self addChild:btnDeckBuilder];
     
-    SPButton *btnOptions = [SPButton buttonWithUpState:texture text:@"Options"];
-    currentX = (self.width-btnOptions.width)/2;
-    currentY = btnDeckBuilder.y+btnOptions.height+10;
-    btnOptions.fontColor = 0xffffff;
-    btnOptions.fontSize = 30;
-    btnOptions.x = currentX;
-    btnOptions.y = currentY;
-    [btnOptions addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
+    SPButton *btnCardTest = [SPButton buttonWithUpState:texture text:@"Card Test"];
+    currentX = (self.width-btnCardTest.width)/2;
+    currentY = btnDeckBuilder.y+btnCardTest.height+10;
+    btnCardTest.fontColor = 0xffffff;
+    btnCardTest.fontSize = 30;
+    btnCardTest.x = currentX;
+    btnCardTest.y = currentY;
+    [btnCardTest addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
      {
-         NSLog(@"Options not yet implemented.");
+         CardTestScene *scene = [[CardTestScene alloc] init];
+         OGameScene* game = (OGameScene*)self.root;
+
+         [game showScene:scene];
      }];
-    [self addChild:btnOptions];
+    [self addChild:btnCardTest];
 }
 
 

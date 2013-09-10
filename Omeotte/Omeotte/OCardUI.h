@@ -7,9 +7,9 @@
 //
 
 #import "Sparrow.h"
-#import "SPSprite.h"
 
 #import "OCard.h"
+#import "OMedia.h"
 
 @interface OCardUI : SPSprite
 
@@ -18,6 +18,7 @@
 @property(strong,nonatomic) SPTextField *lblCost;
 @property(strong,nonatomic) SPImage *imgArt;
 @property(strong,nonatomic) SPTextField *lblText;
+@property(strong,nonatomic) SPQuad *frmBackground;
 
 -(id) initWithWidth:(float)width height:(float)height;
 
