@@ -288,14 +288,12 @@
     {
         OCardUI *card = [[OCardUI alloc] initWithWidth:rect.size.width height:rect.size.height];
 
-//        card.texture = [OMedia texture:@"blank" fromAtlas:_deck];
         card.x = currentX;
         card.y = Sparrow.stage.height-rect.size.height;
         currentX += rect.size.width;
         [self addChild:card];
-        [card addEventListener:@selector(onCardTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
-        
         [hand addObject:card];
+        [card addEventListener:@selector(onCardTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     }
     
     // To do: lay the Castles and Walls
@@ -366,16 +364,16 @@
     }
     
     SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
-    OCardUI *cardUI = (OCardUI*)event.target;
+    OCardUI *cardUI = (OCardUI*)touch.target;
     int index = [hand indexOfObject:cardUI];
-    OCard *card = nil;
+    OCard *card = cardUI.card;
     
-    if (index <= [_currentPlayer.hand count] -1)
-    {
-        card = cardUI.card;
-    }
+//    if (index <= [_currentPlayer.hand count] -1)
+//    {
+//        card = cardUI.card;
+//    }
     
-    if (card && touch)
+    if (card)
     {
         CGRect rect = [self cardRect];
         SPPoint *touchPosition = [touch locationInSpace:self];
@@ -401,7 +399,7 @@
         OCard *card = [_currentPlayer.hand objectAtIndex:j];
         
         cardUI.card = card;
-        cardUI.alpha = [_currentPlayer canPlayCard:card] ? 1.0 : 0.2;
+        [cardUI paintCard:[_currentPlayer canPlayCard:card]];
     }
 }
 

@@ -615,7 +615,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Copping the Tech</string>
+		<string>Copying the Tech</string>
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>
@@ -934,7 +934,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Porticulus</string>
+		<string>Porticullis</string>
 		<key>cost</key>
 		<dict>
 			<key>bricks</key>

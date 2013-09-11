@@ -21,5 +21,6 @@
 @property(strong,nonatomic) SPQuad *frmBackground;
 
 -(id) initWithWidth:(float)width height:(float)height;
+-(void) paintCard:(BOOL) unlocked;
 
 @end

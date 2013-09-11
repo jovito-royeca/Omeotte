@@ -37,20 +37,18 @@
 
 - (void)setup
 {
-    _deck = @"arcomage deck.xml";
+    _deck = @"deck.xml";
     
     [OMedia initAtlas:_deck];
-    OCardUI *cardUI = [[OCardUI alloc] initWithWidth:95 height:128];
+    OCardUI *cardUI = [[OCardUI alloc] initWithWidth:98 height:125];
     
     [self addChild:cardUI];
     for (OCard *card in [OCard allCards])
     {
         NSLog(@"%@", [card name]);
         
-//        SPTexture *texture = [OMedia texture:[card name] fromAtlas:_deck];
-//        img.texture = texture;
         [cardUI setCard:card];
-        break;
+        [cardUI paintCard:YES];
     }
 }
 

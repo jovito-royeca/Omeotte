@@ -21,16 +21,6 @@
 @synthesize lblText;
 @synthesize frmBackground;
 
--(void)setCard:(OCard *)card_
-{
-    if (card != card_)
-    {
-        [card release];
-        card = [card_ retain];
-
-        [self paintCard];
-    }
-}
 - (void)dealloc
 {
     [super dealloc];
@@ -55,48 +45,34 @@
 
 -(void) setup
 {
-    int width = _width-10;
-    int height = _height-10;
-    int currentX = 5;
-    int currentY = 5;
+    int width = _width;
+    int height = _height;
+    int currentX = 0;
+    int currentY = 0;
     int currentWidth = 0;
     int currentHeight = 0;
-    int fontSize = height / 10;
 
     frmBackground = [[SPQuad alloc] initWithWidth:width height:height];
     frmBackground.x = 0;
     frmBackground.y = 0;
     [self addChild:frmBackground];
 
-    currentWidth = (width * 4) / 5;
+    currentWidth = width;
     currentHeight = height / 10;
     lblName = [[SPTextField alloc] init];
     lblName.x = currentX;
     lblName.y = currentY;
     lblName.width = currentWidth;
     lblName.height = currentHeight;
-    lblName.color = 0xffffff;
-    lblName.fontSize = fontSize;
+    lblName.color = 0x000000;
+    lblName.fontSize = height / 12;
     lblName.hAlign = SPHAlignLeft;
     lblName.border = YES;
     [self addChild:lblName];
 
-    currentX = lblName.width;
-    currentWidth = width / 5;
-    lblCost = [[SPTextField alloc] init];
-    lblCost.x = currentX;
-    lblCost.y = currentY;
-    lblCost.width = currentWidth;
-    lblCost.height = currentHeight;
-    lblCost.color = 0xffffff;
-    lblCost.fontSize = fontSize;
-    lblCost.hAlign = SPHAlignRight;
-    lblCost.border = YES;
-    [self addChild:lblCost];
-
-    currentX = 5;
-    currentY = lblName.height+5;
-    currentWidth = (width * 4) / 5;
+    currentX = 0;
+    currentY = lblName.height;
+    currentWidth = width;
     currentHeight = (height * 2) / 5;
     imgArt = [[SPImage alloc] init];
     imgArt.x = currentX;
@@ -105,32 +81,52 @@
     imgArt.height = currentHeight;
     [self addChild:imgArt];
 
-    currentX = 5;
-    currentY = imgArt.height+5;
-    currentHeight = height / 2;
+    currentX = 0;
+    currentY = lblName.height+imgArt.height;
+    currentWidth = width;
+    currentHeight = height - (lblName.height+imgArt.height);
     lblText = [[SPTextField alloc] init];
     lblText.x = currentX;
     lblText.y = currentY;
     lblText.width = currentWidth;
     lblText.height = currentHeight;
-    lblText.color = 0xffffff;
-    lblText.fontSize = fontSize;
+    lblText.color = 0x000000;
+    lblText.fontSize = height/14;
     lblText.border = YES;
     [self addChild:lblText];
+    
+    currentX = (width * 4) /5;
+    currentY = lblText.height-(height/10);
+    currentWidth = width / 5;
+    currentHeight = height / 10;
+    lblCost = [[SPTextField alloc] init];
+    lblCost.x = currentX;
+    lblCost.y = currentY;
+    lblCost.width = currentWidth;
+    lblCost.height = currentHeight;
+    lblCost.color = 0xffffff;
+    lblCost.fontSize = height / 10;
+    lblCost.border = YES;
+    [lblText addChild:lblCost];
 }
 
--(void) paintCard
+-(void) paintCard:(BOOL) unlocked
 {
-//    static NSString *deck = nil;
-//    if (!deck)
-//    {
-//        deck = @"deck.xml";
-//        [OMedia initAtlas:deck];
-//    }
+    static NSString *deck = nil;
+    if (!deck)
+    {
+        deck = @"deck.xml";
+        [OMedia initAtlas:deck];
+    }
 
     [self unflatten];
 
     lblName.text = card.name;
+
+    SPTexture *texture = [OMedia texture:[[card name] lowercaseString] fromAtlas:deck];
+    imgArt.texture = texture;
+
+    lblText.text = card.text;
 
     if (card.cost.bricks > 0)
     {
@@ -148,16 +144,7 @@
         frmBackground.color = 0x00ff00;
     }
 
-//    if( [@"Some String" caseInsensitiveCompare:@"some string"] == NSOrderedSame )
-//    {
-//
-//    }
-
-//    SPTexture *texture = [OMedia texture:[card name] fromAtlas:deck];
-//    imgArt.texture = texture;
-
-    lblText.text = card.text;
-
+    self.alpha = unlocked ? 1.0 : 0.2;
     [self flatten];
 }
 
