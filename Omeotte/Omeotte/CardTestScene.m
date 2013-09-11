@@ -40,13 +40,11 @@
     _deck = @"deck.xml";
     
     [OMedia initAtlas:_deck];
-    OCardUI *cardUI = [[OCardUI alloc] initWithWidth:98 height:125];
+    OCardUI *cardUI = [[OCardUI alloc] initWithWidth:187 height:261];
     
     [self addChild:cardUI];
     for (OCard *card in [OCard allCards])
     {
-        NSLog(@"%@", [card name]);
-        
         [cardUI setCard:card];
         [cardUI paintCard:YES];
     }

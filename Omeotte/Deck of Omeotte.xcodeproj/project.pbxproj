@@ -78,6 +78,7 @@
 		110C941817D36C9E0029DC16 /* OCardUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCardUI.m; sourceTree = "<group>"; };
 		111724A117E00276008F76E9 /* deck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deck.png; sourceTree = "<group>"; };
 		111724A217E00276008F76E9 /* deck.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = deck.xml; sourceTree = "<group>"; };
+		111724A817E015EC008F76E9 /* OCardUIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCardUIDelegate.h; sourceTree = "<group>"; };
 		11306C7E17D6BE0200156E78 /* Omeotte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Omeotte.h; sourceTree = "<group>"; };
 		1137991E17C49ADF00794158 /* magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic.plist; sourceTree = "<group>"; };
 		1137992017C49AF000794158 /* dungeon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dungeon.plist; sourceTree = "<group>"; };
@@ -209,10 +210,11 @@
 		1148A86017D4100500D7E3B3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				110C941717D36C9E0029DC16 /* OCardUI.h */,
-				110C941817D36C9E0029DC16 /* OCardUI.m */,
 				1148A86417D411E200D7E3B3 /* OButtonTextureUI.h */,
 				1148A86517D411E200D7E3B3 /* OButtonTextureUI.m */,
+				110C941717D36C9E0029DC16 /* OCardUI.h */,
+				110C941817D36C9E0029DC16 /* OCardUI.m */,
+				111724A817E015EC008F76E9 /* OCardUIDelegate.h */,
 			);
 			name = UI;
 			sourceTree = "<group>";

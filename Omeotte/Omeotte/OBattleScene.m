@@ -293,7 +293,7 @@
         currentX += rect.size.width;
         [self addChild:card];
         [hand addObject:card];
-        [card addEventListener:@selector(onCardTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+        card.delegate = self;
     }
     
     // To do: lay the Castles and Walls
@@ -352,41 +352,6 @@
         {
             [self victoryPhase];
             break;
-        }
-    }
-}
-
-- (void)onCardTouched:(SPTouchEvent*)event
-{
-    if (_currentPlayer.ai)
-    {
-        return;
-    }
-    
-    SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
-    OCardUI *cardUI = (OCardUI*)touch.target;
-    int index = [hand indexOfObject:cardUI];
-    OCard *card = cardUI.card;
-    
-//    if (index <= [_currentPlayer.hand count] -1)
-//    {
-//        card = cardUI.card;
-//    }
-    
-    if (card)
-    {
-        CGRect rect = [self cardRect];
-        SPPoint *touchPosition = [touch locationInSpace:self];
-        int arena = Sparrow.stage.height-rect.size.height;
-
-        if (touchPosition.y < arena)
-        {
-            _currentCard = card;
-        }
-        else if (touchPosition.y > arena)
-        {
-            [self discardCard:card];
-            [self switchTurn:[self opponentPlayer]];
         }
     }
 }
@@ -657,6 +622,30 @@
         [alertMessage show];
         [self showMenu];
     }
+}
+
+#pragma mark - OCardUIDelegate
+- (void)promote:(OCard*)card
+{
+    NSLog(@"promote...");
+}
+
+- (void)play:(OCard*)card
+{
+    NSLog(@"play...");
+    _currentCard = card;
+}
+
+- (void)discard:(OCard*)card
+{
+    NSLog(@"discard...");
+    [self discardCard:card];
+    [self switchTurn:[self opponentPlayer]];
+}
+
+- (void)demote:(OCard*)card
+{
+    NSLog(@"demote...");
 }
 
 @end

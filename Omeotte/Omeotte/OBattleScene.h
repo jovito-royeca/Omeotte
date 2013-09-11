@@ -11,6 +11,7 @@
 #import "OButtonTextureUI.h"
 #import "OCard.h"
 #import "OCardUI.h"
+#import "OCardUIDelegate.h"
 #import "OMedia.h"
 #import "OMenuScene.h"
 #import "OPlayer.h"
@@ -27,7 +28,7 @@ typedef enum
 //    Discard
 } GamePhase;
 
-@interface OBattleScene : SPSprite
+@interface OBattleScene : SPSprite <OCardUIDelegate>
 {
     OPlayer *_currentPlayer;
     OCard *_currentCard;
