@@ -100,22 +100,22 @@
 		11722F6A17C640CC00014D16 /* OMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMedia.m; sourceTree = "<group>"; };
 		118E688417C74BD8007801CD /* Stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stats.h; sourceTree = "<group>"; };
 		118E688517C74BD8007801CD /* Stats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stats.m; sourceTree = "<group>"; };
-		1195D17717C25F5E00C4DA25 /* Deck of Omeotte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deck of Omeotte.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1195D17717C25F5E00C4DA25 /* Omeotte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omeotte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1195D17A17C25F5E00C4DA25 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1195D17C17C25F5E00C4DA25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1195D17E17C25F5E00C4DA25 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1195D18217C25F5E00C4DA25 /* Deck of Omeotte-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Deck of Omeotte-Info.plist"; sourceTree = "<group>"; };
+		1195D18217C25F5E00C4DA25 /* Omeotte-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Omeotte-Info.plist"; sourceTree = "<group>"; };
 		1195D18417C25F5E00C4DA25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1195D18617C25F5E00C4DA25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1195D18817C25F5E00C4DA25 /* Deck of Omeotte-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Deck of Omeotte-Prefix.pch"; sourceTree = "<group>"; };
+		1195D18817C25F5E00C4DA25 /* Omeotte-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Omeotte-Prefix.pch"; sourceTree = "<group>"; };
 		1195D18917C25F5E00C4DA25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1195D18A17C25F5E00C4DA25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1195D18C17C25F5E00C4DA25 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1195D18E17C25F5E00C4DA25 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1195D19017C25F5E00C4DA25 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		1195D19717C25F5E00C4DA25 /* Deck of OmeotteTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Deck of OmeotteTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1195D19717C25F5E00C4DA25 /* OmeotteTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmeotteTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1195D19817C25F5E00C4DA25 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		1195D1A017C25F5E00C4DA25 /* Deck of OmeotteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Deck of OmeotteTests-Info.plist"; sourceTree = "<group>"; };
+		1195D1A017C25F5E00C4DA25 /* OmeotteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OmeotteTests-Info.plist"; sourceTree = "<group>"; };
 		1195D1A217C25F5F00C4DA25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1195D1A417C25F5F00C4DA25 /* OmeotteTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmeotteTests.h; sourceTree = "<group>"; };
 		1195D1A517C25F5F00C4DA25 /* OmeotteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmeotteTests.m; sourceTree = "<group>"; };
@@ -242,8 +242,8 @@
 		1195D17817C25F5E00C4DA25 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1195D17717C25F5E00C4DA25 /* Deck of Omeotte.app */,
-				1195D19717C25F5E00C4DA25 /* Deck of OmeotteTests.octest */,
+				1195D17717C25F5E00C4DA25 /* Omeotte.app */,
+				1195D19717C25F5E00C4DA25 /* OmeotteTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -296,10 +296,10 @@
 		1195D18117C25F5E00C4DA25 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1195D18217C25F5E00C4DA25 /* Deck of Omeotte-Info.plist */,
+				1195D18217C25F5E00C4DA25 /* Omeotte-Info.plist */,
 				1195D18317C25F5E00C4DA25 /* InfoPlist.strings */,
 				1195D18617C25F5E00C4DA25 /* main.m */,
-				1195D18817C25F5E00C4DA25 /* Deck of Omeotte-Prefix.pch */,
+				1195D18817C25F5E00C4DA25 /* Omeotte-Prefix.pch */,
 				1195D18C17C25F5E00C4DA25 /* Default.png */,
 				1195D18E17C25F5E00C4DA25 /* Default@2x.png */,
 				1195D19017C25F5E00C4DA25 /* Default-568h@2x.png */,
@@ -320,7 +320,7 @@
 		1195D19F17C25F5E00C4DA25 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1195D1A017C25F5E00C4DA25 /* Deck of OmeotteTests-Info.plist */,
+				1195D1A017C25F5E00C4DA25 /* OmeotteTests-Info.plist */,
 				1195D1A117C25F5F00C4DA25 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -340,9 +340,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1195D17617C25F5E00C4DA25 /* Deck of Omeotte */ = {
+		1195D17617C25F5E00C4DA25 /* Omeotte */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1195D1A917C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "Deck of Omeotte" */;
+			buildConfigurationList = 1195D1A917C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "Omeotte" */;
 			buildPhases = (
 				1195D17317C25F5E00C4DA25 /* Sources */,
 				1195D17417C25F5E00C4DA25 /* Frameworks */,
@@ -352,14 +352,14 @@
 			);
 			dependencies = (
 			);
-			name = "Deck of Omeotte";
+			name = Omeotte;
 			productName = Omeotte;
-			productReference = 1195D17717C25F5E00C4DA25 /* Deck of Omeotte.app */;
+			productReference = 1195D17717C25F5E00C4DA25 /* Omeotte.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1195D19617C25F5E00C4DA25 /* Deck of OmeotteTests */ = {
+		1195D19617C25F5E00C4DA25 /* OmeotteTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1195D1AC17C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "Deck of OmeotteTests" */;
+			buildConfigurationList = 1195D1AC17C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "OmeotteTests" */;
 			buildPhases = (
 				1195D19217C25F5E00C4DA25 /* Sources */,
 				1195D19317C25F5E00C4DA25 /* Frameworks */,
@@ -371,9 +371,9 @@
 			dependencies = (
 				1195D19D17C25F5E00C4DA25 /* PBXTargetDependency */,
 			);
-			name = "Deck of OmeotteTests";
+			name = OmeotteTests;
 			productName = OmeotteTests;
-			productReference = 1195D19717C25F5E00C4DA25 /* Deck of OmeotteTests.octest */;
+			productReference = 1195D19717C25F5E00C4DA25 /* OmeotteTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -385,7 +385,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "JJJ Software";
 			};
-			buildConfigurationList = 1195D17217C25F5E00C4DA25 /* Build configuration list for PBXProject "Deck of Omeotte" */;
+			buildConfigurationList = 1195D17217C25F5E00C4DA25 /* Build configuration list for PBXProject "Omeotte" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -403,8 +403,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				1195D17617C25F5E00C4DA25 /* Deck of Omeotte */,
-				1195D19617C25F5E00C4DA25 /* Deck of OmeotteTests */,
+				1195D17617C25F5E00C4DA25 /* Omeotte */,
+				1195D19617C25F5E00C4DA25 /* OmeotteTests */,
 			);
 		};
 /* End PBXProject section */
@@ -505,7 +505,7 @@
 /* Begin PBXTargetDependency section */
 		1195D19D17C25F5E00C4DA25 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1195D17617C25F5E00C4DA25 /* Deck of Omeotte */;
+			target = 1195D17617C25F5E00C4DA25 /* Omeotte */;
 			targetProxy = 1195D19C17C25F5E00C4DA25 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -590,14 +590,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Omeotte/Deck of Omeotte-Prefix.pch";
-				INFOPLIST_FILE = "Omeotte/Deck of Omeotte-Info.plist";
+				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
+				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "Deck of Omeotte";
+				PRODUCT_NAME = Omeotte;
 				USER_HEADER_SEARCH_PATHS = "../Sparrow-Framework/sparrow/src/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -607,14 +607,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Omeotte/Deck of Omeotte-Prefix.pch";
-				INFOPLIST_FILE = "Omeotte/Deck of Omeotte-Info.plist";
+				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
+				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "Deck of Omeotte";
+				PRODUCT_NAME = Omeotte;
 				USER_HEADER_SEARCH_PATHS = "../Sparrow-Framework/sparrow/src/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -630,8 +630,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
-				INFOPLIST_FILE = "OmeotteTests/Deck of OmeotteTests-Info.plist";
-				PRODUCT_NAME = "Deck of OmeotteTests";
+				INFOPLIST_FILE = "OmeotteTests/OmeotteTests-Info.plist";
+				PRODUCT_NAME = OmeotteTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -647,8 +647,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
-				INFOPLIST_FILE = "OmeotteTests/Deck of OmeotteTests-Info.plist";
-				PRODUCT_NAME = "Deck of OmeotteTests";
+				INFOPLIST_FILE = "OmeotteTests/OmeotteTests-Info.plist";
+				PRODUCT_NAME = OmeotteTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -657,7 +657,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1195D17217C25F5E00C4DA25 /* Build configuration list for PBXProject "Deck of Omeotte" */ = {
+		1195D17217C25F5E00C4DA25 /* Build configuration list for PBXProject "Omeotte" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1195D1A717C25F5F00C4DA25 /* Debug */,
@@ -666,7 +666,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1195D1A917C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "Deck of Omeotte" */ = {
+		1195D1A917C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "Omeotte" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1195D1AA17C25F5F00C4DA25 /* Debug */,
@@ -675,7 +675,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1195D1AC17C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "Deck of OmeotteTests" */ = {
+		1195D1AC17C25F5F00C4DA25 /* Build configuration list for PBXNativeTarget "OmeotteTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1195D1AD17C25F5F00C4DA25 /* Debug */,
