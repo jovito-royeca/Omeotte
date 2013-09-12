@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
 #import "Sparrow.h"
 
 #import "OCard.h"
@@ -13,8 +15,18 @@
 #import "OPlayer.h"
 #import "OMedia.h"
 
-@interface CardTestScene : SPSprite
+@interface CardTestScene : SPSprite <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
+{
+    NSArray *results;
+    NSArray *sections;
+}
 
-@property (strong, nonatomic) NSMutableArray *cards;
+@property (strong, nonatomic) OCardUI *cardUI;
+@property (strong, nonatomic) UISegmentedControl *typeFilter;
+@property (strong, nonatomic) UISearchBar *queryFilter;
+@property (strong, nonatomic) UITableView *tblCards;
+
+- (NSArray*) searchCards:(NSString*)query cardType:(int)type;
+- (void) createSections;
 
 @end

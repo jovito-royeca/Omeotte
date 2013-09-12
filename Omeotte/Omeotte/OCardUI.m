@@ -91,20 +91,23 @@
     lblText.color = 0x000000;
     lblText.fontSize = currentX;
     [self addChild:lblText];
-//
-//    currentX = (width * 4) /5;
-//    currentY = lblText.height-(height/10);
-//    currentWidth = width / 5;
-//    currentHeight = height / 10;
-//    lblCost = [[SPTextField alloc] init];
-//    lblCost.x = currentX;
-//    lblCost.y = currentY;
-//    lblCost.width = currentWidth;
-//    lblCost.height = currentHeight;
-//    lblCost.color = 0xffffff;
-//    lblCost.fontSize = height / 10;
-//    lblCost.border = YES;
-//    [lblText addChild:lblCost];
+
+    currentX = width * /*0.866; //*/0.8;
+    currentY = height * /*0.904; //*/0.856;
+    currentWidth = width * 0.133;
+    currentHeight = width * 0.133;
+    lblCost = [[SPTextField alloc] init];
+    lblCost.x = currentX;
+    lblCost.y = currentY;
+    lblCost.width = currentWidth;
+    lblCost.height = currentHeight;
+    lblCost.color = 0xffffff;
+    lblCost.fontSize = currentWidth;
+    [self addChild:lblCost];
+//    SHPolygon *circle = [[SHPolygon alloc] initWithRadius:currentWidth/2 numEdges:360];
+//    circle.x = currentX;
+//    circle.y= currentY;
+//    [self addChild:circle];
     
     [self addEventListener:@selector(onCardTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
 }
@@ -180,14 +183,17 @@
     if (card.cost.bricks > 0)
     {
         lblCost.text = [NSString stringWithFormat:@"%d", card.cost.bricks];
+        lblCost.color = 0xff0000;
     }
     else if (card.cost.gems > 0)
     {
         lblCost.text = [NSString stringWithFormat:@"%d", card.cost.gems];
+        lblCost.color = 0x0000ff;
     }
     else if (card.cost.recruits > 0)
     {
         lblCost.text = [NSString stringWithFormat:@"%d", card.cost.recruits];
+        lblCost.color = 0x00ff00;
     }
     else
     {

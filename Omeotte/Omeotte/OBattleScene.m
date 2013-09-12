@@ -80,7 +80,7 @@
 
 - (void)setup
 {
-    _deck = @"arcomage deck.xml";
+    _deck = @"deck.xml";
     
     [OMedia initAtlas:_deck];
     

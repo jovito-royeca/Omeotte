@@ -11,6 +11,10 @@
 #import "OCard.h"
 #import "OCardUIDelegate.h"
 #import "OMedia.h"
+#import "SHPolygon.h"
+
+#define CARD_WIDTH  375
+#define CARD_HEIGHT 523
 
 @interface OCardUI : SPSprite
 {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:9fdd41ddf4b2e03546ffa5ff3ab9260b:1/1$ -->
+<!-- $TexturePacker:SmartUpdate:6536c814f029b2d9e32a03e73334abba:1/1$ -->
 <TextureAtlas imagePath="deck.png">
     <SubTexture name="amethyst" x="2" y="1106" width="88" height="52"/>
     <SubTexture name="apprentice" x="902" y="1082" width="88" height="52"/>
