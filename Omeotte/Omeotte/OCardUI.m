@@ -180,43 +180,33 @@
 
     lblText.text = card.text;
 
-    if (card.cost.bricks > 0)
-    {
-        lblCost.text = [NSString stringWithFormat:@"%d", card.cost.bricks];
-        lblCost.color = 0xff0000;
-    }
-    else if (card.cost.gems > 0)
-    {
-        lblCost.text = [NSString stringWithFormat:@"%d", card.cost.gems];
-        lblCost.color = 0x0000ff;
-    }
-    else if (card.cost.recruits > 0)
-    {
-        lblCost.text = [NSString stringWithFormat:@"%d", card.cost.recruits];
-        lblCost.color = 0x00ff00;
-    }
-    else
-    {
-        lblCost.text = @"0";
-    }
-    
     NSString *szBackground = nil;
     switch (card.type)
     {
         case Quarry:
         {
             szBackground = @"brick_card";
+            lblCost.text = [NSString stringWithFormat:@"%d", card.cost.bricks];
+            lblCost.color = 0xff0000;
             break;
         }
         case Magic:
         {
             szBackground = @"gem_card";
+            lblCost.text = [NSString stringWithFormat:@"%d", card.cost.gems];
+            lblCost.color = 0x0000ff;
             break;
         }
         case Dungeon:
         {
             szBackground = @"recruit_card";
+            lblCost.text = [NSString stringWithFormat:@"%d", card.cost.recruits];
+            lblCost.color = 0x00ff00;
             break;
+        }
+        default:
+        {
+            lblCost.text = @"0";
         }
     }
     SPTexture *background = [OMedia texture:szBackground fromAtlas:deck];

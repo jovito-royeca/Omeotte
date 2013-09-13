@@ -19,11 +19,11 @@
 {
     NSArray *results;
     NSArray *sections;
+    NSArray *alphabet;
 }
 
 @property (strong, nonatomic) OCardUI *cardUI;
-@property (strong, nonatomic) UISegmentedControl *typeFilter;
-@property (strong, nonatomic) UISearchBar *queryFilter;
+@property (strong, nonatomic) UISearchBar *searchBar;
 @property (strong, nonatomic) UITableView *tblCards;
 
 - (NSArray*) searchCards:(NSString*)query cardType:(int)type;

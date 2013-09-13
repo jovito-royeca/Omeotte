@@ -86,21 +86,21 @@
      }];
     [self addChild:btnDeckBuilder];
     
-    SPButton *btnCardTest = [SPButton buttonWithUpState:texture text:@"Card Test"];
-    currentX = (self.width-btnCardTest.width)/2;
-    currentY = btnDeckBuilder.y+btnCardTest.height+10;
-    btnCardTest.fontColor = 0xffffff;
-    btnCardTest.fontSize = 30;
-    btnCardTest.x = currentX;
-    btnCardTest.y = currentY;
-    [btnCardTest addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
+    SPButton *btnCardBrowser = [SPButton buttonWithUpState:texture text:@"Card Browser"];
+    currentX = (self.width-btnCardBrowser.width)/2;
+    currentY = btnDeckBuilder.y+btnCardBrowser.height+10;
+    btnCardBrowser.fontColor = 0xffffff;
+    btnCardBrowser.fontSize = 30;
+    btnCardBrowser.x = currentX;
+    btnCardBrowser.y = currentY;
+    [btnCardBrowser addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
      {
          CardTestScene *scene = [[CardTestScene alloc] init];
          OGameScene* game = (OGameScene*)self.root;
 
          [game showScene:scene];
      }];
-    [self addChild:btnCardTest];
+    [self addChild:btnCardBrowser];
 }
 
 

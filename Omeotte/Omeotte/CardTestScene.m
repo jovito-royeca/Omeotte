@@ -14,8 +14,7 @@
 }
 
 @synthesize cardUI;
-@synthesize typeFilter;
-@synthesize queryFilter;
+@synthesize searchBar;
 @synthesize tblCards;
 
 - (id)init
@@ -32,8 +31,7 @@
     [super dealloc];
 
     [cardUI release];
-    [typeFilter release];
-    [queryFilter release];
+    [searchBar release];
     [tblCards release];
     [OMedia releaseAllAtlas];
 }
@@ -42,6 +40,11 @@
 {
     _deck = @"deck.xml";
     [OMedia initAtlas:_deck];
+    
+    alphabet = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H",
+                @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U",
+                @"V", @"W", @"X", @"Y", @"Z", nil];
+    [alphabet retain];
     
     int stageWidth = Sparrow.stage.width;
     int stageHeight = Sparrow.stage.height;
@@ -52,23 +55,23 @@
     
     currentHeight = stageHeight;
     currentWidth = (currentHeight * CARD_WIDTH) / CARD_HEIGHT;
+    currentX = ((stageWidth/2) - currentWidth) /2;
     cardUI = [[OCardUI alloc] initWithWidth:currentWidth height:currentHeight];
+    cardUI.x = currentX;
+    cardUI.y = currentY;
     [self addChild:cardUI];
     
     currentX = stageWidth/2;
-    currentHeight = 40;
-    queryFilter = [[UISearchBar alloc] initWithFrame:CGRectMake(currentX, currentY, currentWidth, currentHeight)];
-    queryFilter.delegate = self;
-    [Sparrow.currentController.view addSubview:queryFilter];
+    currentWidth = stageWidth/2;
+    currentHeight = 88;
+    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(currentX, currentY, currentWidth, currentHeight)];
+    searchBar.delegate = self;
+    searchBar.scopeButtonTitles = [NSArray arrayWithObjects:@"All", @"Quarry", @"Magic", @"Dungeon", nil];
+    searchBar.showsScopeBar = YES;
+    [Sparrow.currentController.view addSubview:searchBar];
     
-    currentY = queryFilter.frame.size.height;
-    typeFilter = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"All", @"Quarry", @"Magic", @"Dungeon", nil]];
-    typeFilter.frame = CGRectMake(currentX, currentY, currentWidth, currentHeight);
-    typeFilter.selectedSegmentIndex = 0;
-    [Sparrow.currentController.view addSubview:typeFilter];
-    
-    currentY = typeFilter.frame.origin.y + typeFilter.frame.size.height;
-    currentHeight = stageHeight-typeFilter.frame.size.height-queryFilter.frame.size.height;
+    currentY = searchBar.frame.size.height;
+    currentHeight = stageHeight-searchBar.frame.size.height;
     tblCards = [[UITableView alloc] initWithFrame:CGRectMake(currentX, currentY, currentWidth, currentHeight)];
     tblCards.delegate = self;
     tblCards.dataSource = self;
@@ -86,7 +89,7 @@
     
         if (type != 0)
         {
-            [predicateString appendFormat:@" AND SELF.cardType = %d", type];
+            [predicateString appendFormat:@" AND SELF.type = %d", type-1];
         }
         NSPredicate *predicate = [NSPredicate
                                     predicateWithFormat:predicateString];
@@ -99,7 +102,7 @@
         
         if (type != 0)
         {
-            [predicateString appendFormat:@" AND SELF.cardType = %d", type];
+            [predicateString appendFormat:@" AND SELF.type = %d", type-1];
         }
         NSPredicate *predicate = [NSPredicate
                                   predicateWithFormat:predicateString];
@@ -114,14 +117,6 @@
 
 - (void) createSections
 {
-    static NSArray *alphabet = nil;
-    if (!alphabet)
-    {
-        alphabet = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H",
-            @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U",
-            @"V", @"W", @"X", @"Y", @"Z", nil];
-    }
-    
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
     for (NSString *letter in alphabet)
@@ -144,9 +139,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *query = [sections objectAtIndex:indexPath.section];
-    OCard *card = [[self searchCards:query cardType:typeFilter.selectedSegmentIndex] objectAtIndex:indexPath.row];
+    OCard *card = [[self searchCards:query cardType:searchBar.selectedScopeButtonIndex] objectAtIndex:indexPath.row];
     [cardUI setCard:card];
     [cardUI paintCard:YES];
+    [searchBar resignFirstResponder];
 }
 
 - (NSArray*) sectionIndexTitlesForTableView:(UITableView *)tableView
@@ -166,7 +162,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray *array = [self searchCards:[sections objectAtIndex:section] cardType:typeFilter.selectedSegmentIndex];
+    NSArray *array = [self searchCards:[sections objectAtIndex:section] cardType:searchBar.selectedScopeButtonIndex];
     return [array count];
 }
 
@@ -196,19 +192,38 @@
     }
     
     NSString *query = [sections objectAtIndex:indexPath.section];
-    OCard *card = [[self searchCards:query cardType:typeFilter.selectedSegmentIndex] objectAtIndex:indexPath.row];
+    OCard *card = [[self searchCards:query cardType:searchBar.selectedScopeButtonIndex] objectAtIndex:indexPath.row];
     cell.textLabel.text = card.name;
     
     return cell;
 }
 
 #pragma mark - UISearchBar
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)bar
 {
-    results = [self searchCards:queryFilter.text cardType:typeFilter.selectedSegmentIndex];
+    results = [self searchCards:bar.text cardType:bar.selectedScopeButtonIndex];
 
     [self createSections];
-    [queryFilter resignFirstResponder];
+    [tblCards reloadData];
+    [bar resignFirstResponder];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)bar
+{
+    results = [self searchCards:bar.text cardType:bar.selectedScopeButtonIndex];
+    
+    [self createSections];
+    [tblCards reloadData];
+
+}
+
+- (void)searchBar:(UISearchBar *)bar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+{
+    results = [self searchCards:bar.text cardType:selectedScope];
+    
+    [self createSections];
+    [tblCards reloadData];
+    [bar resignFirstResponder];
 }
 
 @end
