@@ -54,7 +54,7 @@
     CGFloat currentHeight = 0;
     
     currentHeight = stageHeight;
-    currentWidth = (currentHeight * CARD_WIDTH) / CARD_HEIGHT;
+    currentWidth = (currentHeight * CARD_WIDTH_PIXELS) / CARD_HEIGHT_PIXELS;
     currentX = ((stageWidth/2) - currentWidth) /2;
     cardUI = [[OCardUI alloc] initWithWidth:currentWidth height:currentHeight];
     cardUI.x = currentX;

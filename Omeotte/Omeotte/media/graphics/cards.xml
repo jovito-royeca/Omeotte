@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:8d39f39cc848848b9f9c9288b48c7ef3:1/1$ -->
+<TextureAtlas imagePath="cards.png">
+    <SubTexture name="amethyst" x="902" y="272" width="88" height="52"/>
+    <SubTexture name="apprentice" x="812" y="272" width="88" height="52"/>
+    <SubTexture name="bag of baubles" x="722" y="272" width="88" height="52"/>
+    <SubTexture name="barracks" x="632" y="272" width="88" height="52"/>
+    <SubTexture name="basic wall" x="542" y="272" width="88" height="52"/>
+    <SubTexture name="battlements" x="452" y="272" width="88" height="52"/>
+    <SubTexture name="berserker" x="362" y="272" width="88" height="52"/>
+    <SubTexture name="big wall" x="272" y="272" width="88" height="52"/>
+    <SubTexture name="brick shortage" x="182" y="920" width="88" height="52"/>
+    <SubTexture name="collapse!" x="182" y="866" width="88" height="52"/>
+    <SubTexture name="copping the tech" x="182" y="812" width="88" height="52"/>
+    <SubTexture name="corrosion cloud" x="182" y="758" width="88" height="52"/>
+    <SubTexture name="crumblestone" x="182" y="704" width="88" height="52"/>
+    <SubTexture name="crystal matrix" x="182" y="650" width="88" height="52"/>
+    <SubTexture name="crystal rocks" x="182" y="596" width="88" height="52"/>
+    <SubTexture name="crystal shield" x="182" y="542" width="88" height="52"/>
+    <SubTexture name="crystallize" x="182" y="488" width="88" height="52"/>
+    <SubTexture name="diamond" x="182" y="434" width="88" height="52"/>
+    <SubTexture name="discord" x="182" y="380" width="88" height="52"/>
+    <SubTexture name="dragon's eye" x="182" y="326" width="88" height="52"/>
+    <SubTexture name="dragon's heart" x="182" y="272" width="88" height="52"/>
+    <SubTexture name="dragon" x="902" y="218" width="88" height="52"/>
+    <SubTexture name="dwarven miners" x="812" y="218" width="88" height="52"/>
+    <SubTexture name="dwarves" x="722" y="218" width="88" height="52"/>
+    <SubTexture name="earthquake" x="632" y="218" width="88" height="52"/>
+    <SubTexture name="elven archers" x="542" y="218" width="88" height="52"/>
+    <SubTexture name="elven scout" x="452" y="218" width="88" height="52"/>
+    <SubTexture name="emerald" x="362" y="218" width="88" height="52"/>
+    <SubTexture name="empathy gem" x="272" y="218" width="88" height="52"/>
+    <SubTexture name="faerie" x="182" y="218" width="88" height="52"/>
+    <SubTexture name="fire ruby" x="92" y="920" width="88" height="52"/>
+    <SubTexture name="flood water" x="92" y="866" width="88" height="52"/>
+    <SubTexture name="focused designs" x="92" y="812" width="88" height="52"/>
+    <SubTexture name="forced labor" x="92" y="758" width="88" height="52"/>
+    <SubTexture name="foundations" x="92" y="704" width="88" height="52"/>
+    <SubTexture name="friendly terrain" x="92" y="650" width="88" height="52"/>
+    <SubTexture name="full moon" x="92" y="596" width="88" height="52"/>
+    <SubTexture name="gem spear" x="92" y="542" width="88" height="52"/>
+    <SubTexture name="gemstone flaw" x="92" y="488" width="88" height="52"/>
+    <SubTexture name="gnome" x="92" y="434" width="88" height="52"/>
+    <SubTexture name="goblin archers" x="92" y="380" width="88" height="52"/>
+    <SubTexture name="goblin mob" x="92" y="326" width="88" height="52"/>
+    <SubTexture name="great wall" x="92" y="272" width="88" height="52"/>
+    <SubTexture name="harmonic ore" x="92" y="218" width="88" height="52"/>
+    <SubTexture name="harmonic vibe" x="902" y="164" width="88" height="52"/>
+    <SubTexture name="imp" x="812" y="164" width="88" height="52"/>
+    <SubTexture name="innovations" x="722" y="164" width="88" height="52"/>
+    <SubTexture name="lava jewel" x="632" y="164" width="88" height="52"/>
+    <SubTexture name="lightning shard" x="542" y="164" width="88" height="52"/>
+    <SubTexture name="little snakes" x="452" y="164" width="88" height="52"/>
+    <SubTexture name="lodestone" x="362" y="164" width="88" height="52"/>
+    <SubTexture name="lucky cache" x="272" y="164" width="88" height="52"/>
+    <SubTexture name="mad cow disease" x="182" y="164" width="88" height="52"/>
+    <SubTexture name="miners" x="92" y="164" width="88" height="52"/>
+    <SubTexture name="minotaur" x="902" y="110" width="88" height="52"/>
+    <SubTexture name="mondo wall" x="812" y="110" width="88" height="52"/>
+    <SubTexture name="moody goblins" x="722" y="110" width="88" height="52"/>
+    <SubTexture name="mother lode" x="632" y="110" width="88" height="52"/>
+    <SubTexture name="new equipment" x="542" y="110" width="88" height="52"/>
+    <SubTexture name="ogre" x="452" y="110" width="88" height="52"/>
+    <SubTexture name="orc" x="362" y="110" width="88" height="52"/>
+    <SubTexture name="parity" x="272" y="110" width="88" height="52"/>
+    <SubTexture name="pearl of wisdom" x="182" y="110" width="88" height="52"/>
+    <SubTexture name="pegasus lancer" x="92" y="110" width="88" height="52"/>
+    <SubTexture name="phase jewel" x="2" y="920" width="88" height="52"/>
+    <SubTexture name="porticullis" x="2" y="866" width="88" height="52"/>
+    <SubTexture name="power burn" x="2" y="812" width="88" height="52"/>
+    <SubTexture name="prism" x="2" y="758" width="88" height="52"/>
+    <SubTexture name="quarry's help" x="2" y="704" width="88" height="52"/>
+    <SubTexture name="quartz" x="2" y="650" width="88" height="52"/>
+    <SubTexture name="rabid sheep" x="2" y="596" width="88" height="52"/>
+    <SubTexture name="rainbow" x="2" y="542" width="88" height="52"/>
+    <SubTexture name="reinforced wall" x="2" y="488" width="88" height="52"/>
+    <SubTexture name="rock garden" x="2" y="434" width="88" height="52"/>
+    <SubTexture name="rock launcher" x="2" y="380" width="88" height="52"/>
+    <SubTexture name="rock stompers" x="2" y="326" width="88" height="52"/>
+    <SubTexture name="ruby" x="2" y="272" width="88" height="52"/>
+    <SubTexture name="sanctuary" x="2" y="218" width="88" height="52"/>
+    <SubTexture name="sapphire" x="2" y="164" width="88" height="52"/>
+    <SubTexture name="secret room" x="2" y="110" width="88" height="52"/>
+    <SubTexture name="shadow faerie" x="902" y="56" width="88" height="52"/>
+    <SubTexture name="shatterer" x="812" y="56" width="88" height="52"/>
+    <SubTexture name="shift" x="722" y="56" width="88" height="52"/>
+    <SubTexture name="slasher" x="632" y="56" width="88" height="52"/>
+    <SubTexture name="smoky quartz" x="542" y="56" width="88" height="52"/>
+    <SubTexture name="solar flare" x="452" y="56" width="88" height="52"/>
+    <SubTexture name="spearman" x="362" y="56" width="88" height="52"/>
+    <SubTexture name="spell weavers" x="272" y="56" width="88" height="52"/>
+    <SubTexture name="spizzer" x="182" y="56" width="88" height="52"/>
+    <SubTexture name="stone giant" x="92" y="56" width="88" height="52"/>
+    <SubTexture name="strip mine" x="2" y="56" width="88" height="52"/>
+    <SubTexture name="sturdy wall" x="902" y="2" width="88" height="52"/>
+    <SubTexture name="succubus" x="812" y="2" width="88" height="52"/>
+    <SubTexture name="thief" x="722" y="2" width="88" height="52"/>
+    <SubTexture name="tower gremlin" x="632" y="2" width="88" height="52"/>
+    <SubTexture name="tremors" x="542" y="2" width="88" height="52"/>
+    <SubTexture name="troll trainer" x="452" y="2" width="88" height="52"/>
+    <SubTexture name="unicorn" x="362" y="2" width="88" height="52"/>
+    <SubTexture name="vampire" x="272" y="2" width="88" height="52"/>
+    <SubTexture name="warlord" x="182" y="2" width="88" height="52"/>
+    <SubTexture name="werewolf" x="92" y="2" width="88" height="52"/>
+    <SubTexture name="work overtime" x="2" y="2" width="88" height="52"/>
+</TextureAtlas>

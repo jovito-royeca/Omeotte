@@ -15,6 +15,9 @@
 {
     if ((self = [super init]))
     {
+        screenWidth = Sparrow.stage.width;
+        screenHeight = Sparrow.stage.height;
+
         OMenuScene *menuScene = [[OMenuScene alloc] init];
         [self showScene:menuScene];
     }

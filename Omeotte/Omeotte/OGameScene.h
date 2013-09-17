@@ -15,6 +15,8 @@
 @interface OGameScene : SPSprite
 {
     SPSprite *_currentScene;
+    float screenWidth;
+    float screenHeight;
 }
 
 - (void)showScene:(SPSprite *)scene;

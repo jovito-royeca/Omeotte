@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:d284234f51e525e51c9214bff1020259:1/1$ -->
+<TextureAtlas imagePath="ui.png">
+    <SubTexture name="blue tower" x="379" y="512" width="68" height="290"/>
+    <SubTexture name="brick card" x="2" y="1052" width="375" height="523"/>
+    <SubTexture name="gem card" x="2" y="527" width="375" height="523"/>
+    <SubTexture name="recruit card" x="2" y="2" width="375" height="523"/>
+    <SubTexture name="red tower" x="379" y="220" width="68" height="290"/>
+    <SubTexture name="resources" x="379" y="2" width="78" height="216"/>
+    <SubTexture name="wall" x="459" y="2" width="45" height="238"/>
+</TextureAtlas>

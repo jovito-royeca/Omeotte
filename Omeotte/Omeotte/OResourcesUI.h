@@ -6,8 +6,24 @@
 //
 
 
-#import <Foundation/Foundation.h>
+#import "Sparrow.h"
 
+#import "OMedia.h"
+#import "OPlayer.h"
+#import "Stats.h"
 
-@interface OResourcesUI : NSObject
+@interface OResourcesUI : SPSprite
+
+@property(strong,nonatomic) SPTextField *lblQuarries;
+@property(strong,nonatomic) SPTextField *lblBricks;
+
+@property(strong,nonatomic) SPTextField *lblMagic;
+@property(strong,nonatomic) SPTextField *lblGems;
+
+@property(strong,nonatomic) SPTextField *lblDungeons;
+@property(strong,nonatomic) SPTextField *lblRecruits;
+
+-(id) initWithWidth:(float)width height:(float)height;
+-(void) update:(Stats*)stats;
+
 @end

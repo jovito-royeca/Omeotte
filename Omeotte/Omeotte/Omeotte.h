@@ -11,4 +11,6 @@
 
 #define GAME_TITLE    @"Deck of Omeotte"
 
+#define pix2points(x) (x)
+
 #endif

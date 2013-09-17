@@ -9,12 +9,20 @@
 #import "Sparrow.h"
 
 #import "OCard.h"
-#import "OCardUIDelegate.h"
 #import "OMedia.h"
 #import "SHPolygon.h"
 
-#define CARD_WIDTH  375
-#define CARD_HEIGHT 523
+#define CARD_WIDTH_PIXELS  375
+#define CARD_HEIGHT_PIXELS 523
+
+@protocol OCardUIDelegate <NSObject>
+
+- (void)promote:(OCard*)card;
+- (void)play:(OCard*)card;
+- (void)discard:(OCard*)card;
+- (void)demote:(OCard*)card;
+
+@end
 
 @interface OCardUI : SPSprite
 {

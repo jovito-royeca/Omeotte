@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		110C941917D36C9E0029DC16 /* OCardUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 110C941817D36C9E0029DC16 /* OCardUI.m */; };
-		111724A317E00276008F76E9 /* deck.png in Resources */ = {isa = PBXBuildFile; fileRef = 111724A117E00276008F76E9 /* deck.png */; };
-		111724A417E00276008F76E9 /* deck.xml in Resources */ = {isa = PBXBuildFile; fileRef = 111724A217E00276008F76E9 /* deck.xml */; };
+		111FB82E17E7DC1700CDBAF0 /* cards.png in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82A17E7DC1700CDBAF0 /* cards.png */; };
+		111FB82F17E7DC1700CDBAF0 /* cards.xml in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82B17E7DC1700CDBAF0 /* cards.xml */; };
+		111FB83017E7DC1700CDBAF0 /* ui.png in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82C17E7DC1700CDBAF0 /* ui.png */; };
+		111FB83117E7DC1700CDBAF0 /* ui.xml in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82D17E7DC1700CDBAF0 /* ui.xml */; };
+		111FB83717E7EB6D00CDBAF0 /* OResourcesUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 111FB83617E7EB6D00CDBAF0 /* OResourcesUI.m */; };
 		1137991F17C49ADF00794158 /* magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137991E17C49ADF00794158 /* magic.plist */; };
 		1137992117C49AF000794158 /* dungeon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137992017C49AF000794158 /* dungeon.plist */; };
 		1148A85A17D4083300D7E3B3 /* OBattleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A85917D4083300D7E3B3 /* OBattleScene.m */; };
@@ -78,9 +81,12 @@
 /* Begin PBXFileReference section */
 		110C941717D36C9E0029DC16 /* OCardUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCardUI.h; sourceTree = "<group>"; };
 		110C941817D36C9E0029DC16 /* OCardUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCardUI.m; sourceTree = "<group>"; };
-		111724A117E00276008F76E9 /* deck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deck.png; sourceTree = "<group>"; };
-		111724A217E00276008F76E9 /* deck.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = deck.xml; sourceTree = "<group>"; };
-		111724A817E015EC008F76E9 /* OCardUIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCardUIDelegate.h; sourceTree = "<group>"; };
+		111FB82A17E7DC1700CDBAF0 /* cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cards.png; sourceTree = "<group>"; };
+		111FB82B17E7DC1700CDBAF0 /* cards.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = cards.xml; sourceTree = "<group>"; };
+		111FB82C17E7DC1700CDBAF0 /* ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui.png; sourceTree = "<group>"; };
+		111FB82D17E7DC1700CDBAF0 /* ui.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ui.xml; sourceTree = "<group>"; };
+		111FB83517E7EB6D00CDBAF0 /* OResourcesUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OResourcesUI.h; sourceTree = "<group>"; };
+		111FB83617E7EB6D00CDBAF0 /* OResourcesUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OResourcesUI.m; sourceTree = "<group>"; };
 		11306C7E17D6BE0200156E78 /* Omeotte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Omeotte.h; sourceTree = "<group>"; };
 		1137991E17C49ADF00794158 /* magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic.plist; sourceTree = "<group>"; };
 		1137992017C49AF000794158 /* dungeon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dungeon.plist; sourceTree = "<group>"; };
@@ -173,9 +179,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		111FB83417E7DCC000CDBAF0 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		113517D917CED6B400C7EAA7 /* media */ = {
 			isa = PBXGroup;
 			children = (
+				111FB83417E7DCC000CDBAF0 /* fonts */,
 				113517DF17CF103200C7EAA7 /* graphics */,
 				113517DE17CF102200C7EAA7 /* audio */,
 			);
@@ -192,8 +206,10 @@
 		113517DF17CF103200C7EAA7 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
-				111724A117E00276008F76E9 /* deck.png */,
-				111724A217E00276008F76E9 /* deck.xml */,
+				111FB82A17E7DC1700CDBAF0 /* cards.png */,
+				111FB82B17E7DC1700CDBAF0 /* cards.xml */,
+				111FB82C17E7DC1700CDBAF0 /* ui.png */,
+				111FB82D17E7DC1700CDBAF0 /* ui.xml */,
 			);
 			path = graphics;
 			sourceTree = "<group>";
@@ -216,20 +232,22 @@
 		1148A86017D4100500D7E3B3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				111FB83517E7EB6D00CDBAF0 /* OResourcesUI.h */,
+				111FB83617E7EB6D00CDBAF0 /* OResourcesUI.m */,
 				1148A86417D411E200D7E3B3 /* OButtonTextureUI.h */,
 				1148A86517D411E200D7E3B3 /* OButtonTextureUI.m */,
 				110C941717D36C9E0029DC16 /* OCardUI.h */,
 				110C941817D36C9E0029DC16 /* OCardUI.m */,
-				111724A817E015EC008F76E9 /* OCardUIDelegate.h */,
 			);
 			name = UI;
 			sourceTree = "<group>";
 		};
-		114972C617E1539C005DBBD3 /* Sparrow-Extensions */ = {
+		114972C617E1539C005DBBD3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				114972C717E153C3005DBBD3 /* SHPolygon */,
 			);
+			name = Extensions;
 			path = "Sparrow-Extensions";
 			sourceTree = "<group>";
 		};
@@ -294,7 +312,7 @@
 		1195D18017C25F5E00C4DA25 /* Omeotte */ = {
 			isa = PBXGroup;
 			children = (
-				114972C617E1539C005DBBD3 /* Sparrow-Extensions */,
+				114972C617E1539C005DBBD3 /* Extensions */,
 				1195D18917C25F5E00C4DA25 /* AppDelegate.h */,
 				1195D18A17C25F5E00C4DA25 /* AppDelegate.m */,
 				11D5CF5B17C33CD900AA96BC /* data */,
@@ -465,8 +483,10 @@
 				11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */,
 				1137991F17C49ADF00794158 /* magic.plist in Resources */,
 				1137992117C49AF000794158 /* dungeon.plist in Resources */,
-				111724A317E00276008F76E9 /* deck.png in Resources */,
-				111724A417E00276008F76E9 /* deck.xml in Resources */,
+				111FB82E17E7DC1700CDBAF0 /* cards.png in Resources */,
+				111FB82F17E7DC1700CDBAF0 /* cards.xml in Resources */,
+				111FB83017E7DC1700CDBAF0 /* ui.png in Resources */,
+				111FB83117E7DC1700CDBAF0 /* ui.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +537,7 @@
 				11FBAA3D17DEF5BA008CE6E6 /* CardTestScene.m in Sources */,
 				114972CC17E153CF005DBBD3 /* SHPolygon.m in Sources */,
 				114972CD17E153CF005DBBD3 /* SHPolygonImage.m in Sources */,
+				111FB83717E7EB6D00CDBAF0 /* OResourcesUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

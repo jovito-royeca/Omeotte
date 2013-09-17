@@ -164,18 +164,24 @@
 
 -(void) paintCard:(BOOL) unlocked
 {
-    static NSString *deck = nil;
-    if (!deck)
+    static NSString *ui = nil;
+    static NSString *cards = nil;
+    if (!ui)
     {
-        deck = @"deck.xml";
-        [OMedia initAtlas:deck];
+        ui = @"ui.xml";
+        [OMedia initAtlas:ui];
+    }
+    if (!cards)
+    {
+        cards = @"cards.xml";
+        [OMedia initAtlas:cards];
     }
 
     [self unflatten];
 
     lblName.text = card.name;
 
-    SPTexture *art = [OMedia texture:[[card name] lowercaseString] fromAtlas:deck];
+    SPTexture *art = [OMedia texture:[[card name] lowercaseString] fromAtlas:cards];
     imgArt.texture = art;
 
     lblText.text = card.text;
@@ -185,21 +191,21 @@
     {
         case Quarry:
         {
-            szBackground = @"brick_card";
+            szBackground = @"brick card";
             lblCost.text = [NSString stringWithFormat:@"%d", card.cost.bricks];
             lblCost.color = 0xff0000;
             break;
         }
         case Magic:
         {
-            szBackground = @"gem_card";
+            szBackground = @"gem card";
             lblCost.text = [NSString stringWithFormat:@"%d", card.cost.gems];
             lblCost.color = 0x0000ff;
             break;
         }
         case Dungeon:
         {
-            szBackground = @"recruit_card";
+            szBackground = @"recruit card";
             lblCost.text = [NSString stringWithFormat:@"%d", card.cost.recruits];
             lblCost.color = 0x00ff00;
             break;
@@ -209,7 +215,7 @@
             lblCost.text = @"0";
         }
     }
-    SPTexture *background = [OMedia texture:szBackground fromAtlas:deck];
+    SPTexture *background = [OMedia texture:szBackground fromAtlas:ui];
     imgBackground.texture = background;
     
     self.alpha = unlocked ? 1.0 : 0.2;
