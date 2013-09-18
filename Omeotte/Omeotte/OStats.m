@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
-#import "Stats.h"
+#import "OStats.h"
 
-@implementation Stats
+@implementation OStats
 
 @synthesize tower;
 @synthesize wall;
@@ -21,7 +21,7 @@
 @synthesize magics;
 @synthesize dungeons;
 
-+(void) applyEffect:(Effect)effect onCurrent:(Stats*)current  orOpponent:(Stats*) opponent
++(void) applyEffect:(Effect)effect onCurrent:(OStats*)current  orOpponent:(OStats*) opponent
 {
     switch (effect->target)
     {
@@ -38,7 +38,7 @@
     }
 }
 
-+(void) evaluate:(Eval)eval onCurrent:(Stats*) current  orOpponent:(Stats*) opponent
++(void) evaluate:(Eval)eval onCurrent:(OStats*) current  orOpponent:(OStats*) opponent
 {
     
 }
@@ -177,7 +177,7 @@
 
 
 
--(void) setStats:(Stats*)src
+-(void) setStats:(OStats*)src
 {
     [self setStatField:Tower withValue:src.tower];
     [self setStatField:Wall withValue:src.wall];

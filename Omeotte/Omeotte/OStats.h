@@ -45,7 +45,7 @@ typedef struct _Eval
     Effect greaterThanResult;
 } *Eval;
 
-@interface Stats : NSObject
+@interface OStats : NSObject
 
 @property(nonatomic) int tower;
 @property(nonatomic) int wall;
@@ -58,15 +58,15 @@ typedef struct _Eval
 @property(nonatomic) int magics;
 @property(nonatomic) int dungeons;
 
-+(void) applyEffect:(Effect)effect onCurrent:(Stats*)current  orOpponent:(Stats*) opponent;
++(void) applyEffect:(Effect)effect onCurrent:(OStats*)current  orOpponent:(OStats*) opponent;
 
-+(void) evaluate:(Eval)eval onCurrent:(Stats*) current  orOpponent:(Stats*) opponent;
++(void) evaluate:(Eval)eval onCurrent:(OStats*) current  orOpponent:(OStats*) opponent;
 
 -(int) statField:(StatField)field;
 
 -(void) setStatField:(StatField)field withValue:(int)value;
 
--(void) setStats:(Stats*)src;
+-(void) setStats:(OStats*)src;
 
 -(int) compare:(int)op1 with:(int)op2;
 

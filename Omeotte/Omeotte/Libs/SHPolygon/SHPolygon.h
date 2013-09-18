@@ -12,6 +12,8 @@
 //  Polygon.as:      https://gist.github.com/RomainThery/5366504/
 //
 
+#import "Sparrow.h"
+
 #import "SPDisplayObject.h"
 
 @class SPBaseEffect;

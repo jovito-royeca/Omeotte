@@ -9,7 +9,7 @@
 #import  <CoreFoundation/CoreFoundation.h>
 #import <Foundation/Foundation.h>
 
-#import "Stats.h"
+#import "OStats.h"
 
 enum
 {
@@ -23,7 +23,7 @@ typedef int CardType;
 @interface OCard : NSObject
 
 @property(strong, nonatomic) NSString *name;
-@property(strong, nonatomic) Stats *cost;
+@property(strong, nonatomic) OStats *cost;
 @property(strong, nonatomic) NSString *text;
 @property(nonatomic) BOOL playAgain;
 @property(nonatomic) CardType type;

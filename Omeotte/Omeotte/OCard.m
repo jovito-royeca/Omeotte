@@ -46,7 +46,7 @@ NSArray *_cards;
                 card.name = [dict valueForKey:@"name"];
 
                 NSDictionary *costDict = [dict valueForKey:@"cost"];
-                Stats *cost = [[[Stats alloc] init] autorelease];
+                OStats *cost = [[[OStats alloc] init] autorelease];
                 if ([costDict objectForKey:@"bricks"])
                 {
                     cost.bricks = [[costDict objectForKey:@"bricks"] intValue];

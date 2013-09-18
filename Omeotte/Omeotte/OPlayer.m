@@ -22,7 +22,7 @@
 
     if (self)
     {
-        base = [[Stats alloc] init];
+        base = [[OStats alloc] init];
         hand = [[NSMutableArray alloc] initWithCapacity:6];
         deck = [[ODeck alloc] init];
         

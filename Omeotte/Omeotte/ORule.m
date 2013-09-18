@@ -35,7 +35,7 @@ NSMutableArray *_rules;
             rule.name = [dict valueForKey:@"name"];
             rule.location = [dict valueForKey:@"location"];
             
-            Stats *base = [[Stats alloc] init];
+            OStats *base = [[OStats alloc] init];
             base.tower = [[dict valueForKey:@"tower"] intValue];
             base.wall = [[dict valueForKey:@"wall"] intValue];
             base.bricks = [[dict valueForKey:@"bricks"] intValue];

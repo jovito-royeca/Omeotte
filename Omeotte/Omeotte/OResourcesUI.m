@@ -63,7 +63,7 @@
     [self addChild:imgBackground];
 }
 
--(void) update:(Stats*)stats
+-(void) update:(OStats*)stats
 {
     
 }

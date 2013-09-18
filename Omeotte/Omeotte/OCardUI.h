@@ -15,14 +15,7 @@
 #define CARD_WIDTH_PIXELS  375
 #define CARD_HEIGHT_PIXELS 523
 
-@protocol OCardUIDelegate <NSObject>
-
-- (void)promote:(OCard*)card;
-- (void)play:(OCard*)card;
-- (void)discard:(OCard*)card;
-- (void)demote:(OCard*)card;
-
-@end
+@protocol OCardUIDelegate;
 
 @interface OCardUI : SPSprite
 {
@@ -36,9 +29,18 @@
 @property(strong,nonatomic) SPTextField *lblText;
 @property(strong,nonatomic) SPImage *imgBackground;
 
-@property (nonatomic, assign) id<OCardUIDelegate> delegate;
+@property(nonatomic, assign) id<OCardUIDelegate> delegate;
 
 -(id) initWithWidth:(float)width height:(float)height;
 -(void) paintCard:(BOOL) unlocked;
+
+@end
+
+@protocol OCardUIDelegate <NSObject>
+
+- (void)promote:(OCard*)card;
+- (void)play:(OCard*)card;
+- (void)discard:(OCard*)card;
+- (void)demote:(OCard*)card;
 
 @end
