@@ -1,80 +1,79 @@
 //
-//  OPlayer.m
+//  player.c
 //  Omeotte
 //
-//  Created by Jovito Royeca on 8/19/13.
+//  Created by Jovito Royeca on 9/19/13.
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
-#import "OPlayer.h"
+#include "Omeotte.h"
 
-@implementation OPlayer
-
-@synthesize name;
-@synthesize base;
-@synthesize hand;
-@synthesize deck;
-@synthesize ai;
-
--(id) init
+void initPlayer(OPlayer player)
 {
-    self = [super init];
-
-    if (self)
-    {
-        base = createStats();
-        hand = [[NSMutableArray alloc] initWithCapacity:6];
-        deck = [[ODeck alloc] init];
-        
-        [deck shuffle];
-    }
-    return self;
+    OStats base;
+    initStats(base);
+    player->base = base;
+    player->hand = malloc(MAX_CARDS_IN_HAND * sizeof(OCard));
+    
+    ODeck deck;
+    initDeck(deck);
+    player->deck = deck;
+    shuffle(player->deck);
 }
 
--(NSArray*) draw:(int)num
+OCard* draw(OPlayer player, int num)
 {
-    NSMutableArray *cards = [[NSMutableArray alloc] init];
+    OCard* cards =  malloc(num * sizeof(OCard));
     
     for (int i=0; i<num; i++)
     {
-        OCard *card = [deck drawOnTop];
+        OCard card = drawOnTop(player->deck);
         
-        [hand addObject:card];
-        [cards addObject:card];
+        for (int j=0; j<NARRAY(player->hand); j++)
+        {
+            if (player->hand[j] == NULL)
+            {
+                player->hand[j] = card;
+                break;
+            }
+        }
+        cards[i] = card;
     }
     return cards;
 }
 
--(BOOL) shouldDiscard:(int)maxHand
+int shouldDiscard(OPlayer player, int maxHand)
 {
-    BOOL canPlay = NO;
-
-    for (OCard* card in hand)
+    int canPlay = 0;
+    
+    for (int i=0; i<NARRAY(player->hand); i++)
     {
-        canPlay = [self canPlayCard:card];
-
+        canPlay = canPlayCard(player, player->hand[i]);
+        
         if (canPlay)
             break;
     }
-
-    return [hand count] >= maxHand && !canPlay;
+    
+    
+    
+    return NARRAY(player->hand) >= maxHand && !canPlay;
 }
 
--(BOOL) canPlayCard:(OCard*)card
+int canPlayCard(OPlayer player, OCard card)
 {
-    return self.base->bricks >= card.cost->bricks &&
-           self.base->gems >= card.cost->gems &&
-           self.base->recruits >= card.cost->recruits;
+    return player->base->bricks >= card->cost->bricks &&
+    player->base->gems >= card->cost->gems &&
+    player->base->recruits >= card->cost->recruits;
 }
 
--(void) upkeep
+void upkeep(OPlayer player)
 {
-    self.base->bricks += self.base->quarries;
-    self.base->gems += self.base->magics;
-    self.base->recruits += self.base->dungeons;
+    player->base->bricks += player->base->quarries;
+    player->base->gems += player->base->magics;
+    player->base->recruits += player->base->dungeons;
 }
 
--(OCard*) chooseCardToPlay
+OCard chooseCardToPlay(OPlayer player)
 {
     NSMutableArray *cards = [[NSMutableArray alloc] init];
     
@@ -139,7 +138,7 @@
         {
             struct _OEffect e;
             [[card.effects objectAtIndex:i] getValue:&e];
-
+            
             switch (e.target)
             {
                 case Current:
@@ -167,11 +166,3 @@
     [hand removeObject:card];
     [deck discard:card];
 }
-
-//+(NSString*) description
-//{
-//    return [NSString stringWithFormat:@"tower=%d, wall=%d, bricks=%d, gems=%d, recruits=%d, quarries=%d, magics=%d, dungeons=%d",
-//            base.tower, self.base.wall, self.base.bricks, self.base.gems, self.base.recruits, self.base.quarries, self.base.magics, self.base.dungeons];
-//}
-
-@end

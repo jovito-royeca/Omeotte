@@ -12,6 +12,7 @@
 #import "OCard.h"
 #import "OCardUI.h"
 #import "OMedia.h"
+#import "OMeotte.h"
 #import "OMenuScene.h"
 #import "OPlayer.h"
 #import "OResourcesUI.h"

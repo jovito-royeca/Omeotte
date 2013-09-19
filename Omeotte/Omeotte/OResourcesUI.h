@@ -10,7 +10,7 @@
 
 #import "OMedia.h"
 #import "OPlayer.h"
-#import "OStats.h"
+#import "Omeotte.h"
 
 @interface OResourcesUI : SPSprite
 
@@ -24,6 +24,6 @@
 @property(strong,nonatomic) SPTextField *lblRecruits;
 
 -(id) initWithWidth:(float)width height:(float)height;
--(void) update:(OStats*)stats;
+-(void) update:(OStats)stats;
 
 @end

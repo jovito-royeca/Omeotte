@@ -216,20 +216,20 @@
     OPlayer *player2 = [[OPlayer alloc] init];
 
     [player1 draw:[rule cardsInHand]];
-    [player1.base setStats:rule.base];
+    setStats(player1.base, rule.base);
     player1.name = @"Player 1";
     // to compensate during first Upkeep...
-    player1.base.bricks -= rule.base.bricks;
-    player1.base.gems -= rule.base.gems;
-    player1.base.recruits -= rule.base.recruits;
+    player1.base->bricks -= rule.base->bricks;
+    player1.base->gems -= rule.base->gems;
+    player1.base->recruits -= rule.base->recruits;
 
     [player2 draw:[rule cardsInHand]];
-    [player2.base setStats:rule.base];
+    setStats(player2.base, rule.base);
     player2.name = @"A.I.";
     // to compensate during first Upkeep...
-    player2.base.bricks -= rule.base.bricks;
-    player2.base.gems -= rule.base.gems;
-    player2.base.recruits -= rule.base.recruits;
+    player2.base->bricks -= rule.base->bricks;
+    player2.base->gems -= rule.base->gems;
+    player2.base->recruits -= rule.base->recruits;
 
     _currentPlayer = player1;
     player2.ai = YES;
@@ -315,12 +315,12 @@
     OPlayer *player2 = [players objectAtIndex:1];
     
     [player1Resources update:player1.base];
-    txtPlayer1Tower.text = [NSString stringWithFormat:@"%d", player1.base.tower];
-    txtPlayer1Wall.text = [NSString stringWithFormat:@"%d", player1.base.wall];
+    txtPlayer1Tower.text = [NSString stringWithFormat:@"%d", player1.base->tower];
+    txtPlayer1Wall.text = [NSString stringWithFormat:@"%d", player1.base->wall];
     
     [player2Resources update:player1.base];
-    txtPlayer2Tower.text = [NSString stringWithFormat:@"%d", player2.base.tower];
-    txtPlayer2Wall.text = [NSString stringWithFormat:@"%d", player2.base.wall];
+    txtPlayer2Tower.text = [NSString stringWithFormat:@"%d", player2.base->tower];
+    txtPlayer2Wall.text = [NSString stringWithFormat:@"%d", player2.base->wall];
 }
 
 -(void) checkWinner
@@ -333,28 +333,28 @@
     
     OPlayer *opponentPlayer = [self opponentPlayer];
     
-    if (_currentPlayer.base.tower > 0 && opponentPlayer.base.tower <= 0)
+    if (_currentPlayer.base->tower > 0 && opponentPlayer.base->tower <= 0)
     {
         [winners addObject:_currentPlayer];
     }
-    else if (opponentPlayer.base.tower > 0 &&  _currentPlayer.base.tower <= 0)
+    else if (opponentPlayer.base->tower > 0 &&  _currentPlayer.base->tower <= 0)
     {
         [winners addObject:opponentPlayer];
     }
     else
     {
-        if (_currentPlayer.base.tower >= rule.winningTower ||
-            _currentPlayer.base.bricks >= rule.winningResource ||
-            _currentPlayer.base.gems >= rule.winningResource ||
-            _currentPlayer.base.recruits >= rule.winningResource)
+        if (_currentPlayer.base->tower >= rule.winningTower ||
+            _currentPlayer.base->bricks >= rule.winningResource ||
+            _currentPlayer.base->gems >= rule.winningResource ||
+            _currentPlayer.base->recruits >= rule.winningResource)
         {
             [winners addObject:_currentPlayer];
         }
         
-        if (opponentPlayer.base.tower >= rule.winningTower ||
-            opponentPlayer.base.bricks >= rule.winningResource ||
-            opponentPlayer.base.gems >= rule.winningResource ||
-            opponentPlayer.base.recruits >= rule.winningResource)
+        if (opponentPlayer.base->tower >= rule.winningTower ||
+            opponentPlayer.base->bricks >= rule.winningResource ||
+            opponentPlayer.base->gems >= rule.winningResource ||
+            opponentPlayer.base->recruits >= rule.winningResource)
         {
             [winners addObject:opponentPlayer];
         }

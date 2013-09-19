@@ -192,21 +192,21 @@
         case Quarry:
         {
             szBackground = @"brick card";
-            lblCost.text = [NSString stringWithFormat:@"%d", card.cost.bricks];
+            lblCost.text = [NSString stringWithFormat:@"%d", card.cost->bricks];
             lblCost.color = 0xff0000;
             break;
         }
         case Magic:
         {
             szBackground = @"gem card";
-            lblCost.text = [NSString stringWithFormat:@"%d", card.cost.gems];
+            lblCost.text = [NSString stringWithFormat:@"%d", card.cost->gems];
             lblCost.color = 0x0000ff;
             break;
         }
         case Dungeon:
         {
             szBackground = @"recruit card";
-            lblCost.text = [NSString stringWithFormat:@"%d", card.cost.recruits];
+            lblCost.text = [NSString stringWithFormat:@"%d", card.cost->recruits];
             lblCost.color = 0x00ff00;
             break;
         }

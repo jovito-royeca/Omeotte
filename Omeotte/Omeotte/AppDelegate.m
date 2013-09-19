@@ -30,6 +30,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    for (ORule *rule in [ORule allRules])
+    {
+        NSLog(@"%@", rule.name);
+    }
+    
+//    for (OCard *card in [OCard allCards])
+//    {
+//        NSLog(@"%@", card.name);
+//    }
+
 //    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
 //    self.window.backgroundColor = [UIColor whiteColor];
