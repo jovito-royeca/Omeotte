@@ -6,21 +6,28 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
+#include <stdlib.h>
+
 #include "Omeotte.h"
 
-void initDeck(ODeck deck)
+ODeck createDeck()
 {
-    deck->cardsInLibrary =  malloc(MAX_DECK_SIZE * sizeof(ODeck));
-    deck->cardsInGraveyard = malloc(MAX_DECK_SIZE * sizeof(ODeck));
+    ODeck deck = (ODeck) malloc(sizeof(ODeck));
     
-    OCard *cards = allCards();
+    deck->cardsInLibrary =  ll_create();
+    deck->cardsInGraveyard = ll_create();
+    
+    LinkedList cards = allCards();
         
     for (int i=0; i<MAX_DECK_SIZE; i++)
     {
         int random = randomNumber(0, MAX_DECK_SIZE-1);
             
         deck->cardsInLibrary[i] = cards[random];
+        ll_addAtIndex(deck->cardsInLibrary, ll_get(cards, random), i);
     }
+    
+    return deck;
 }
 
 void shuffle(ODeck deck)
@@ -30,31 +37,23 @@ void shuffle(ODeck deck)
 
 OCard drawOnTop(ODeck deck)
 {
-//    OCard *card = [cardsInLibrary objectAtIndex:[cardsInLibrary count]-1];
-    int last = NARRAY(deck->cardsInLibrary)-1;
-    OCard card = deck->cardsInLibrary[last];
+    int last = ll_size(deck->cardsInLibrary)-1;
+    OCard card = ll_get(deck->cardsInLibrary, last);
     
-    deck->cardsInLibrary[last] = NULL;
+    ll_removeAtIndex(deck->cardsInLibrary, last);
     return card;
 }
 
 OCard drawRandom(ODeck deck)
 {
-    int random = randomNumber(0, NARRAY(deck->cardsInLibrary));
-    OCard card = deck->cardsInLibrary[random];
+    int random = randomNumber(0, ll_size(deck->cardsInLibrary));
+    OCard card = ll_get(deck->cardsInLibrary, random);
     
-    deck->cardsInLibrary[random] = NULL;
+    ll_removeAtIndex(deck->cardsInLibrary, random);
     return card;
 }
 
 void discard(ODeck deck, OCard card)
 {
-    for (int i=0; i<MAX_DECK_SIZE; i++)
-    {
-        if (deck->cardsInGraveyard[i] == NULL)
-        {
-            deck->cardsInGraveyard[i] = card;
-            break;
-        }
-    }
+    ll_add(deck->cardsInGraveyard, card);
 }

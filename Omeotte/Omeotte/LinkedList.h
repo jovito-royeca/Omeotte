@@ -16,13 +16,13 @@ typedef struct _LinkedList
     struct _LinkedList *next;
 } *LinkedList;
 
-LinkedList createNode(void* data);
-void addNode(LinkedList ll, void* data);
-void addNodeAtIndex(LinkedList ll, void* data, int index);
-void removeNode(LinkedList ll, void* data);
-void removeNodeAtIndex(LinkedList ll, int index);
-void* get(LinkedList ll, int index);
-int size(LinkedList ll);
-void print(LinkedList ll);
+LinkedList ll_create();
+void ll_add(LinkedList ll, void* data);
+void ll_addAtIndex(LinkedList ll, void* data, int index);
+void ll_remove(LinkedList ll, void* data);
+void ll_removeAtIndex(LinkedList ll, int index);
+void* ll_get(LinkedList ll, int index);
+int ll_size(LinkedList ll);
+void ll_print(LinkedList ll);
 
 #endif

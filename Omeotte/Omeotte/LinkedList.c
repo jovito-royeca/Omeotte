@@ -12,17 +12,16 @@
 
 #include "LinkedList.h"
 
-LinkedList createNode(void* data)
+LinkedList ll_create()
 {
     LinkedList me = (LinkedList) malloc(sizeof(struct _LinkedList));
 
-    me->data = malloc(sizeof(data));
-    memcpy(me->data, data, sizeof(data));
+    me->data = NULL;
     me->next = NULL;
     return me;
 }
 
-void addNode(LinkedList ll, void* data)
+void ll_add(LinkedList ll, void* data)
 {
     LinkedList curr = ll;
     
@@ -30,7 +29,10 @@ void addNode(LinkedList ll, void* data)
     {
         if (curr->next == NULL)
         {
-            LinkedList newLL = createNode(data);
+            LinkedList newLL = ll_create();
+            newLL->data = malloc(sizeof(data));
+            memcpy(newLL->data, data, sizeof(data));
+            
             curr->next = newLL;
             break;
         }
@@ -41,12 +43,15 @@ void addNode(LinkedList ll, void* data)
     }
 }
 
-void addNodeAtIndex(LinkedList ll, void* data, int index)
+void ll_addAtIndex(LinkedList ll, void* data, int index)
 {
     LinkedList curr = ll;
     LinkedList prev = NULL;
-    LinkedList newLL = createNode(data);
+    LinkedList newLL = ll_create();
     int added = 0, i = 0;;
+    
+    newLL->data = malloc(sizeof(data));
+    memcpy(newLL->data, data, sizeof(data));
     
     while (curr)
     {
@@ -76,7 +81,7 @@ void addNodeAtIndex(LinkedList ll, void* data, int index)
     }
 }
 
-void removeNode(LinkedList ll, void* data)
+void ll_remove(LinkedList ll, void* data)
 {
     LinkedList curr = ll;
     LinkedList prev = NULL;
@@ -99,7 +104,7 @@ void removeNode(LinkedList ll, void* data)
     }
 }
 
-void removeNodeAtindex(LinkedList ll, int index)
+void ll_removeAtindex(LinkedList ll, int index)
 {
     LinkedList curr = ll;
     LinkedList prev = NULL;
@@ -125,9 +130,9 @@ void removeNodeAtindex(LinkedList ll, int index)
     }
 }
 
-void* get(LinkedList ll, int index)
+void* ll_get(LinkedList ll, int index)
 {
-    if (index > size(ll))
+    if (index > ll_size(ll))
         return NULL;
     
     LinkedList curr = ll;
@@ -147,7 +152,7 @@ void* get(LinkedList ll, int index)
     return data;
 }
 
-int size(LinkedList ll)
+int ll_size(LinkedList ll)
 {
     int size = 0;
     LinkedList curr = ll;
@@ -165,12 +170,12 @@ int size(LinkedList ll)
     return size;
 }
 
-void print(LinkedList ll)
+void ll_print(LinkedList ll)
 {
     LinkedList curr = ll;
     int i = 0;
     
-    printf("[%d] {", size(ll));
+    printf("[%d] {", ll_size(ll));
     while (curr)
     {
         printf("%d:%d, ", i, *((int*)curr->data));

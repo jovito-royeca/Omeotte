@@ -10,10 +10,9 @@
 
 #import "Sparrow.h"
 
-#import "OCard.h"
 #import "OCardUI.h"
-#import "OPlayer.h"
 #import "OMedia.h"
+#include "Omeotte.h"
 
 @interface CardTestScene : SPSprite <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 {

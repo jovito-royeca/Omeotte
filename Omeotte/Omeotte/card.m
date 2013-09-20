@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
+#include <string.h>
+
 #include "Omeotte.h"
 
 OCard createCard()
@@ -15,11 +17,11 @@ OCard createCard()
     if (card)
     {
 //        char *name;
-//        card->cost = createStats();
+        card->cost = createStats();
 //        char *text;
         card->playAgain = 0;
         card->type = Mixed;
-//        OEffect *effects;
+//        card->effects = createEffect();
 //        OEval eval;
         return card;
     }
@@ -27,12 +29,14 @@ OCard createCard()
     return 0;
 }
 
-OCard* allCards()
+LinkedList allCards()
 {
-    static OCard* cards;
+    static LinkedList cards;
     
     if (!cards)
     {
+        cards = ll_create();
+        
         NSMutableArray *macards = [[NSMutableArray alloc] init];
         NSArray *pLists = [NSArray arrayWithObjects:@"quarry", @"magic", @"dungeon", nil];
         
@@ -51,7 +55,9 @@ OCard* allCards()
             {
                 OCard card = createCard();
             
-                card->name = [[dict valueForKey:@"name"] UTF8String];
+                const char* name = [[dict valueForKey:@"name"] UTF8String];
+                card->name = (char*)malloc(sizeof(char)*1);
+                memcpy(card->name, name, sizeof(name));
 
                 NSDictionary *costDict = [dict valueForKey:@"cost"];
                 OStats cost = createStats();
@@ -68,14 +74,16 @@ OCard* allCards()
                     cost->recruits = [[costDict objectForKey:@"recruits"] intValue];
                 }
                 card->cost = cost;
-                card->text = [[dict valueForKey:@"text"] UTF8String];
+                const char *text = [[dict valueForKey:@"text"] UTF8String];
+                card->text = (char*) malloc(sizeof(char)+1);
+                memcpy(card->text, text, sizeof(text));
                 card->playAgain = [[dict valueForKey:@"playAgain"] boolValue];
                 card->type = [[dict valueForKey:@"type"] intValue];
             
                 NSArray *_effects = [dict valueForKey:@"effects"];
                 if (_effects)
                 {
-                    NSMutableArray *effectsArr = [[NSMutableArray alloc] init];
+                    card->effects = ll_create();
                     
                     for (NSDictionary *x in _effects)
                     {
@@ -84,24 +92,8 @@ OCard* allCards()
                         e->field =  [[dict valueForKey:@"field"] intValue];
                         e->value = [[dict valueForKey:@"value"] intValue];
                         e->target = [[dict valueForKey:@"target"] intValue];
-
-                        /*
-                         structs in NSArray...
-                         
-                         // add:
-                         [array addObject:[NSValue value:&p withObjCType:@encode(struct Point)]];
-                         
-                         // extract:
-                         struct Point p;
-                         [[array objectAtIndex:i] getValue:&p];
-                         */
-                        [effectsArr addObject:[NSValue value:e withObjCType:@encode(struct _OEffect)]];
+                        ll_add(card->effects, e);
                     }
-                    
-                    NSRange range = NSMakeRange(0, effectsArr.count);
-                    id *cArray = malloc(sizeof(id *) * range.length);
-                    [effectsArr getObjects:cArray range:range];
-                    card->effects = cArray;
                 }
             
                 NSDictionary *_eval = [dict valueForKey:@"eval"];
@@ -111,15 +103,26 @@ OCard* allCards()
 //                    card.eval = evalDict;
                 }
                 
-                [macards addObject:card];
+                /*
+                 structs in NSArray...
+                 
+                 // add:
+                 [array addObject:[NSValue value:&p withObjCType:@encode(struct Point)]];
+                 
+                 // extract:
+                 struct Point p;
+                 [[array objectAtIndex:i] getValue:&p];
+                 */
+                [macards addObject:[NSValue value:card withObjCType:@encode(OCard)]];
             }
         }
         
         NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
         NSArray *sortedCards = [macards sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
-        NSRange range2 = NSMakeRange(0, sortedCards.count);
-        id *cCards = malloc(sizeof(id *) * range2.length);
-        [sortedCards getObjects:cCards range:range2];
+        for (int i=0; i<sortedCards.count; i++)
+        {
+            ll_add(cards, [sortedCards objectAtIndex:i]);
+        }
     }
     
     return cards;

@@ -30,10 +30,38 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    for (ORule *rule in [ORule allRules])
-    {
-        NSLog(@"%@", rule.name);
-    }
+    LinkedList ll;
+	int i;
+    
+	for (i=0; i<20; i++)
+	{
+		if (i==0)
+		{
+		    ll = createNode(&i);
+		}
+		else
+		{
+			addNode(ll, &i);
+		}
+	}
+    printf("Loop...");
+    print(ll);
+    
+    int k = 1000;
+    int j = 15;
+    
+    printf("addNodeAtIndex...");
+    addNodeAtIndex(ll, &k, 10);
+    print(ll);
+    
+    printf("removeNode...");
+    removeNode(ll, &j);
+    print(ll);
+
+//    for (ORule *rule in [ORule allRules])
+//    {
+//        NSLog(@"%@", rule.name);
+//    }
     
 //    for (OCard *card in [OCard allCards])
 //    {

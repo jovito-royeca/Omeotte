@@ -24,6 +24,7 @@
 		1154D1C917E9476400A3EC2B /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = 1154D1C817E9476400A3EC2B /* stats.c */; };
 		1154D1CD17E97CF900A3EC2B /* misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 1154D1CC17E97CF900A3EC2B /* misc.c */; };
 		1154D1D117E995CB00A3EC2B /* deck.c in Sources */ = {isa = PBXBuildFile; fileRef = 1154D1D017E995CB00A3EC2B /* deck.c */; };
+		115CD78917EBF00200210D8A /* rule.m in Sources */ = {isa = PBXBuildFile; fileRef = 115CD78817EBF00200210D8A /* rule.m */; };
 		11722F5317C636BF00014D16 /* libSparrow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F4F17C635EE00014D16 /* libSparrow.a */; };
 		11722F5517C636CB00014D16 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5417C636CB00014D16 /* libz.dylib */; };
 		11722F5717C636DA00014D16 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5617C636DA00014D16 /* GLKit.framework */; };
@@ -48,7 +49,6 @@
 		1195D1A317C25F5F00C4DA25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1A117C25F5F00C4DA25 /* InfoPlist.strings */; };
 		1195D1A617C25F5F00C4DA25 /* OmeotteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D1A517C25F5F00C4DA25 /* OmeotteTests.m */; };
 		1195D28517C2723600C4DA25 /* OGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28417C2723600C4DA25 /* OGameScene.m */; };
-		1195D28817C2728700C4DA25 /* OPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28717C2728700C4DA25 /* OPlayer.m */; };
 		1195D28E17C272B600C4DA25 /* card.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28D17C272B600C4DA25 /* card.m */; };
 		11ACA6E417EA74F3008EEF9A /* player.c in Sources */ = {isa = PBXBuildFile; fileRef = 11ACA6E317EA74F3008EEF9A /* player.c */; };
 		11ACA6E717EA7BBD008EEF9A /* LinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = 11ACA6E617EA7BBD008EEF9A /* LinkedList.c */; };
@@ -109,6 +109,7 @@
 		1154D1C817E9476400A3EC2B /* stats.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stats.c; sourceTree = "<group>"; };
 		1154D1CC17E97CF900A3EC2B /* misc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = misc.c; sourceTree = "<group>"; };
 		1154D1D017E995CB00A3EC2B /* deck.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = deck.c; sourceTree = "<group>"; };
+		115CD78817EBF00200210D8A /* rule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rule.m; sourceTree = "<group>"; };
 		11722F4917C635EE00014D16 /* Sparrow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparrow.xcodeproj; path = "../Sparrow-Framework/sparrow/src/Sparrow.xcodeproj"; sourceTree = "<group>"; };
 		11722F5417C636CB00014D16 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		11722F5617C636DA00014D16 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -140,12 +141,10 @@
 		1195D1A517C25F5F00C4DA25 /* OmeotteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmeotteTests.m; sourceTree = "<group>"; };
 		1195D28317C2723600C4DA25 /* OGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGameScene.h; sourceTree = "<group>"; };
 		1195D28417C2723600C4DA25 /* OGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGameScene.m; sourceTree = "<group>"; };
-		1195D28717C2728700C4DA25 /* OPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPlayer.m; sourceTree = "<group>"; };
 		1195D28D17C272B600C4DA25 /* card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = card.m; sourceTree = "<group>"; };
 		11ACA6E317EA74F3008EEF9A /* player.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = player.c; sourceTree = "<group>"; };
 		11ACA6E517EA7BA8008EEF9A /* LinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkedList.h; sourceTree = "<group>"; };
 		11ACA6E617EA7BBD008EEF9A /* LinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LinkedList.c; sourceTree = "<group>"; };
-		11D5CF5817C32F6900AA96BC /* ORule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORule.h; sourceTree = "<group>"; };
 		11D5CF5917C32F6A00AA96BC /* ORule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORule.m; sourceTree = "<group>"; };
 		11D5CF5C17C33CEC00AA96BC /* quarry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quarry.plist; sourceTree = "<group>"; };
 		11D5CF5E17C33D0A00AA96BC /* rules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = rules.plist; sourceTree = "<group>"; };
@@ -277,6 +276,21 @@
 			path = SXGauge;
 			sourceTree = "<group>";
 		};
+		115CD78717EBEFB300210D8A /* C API */ = {
+			isa = PBXGroup;
+			children = (
+				1195D28D17C272B600C4DA25 /* card.m */,
+				1154D1D017E995CB00A3EC2B /* deck.c */,
+				11ACA6E617EA7BBD008EEF9A /* LinkedList.c */,
+				11ACA6E517EA7BA8008EEF9A /* LinkedList.h */,
+				1154D1CC17E97CF900A3EC2B /* misc.c */,
+				11ACA6E317EA74F3008EEF9A /* player.c */,
+				115CD78817EBF00200210D8A /* rule.m */,
+				1154D1C817E9476400A3EC2B /* stats.c */,
+			);
+			name = "C API";
+			sourceTree = "<group>";
+		};
 		11722F4A17C635EE00014D16 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,25 +341,17 @@
 		1195D18017C25F5E00C4DA25 /* Omeotte */ = {
 			isa = PBXGroup;
 			children = (
+				115CD78717EBEFB300210D8A /* C API */,
 				1195D18917C25F5E00C4DA25 /* AppDelegate.h */,
 				1195D18A17C25F5E00C4DA25 /* AppDelegate.m */,
-				1195D28D17C272B600C4DA25 /* card.m */,
 				11D5CF5B17C33CD900AA96BC /* data */,
-				1154D1D017E995CB00A3EC2B /* deck.c */,
 				1154D1BA17E93BA000A3EC2B /* Libs */,
-				11ACA6E617EA7BBD008EEF9A /* LinkedList.c */,
-				11ACA6E517EA7BA8008EEF9A /* LinkedList.h */,
 				113517D917CED6B400C7EAA7 /* media */,
-				1154D1CC17E97CF900A3EC2B /* misc.c */,
 				11722F6917C640CC00014D16 /* OMedia.h */,
 				11722F6A17C640CC00014D16 /* OMedia.m */,
 				11306C7E17D6BE0200156E78 /* Omeotte.h */,
-				1195D28717C2728700C4DA25 /* OPlayer.m */,
-				11D5CF5817C32F6900AA96BC /* ORule.h */,
 				11D5CF5917C32F6A00AA96BC /* ORule.m */,
-				11ACA6E317EA74F3008EEF9A /* player.c */,
 				1148A85F17D40FE500D7E3B3 /* Scenes */,
-				1154D1C817E9476400A3EC2B /* stats.c */,
 				1195D18117C25F5E00C4DA25 /* Supporting Files */,
 				1148A86017D4100500D7E3B3 /* UI */,
 			);
@@ -539,7 +545,6 @@
 				1195D18717C25F5E00C4DA25 /* main.m in Sources */,
 				1195D18B17C25F5E00C4DA25 /* AppDelegate.m in Sources */,
 				1195D28517C2723600C4DA25 /* OGameScene.m in Sources */,
-				1195D28817C2728700C4DA25 /* OPlayer.m in Sources */,
 				1195D28E17C272B600C4DA25 /* card.m in Sources */,
 				11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */,
 				11722F6B17C640CC00014D16 /* OMedia.m in Sources */,
@@ -557,6 +562,7 @@
 				1154D1D117E995CB00A3EC2B /* deck.c in Sources */,
 				11ACA6E417EA74F3008EEF9A /* player.c in Sources */,
 				11ACA6E717EA7BBD008EEF9A /* LinkedList.c in Sources */,
+				115CD78917EBF00200210D8A /* rule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

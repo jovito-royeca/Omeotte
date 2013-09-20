@@ -6,24 +6,26 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
+#include <stdlib.h>
+
+#include "LinkedList.h"
 #include "Omeotte.h"
 
-void initPlayer(OPlayer player)
+OPlayer createPlayer()
 {
-    OStats base;
-    initStats(base);
-    player->base = base;
-    player->hand = malloc(MAX_CARDS_IN_HAND * sizeof(OCard));
+    OPlayer player = (OPlayer) malloc(sizeof(OPlayer));
     
-    ODeck deck;
-    initDeck(deck);
-    player->deck = deck;
+    player->base = createStats();
+    player->hand = ll_create();
+    player->deck = createDeck();
     shuffle(player->deck);
+    
+    return player;
 }
 
-OCard* draw(OPlayer player, int num)
+LinkedList draw(OPlayer player, int num)
 {
-    OCard* cards =  malloc(num * sizeof(OCard));
+    LinkedList cards = ll_create();
     
     for (int i=0; i<num; i++)
     {
@@ -31,13 +33,14 @@ OCard* draw(OPlayer player, int num)
         
         for (int j=0; j<NARRAY(player->hand); j++)
         {
-            if (player->hand[j] == NULL)
+            if (ll_get(player->hand, j) == NULL)
             {
-                player->hand[j] = card;
+                ll_addAtIndex(player->hand, card, j);
                 break;
             }
         }
-        cards[i] = card;
+
+        ll_add(cards, card);
     }
     return cards;
 }
@@ -48,13 +51,11 @@ int shouldDiscard(OPlayer player, int maxHand)
     
     for (int i=0; i<NARRAY(player->hand); i++)
     {
-        canPlay = canPlayCard(player, player->hand[i]);
+        canPlay = canPlayCard(player, ll_get(player->hand, i));
         
         if (canPlay)
             break;
     }
-    
-    
     
     return NARRAY(player->hand) >= maxHand && !canPlay;
 }
@@ -75,44 +76,49 @@ void upkeep(OPlayer player)
 
 OCard chooseCardToPlay(OPlayer player)
 {
-    NSMutableArray *cards = [[NSMutableArray alloc] init];
+    LinkedList cards = ll_create();
     
-    for (OCard *card in hand)
+    for (int i=0; i<NARRAY(player->hand); i++)
     {
-        if ([self canPlayCard:card])
+        OCard card = ll_get(player->hand, i);
+        
+        if (canPlayCard(player, card))
         {
-            [cards addObject:card];
+            ll_add(cards, card);
         }
     }
     
-    if (cards.count == 0)
+    int count = ll_size(cards);
+    if (count == 0)
     {
-        return nil;
+        return NULL;
     }
-    else if (cards.count == 1)
+    else if (count == 1)
     {
-        return [cards objectAtIndex:0];
+        return ll_get(cards, 0);
     }
-    else if (cards.count > 1)
+    else if (count > 1)
     {
-        NSUInteger random = arc4random() % [cards count];
-        return [cards objectAtIndex:random];
+        int random = randomNumber(1, count);
+        return ll_get(cards, random);
     }
     else
     {
-        return nil;
+        return NULL;
     }
 }
 
--(OCard*) chooseCardToDiscard
+OCard chooseCardToDiscard(OPlayer player)
 {
-    OCard *highest = nil;
+    OCard highest = NULL;
     
-    for (OCard *card in hand)
+    for (int i=0; i<NARRAY(player->hand); i++)
     {
+        OCard card = ll_get(player->hand, i);
+        
         if (highest)
         {
-            if (card.totalCost > highest.totalCost)
+            if (totalCost(card) > totalCost(highest))
             {
                 highest = card;
             }
@@ -126,29 +132,28 @@ OCard chooseCardToPlay(OPlayer player)
     return highest;
 }
 
--(void) play:(OCard*)card onTarget:(OPlayer*)target
+void playCard(OPlayer player, OCard card, OPlayer target)
 {
-    base->bricks -= card.cost->bricks;
-    base->gems -= card.cost->gems;
-    base->recruits -= card.cost->recruits;
+    player->base->bricks -= card->cost->bricks;
+    player->base->gems -= card->cost->gems;
+    player->base->recruits -= card->cost->recruits;
     
-    if (card.effects)
+    if (card->effects)
     {
-        for (int i=0; i<card.effects.count; i++)
+        for (int i=0; i<ll_size(card->effects); i++)
         {
-            struct _OEffect e;
-            [[card.effects objectAtIndex:i] getValue:&e];
+            OEffect e = ll_get(card->effects, i);
             
-            switch (e.target)
+            switch (e->target)
             {
                 case Current:
                 {
-                    setStatsField(base, e.field, e.value);
+                    setStatsField(player->base, e->field, e->value);
                     break;
                 }
                 case Opponent:
                 {
-                    setStatsField(target.base, e.field, e.value);
+                    setStatsField(target->base, e->field, e->value);
                     break;
                 }
             }
@@ -158,11 +163,11 @@ OCard chooseCardToPlay(OPlayer player)
     // To Do: handle ops
     // ...
     
-    [self discard:card];
+    discardCard(player, card);
 }
 
--(void) discard:(OCard*)card
+void discardCard(OPlayer player, OCard card)
 {
-    [hand removeObject:card];
-    [deck discard:card];
+    ll_remove(player->hand, card);
+    discard(player->deck, card);
 }

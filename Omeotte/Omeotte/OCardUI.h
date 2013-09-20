@@ -8,9 +8,9 @@
 
 #import "Sparrow.h"
 
-#import "OCard.h"
 #import "OMedia.h"
 #import "SHPolygon.h"
+#include "Omeotte.h"
 
 #define CARD_WIDTH_PIXELS  375
 #define CARD_HEIGHT_PIXELS 523
@@ -22,7 +22,7 @@
     int touchStatus;
 }
 
-@property(strong,nonatomic) OCard *card;
+@property(nonatomic) OCard card;
 @property(strong,nonatomic) SPTextField *lblName;
 @property(strong,nonatomic) SPTextField *lblCost;
 @property(strong,nonatomic) SPImage *imgArt;
@@ -38,9 +38,9 @@
 
 @protocol OCardUIDelegate <NSObject>
 
-- (void)promote:(OCard*)card;
-- (void)play:(OCard*)card;
-- (void)discard:(OCard*)card;
-- (void)demote:(OCard*)card;
+- (void)promote:(OCard)card;
+- (void)play:(OCard)card;
+- (void)discard:(OCard)card;
+- (void)demote:(OCard)card;
 
 @end

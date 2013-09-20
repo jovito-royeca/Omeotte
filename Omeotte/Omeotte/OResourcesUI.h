@@ -9,7 +9,6 @@
 #import "Sparrow.h"
 
 #import "OMedia.h"
-#import "OPlayer.h"
 #import "Omeotte.h"
 
 @interface OResourcesUI : SPSprite

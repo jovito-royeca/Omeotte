@@ -26,7 +26,7 @@
 {
     [super dealloc];
     
-    [card release];
+    free(card);
     [lblName release];
     [lblCost release];
     [imgArt release];
@@ -178,35 +178,37 @@
     }
 
     [self unflatten];
+    NSString *name = [[NSString alloc] initWithUTF8String:card->name];
+    NSString *text = [[NSString alloc] initWithUTF8String:card->text];
+    
+    lblName.text = name;
 
-    lblName.text = card.name;
-
-    SPTexture *art = [OMedia texture:[[card name] lowercaseString] fromAtlas:cards];
+    SPTexture *art = [OMedia texture:[name lowercaseString] fromAtlas:cards];
     imgArt.texture = art;
 
-    lblText.text = card.text;
+    lblText.text = text;
 
     NSString *szBackground = nil;
-    switch (card.type)
+    switch (card->type)
     {
         case Quarry:
         {
             szBackground = @"brick card";
-            lblCost.text = [NSString stringWithFormat:@"%d", card.cost->bricks];
+            lblCost.text = [NSString stringWithFormat:@"%d", card->cost->bricks];
             lblCost.color = 0xff0000;
             break;
         }
         case Magic:
         {
             szBackground = @"gem card";
-            lblCost.text = [NSString stringWithFormat:@"%d", card.cost->gems];
+            lblCost.text = [NSString stringWithFormat:@"%d", card->cost->gems];
             lblCost.color = 0x0000ff;
             break;
         }
         case Dungeon:
         {
             szBackground = @"recruit card";
-            lblCost.text = [NSString stringWithFormat:@"%d", card.cost->recruits];
+            lblCost.text = [NSString stringWithFormat:@"%d", card->cost->recruits];
             lblCost.color = 0x00ff00;
             break;
         }

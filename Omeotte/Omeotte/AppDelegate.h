@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Sparrow.h"
 
+#import "LinkedList.h"
 #import "OGameScene.h"
 #import "ORule.h"
 

@@ -9,14 +9,11 @@
 #import "Sparrow.h"
 
 #import "OButtonTextureUI.h"
-#import "OCard.h"
 #import "OCardUI.h"
 #import "OMedia.h"
 #import "OMeotte.h"
 #import "OMenuScene.h"
-#import "OPlayer.h"
 #import "OResourcesUI.h"
-#import "ORule.h"
 
 #define        GAME_TURN      30 // seconds
 
@@ -51,7 +48,7 @@ typedef enum
 @property (strong, nonatomic) SPTextField *txtTimer;
 @property (strong, nonatomic) NSArray *players;
 @property (strong, nonatomic) NSMutableArray *winners;
-@property (strong, nonatomic) ORule* rule;
+@property (nonatomic) ORule rule;
 @property (strong, nonatomic) NSMutableArray *hand;
 
 //-(id) initWithRule:(ORule*)rule;
