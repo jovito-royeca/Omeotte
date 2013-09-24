@@ -24,12 +24,15 @@ LinkedList allRules()
         {
             ORule rule = (ORule) malloc(sizeof(ORule));
             
-            const char* name = [[dict valueForKey:@"name"] UTF8String];
-            rule->name = (char*)malloc(sizeof(char)+1);
-            memcpy(card->name, name, sizeof(name));
+            NSString *name = [dict valueForKey:@"name"];
+            const char* cname = [name UTF8String];
+            rule->name = (char*)malloc(sizeof(char)*name.length);
+            memcpy(rule->name, cname, sizeof(cname));
             
-            rule.name = [dict valueForKey:@"name"];
-            rule.location = [dict valueForKey:@"location"];
+            NSString *location = [dict valueForKey:@"location"];
+            const char* clocation = [location UTF8String];
+            rule->location = (char*)malloc(sizeof(char)*location.length);
+            memcpy(rule->location, clocation, sizeof(clocation));
             
             OStats base = createStats();
             base->tower = [[dict valueForKey:@"tower"] intValue];
@@ -40,14 +43,14 @@ LinkedList allRules()
             base->quarries = [[dict valueForKey:@"quarries"] intValue];
             base->magics = [[dict valueForKey:@"magics"] intValue];
             base->dungeons = [[dict valueForKey:@"dungeons"] intValue];
-            rule.base = base;
+            rule->base = base;
             
-            rule.cardsInHand = [[dict valueForKey:@"cardsInHand"] intValue];
-            rule.winningTower = [[dict valueForKey:@"winningTower"] intValue];
-            rule.winningResource = [[dict valueForKey:@"winningResource"] intValue];
-            rule.price = [[dict valueForKey:@"price"] intValue];
+            rule->cardsInHand = [[dict valueForKey:@"cardsInHand"] intValue];
+            rule->winningTower = [[dict valueForKey:@"winningTower"] intValue];
+            rule->winningResource = [[dict valueForKey:@"winningResource"] intValue];
+            rule->price = [[dict valueForKey:@"price"] intValue];
             
-            [_rules addObject:rule];
+            ll_add(rules, rule);
         }
         
     }

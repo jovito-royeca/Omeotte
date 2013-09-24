@@ -55,9 +55,10 @@ LinkedList allCards()
             {
                 OCard card = createCard();
             
-                const char* name = [[dict valueForKey:@"name"] UTF8String];
-                card->name = (char*)malloc(sizeof(char)*1);
-                memcpy(card->name, name, sizeof(name));
+                NSString *name = [dict valueForKey:@"name"];
+                const char* cname = [name UTF8String];
+                card->name = (char*)malloc(sizeof(char)*name.length);
+                memcpy(card->name, cname, sizeof(cname));
 
                 NSDictionary *costDict = [dict valueForKey:@"cost"];
                 OStats cost = createStats();
@@ -74,9 +75,12 @@ LinkedList allCards()
                     cost->recruits = [[costDict objectForKey:@"recruits"] intValue];
                 }
                 card->cost = cost;
-                const char *text = [[dict valueForKey:@"text"] UTF8String];
-                card->text = (char*) malloc(sizeof(char)+1);
-                memcpy(card->text, text, sizeof(text));
+                
+                NSString *text = [dict valueForKey:@"text"];
+                const char *ctext = [text UTF8String];
+                card->text = (char*) malloc(sizeof(char)*text.length);
+                memcpy(card->text, ctext, sizeof(ctext));
+                
                 card->playAgain = [[dict valueForKey:@"playAgain"] boolValue];
                 card->type = [[dict valueForKey:@"type"] intValue];
             

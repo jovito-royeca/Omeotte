@@ -11,7 +11,7 @@
 
 #import "LinkedList.h"
 #import "OGameScene.h"
-#import "ORule.h"
+#import "Omeotte.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
