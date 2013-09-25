@@ -16,6 +16,7 @@
 
 @synthesize card;
 @synthesize lblName;
+@synthesize qdCost;
 @synthesize lblCost;
 @synthesize imgArt;
 @synthesize lblText;
@@ -28,6 +29,7 @@
     
     [card release];
     [lblName release];
+    [qdCost release];
     [lblCost release];
     [imgArt release];
     [lblText release];
@@ -81,7 +83,31 @@
     imgArt.height = currentHeight;
     [self addChild:imgArt];
 
+    currentWidth = width * 0.2;
+    currentHeight = width * 0.08;
+    currentX = (width/2)-(currentWidth/2);
+    currentY = height * 0.56;
+    qdCost = [[SPQuad alloc] initWithWidth:currentWidth height:currentHeight];
+    qdCost.x = currentX;
+    qdCost.y = currentY;
+    [self addChild:qdCost];
+    
+//    currentWidth = width * 0.15;
+//    currentHeight = width * 0.08;
+//    currentX = (width/2)-(currentWidth/2);
+//    currentY = height * 0.56;
+    lblCost = [[SPTextField alloc] init];
+    lblCost.x = currentX;
+    lblCost.y = currentY;
+    lblCost.width = currentWidth;
+    lblCost.height = currentHeight;
+    lblCost.fontSize = currentHeight;
+    lblCost.color = 0xffffff;
+    [self addChild:lblCost];
+    
+    currentX = width * 0.08;
     currentY = width * 0.8746;
+    currentWidth = width * 0.84;
     currentHeight = height * 0.275;
     lblText = [[SPTextField alloc] init];
     lblText.x = currentX;
@@ -92,23 +118,6 @@
     lblText.fontSize = currentX;
     [self addChild:lblText];
 
-    currentX = width * /*0.866; //*/0.8;
-    currentY = height * /*0.904; //*/0.856;
-    currentWidth = width * 0.133;
-    currentHeight = width * 0.133;
-    lblCost = [[SPTextField alloc] init];
-    lblCost.x = currentX;
-    lblCost.y = currentY;
-    lblCost.width = currentWidth;
-    lblCost.height = currentHeight;
-    lblCost.color = 0xffffff;
-    lblCost.fontSize = currentWidth;
-    [self addChild:lblCost];
-//    SHPolygon *circle = [[SHPolygon alloc] initWithRadius:currentWidth/2 numEdges:360];
-//    circle.x = currentX;
-//    circle.y= currentY;
-//    [self addChild:circle];
-    
     [self addEventListener:@selector(onCardTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
 }
 
@@ -193,21 +202,21 @@
         {
             szBackground = @"brick card";
             lblCost.text = [NSString stringWithFormat:@"%d", card.cost.bricks];
-            lblCost.color = 0xff0000;
+            qdCost.color = RED_COLOR;
             break;
         }
         case Magic:
         {
             szBackground = @"gem card";
             lblCost.text = [NSString stringWithFormat:@"%d", card.cost.gems];
-            lblCost.color = 0x0000ff;
+            qdCost.color = BLUE_COLOR;
             break;
         }
         case Dungeon:
         {
             szBackground = @"recruit card";
             lblCost.text = [NSString stringWithFormat:@"%d", card.cost.recruits];
-            lblCost.color = 0x00ff00;
+            qdCost.color = GREEN_COLOR;
             break;
         }
         default:

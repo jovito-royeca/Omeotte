@@ -38,7 +38,7 @@
 
 - (void)setup
 {
-    _deck = @"deck.xml";
+    _deck = @"cards.xml";
     [OMedia initAtlas:_deck];
     
     alphabet = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H",

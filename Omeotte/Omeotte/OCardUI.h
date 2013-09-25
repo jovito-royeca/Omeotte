@@ -10,6 +10,7 @@
 
 #import "OCard.h"
 #import "OMedia.h"
+#import "Omeotte.h"
 #import "SHPolygon.h"
 
 #define CARD_WIDTH_PIXELS  375
@@ -24,6 +25,7 @@
 
 @property(strong,nonatomic) OCard *card;
 @property(strong,nonatomic) SPTextField *lblName;
+@property(strong,nonatomic) SPQuad *qdCost;
 @property(strong,nonatomic) SPTextField *lblCost;
 @property(strong,nonatomic) SPImage *imgArt;
 @property(strong,nonatomic) SPTextField *lblText;
