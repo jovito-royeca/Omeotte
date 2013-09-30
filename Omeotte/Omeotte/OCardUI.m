@@ -10,8 +10,8 @@
 
 @implementation OCardUI
 {
-    int _width;
-    int _height;
+    float _width;
+    float _height;
 }
 
 @synthesize card;
@@ -48,34 +48,30 @@
 
 -(void) setup
 {
-    float width = _width;
-    float height = _height;
-    int currentX = 0;
-    int currentY = 0;
+    float currentX = 0;
+    float currentY = 0;
     float currentWidth = 0;
     float currentHeight = 0;
 
-    imgBackground = [[SPImage alloc] initWithWidth:width height:height];
+    imgBackground = [[SPImage alloc] initWithWidth:_width height:_height];
     imgBackground.x = 0;
     imgBackground.y = 0;
     [self addChild:imgBackground];
 
-    currentX = width * 0.08;
-    currentY = width * 0.08;
-    currentWidth = width * 0.84;
-    currentHeight = width * 0.08;
-    lblName = [[SPTextField alloc] init];
+    currentX = _width * 0.08;
+    currentY = _width * 0.08;
+    currentWidth = _width * 0.84;
+    currentHeight = _width * 0.08;
+    lblName = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
     lblName.x = currentX;
     lblName.y = currentY;
-    lblName.width = currentWidth;
-    lblName.height = currentHeight;
     lblName.color = 0x000000;
     lblName.fontSize = currentX;
     lblName.hAlign = SPHAlignLeft;
     [self addChild:lblName];
 
-    currentY = width * 0.16;
-    currentHeight = height * 0.4416;
+    currentY = _width * 0.16;
+    currentHeight = _height * 0.4416;
     imgArt = [[SPImage alloc] init];
     imgArt.x = currentX;
     imgArt.y = currentY;
@@ -83,37 +79,29 @@
     imgArt.height = currentHeight;
     [self addChild:imgArt];
 
-    currentWidth = width * 0.2;
-    currentHeight = width * 0.08;
-    currentX = (width/2)-(currentWidth/2);
-    currentY = height * 0.56;
+    currentWidth = _width * 0.2;
+    currentHeight = _width * 0.08;
+    currentX = (_width/2)-(currentWidth/2);
+    currentY = _height * 0.56;
     qdCost = [[SPQuad alloc] initWithWidth:currentWidth height:currentHeight];
     qdCost.x = currentX;
     qdCost.y = currentY;
     [self addChild:qdCost];
     
-//    currentWidth = width * 0.15;
-//    currentHeight = width * 0.08;
-//    currentX = (width/2)-(currentWidth/2);
-//    currentY = height * 0.56;
-    lblCost = [[SPTextField alloc] init];
+    lblCost = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
     lblCost.x = currentX;
     lblCost.y = currentY;
-    lblCost.width = currentWidth;
-    lblCost.height = currentHeight;
     lblCost.fontSize = currentHeight;
     lblCost.color = 0xffffff;
     [self addChild:lblCost];
     
-    currentX = width * 0.08;
-    currentY = width * 0.8746;
-    currentWidth = width * 0.84;
-    currentHeight = height * 0.275;
-    lblText = [[SPTextField alloc] init];
+    currentX = _width * 0.08;
+    currentY = _width * 0.8746;
+    currentWidth = _width * 0.84;
+    currentHeight = _height * 0.275;
+    lblText = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
     lblText.x = currentX;
     lblText.y = currentY;
-    lblText.width = currentWidth;
-    lblText.height = currentHeight;
     lblText.color = 0x000000;
     lblText.fontSize = currentX;
     [self addChild:lblText];

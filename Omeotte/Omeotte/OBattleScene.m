@@ -90,7 +90,7 @@
     [self addChild:txtPlayer1Name];
     
     currentY += txtPlayer1Name.height+10;
-    player1Resources = [[OResourcesUI alloc] initWithWidth:78*3/5 height:216*3/5];
+    player1Resources = [[OResourcesUI alloc] initWithWidth:78*3/5 height:216*3/5 rule:rule];
     player1Resources.x = currentX;
     player1Resources.y = currentY;
     [self addChild:player1Resources];
@@ -154,7 +154,7 @@
     txtPlayer2Name.hAlign = SPHAlignRight;
     [self addChild:txtPlayer2Name];
     
-    player2Resources = [[OResourcesUI alloc] initWithWidth:78*3/5 height:216*3/5];
+    player2Resources = [[OResourcesUI alloc] initWithWidth:78*3/5 height:216*3/5 rule:rule];
     currentX = stageWidth-player2Resources.width;
     currentY += txtPlayer2Name.height+10;
     player2Resources.x = currentX;
