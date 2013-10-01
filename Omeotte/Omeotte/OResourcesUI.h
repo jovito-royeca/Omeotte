@@ -9,10 +9,13 @@
 #import "Sparrow.h"
 
 #import "OMedia.h"
-#import "OMeotte.h"
+#import "Omeotte.h"
 #import "OPlayer.h"
 #import "ORule.h"
 #import "OStats.h"
+
+#define RESOURCES_WIDTH_PIXELS  78
+#define RESOURCES_HEIGHT_PIXELS 216
 
 @interface OResourcesUI : SPSprite
 

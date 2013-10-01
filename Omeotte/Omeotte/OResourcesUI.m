@@ -50,7 +50,8 @@
 
 -(void) setup
 {
-    [OMedia initAtlas:@"ui.xml"];
+    NSString *atlas = @"ui.xml";
+    [OMedia initAtlas:atlas];
     
     float currentX = 0;
     float currentY = 0;
@@ -58,7 +59,7 @@
     float currentHeight = 0;
     
     SPImage *imgBackground = [[SPImage alloc] initWithWidth:_width height:_height];
-    SPTexture *texture = [OMedia texture:@"resources" fromAtlas:@"ui.xml"];
+    SPTexture *texture = [OMedia texture:@"resources" fromAtlas:atlas];
     imgBackground.texture = texture;
     [self addChild:imgBackground];
     
@@ -122,14 +123,18 @@
 
 -(void) update:(OStats*)stats
 {
+    [self unflatten];
+    
     lblQuarries.text = [NSString stringWithFormat:@"%d", stats.quarries];
-    lblBricks.text = [NSString stringWithFormat:@"%d/%d", stats.bricks, _rule.winningResource];
+    lblBricks.text = [NSString stringWithFormat:@"%d", stats.bricks];
     
     lblMagics.text = [NSString stringWithFormat:@"%d", stats.magics];
-    lblGems.text = [NSString stringWithFormat:@"%d/%d", stats.gems, _rule.winningResource];
+    lblGems.text = [NSString stringWithFormat:@"%d", stats.gems];
     
     lblDungeons.text = [NSString stringWithFormat:@"%d", stats.dungeons];
-    lblRecruits.text = [NSString stringWithFormat:@"%d/%d", stats.recruits, _rule.winningResource];
+    lblRecruits.text = [NSString stringWithFormat:@"%d", stats.recruits];
+    
+    [self flatten];
 }
 
 @end

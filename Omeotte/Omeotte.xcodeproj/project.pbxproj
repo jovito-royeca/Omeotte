@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		110C941917D36C9E0029DC16 /* OCardUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 110C941817D36C9E0029DC16 /* OCardUI.m */; };
+		110EE84B17FA512F00C48834 /* OHealthUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 110EE84A17FA512F00C48834 /* OHealthUI.m */; };
 		111FB82E17E7DC1700CDBAF0 /* cards.png in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82A17E7DC1700CDBAF0 /* cards.png */; };
 		111FB82F17E7DC1700CDBAF0 /* cards.xml in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82B17E7DC1700CDBAF0 /* cards.xml */; };
 		111FB83017E7DC1700CDBAF0 /* ui.png in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82C17E7DC1700CDBAF0 /* ui.png */; };
@@ -82,6 +83,8 @@
 /* Begin PBXFileReference section */
 		110C941717D36C9E0029DC16 /* OCardUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCardUI.h; sourceTree = "<group>"; };
 		110C941817D36C9E0029DC16 /* OCardUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCardUI.m; sourceTree = "<group>"; };
+		110EE84917FA512F00C48834 /* OHealthUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHealthUI.h; sourceTree = "<group>"; };
+		110EE84A17FA512F00C48834 /* OHealthUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHealthUI.m; sourceTree = "<group>"; };
 		111FB82A17E7DC1700CDBAF0 /* cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cards.png; sourceTree = "<group>"; };
 		111FB82B17E7DC1700CDBAF0 /* cards.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = cards.xml; sourceTree = "<group>"; };
 		111FB82C17E7DC1700CDBAF0 /* ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui.png; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 				1148A86517D411E200D7E3B3 /* OButtonTextureUI.m */,
 				110C941717D36C9E0029DC16 /* OCardUI.h */,
 				110C941817D36C9E0029DC16 /* OCardUI.m */,
+				110EE84917FA512F00C48834 /* OHealthUI.h */,
+				110EE84A17FA512F00C48834 /* OHealthUI.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -536,6 +541,7 @@
 				1195D18717C25F5E00C4DA25 /* main.m in Sources */,
 				1195D18B17C25F5E00C4DA25 /* AppDelegate.m in Sources */,
 				1195D28517C2723600C4DA25 /* OGameScene.m in Sources */,
+				110EE84B17FA512F00C48834 /* OHealthUI.m in Sources */,
 				1195D28817C2728700C4DA25 /* OPlayer.m in Sources */,
 				1195D28E17C272B600C4DA25 /* OCard.m in Sources */,
 				1195D29117C2772700C4DA25 /* ODeck.m in Sources */,

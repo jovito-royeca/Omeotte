@@ -11,13 +11,12 @@
 #import "OButtonTextureUI.h"
 #import "OCard.h"
 #import "OCardUI.h"
+#import "OHealthUI.h"
 #import "OMedia.h"
 #import "OMenuScene.h"
 #import "OPlayer.h"
 #import "OResourcesUI.h"
 #import "ORule.h"
-
-#define        GAME_TURN      30 // seconds
 
 typedef enum
 {
@@ -29,23 +28,14 @@ typedef enum
 } GamePhase;
 
 @interface OBattleScene : SPSprite <OCardUIDelegate>
-{
-    OPlayer *_currentPlayer;
-    OCard *_currentCard;
-    GamePhase _gamePhase;
-    NSTimer *_timer;
-    int elapsedTurnTime;
-}
 
 @property (strong, nonatomic) SPTextField *txtPlayer1Name;
 @property (strong, nonatomic) OResourcesUI *player1Resources;
-@property (strong, nonatomic) SPTextField *txtPlayer1Tower;
-@property (strong, nonatomic) SPTextField *txtPlayer1Wall;
+@property (strong, nonatomic) OHealthUI *player1Health;
 
 @property (strong, nonatomic) SPTextField *txtPlayer2Name;
 @property (strong, nonatomic) OResourcesUI *player2Resources;
-@property (strong, nonatomic) SPTextField *txtPlayer2Tower;
-@property (strong, nonatomic) SPTextField *txtPlayer2Wall;
+@property (strong, nonatomic) OHealthUI *player2Health;
 
 @property (strong, nonatomic) SPTextField *txtTimer;
 @property (strong, nonatomic) NSArray *players;

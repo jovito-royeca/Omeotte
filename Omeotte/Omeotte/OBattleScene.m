@@ -9,16 +9,21 @@
 #import "OBattleScene.h"
 
 @implementation OBattleScene
+{
+    OPlayer *_currentPlayer;
+    OCard *_currentCard;
+    GamePhase _gamePhase;
+    NSTimer *_timer;
+    int elapsedTurnTime;
+}
 
 @synthesize txtPlayer1Name;
 @synthesize player1Resources;
-@synthesize txtPlayer1Tower;
-@synthesize txtPlayer1Wall;
+@synthesize player1Health;
 
 @synthesize txtPlayer2Name;
 @synthesize player2Resources;
-@synthesize txtPlayer2Tower;
-@synthesize txtPlayer2Wall;
+@synthesize player2Health;
 
 @synthesize txtTimer;
 @synthesize players;
@@ -60,12 +65,10 @@
     [winners release];
     [txtPlayer1Name release];
     [player1Resources release];
-    [txtPlayer1Tower release];
-    [txtPlayer1Wall release];
+    [player1Health release];
     [txtPlayer2Name release];
     [player2Resources release];
-    [txtPlayer2Tower release];
-    [txtPlayer2Wall release];
+    [player2Health release];
     
     //    [SPMedia releaseSound];
 }
@@ -74,79 +77,77 @@
 {
     hand = [[NSMutableArray alloc] initWithCapacity:6];
     
-    int stageWidth = Sparrow.stage.width;
-//    int stageHeight = Sparrow.stage.height;
-    int currentX = 0, currentY = 0;
+    float _width = Sparrow.stage.width;
+//    float _height = Sparrow.stage.height;
+    float currentX = 0;
+    float currentY = 0;
+    float currentWidth = 0;
+    float currentHeight = 0;
     
     // To do: lay the background
     // ...
     
-    // To do: lay the Player stats
-    txtPlayer1Name = [[SPTextField alloc] initWithWidth:stageWidth/3 height:15];
+    // Player1 Name
+    currentWidth = _width*2/5;
+    currentHeight = 15;
+    txtPlayer1Name = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
     txtPlayer1Name.color = 0xff0000;
     txtPlayer1Name.hAlign = SPHAlignLeft;
     txtPlayer1Name.x = currentX;
     txtPlayer1Name.y = currentY;
     [self addChild:txtPlayer1Name];
     
+    // Player1 Stats
     currentY += txtPlayer1Name.height+10;
-    player1Resources = [[OResourcesUI alloc] initWithWidth:78*3/5 height:216*3/5 rule:rule];
+    currentWidth  = RESOURCES_WIDTH_PIXELS*3/5;
+    currentHeight = RESOURCES_HEIGHT_PIXELS*3/5;
+    player1Resources = [[OResourcesUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule];
     player1Resources.x = currentX;
     player1Resources.y = currentY;
     [self addChild:player1Resources];
+    currentX += player1Resources.width+10;
+    currentWidth  = (_width*2/5)-currentWidth-10;
+    currentHeight += 20;
+    player1Health = [[OHealthUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule  ai:NO];
+    player1Health.x = currentX;
+    player1Health.y = currentY;
+    [self addChild:player1Health];
     
-    currentY += player1Resources.height+10;
-    SPTextField *lblPlayer1Tower = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Tower:"];
-    lblPlayer1Tower.color = 0xff0000;
-    lblPlayer1Tower.hAlign = SPHAlignLeft;
-    lblPlayer1Tower.x = currentX;
-    lblPlayer1Tower.y = currentY;
-    [self addChild:lblPlayer1Tower];
-    currentX = lblPlayer1Tower.width;
-    txtPlayer1Tower = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
-    txtPlayer1Tower.color = 0xff0000;
-    txtPlayer1Tower.x = currentX;
-    txtPlayer1Tower.y = currentY;
-    [self addChild:txtPlayer1Tower];
-    
-    currentX = 0;
-    currentY += lblPlayer1Tower.height;
-    SPTextField *lblPlayer1Wall = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Wall:"];
-    lblPlayer1Wall.color = 0xff0000;
-    lblPlayer1Wall.hAlign = SPHAlignLeft;
-    lblPlayer1Wall.x = currentX;
-    lblPlayer1Wall.y = currentY;
-    [self addChild:lblPlayer1Wall];
-    currentX = lblPlayer1Wall.width;
-    txtPlayer1Wall = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
-    txtPlayer1Wall.color = 0xff0000;
-    txtPlayer1Wall.x = currentX;
-    txtPlayer1Wall.y = currentY;
-    [self addChild:txtPlayer1Wall];
-    
-    // Exit
+    // Menu and Timer
     currentX = txtPlayer1Name.width;
     currentY = 0;
+    currentWidth = _width/5;
+    currentHeight = 15;
     SPSprite *container = [[SPSprite alloc] init];
-    OButtonTextureUI *texture = [[OButtonTextureUI alloc] initWithWidth:stageWidth/3 height:15 cornerRadius:3 strokeWidth:2 strokeColor:0xFFFFFF gloss:NO startColor:0xff0000 endColor:0x0000ff];
-    SPButton *btnExit = [SPButton buttonWithUpState:texture text:@"Exit"];
-    btnExit.fontColor = 0xffffff;
-    btnExit.fontSize = 15;
-    btnExit.x = currentX;
-    [btnExit addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TRIGGERED];
-    [container addChild:btnExit];
+    OButtonTextureUI *texture = [[OButtonTextureUI alloc] initWithWidth:currentWidth
+                                                                 height:currentHeight
+                                                           cornerRadius:3
+                                                            strokeWidth:2
+                                                            strokeColor:0xFFFFFF
+                                                                  gloss:NO
+                                                             startColor:0xff0000
+                                                               endColor:0x0000ff];
+    SPButton *btnMenu = [SPButton buttonWithUpState:texture text:@"Menu"];
+    btnMenu.fontColor = 0xffffff;
+    btnMenu.fontSize = 15;
+    btnMenu.x = currentX;
+    [btnMenu addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TRIGGERED];
+    [container addChild:btnMenu];
     currentY = 1;
-    txtTimer = [[SPTextField alloc] initWithWidth:stageWidth/3 height:20 text:[NSString stringWithFormat:@"%d", GAME_TURN]];
+    currentHeight = 20;
+    txtTimer = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[NSString stringWithFormat:@"%d", GAME_TURN]];
     txtTimer.color = 0xffffff;
     txtTimer.x = currentX;
-    txtTimer.y = btnExit.height+10;
+    txtTimer.y = btnMenu.height+10;
     [container addChild:txtTimer];
     [self addChild:container];
     
-    // AI
-    currentX = txtPlayer1Name.width*2;
+    // AI name
+    currentX = txtPlayer1Name.width+btnMenu.width;
     currentY = 0;
-    txtPlayer2Name = [[SPTextField alloc] initWithWidth:stageWidth/3 height:15];
+    currentWidth = _width*2/5;
+    currentHeight = 15;
+    txtPlayer2Name = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
     txtPlayer2Name.color = 0x0000ff;
     txtPlayer2Name.hAlign = SPHAlignLeft;
     txtPlayer2Name.x = currentX;
@@ -154,42 +155,22 @@
     txtPlayer2Name.hAlign = SPHAlignRight;
     [self addChild:txtPlayer2Name];
     
-    player2Resources = [[OResourcesUI alloc] initWithWidth:78*3/5 height:216*3/5 rule:rule];
-    currentX = stageWidth-player2Resources.width;
+    // AI stats
+    currentWidth  = RESOURCES_WIDTH_PIXELS*3/5;
+    currentHeight = RESOURCES_HEIGHT_PIXELS*3/5;
+    currentX = _width-currentWidth;
     currentY += txtPlayer2Name.height+10;
+    player2Resources = [[OResourcesUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule];
     player2Resources.x = currentX;
     player2Resources.y = currentY;
     [self addChild:player2Resources];
-
-    currentX = txtPlayer1Name.width*2;
-    currentY += player2Resources.height+10;
-    SPTextField *lblPlayer2Tower = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Tower:"];
-    lblPlayer2Tower.color = 0x0000ff;
-    lblPlayer2Tower.hAlign = SPHAlignLeft;
-    lblPlayer2Tower.x = currentX;
-    lblPlayer2Tower.y = currentY;
-    [self addChild:lblPlayer2Tower];
-    currentX = lblPlayer1Tower.width + txtPlayer1Name.width*2;
-    txtPlayer2Tower = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
-    txtPlayer2Tower.color = 0x0000ff;
-    txtPlayer2Tower.x = currentX;
-    txtPlayer2Tower.y = currentY;
-    [self addChild:txtPlayer2Tower];
-    
-    currentX = txtPlayer1Name.width*2;
-    currentY += lblPlayer2Tower.height;
-    SPTextField *lblPlayer2Wall = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15 text:@"Wall:"];
-    lblPlayer2Wall.color = 0x0000ff;
-    lblPlayer2Wall.hAlign = SPHAlignLeft;
-    lblPlayer2Wall.x = currentX;
-    lblPlayer2Wall.y = currentY;
-    [self addChild:lblPlayer2Wall];
-    currentX = lblPlayer2Wall.width + txtPlayer1Name.width*2;
-    txtPlayer2Wall = [[SPTextField alloc] initWithWidth:stageWidth/6 height:15];
-    txtPlayer2Wall.color = 0x0000ff;
-    txtPlayer2Wall.x = currentX;
-    txtPlayer2Wall.y = currentY;
-    [self addChild:txtPlayer2Wall];
+    currentX = txtPlayer1Name.width+btnMenu.width+10;
+    currentWidth  = (_width*2/5)-currentWidth-10;
+    currentHeight += 20;
+    player2Health = [[OHealthUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule ai:YES];
+    player2Health.x = currentX;
+    player2Health.y = currentY;
+    [self addChild:player2Health];
     
     // Cards
     CGRect rect = [self cardRect];
@@ -205,9 +186,6 @@
         [hand addObject:card];
         card.delegate = self;
     }
-    
-    // To do: lay the Castles and Walls
-    // ...
 }
 
 -(void) initPlayers
@@ -315,12 +293,10 @@
     OPlayer *player2 = [players objectAtIndex:1];
     
     [player1Resources update:player1.base];
-    txtPlayer1Tower.text = [NSString stringWithFormat:@"%d", player1.base.tower];
-    txtPlayer1Wall.text = [NSString stringWithFormat:@"%d", player1.base.wall];
+    [player1Health update:player1.base];
     
-    [player2Resources update:player1.base];
-    txtPlayer2Tower.text = [NSString stringWithFormat:@"%d", player2.base.tower];
-    txtPlayer2Wall.text = [NSString stringWithFormat:@"%d", player2.base.wall];
+    [player2Resources update:player2.base];
+    [player2Health update:player2.base];
 }
 
 -(void) checkWinner
