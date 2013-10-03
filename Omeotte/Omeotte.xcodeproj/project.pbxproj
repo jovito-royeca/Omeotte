@@ -15,6 +15,7 @@
 		111FB83117E7DC1700CDBAF0 /* ui.xml in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82D17E7DC1700CDBAF0 /* ui.xml */; };
 		111FB83717E7EB6D00CDBAF0 /* OResourcesUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 111FB83617E7EB6D00CDBAF0 /* OResourcesUI.m */; };
 		112EE3F517FCF62000C495D3 /* SXSimpleClippedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 112EE3F417FCF62000C495D3 /* SXSimpleClippedImage.m */; };
+		112EE3F817FD07DD00C495D3 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 112EE3F717FD07DD00C495D3 /* background.png */; };
 		1137991F17C49ADF00794158 /* magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137991E17C49ADF00794158 /* magic.plist */; };
 		1137992117C49AF000794158 /* dungeon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137992017C49AF000794158 /* dungeon.plist */; };
 		1148A85A17D4083300D7E3B3 /* OBattleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A85917D4083300D7E3B3 /* OBattleScene.m */; };
@@ -94,6 +95,7 @@
 		111FB83617E7EB6D00CDBAF0 /* OResourcesUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OResourcesUI.m; sourceTree = "<group>"; };
 		112EE3F317FCF62000C495D3 /* SXSimpleClippedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSimpleClippedImage.h; sourceTree = "<group>"; };
 		112EE3F417FCF62000C495D3 /* SXSimpleClippedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXSimpleClippedImage.m; sourceTree = "<group>"; };
+		112EE3F717FD07DD00C495D3 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		11306C7E17D6BE0200156E78 /* Omeotte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Omeotte.h; sourceTree = "<group>"; };
 		1137991E17C49ADF00794158 /* magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic.plist; sourceTree = "<group>"; };
 		1137992017C49AF000794158 /* dungeon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dungeon.plist; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		113517DF17CF103200C7EAA7 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				112EE3F717FD07DD00C495D3 /* background.png */,
 				111FB82A17E7DC1700CDBAF0 /* cards.png */,
 				111FB82B17E7DC1700CDBAF0 /* cards.xml */,
 				111FB82C17E7DC1700CDBAF0 /* ui.png */,
@@ -510,6 +513,7 @@
 				1195D18F17C25F5E00C4DA25 /* Default@2x.png in Resources */,
 				1195D19117C25F5E00C4DA25 /* Default-568h@2x.png in Resources */,
 				11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */,
+				112EE3F817FD07DD00C495D3 /* background.png in Resources */,
 				11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */,
 				1137991F17C49ADF00794158 /* magic.plist in Resources */,
 				1137992117C49AF000794158 /* dungeon.plist in Resources */,

@@ -119,17 +119,20 @@
         SPPoint *position = [touch locationInSpace:self];
         int arena = Sparrow.stage.height-_height;
         
-        if (position.y < arena)
+        if (touchStatus == 0)
         {
             touchStatus++;
         }
-        else if (position.y > arena)
+        else if (touchStatus >= 1)
         {
-            touchStatus--;
-        }
-        else if (position.y == arena)
-        {
-            touchStatus++;
+            if (position.y < arena)
+            {
+                touchStatus++;
+            }
+            else if (position.y > arena)
+            {
+                touchStatus--;
+            }
         }
         
         switch (touchStatus)
@@ -157,6 +160,8 @@
             default:
                 break;
         }
+        
+        touchStatus = 0;
     }
 }
 

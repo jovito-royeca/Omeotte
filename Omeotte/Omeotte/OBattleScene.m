@@ -83,9 +83,15 @@
     float currentY = 0;
     float currentWidth = 0;
     float currentHeight = 0;
+    float cardWidth  = _width/6;
+    float cardHeight = (cardWidth*128)/95;
+    CGRect cardRect  = CGRectMake(0, 0, cardWidth, cardHeight);
     
-    // To do: lay the background
-    // ...
+    // Background
+    SPImage *background = [[SPImage alloc] initWithContentsOfFile:@"background.png"];
+    background.width = _width;
+    background.height = _height - cardHeight;
+    [self addChild:background];
     
     // Player1 Name
     currentWidth = _width*2/5;
@@ -107,7 +113,7 @@
     [self addChild:player1Resources];
     currentX += player1Resources.width;
     currentWidth = (_width*2/5)-currentWidth;
-    currentHeight += 20;
+    currentHeight = _height - cardHeight - 40;
     player1Health = [[OHealthUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule  ai:NO];
     player1Health.x = currentX;
     player1Health.y = currentY;
@@ -166,17 +172,15 @@
     [self addChild:player2Resources];
     currentX = txtPlayer1Name.width+btnMenu.width;
     currentWidth  = (_width*2/5)-currentWidth;
-    currentHeight += 20;
+    currentHeight = _height - cardHeight - 40;
     player2Health = [[OHealthUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule ai:YES];
     player2Health.x = currentX;
     player2Health.y = currentY;
     [self addChild:player2Health];
     
     // Cards
-    int cardWidth = _width/6;
-    int cardHeight = (cardWidth*128)/95;
-    CGRect cardRect = CGRectMake(0, 0, cardWidth, cardHeight);
-    currentX = 0; currentY = 0;
+    currentX = 0;
+    currentY = 0;
     for (int i=0; i<6; i++)
     {
         OCardUI *card = [[OCardUI alloc] initWithWidth:cardRect.size.width height:cardRect.size.height];
@@ -471,25 +475,25 @@
 #pragma mark - OCardUIDelegate
 - (void)promote:(OCard*)card
 {
-    NSLog(@"promote...");
+    NSLog(@"promote... %@", card.name);
 }
 
 - (void)play:(OCard*)card
 {
-    NSLog(@"play...");
+    NSLog(@"play... %@", card.name);
     _currentCard = card;
 }
 
 - (void)discard:(OCard*)card
 {
-    NSLog(@"discard...");
+    NSLog(@"discard... %@", card.name);
     [self discardCard:card];
     [self switchTurn:[self opponentPlayer]];
 }
 
 - (void)demote:(OCard*)card
 {
-    NSLog(@"demote...");
+    NSLog(@"demote... %@", card.name);
 }
 
 @end

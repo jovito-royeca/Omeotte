@@ -56,14 +56,12 @@
     if (_isAI)
     {
         currentWidth = (_width/2)*0.445;
-        currentX = ((_width/2) - currentWidth)/2;
+        currentX = (_width/2) - currentWidth;
         imgWall = [[SXSimpleClippedImage alloc] initWithWidth:currentWidth height:currentHeight];
         imgWall.x = currentX;
         imgWall.y = currentY;
         imgWall.texture = [OMedia texture:@"wall" fromAtlas:atlas];
         [self addChild:imgWall];
-        currentX = 0;
-        currentWidth = _width/2;
         lblWall = [[SPTextField alloc] initWithWidth:currentWidth height:20];
         lblWall.color = 0xffffff;
         lblWall.x = currentX;
@@ -96,22 +94,21 @@
         [self addChild:imgTower];
         currentX = 0;
         currentWidth = _width/2;
-        lblTower = [[SPTextField alloc] initWithWidth:currentWidth height:15];
+        lblTower = [[SPTextField alloc] initWithWidth:currentWidth height:20];
         lblTower.color = 0xffffff;
         lblTower.x = currentX;
         lblTower.y = imgTower.height;
         [self addChild:lblTower];
         
         currentWidth = (_width/2)*0.445;
-        currentX = _width/2 + (((_width/2) - currentWidth)/2);
+        currentX = _width/2;
         imgWall = [[SXSimpleClippedImage alloc] initWithWidth:currentWidth height:currentHeight];
         imgWall.x = currentX;
         imgWall.y = currentY;
         imgWall.texture = [OMedia texture:@"wall" fromAtlas:atlas];
         [self addChild:imgWall];
         currentX = _width/2;
-        currentWidth = _width/2;
-        lblWall = [[SPTextField alloc] initWithWidth:currentWidth height:15];
+        lblWall = [[SPTextField alloc] initWithWidth:currentWidth height:20];
         lblWall.color = 0xffffff;
         lblWall.x = currentX;
         lblWall.y = imgTower.height;
