@@ -18,8 +18,11 @@
 
 #define TOWER_WIDTH_PIXELS   68
 #define TOWER_HEIGHT_PIXELS  290
+#define TOWER_ROOF_PIXELS    94
+
 #define WALL_WIDTH_PIXELS    45
 #define WALL_HEIGHT_PIXELS   238
+#define WALL_ROOF_PIXELS     38
 
 @interface OHealthUI : SPSprite
 
