@@ -78,7 +78,7 @@
     hand = [[NSMutableArray alloc] initWithCapacity:6];
     
     float _width = Sparrow.stage.width;
-//    float _height = Sparrow.stage.height;
+    float _height = Sparrow.stage.height;
     float currentX = 0;
     float currentY = 0;
     float currentWidth = 0;
@@ -105,8 +105,8 @@
     player1Resources.x = currentX;
     player1Resources.y = currentY;
     [self addChild:player1Resources];
-    currentX += player1Resources.width+10;
-    currentWidth  = (_width*2/5)-currentWidth-10;
+    currentX += player1Resources.width;
+    currentWidth = (_width*2/5)-currentWidth;
     currentHeight += 20;
     player1Health = [[OHealthUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule  ai:NO];
     player1Health.x = currentX;
@@ -164,8 +164,8 @@
     player2Resources.x = currentX;
     player2Resources.y = currentY;
     [self addChild:player2Resources];
-    currentX = txtPlayer1Name.width+btnMenu.width+10;
-    currentWidth  = (_width*2/5)-currentWidth-10;
+    currentX = txtPlayer1Name.width+btnMenu.width;
+    currentWidth  = (_width*2/5)-currentWidth;
     currentHeight += 20;
     player2Health = [[OHealthUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule ai:YES];
     player2Health.x = currentX;
@@ -173,15 +173,17 @@
     [self addChild:player2Health];
     
     // Cards
-    CGRect rect = [self cardRect];
+    int cardWidth = _width/6;
+    int cardHeight = (cardWidth*128)/95;
+    CGRect cardRect = CGRectMake(0, 0, cardWidth, cardHeight);
     currentX = 0; currentY = 0;
     for (int i=0; i<6; i++)
     {
-        OCardUI *card = [[OCardUI alloc] initWithWidth:rect.size.width height:rect.size.height];
+        OCardUI *card = [[OCardUI alloc] initWithWidth:cardRect.size.width height:cardRect.size.height];
 
         card.x = currentX;
-        card.y = Sparrow.stage.height-rect.size.height;
-        currentX += rect.size.width;
+        card.y = Sparrow.stage.height-cardRect.size.height;
+        currentX += cardRect.size.width;
         [self addChild:card];
         [hand addObject:card];
         card.delegate = self;
@@ -277,16 +279,6 @@
     return (i == count-1) ? [players objectAtIndex:i-1] : [players objectAtIndex:i+1];
 }
 
--(CGRect) cardRect
-{
-    int stageWidth = Sparrow.stage.width;
-    //    int stageHeight = Sparrow.stage.height;
-    int cardWidth = stageWidth/6;
-    int cardHeight = (cardWidth*128)/95;
-    
-    return CGRectMake(0, 0, cardWidth, cardHeight);
-}
-
 -(void) updateStats
 {
     OPlayer *player1 = [players objectAtIndex:0];
@@ -348,6 +340,21 @@
     OGameScene* game = (OGameScene*)self.root;
     
     [game showScene:menu];
+}
+
+- (void)timerTick:(NSTimer *)timer
+{
+    elapsedTurnTime--;
+    txtTimer.text = [NSString stringWithFormat:@"%@%d", (elapsedTurnTime < 10 ? @"0" : @""), elapsedTurnTime];
+}
+
+-(void) switchTurn:(OPlayer*)activePlayer
+{
+    _gamePhase = Upkeep;
+    _currentPlayer = activePlayer;
+    _currentCard = nil;
+    [_timer invalidate];
+    _timer = nil;
 }
 
 -(void) upkeepPhase
@@ -420,21 +427,6 @@
     {
         [self switchTurn:opponentPlayer];
     }
-}
-
-- (void)timerTick:(NSTimer *)timer
-{
-    elapsedTurnTime--;
-    txtTimer.text = [NSString stringWithFormat:@"%@%d", (elapsedTurnTime < 10 ? @"0" : @""), elapsedTurnTime];
-}
-
--(void) switchTurn:(OPlayer*)activePlayer
-{
-    _gamePhase = Upkeep;
-    _currentPlayer = activePlayer;
-    _currentCard = nil;
-    [_timer invalidate];
-    _timer = nil;
 }
 
 -(void) victoryPhase

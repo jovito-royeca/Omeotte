@@ -19,9 +19,6 @@
 @protocol OCardUIDelegate;
 
 @interface OCardUI : SPSprite
-{
-    int touchStatus;
-}
 
 @property(strong,nonatomic) OCard *card;
 @property(strong,nonatomic) SPTextField *lblName;

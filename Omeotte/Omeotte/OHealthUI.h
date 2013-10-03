@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "Sparrow.h"
+#import "SXSimpleClippedImage.h"
 
 #import "OMedia.h"
 #import "Omeotte.h"
@@ -20,15 +21,15 @@
 #define WALL_WIDTH_PIXELS    45
 #define WALL_HEIGHT_PIXELS   238
 
-
 @interface OHealthUI : SPSprite
 
-@property(strong,nonatomic) SPImage *imgTower;
+@property(strong,nonatomic) SXSimpleClippedImage *imgTower;
 @property(strong,nonatomic) SPTextField *lblTower;
-@property(strong,nonatomic) SPImage *imgWall;
+@property(strong,nonatomic) SXSimpleClippedImage *imgWall;
 @property(strong,nonatomic) SPTextField *lblWall;
 
 -(id) initWithWidth:(float)width height:(float)height rule:(ORule*)rule ai:(BOOL)isAI;
 -(void) update:(OStats*)stats;
+-(void) animateImage:(SXSimpleClippedImage*)image;
 
 @end

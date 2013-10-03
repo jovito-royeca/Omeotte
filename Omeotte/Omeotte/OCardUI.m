@@ -10,6 +10,7 @@
 
 @implementation OCardUI
 {
+    int touchStatus;
     float _width;
     float _height;
 }
@@ -126,10 +127,10 @@
         {
             touchStatus--;
         }
-//        else if (position.y == arena)
-//        {
-//            
-//        }
+        else if (position.y == arena)
+        {
+            touchStatus++;
+        }
         
         switch (touchStatus)
         {

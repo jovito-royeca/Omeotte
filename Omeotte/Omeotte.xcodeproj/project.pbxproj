@@ -14,6 +14,7 @@
 		111FB83017E7DC1700CDBAF0 /* ui.png in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82C17E7DC1700CDBAF0 /* ui.png */; };
 		111FB83117E7DC1700CDBAF0 /* ui.xml in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82D17E7DC1700CDBAF0 /* ui.xml */; };
 		111FB83717E7EB6D00CDBAF0 /* OResourcesUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 111FB83617E7EB6D00CDBAF0 /* OResourcesUI.m */; };
+		112EE3F517FCF62000C495D3 /* SXSimpleClippedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 112EE3F417FCF62000C495D3 /* SXSimpleClippedImage.m */; };
 		1137991F17C49ADF00794158 /* magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137991E17C49ADF00794158 /* magic.plist */; };
 		1137992117C49AF000794158 /* dungeon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137992017C49AF000794158 /* dungeon.plist */; };
 		1148A85A17D4083300D7E3B3 /* OBattleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A85917D4083300D7E3B3 /* OBattleScene.m */; };
@@ -91,6 +92,8 @@
 		111FB82D17E7DC1700CDBAF0 /* ui.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ui.xml; sourceTree = "<group>"; };
 		111FB83517E7EB6D00CDBAF0 /* OResourcesUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OResourcesUI.h; sourceTree = "<group>"; };
 		111FB83617E7EB6D00CDBAF0 /* OResourcesUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OResourcesUI.m; sourceTree = "<group>"; };
+		112EE3F317FCF62000C495D3 /* SXSimpleClippedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSimpleClippedImage.h; sourceTree = "<group>"; };
+		112EE3F417FCF62000C495D3 /* SXSimpleClippedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXSimpleClippedImage.m; sourceTree = "<group>"; };
 		11306C7E17D6BE0200156E78 /* Omeotte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Omeotte.h; sourceTree = "<group>"; };
 		1137991E17C49ADF00794158 /* magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic.plist; sourceTree = "<group>"; };
 		1137992017C49AF000794158 /* dungeon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dungeon.plist; sourceTree = "<group>"; };
@@ -192,6 +195,15 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		112EE3F217FCF60400C495D3 /* SXSimpleClippedImage */ = {
+			isa = PBXGroup;
+			children = (
+				112EE3F317FCF62000C495D3 /* SXSimpleClippedImage.h */,
+				112EE3F417FCF62000C495D3 /* SXSimpleClippedImage.m */,
+			);
+			path = SXSimpleClippedImage;
+			sourceTree = "<group>";
+		};
 		113517D917CED6B400C7EAA7 /* media */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +265,7 @@
 		1154D1BA17E93BA000A3EC2B /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				112EE3F217FCF60400C495D3 /* SXSimpleClippedImage */,
 				1154D1C217E93BCC00A3EC2B /* SXGauge */,
 				1154D1BB17E93BBE00A3EC2B /* SHPolygon */,
 			);
@@ -548,6 +561,7 @@
 				11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */,
 				11722F6B17C640CC00014D16 /* OMedia.m in Sources */,
 				118E688617C74BD8007801CD /* OStats.m in Sources */,
+				112EE3F517FCF62000C495D3 /* SXSimpleClippedImage.m in Sources */,
 				110C941917D36C9E0029DC16 /* OCardUI.m in Sources */,
 				1148A85A17D4083300D7E3B3 /* OBattleScene.m in Sources */,
 				1148A86617D411E200D7E3B3 /* OButtonTextureUI.m in Sources */,

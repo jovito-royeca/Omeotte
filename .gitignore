@@ -12,6 +12,15 @@ project.xcworkspace/
 xcuserdata/
 .idea
  
+#Eclipse
+.metadata
+*/bin/dexedLibs/*
+*/bin/*.apk
+*/bin/classes.dex
+*/bin/resources.ap_
+*/bin/jarlist.cache
+*/bin/salesforcesdk.jar
+
 # Generated files
 *.o
 *.pyc
