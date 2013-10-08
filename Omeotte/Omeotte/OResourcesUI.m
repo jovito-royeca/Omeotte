@@ -54,6 +54,7 @@
 {
     NSString *atlas = @"ui.xml";
     [OMedia initAtlas:atlas];
+    [SPTextField registerBitmapFontFromFile:EXETER_FILE];
     
     float currentX = 0;
     float currentY = 0;
@@ -102,6 +103,7 @@
     lblBricks.color = 0x000000;
     lblBricks.fontSize = currentHeight;
     lblBricks.hAlign = SPHAlignLeft;
+    lblBricks.fontName = EXETER_FONT;
     [self addChild:lblBricks];
     
     currentY += _height/3;
@@ -111,6 +113,7 @@
     lblGems.color = 0x000000;
     lblGems.fontSize = currentHeight;
     lblGems.hAlign = SPHAlignLeft;
+    lblGems.fontName = EXETER_FONT;
     [self addChild:lblGems];
 
     currentY += _height/3;
@@ -120,6 +123,7 @@
     lblRecruits.color = 0x000000;
     lblRecruits.fontSize = currentHeight;
     lblRecruits.hAlign = SPHAlignLeft;
+    lblRecruits.fontName = EXETER_FONT;
     [self addChild:lblRecruits];
 }
 

@@ -56,6 +56,10 @@
 		11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5C17C33CEC00AA96BC /* quarry.plist */; };
 		11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5E17C33D0A00AA96BC /* rules.plist */; };
 		11FBAA3D17DEF5BA008CE6E6 /* CardTestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FBAA3C17DEF5BA008CE6E6 /* CardTestScene.m */; };
+		11FE27EA1803B1E600159D4A /* Kingthings_Calligraphica.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 11FE27E61803B1E600159D4A /* Kingthings_Calligraphica.fnt */; };
+		11FE27EB1803B1E600159D4A /* Kingthings_Calligraphica_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FE27E71803B1E600159D4A /* Kingthings_Calligraphica_0.png */; };
+		11FE27EC1803B1E600159D4A /* Kingthings_Exeter.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 11FE27E81803B1E600159D4A /* Kingthings_Exeter.fnt */; };
+		11FE27ED1803B1E600159D4A /* Kingthings_Exeter_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FE27E91803B1E600159D4A /* Kingthings_Exeter_0.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +160,10 @@
 		11D5CF5E17C33D0A00AA96BC /* rules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = rules.plist; sourceTree = "<group>"; };
 		11FBAA3B17DEF5BA008CE6E6 /* CardTestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTestScene.h; sourceTree = "<group>"; };
 		11FBAA3C17DEF5BA008CE6E6 /* CardTestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTestScene.m; sourceTree = "<group>"; };
+		11FE27E61803B1E600159D4A /* Kingthings_Calligraphica.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Kingthings_Calligraphica.fnt; sourceTree = "<group>"; };
+		11FE27E71803B1E600159D4A /* Kingthings_Calligraphica_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kingthings_Calligraphica_0.png; sourceTree = "<group>"; };
+		11FE27E81803B1E600159D4A /* Kingthings_Exeter.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Kingthings_Exeter.fnt; sourceTree = "<group>"; };
+		11FE27E91803B1E600159D4A /* Kingthings_Exeter_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kingthings_Exeter_0.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,13 +198,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		111FB83417E7DCC000CDBAF0 /* fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = fonts;
-			sourceTree = "<group>";
-		};
 		112EE3F217FCF60400C495D3 /* SXSimpleClippedImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,7 +210,7 @@
 		113517D917CED6B400C7EAA7 /* media */ = {
 			isa = PBXGroup;
 			children = (
-				111FB83417E7DCC000CDBAF0 /* fonts */,
+				11FE27E51803B1E600159D4A /* fonts */,
 				113517DF17CF103200C7EAA7 /* graphics */,
 				113517DE17CF102200C7EAA7 /* audio */,
 			);
@@ -414,6 +415,17 @@
 			path = data;
 			sourceTree = "<group>";
 		};
+		11FE27E51803B1E600159D4A /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				11FE27E61803B1E600159D4A /* Kingthings_Calligraphica.fnt */,
+				11FE27E71803B1E600159D4A /* Kingthings_Calligraphica_0.png */,
+				11FE27E81803B1E600159D4A /* Kingthings_Exeter.fnt */,
+				11FE27E91803B1E600159D4A /* Kingthings_Exeter_0.png */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -511,15 +523,19 @@
 				1195D18517C25F5E00C4DA25 /* InfoPlist.strings in Resources */,
 				1195D18D17C25F5E00C4DA25 /* Default.png in Resources */,
 				1195D18F17C25F5E00C4DA25 /* Default@2x.png in Resources */,
+				11FE27EA1803B1E600159D4A /* Kingthings_Calligraphica.fnt in Resources */,
 				1195D19117C25F5E00C4DA25 /* Default-568h@2x.png in Resources */,
 				11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */,
 				112EE3F817FD07DD00C495D3 /* background.png in Resources */,
 				11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */,
 				1137991F17C49ADF00794158 /* magic.plist in Resources */,
+				11FE27ED1803B1E600159D4A /* Kingthings_Exeter_0.png in Resources */,
 				1137992117C49AF000794158 /* dungeon.plist in Resources */,
 				111FB82E17E7DC1700CDBAF0 /* cards.png in Resources */,
 				111FB82F17E7DC1700CDBAF0 /* cards.xml in Resources */,
 				111FB83017E7DC1700CDBAF0 /* ui.png in Resources */,
+				11FE27EC1803B1E600159D4A /* Kingthings_Exeter.fnt in Resources */,
+				11FE27EB1803B1E600159D4A /* Kingthings_Calligraphica_0.png in Resources */,
 				111FB83117E7DC1700CDBAF0 /* ui.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

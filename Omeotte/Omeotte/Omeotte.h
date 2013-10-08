@@ -18,6 +18,11 @@
 
 #define GAME_TURN     30 // seconds
 
+#define CALLIGRAPHICA_FILE   @"Kingthings_Calligraphica.fnt"
+#define CALLIGRAPHICA_FONT   @"Kingthings Calligraphica"
+#define EXETER_FILE          @"Kingthings_Exeter.fnt"
+#define EXETER_FONT          @"Kingthings Exeter"
+
 #define pix2points(x) (x)
 
 #endif

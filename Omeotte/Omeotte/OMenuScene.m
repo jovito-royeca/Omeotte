@@ -34,13 +34,17 @@
                                                                   gloss:NO
                                                              startColor:0x0000ff
                                                                endColor:0x0000ff];
+
+    [SPTextField registerBitmapFontFromFile:CALLIGRAPHICA_FILE];
+    [SPTextField registerBitmapFontFromFile:EXETER_FILE];
     
     SPTextField *title = [SPTextField textFieldWithWidth:stageWidth
                                                   height:50
                                                     text:GAME_TITLE
-                                                fontName:@"Helvetica"
+                                                fontName:CALLIGRAPHICA_FONT
                                                 fontSize:50
                                                    color:0xff0000];
+
     [self addChild:title];
     
     
@@ -51,6 +55,7 @@
     btnSinglePlayer.fontSize = 30;
     btnSinglePlayer.x = currentX;
     btnSinglePlayer.y = currentY;
+    btnSinglePlayer.fontName = EXETER_FONT;
     [btnSinglePlayer addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
      {
          OBattleScene *scene = [[OBattleScene alloc] init];
@@ -67,6 +72,7 @@
     btnMultiPlayer.fontSize = 30;
     btnMultiPlayer.x = currentX;
     btnMultiPlayer.y = currentY;
+    btnMultiPlayer.fontName = EXETER_FONT;
     [btnMultiPlayer addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
      {
          NSLog(@"Multi Player not yet implemented.");
@@ -80,6 +86,7 @@
     btnDeckBuilder.fontSize = 30;
     btnDeckBuilder.x = currentX;
     btnDeckBuilder.y = currentY;
+    btnDeckBuilder.fontName = EXETER_FONT;
     [btnDeckBuilder addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
      {
          NSLog(@"Deck Builder not yet implemented.");
@@ -93,6 +100,7 @@
     btnCardBrowser.fontSize = 30;
     btnCardBrowser.x = currentX;
     btnCardBrowser.y = currentY;
+    btnCardBrowser.fontName = EXETER_FONT;
     [btnCardBrowser addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
      {
          CardTestScene *scene = [[CardTestScene alloc] init];

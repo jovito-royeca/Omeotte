@@ -49,6 +49,8 @@
 
 -(void) setup
 {
+    [SPTextField registerBitmapFontFromFile:EXETER_FILE];
+    
     float currentX = 0;
     float currentY = 0;
     float currentWidth = 0;
@@ -69,6 +71,7 @@
     lblName.color = 0x000000;
     lblName.fontSize = currentX;
     lblName.hAlign = SPHAlignLeft;
+    lblName.fontName = EXETER_FONT;
     [self addChild:lblName];
 
     currentY = _width * 0.16;

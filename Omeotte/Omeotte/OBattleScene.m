@@ -75,6 +75,7 @@
 
 - (void)setup
 {
+    [SPTextField registerBitmapFontFromFile:EXETER_FILE];
     hand = [[NSMutableArray alloc] initWithCapacity:6];
     
     float _width = Sparrow.stage.width;
@@ -101,6 +102,7 @@
     txtPlayer1Name.hAlign = SPHAlignLeft;
     txtPlayer1Name.x = currentX;
     txtPlayer1Name.y = currentY;
+    txtPlayer1Name.fontName = EXETER_FONT;
     [self addChild:txtPlayer1Name];
     
     // Player1 Stats
@@ -140,11 +142,14 @@
     [btnMenu addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TRIGGERED];
     [container addChild:btnMenu];
     currentY = 1;
-    currentHeight = 20;
-    txtTimer = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[NSString stringWithFormat:@"%d", GAME_TURN]];
+    currentHeight = 30;
+    txtTimer = [[SPTextField alloc] initWithWidth:currentWidth
+                                           height:currentHeight
+                                             text:[NSString stringWithFormat:@"%d", GAME_TURN]];
     txtTimer.color = 0xffffff;
     txtTimer.x = currentX;
     txtTimer.y = btnMenu.height+10;
+    txtTimer.fontName = EXETER_FONT;
     [container addChild:txtTimer];
     [self addChild:container];
     
@@ -159,6 +164,7 @@
     txtPlayer2Name.x = currentX;
     txtPlayer2Name.y = currentY;
     txtPlayer2Name.hAlign = SPHAlignRight;
+    txtPlayer2Name.fontName = EXETER_FONT;
     [self addChild:txtPlayer2Name];
     
     // AI stats

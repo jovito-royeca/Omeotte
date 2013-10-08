@@ -50,6 +50,7 @@
 {
     NSString *atlas = @"ui.xml";
     [OMedia initAtlas:atlas];
+    [SPTextField registerBitmapFontFromFile:EXETER_FILE];
     
     float currentX = 0;
     float currentY = 0;
@@ -69,6 +70,7 @@
         lblWall.color = 0xffffff;
         lblWall.x = currentX;
         lblWall.y = imgWall.height;
+        lblWall.fontName = EXETER_FONT;
         [self addChild:lblWall];
         
         currentWidth = (_width/2)*0.542;
@@ -84,6 +86,7 @@
         lblTower.color = 0xffffff;
         lblTower.x = currentX;
         lblTower.y = imgTower.height;
+        lblTower.fontName = EXETER_FONT;
         [self addChild:lblTower];
     }
     else
@@ -101,6 +104,7 @@
         lblTower.color = 0xffffff;
         lblTower.x = currentX;
         lblTower.y = imgTower.height;
+        lblTower.fontName = EXETER_FONT;
         [self addChild:lblTower];
         
         currentWidth = (_width/2)*0.445;
@@ -115,6 +119,7 @@
         lblWall.color = 0xffffff;
         lblWall.x = currentX;
         lblWall.y = imgTower.height;
+        lblWall.fontName = EXETER_FONT;
         [self addChild:lblWall];
     }
 }
