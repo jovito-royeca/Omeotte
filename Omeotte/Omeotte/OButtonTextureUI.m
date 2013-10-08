@@ -19,7 +19,8 @@
          startColor:(uint)startColor
            endColor:(uint)endColor
 {
-    if ((self = [super initWithWidth:width height:height
+    if ((self = [super initWithWidth:width
+                              height:height
                                 draw:^(CGContextRef context)
                                 {
                                     CGRect rect = CGRectMake(0, 0, width, height);

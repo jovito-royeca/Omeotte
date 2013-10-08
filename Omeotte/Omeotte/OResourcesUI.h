@@ -28,7 +28,9 @@
 @property(strong,nonatomic) SPTextField *lblDungeons;
 @property(strong,nonatomic) SPTextField *lblRecruits;
 
--(id) initWithWidth:(float)width height:(float)height rule:(ORule*)rule;
+-(id) initWithWidth:(float)width
+             height:(float)height
+               rule:(ORule*)rule;
 -(void) update:(OStats*)stats;
 
 @end

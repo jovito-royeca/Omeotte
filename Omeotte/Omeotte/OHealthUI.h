@@ -24,6 +24,8 @@
 #define WALL_HEIGHT_PIXELS   238
 #define WALL_ROOF_PIXELS     38
 
+#define TOWER_LABEL_HEIGHT   20
+
 @interface OHealthUI : SPSprite
 
 @property(strong,nonatomic) SXSimpleClippedImage *imgTower;
@@ -31,8 +33,17 @@
 @property(strong,nonatomic) SXSimpleClippedImage *imgWall;
 @property(strong,nonatomic) SPTextField *lblWall;
 
--(id) initWithWidth:(float)width height:(float)height rule:(ORule*)rule ai:(BOOL)isAI;
+-(id) initWithWidth:(float)width
+             height:(float)height
+               rule:(ORule*)rule
+                 ai:(BOOL)isAI;
 -(void) update:(OStats*)stats;
--(void) animateImage:(SXSimpleClippedImage*)image;
+-(void) animateImage:(SXSimpleClippedImage*)image
+                   x:(float)x
+                   y:(float)y
+               clipX:(float)clipX
+               clipY:(float)clipY
+           clipWidth:(float)clipWidth
+          clipHeight:(float)clipHeight;
 
 @end

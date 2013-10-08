@@ -29,7 +29,10 @@
     [lblWall release];
 }
 
--(id) initWithWidth:(float)width height:(float)height rule:(ORule*)rule ai:(BOOL)isAI
+-(id) initWithWidth:(float)width
+             height:(float)height
+               rule:(ORule*)rule
+                 ai:(BOOL)isAI
 {
     if ((self = [super init]))
     {
@@ -51,7 +54,7 @@
     float currentX = 0;
     float currentY = 0;
     float currentWidth = _width/2;
-    float currentHeight = _height-20;
+    float currentHeight = _height-TOWER_LABEL_HEIGHT;
     
     if (_isAI)
     {
@@ -62,7 +65,7 @@
         imgWall.y = currentY;
         imgWall.texture = [OMedia texture:@"wall" fromAtlas:atlas];
         [self addChild:imgWall];
-        lblWall = [[SPTextField alloc] initWithWidth:currentWidth height:20];
+        lblWall = [[SPTextField alloc] initWithWidth:currentWidth height:TOWER_LABEL_HEIGHT];
         lblWall.color = 0xffffff;
         lblWall.x = currentX;
         lblWall.y = imgWall.height;
@@ -77,7 +80,7 @@
         [self addChild:imgTower];
         currentX = _width/2;
         currentWidth = _width/2;
-        lblTower = [[SPTextField alloc] initWithWidth:currentWidth height:20];
+        lblTower = [[SPTextField alloc] initWithWidth:currentWidth height:TOWER_LABEL_HEIGHT];
         lblTower.color = 0xffffff;
         lblTower.x = currentX;
         lblTower.y = imgTower.height;
@@ -94,7 +97,7 @@
         [self addChild:imgTower];
         currentX = 0;
         currentWidth = _width/2;
-        lblTower = [[SPTextField alloc] initWithWidth:currentWidth height:20];
+        lblTower = [[SPTextField alloc] initWithWidth:currentWidth height:TOWER_LABEL_HEIGHT];
         lblTower.color = 0xffffff;
         lblTower.x = currentX;
         lblTower.y = imgTower.height;
@@ -108,51 +111,65 @@
         imgWall.texture = [OMedia texture:@"wall" fromAtlas:atlas];
         [self addChild:imgWall];
         currentX = _width/2;
-        lblWall = [[SPTextField alloc] initWithWidth:currentWidth height:20];
+        lblWall = [[SPTextField alloc] initWithWidth:currentWidth height:TOWER_LABEL_HEIGHT];
         lblWall.color = 0xffffff;
         lblWall.x = currentX;
         lblWall.y = imgTower.height;
         [self addChild:lblWall];
     }
-    
-    [self flatten];
 }
 
 -(void) update:(OStats*)stats
 {
-    [self unflatten];
-    float towerHeight = _height-20;
-    float newTowerHeight = (towerHeight * stats.tower)/_rule.winningTower;
-    imgTower.y = towerHeight-newTowerHeight;
-    [imgTower setClipX:0 Y:0 Width:imgTower.width Height:newTowerHeight];
-//    [self animateImage:imgTower];
+    float totalTowerHeight   = _height-TOWER_LABEL_HEIGHT;
+    float towerRoofHeight    = TOWER_ROOF_PIXELS*0.524;
+    float stemTowerHeight    = totalTowerHeight - towerRoofHeight;
+    float newTowerHeight     = (stemTowerHeight * stats.tower)/_rule.winningTower;
+    [self animateImage:imgTower
+                     x:imgTower.x
+                     y:totalTowerHeight-(towerRoofHeight+newTowerHeight)
+                 clipX:0
+                 clipY:0
+             clipWidth:imgTower.width
+            clipHeight:towerRoofHeight+newTowerHeight];
     lblTower.text = [NSString stringWithFormat:@"%d / %d", stats.tower, _rule.winningTower];
-    
-    float wallHeight = _height-20;
-    float newWallHeight = (wallHeight/100) * stats.wall;
-    if (newWallHeight > wallHeight)
+
+    float totalWallHeight   = _height-TOWER_LABEL_HEIGHT;
+    float wallRoofHeight    = WALL_ROOF_PIXELS*0.639;
+    float stemWallHeight    = totalWallHeight - wallRoofHeight;
+    float newWallHeight     = (stemWallHeight/100) * stats.wall;
+    if (newWallHeight > stemWallHeight)
     {
-        newWallHeight = wallHeight;
+        newWallHeight = stemWallHeight;
     }
-    imgWall.y = wallHeight-newWallHeight;
-    [imgWall setClipX:0 Y:0 Width:imgWall.width Height:newWallHeight];
-//    [self animateImage:imgWall];
+    [self animateImage:imgWall
+                     x:imgWall.x
+                     y:totalWallHeight-(wallRoofHeight+newWallHeight)
+                 clipX:0
+                 clipY:0
+             clipWidth:imgWall.width
+            clipHeight:wallRoofHeight+newWallHeight];
     lblWall.text = [NSString stringWithFormat:@"%d", stats.wall];
-    [self flatten];
 }
 
 -(void) animateImage:(SXSimpleClippedImage*)image
+                   x:(float)x
+                   y:(float)y
+               clipX:(float)clipX
+               clipY:(float)clipY
+           clipWidth:(float)clipWidth
+          clipHeight:(float)clipHeight
 {
-	SPTween *tween = [SPTween tweenWithTarget:image time:3.0];
+	SPTween *tween = [SPTween tweenWithTarget:image time:2.0];
     
-	[tween animateProperty:@"x" targetValue:image.originalWidth/2];
-	[tween animateProperty:@"y" targetValue:image.originalHeight/2];
+	[tween animateProperty:@"x" targetValue:x];
+	[tween animateProperty:@"y" targetValue:y];
     
-	[tween animateProperty:@"clipX" targetValue:image.originalWidth/2];
-	[tween animateProperty:@"clipY" targetValue:image.originalHeight/2];
+	[tween animateProperty:@"clipX" targetValue:clipX];
+	[tween animateProperty:@"clipY" targetValue:clipY];
     
-	[tween animateProperty:@"clipWidth" targetValue:0];
-	[tween animateProperty:@"clipHeight" targetValue:0];
+	[tween animateProperty:@"clipWidth" targetValue:clipWidth];
+	[tween animateProperty:@"clipHeight" targetValue:clipHeight];
     
 //	tween.loop = SPLoopTypeReverse;
     

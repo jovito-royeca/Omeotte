@@ -35,7 +35,9 @@
     [lblRecruits release];
 }
 
--(id) initWithWidth:(float)width height:(float)height rule:(ORule*)rule
+-(id) initWithWidth:(float)width
+             height:(float)height
+               rule:(ORule*)rule
 {
     if ((self = [super init]))
     {
