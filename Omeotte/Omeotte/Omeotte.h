@@ -16,7 +16,7 @@
 #define GREEN_COLOR   0x228B22  // forestgreen
 #define GOLD_COLOR    0xD9D919  // bright gold
 
-#define GAME_TURN     30 // seconds
+#define GAME_TURN     30        // seconds
 
 #define CALLIGRAPHICA_FILE   @"Kingthings_Calligraphica.fnt"
 #define CALLIGRAPHICA_FONT   @"Kingthings Calligraphica"

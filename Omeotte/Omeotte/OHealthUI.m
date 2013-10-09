@@ -129,7 +129,7 @@
     float totalTowerHeight   = _height-TOWER_LABEL_HEIGHT;
     float towerRoofHeight    = TOWER_ROOF_PIXELS*0.524;
     float stemTowerHeight    = totalTowerHeight - towerRoofHeight;
-    float newTowerHeight     = (stemTowerHeight * stats.tower)/_rule.winningTower;
+    float newTowerHeight     = stemTowerHeight * ((float)stats.tower/(float)_rule.winningTower);
     [self animateImage:imgTower
                      x:imgTower.x
                      y:totalTowerHeight-(towerRoofHeight+newTowerHeight)

@@ -18,10 +18,13 @@
 
 @synthesize lblQuarries;
 @synthesize lblBricks;
+@synthesize qdBricks;
 @synthesize lblMagics;
 @synthesize lblGems;
+@synthesize qdGems;
 @synthesize lblDungeons;
 @synthesize lblRecruits;
+@synthesize qdRecruits;
 
 - (void)dealloc
 {
@@ -29,10 +32,13 @@
     
     [lblQuarries release];
     [lblBricks release];
+    [qdBricks release];
     [lblMagics release];
     [lblGems release];
+    [qdGems release];
     [lblDungeons release];
     [lblRecruits release];
+    [qdRecruits release];
 }
 
 -(id) initWithWidth:(float)width
@@ -75,6 +81,7 @@
     lblQuarries.y = currentY;
     lblQuarries.color = GOLD_COLOR;
     lblQuarries.fontSize = currentHeight;
+    lblQuarries.fontName = EXETER_FONT;
     [self addChild:lblQuarries];
     
     currentY += _height/3;
@@ -83,6 +90,7 @@
     lblMagics.y = currentY;
     lblMagics.color = GOLD_COLOR;
     lblMagics.fontSize = currentHeight;
+    lblMagics.fontName = EXETER_FONT;
     [self addChild:lblMagics];
 
     currentY += _height/3;
@@ -91,56 +99,92 @@
     lblDungeons.y = currentY;
     lblDungeons.color = GOLD_COLOR;
     lblDungeons.fontSize = currentHeight;
+    lblDungeons.fontName = EXETER_FONT;
     [self addChild:lblDungeons];
 
     
     currentY = _height * 0.259;
-    currentWidth = _width * 0.6;
+    currentWidth = _width - (_width*0.06);
     currentHeight = _width * 0.192;
-    lblBricks = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
+    qdBricks = [[SPQuad alloc] initWithWidth:0 height:currentHeight];
+    qdBricks.x = currentX;
+    qdBricks.y = currentY;
+    qdBricks.color = RED_COLOR;
+    [self addChild:qdBricks];
+    lblBricks = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:@"bricks"];
     lblBricks.x = currentX;
     lblBricks.y = currentY;
     lblBricks.color = 0x000000;
     lblBricks.fontSize = currentHeight;
-    lblBricks.hAlign = SPHAlignLeft;
+    lblBricks.hAlign = SPHAlignRight;
     lblBricks.fontName = EXETER_FONT;
     [self addChild:lblBricks];
     
     currentY += _height/3;
-    lblGems = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
+    qdGems = [[SPQuad alloc] initWithWidth:0 height:currentHeight];
+    qdGems.x = currentX;
+    qdGems.y = currentY;
+    qdGems.color = BLUE_COLOR;
+    [self addChild:qdGems];
+    lblGems = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:@"gems"];
     lblGems.x = currentX;
     lblGems.y = currentY;
     lblGems.color = 0x000000;
     lblGems.fontSize = currentHeight;
-    lblGems.hAlign = SPHAlignLeft;
+    lblGems.hAlign = SPHAlignRight;
     lblGems.fontName = EXETER_FONT;
     [self addChild:lblGems];
 
     currentY += _height/3;
-    lblRecruits = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
+    qdRecruits = [[SPQuad alloc] initWithWidth:0 height:currentHeight];
+    qdRecruits.x = currentX;
+    qdRecruits.y = currentY;
+    qdRecruits.color = GREEN_COLOR;
+    [self addChild:qdRecruits];
+    lblRecruits = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:@"recruits"];
     lblRecruits.x = currentX;
     lblRecruits.y = currentY;
     lblRecruits.color = 0x000000;
     lblRecruits.fontSize = currentHeight;
-    lblRecruits.hAlign = SPHAlignLeft;
+    lblRecruits.hAlign = SPHAlignRight;
     lblRecruits.fontName = EXETER_FONT;
     [self addChild:lblRecruits];
 }
 
 -(void) update:(OStats*)stats
 {
-    [self unflatten];
+    float baseWidth = _width - (_width*0.06);
+    float ratio = 0;
+    float width = 0;
     
     lblQuarries.text = [NSString stringWithFormat:@"%d", stats.quarries];
-    lblBricks.text = [NSString stringWithFormat:@"%d", stats.bricks];
+    lblBricks.text = [NSString stringWithFormat:@"%d bricks", stats.bricks];
+    ratio = (float) stats.bricks / (float) _rule.winningResource;
+    width = baseWidth * ratio;
+    [self animateResourceBar:qdBricks width:width];
     
     lblMagics.text = [NSString stringWithFormat:@"%d", stats.magics];
-    lblGems.text = [NSString stringWithFormat:@"%d", stats.gems];
+    lblGems.text = [NSString stringWithFormat:@"%d gems", stats.gems];
+    ratio = (float) stats.gems / (float) _rule.winningResource;
+    width = baseWidth * ratio;
+    [self animateResourceBar:qdGems width:width];
     
     lblDungeons.text = [NSString stringWithFormat:@"%d", stats.dungeons];
-    lblRecruits.text = [NSString stringWithFormat:@"%d", stats.recruits];
+    lblRecruits.text = [NSString stringWithFormat:@"%d recruits", stats.recruits];
+    ratio = (float) stats.recruits / (float) _rule.winningResource;
+    width = baseWidth * ratio;
+    [self animateResourceBar:qdRecruits width:width];
+}
+
+-(void) animateResourceBar:(SPQuad*)bar width:(float)width
+{
+	SPTween *tween = [SPTween tweenWithTarget:bar time:1.0];
+
+	[tween animateProperty:@"width" targetValue:width];
     
-    [self flatten];
+    //	tween.loop = SPLoopTypeReverse;
+    
+	[Sparrow.juggler addObject:tween];
 }
 
 @end

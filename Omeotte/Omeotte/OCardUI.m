@@ -49,6 +49,7 @@
 
 -(void) setup
 {
+    [SPTextField registerBitmapFontFromFile:CALLIGRAPHICA_FILE];
     [SPTextField registerBitmapFontFromFile:EXETER_FILE];
     
     float currentX = 0;
@@ -97,6 +98,7 @@
     lblCost.y = currentY;
     lblCost.fontSize = currentHeight;
     lblCost.color = 0xffffff;
+    lblCost.fontName = EXETER_FONT;
     [self addChild:lblCost];
     
     currentX = _width * 0.08;

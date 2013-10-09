@@ -273,6 +273,7 @@
     if ([_currentPlayer canPlayCard:card])
     {
         [_currentPlayer play:card onTarget:[self opponentPlayer]];
+        NSLog(@"%@ played: %@", _currentPlayer.name, card.name);
     }
 }
 

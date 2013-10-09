@@ -21,16 +21,22 @@
 
 @property(strong,nonatomic) SPTextField *lblQuarries;
 @property(strong,nonatomic) SPTextField *lblBricks;
+@property(strong,nonatomic) SPQuad *qdBricks;
 
 @property(strong,nonatomic) SPTextField *lblMagics;
 @property(strong,nonatomic) SPTextField *lblGems;
+@property(strong,nonatomic) SPQuad *qdGems;
 
 @property(strong,nonatomic) SPTextField *lblDungeons;
 @property(strong,nonatomic) SPTextField *lblRecruits;
+@property(strong,nonatomic) SPQuad *qdRecruits;
 
 -(id) initWithWidth:(float)width
              height:(float)height
                rule:(ORule*)rule;
+
 -(void) update:(OStats*)stats;
+
+-(void) animateResourceBar:(SPQuad*)bar width:(float)width;
 
 @end
