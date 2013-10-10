@@ -13,11 +13,18 @@
 #import "SPQuadBatch.h"
 #import "SPRenderSupport.h"
 #import "SPBlendMode.h"
+#import "SPMacros.h"
 
 @implementation SPSprite
 {
     NSMutableArray *_flattenedContents;
     BOOL _flattenRequested;
+}
+
+- (void)dealloc
+{
+    [_flattenedContents release];
+    [super dealloc];
 }
 
 - (void)flatten
@@ -29,7 +36,7 @@
 - (void)unflatten
 {
     _flattenRequested = NO;
-    _flattenedContents = nil;
+    SP_RELEASE_AND_NIL(_flattenedContents);
 }
 
 - (BOOL)isFlattened
@@ -41,14 +48,14 @@
 {
     if (_flattenRequested)
     {
-        _flattenedContents = [SPQuadBatch compileObject:self intoArray:_flattenedContents];
+        _flattenedContents = [[SPQuadBatch compileObject:self intoArray:[_flattenedContents autorelease]] retain];
         _flattenRequested = NO;
     }
     
     if (_flattenedContents)
     {
         [support finishQuadBatch];
-        [support addDrawCalls:_flattenedContents.count];
+        [support addDrawCalls:(int)_flattenedContents.count];
         
         SPMatrix *mvpMatrix = support.mvpMatrix;
         float alpha = support.alpha;
@@ -67,7 +74,7 @@
 
 + (id)sprite
 {
-    return [[self alloc] init];
+    return [[[self alloc] init] autorelease];
 }
 
 @end

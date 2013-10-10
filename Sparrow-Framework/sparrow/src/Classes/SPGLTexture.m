@@ -11,6 +11,7 @@
 
 #import "SPGLTexture.h"
 #import "SPMacros.h"
+#import "SPOpenGL.h"
 #import "SPRectangle.h"
 
 @implementation SPGLTexture
@@ -98,6 +99,12 @@
                         scale:1.0f premultipliedAlpha:NO];
 }
 
+- (void)dealloc
+{
+    glDeleteTextures(1, &_name);
+    [super dealloc];
+}
+
 - (float)width
 {
     return _width / _scale;
@@ -141,11 +148,6 @@
     
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, magFilter); 
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter);
-}
-
-- (void)dealloc
-{     
-    glDeleteTextures(1, &_name); 
 }
 
 @end

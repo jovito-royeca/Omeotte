@@ -9,13 +9,14 @@
 //  it under the terms of the Simplified BSD License.
 //
 
-#import "SPDisplayObject.h"
+#import "Sparrow.h"
+#import "SPBlendMode.h"
 #import "SPDisplayObject_Internal.h"
 #import "SPDisplayObjectContainer.h"
-#import "SPStage.h"
+#import "SPEventDispatcher_Internal.h"
 #import "SPMacros.h"
+#import "SPStage_Internal.h"
 #import "SPTouchEvent.h"
-#import "SPBlendMode.h"
 
 float square(float value) { return value * value; }
 
@@ -85,6 +86,13 @@ float square(float value) { return value * value; }
     return self;
 }
 
+- (void) dealloc
+{
+    [_name release];
+    [_transformationMatrix release];
+    [super dealloc];
+}
+
 - (void)render:(SPRenderSupport*)support
 {
     // override in subclass
@@ -103,13 +111,13 @@ float square(float value) { return value * value; }
     }
     else if (targetSpace == _parent || (!targetSpace && !_parent))
     {
-        return [self.transformationMatrix copy];
+        return [[self.transformationMatrix copy] autorelease];
     }
     else if (!targetSpace || targetSpace == self.base)
     {
         // targetSpace 'nil' represents the target coordinate of the base object.
         // -> move up from self to base
-        SPMatrix *selfMatrix = [[SPMatrix alloc] init];
+        SPMatrix *selfMatrix = [SPMatrix matrixWithIdentity];
         SPDisplayObject *currentObject = self;
         while (currentObject != targetSpace)
         {
@@ -120,7 +128,7 @@ float square(float value) { return value * value; }
     }
     else if (targetSpace->_parent == self)
     {
-        SPMatrix *targetMatrix = [targetSpace.transformationMatrix copy];
+        SPMatrix *targetMatrix = [[targetSpace.transformationMatrix copy] autorelease];
         [targetMatrix invert];
         return targetMatrix;
     }
@@ -131,7 +139,7 @@ float square(float value) { return value * value; }
     // Instead of using an NSSet or NSArray (which would make the code much cleaner), we 
     // use a C array here to save the ancestors.
     
-    static SPDisplayObject *__unsafe_unretained ancestors[SP_MAX_DISPLAY_TREE_DEPTH];
+    static SPDisplayObject *ancestors[SP_MAX_DISPLAY_TREE_DEPTH];
     
     int count = 0;
     SPDisplayObject *commonParent = nil;
@@ -160,7 +168,7 @@ float square(float value) { return value * value; }
         [NSException raise:SP_EXC_NOT_RELATED format:@"Object not connected to target"];
     
     // 2.: Move up from self to common parent
-    SPMatrix *selfMatrix = [[SPMatrix alloc] init];
+    SPMatrix *selfMatrix = [SPMatrix matrixWithIdentity];
     currentObject = self;    
     while (currentObject != commonParent)
     {
@@ -169,7 +177,7 @@ float square(float value) { return value * value; }
     }
     
     // 3.: Now move up from target until we reach the common parent
-    SPMatrix *targetMatrix = [[SPMatrix alloc] init];
+    SPMatrix *targetMatrix = [SPMatrix matrixWithIdentity];
     currentObject = targetSpace;
     while (currentObject && currentObject != commonParent)
     {
@@ -219,6 +227,8 @@ float square(float value) { return value * value; }
     return [matrix transformPoint:globalPoint];
 }
 
+#pragma mark - Events
+
 - (void)dispatchEvent:(SPEvent*)event
 {
     // on one given moment, there is only one set of touches -- thus, 
@@ -246,6 +256,47 @@ float square(float value) { return value * value; }
 {
     [self dispatchEventWithType:type];
 }
+
+// SPEnterFrame event optimization
+
+// To avoid looping through the complete display tree each frame to find out who's listening to
+// SP_EVENT_TYPE_ENTER_FRAME events, we manage a list of them manually in the SPStage class.
+
+- (void)addEnterFrameListenerToStage
+{
+    [[[Sparrow currentController] stage] addEnterFrameListener:self];
+}
+
+- (void)removeEnterFrameListenerFromStage
+{
+    [[[Sparrow currentController] stage] removeEnterFrameListener:self];
+}
+
+- (void)addEventListener:(id)listener forType:(NSString*)eventType
+{
+    if ([eventType isEqualToString:SP_EVENT_TYPE_ENTER_FRAME] && ![self hasEventListenerForType:SP_EVENT_TYPE_ENTER_FRAME])
+    {
+        [self addEventListener:@selector(addEnterFrameListenerToStage) atObject:self forType:SP_EVENT_TYPE_ADDED_TO_STAGE];
+        [self addEventListener:@selector(removeEnterFrameListenerFromStage) atObject:self forType:SP_EVENT_TYPE_REMOVED_FROM_STAGE];
+        if (self.stage) [self addEnterFrameListenerToStage];
+    }
+
+    [super addEventListener:listener forType:eventType];
+}
+
+- (void)removeEventListenersForType:(NSString*)eventType withTarget:(id)object andSelector:(SEL)selector orBlock:(SPEventBlock)block
+{
+    [super removeEventListenersForType:eventType withTarget:object andSelector:selector orBlock:block];
+
+    if ([eventType isEqualToString:SP_EVENT_TYPE_ENTER_FRAME] && ![self hasEventListenerForType:SP_EVENT_TYPE_ENTER_FRAME])
+    {
+        [self removeEventListener:@selector(addEnterFrameListenerToStage) atObject:self forType:SP_EVENT_TYPE_ADDED_TO_STAGE];
+        [self removeEventListener:@selector(removeEnterFrameListenerFromStage) atObject:self forType:SP_EVENT_TYPE_REMOVED_FROM_STAGE];
+        [self removeEnterFrameListenerFromStage];
+    }
+}
+
+#pragma mark - Properties
 
 - (float)width
 {

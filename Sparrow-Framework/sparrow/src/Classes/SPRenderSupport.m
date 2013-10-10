@@ -15,6 +15,7 @@
 #import "SPQuadBatch.h"
 #import "SPTexture.h"
 #import "SPMacros.h"
+#import "SPOpenGL.h"
 #import "SPQuad.h"
 #import "SPBlendMode.h"
 
@@ -33,6 +34,8 @@
 @property (nonatomic, readonly) float alpha;
 @property (nonatomic, readonly) uint blendMode;
 
++ (instancetype)renderState;
+
 - (void)setupDerivedFromState:(SPRenderState *)state withModelviewMatrix:(SPMatrix *)matrix
                         alpha:(float)alpha blendMode:(uint)blendMode;
 
@@ -48,11 +51,17 @@
 {
     if ((self = [super init]))
     {
-        _modelviewMatrix = [SPMatrix matrixWithIdentity];
+        _modelviewMatrix = [[SPMatrix alloc] init];
         _alpha = 1.0f;
         _blendMode = SP_BLEND_MODE_NORMAL;
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [_modelviewMatrix release];
+    [super dealloc];
 }
 
 - (void)setupDerivedFromState:(SPRenderState *)state withModelviewMatrix:(SPMatrix *)matrix
@@ -63,6 +72,11 @@
     
     [_modelviewMatrix copyFromMatrix:state->_modelviewMatrix];
     [_modelviewMatrix prependMatrix:matrix];
+}
+
++ (id)renderState
+{
+    return [[[self alloc] init] autorelease];
 }
 
 @end
@@ -95,17 +109,26 @@
         _projectionMatrix = [[SPMatrix alloc] init];
         _mvpMatrix        = [[SPMatrix alloc] init];
         
-        _stateStack = [[NSMutableArray alloc] initWithObjects:[[SPRenderState alloc] init], nil];
+        _stateStack = [[NSMutableArray alloc] initWithObjects:[SPRenderState renderState], nil];
         _stateStackIndex = 0;
         _stateStackSize = 1;
         
-        _quadBatches = [[NSMutableArray alloc] initWithObjects:[[SPQuadBatch alloc] init], nil];
+        _quadBatches = [[NSMutableArray alloc] initWithObjects:[SPQuadBatch quadBatch], nil];
         _quadBatchIndex = 0;
         _quadBatchSize = 1;
         
         [self setupOrthographicProjectionWithLeft:0 right:320 top:0 bottom:480];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [_projectionMatrix release];
+    [_mvpMatrix release];
+    [_stateStack release];
+    [_quadBatches release];
+    [super dealloc];
 }
 
 - (void)nextFrame
@@ -118,7 +141,7 @@
 - (void)purgeBuffers
 {
     [_quadBatches removeAllObjects];
-    [_quadBatches addObject:[[SPQuadBatch alloc] init]];
+    [_quadBatches addObject:[SPQuadBatch quadBatch]];
      _quadBatchIndex = 0;
      _quadBatchSize = 1;
 }
@@ -135,8 +158,8 @@
 
 + (uint)checkForOpenGLError
 {
-    GLenum error = glGetError();
-    if (error != 0) NSLog(@"There was an OpenGL error: 0x%x", error);
+    GLenum error;
+    while ((error = glGetError())) NSLog(@"There was an OpenGL error: %s", sglGetErrorString(error));
     return error;
 }
 
@@ -161,7 +184,7 @@
     
     if (_stateStackSize == _stateStackIndex + 1)
     {
-        [_stateStack addObject:[[SPRenderState alloc] init]];
+        [_stateStack addObject:[SPRenderState renderState]];
         ++_stateStackSize;
     }
     
@@ -242,7 +265,7 @@
         
         if (_quadBatchSize <= _quadBatchIndex)
         {
-            [_quadBatches addObject:[[SPQuadBatch alloc] init]];
+            [_quadBatches addObject:[SPQuadBatch quadBatch]];
             ++_quadBatchSize;
         }
     }

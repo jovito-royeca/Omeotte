@@ -10,13 +10,14 @@
 //
 
 #import "SPViewController.h"
+#import "SPOpenGL.h"
 #import "SPTouchProcessor.h"
 #import "SPRenderSupport.h"
 #import "SparrowClass_Internal.h"
 #import "SPTouch_Internal.h"
 #import "SPEnterFrameEvent.h"
 #import "SPResizeEvent.h"
-#import "SPStage.h"
+#import "SPStage_Internal.h"
 #import "SPJuggler.h"
 #import "SPProgram.h"
 #import "SPStatsDisplay.h"
@@ -82,11 +83,26 @@
 
 - (id)init
 {
-    if ((self = [super init]))
-    {
-        [self setup];
-    }
-    return self;
+    return [self initWithNibName:nil bundle:nil];
+}
+
+- (void)dealloc
+{
+    [self purgePools];
+    [EAGLContext setCurrentContext:nil];
+    [Sparrow setCurrentController:nil];
+
+    [_context release];
+    [_stage release];
+    [_root release];
+    [_juggler release];
+    [_touchProcessor release];
+    [_support release];
+    [_onRootCreated release];
+    [_statsDisplay release];
+    [_programs release];
+    [_textureLoader release];
+    [super dealloc];
 }
 
 - (void)setup
@@ -118,13 +134,6 @@
     [self purgePools];
     [_support purgeBuffers];
     [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc
-{
-    [self purgePools];
-    [EAGLContext setCurrentContext:nil];
-    [Sparrow setCurrentController:nil];
 }
 
 - (void)purgePools
@@ -176,7 +185,7 @@
             if (_onRootCreated)
             {
                 _onRootCreated(_root);
-                _onRootCreated = nil;
+                SP_RELEASE_AND_NIL(_onRootCreated);
             }
         }
     }
@@ -247,11 +256,8 @@
         double passedTime = self.timeSinceLastUpdate;
         
         [Sparrow setCurrentController:self];
+        [_stage advanceTime:passedTime];
         [_juggler advanceTime:passedTime];
-        
-        SPEnterFrameEvent *enterFrameEvent =
-        [[SPEnterFrameEvent alloc] initWithType:SP_EVENT_TYPE_ENTER_FRAME passedTime:passedTime];
-        [_stage broadcastEvent:enterFrameEvent];
     }
 }
 
@@ -379,6 +385,7 @@
         SPEvent *resizeEvent = [[SPResizeEvent alloc] initWithType:SP_EVENT_TYPE_RESIZE
                                width:newWidth height:newHeight animationTime:duration];
         [_stage broadcastEvent:resizeEvent];
+        [resizeEvent release];
     }
 }
 

@@ -11,6 +11,7 @@
 
 #import "SPTexture.h"
 #import "SPMacros.h"
+#import "SPOpenGL.h"
 #import "SPUtils.h"
 #import "SPRectangle.h"
 #import "SPGLTexture.h"
@@ -48,6 +49,8 @@
 - (id)initWithContentsOfFile:(NSString *)path generateMipmaps:(BOOL)mipmaps
           premultipliedAlpha:(BOOL)pma
 {
+    [self release]; // class factory - we'll return a subclass!
+
     NSString *fullPath = [SPUtils absolutePathToFile:path];
     
     if (!fullPath)
@@ -57,6 +60,7 @@
     NSData *data = [NSData dataWithUncompressedContentsOfFile:fullPath];
     NSDictionary *options = [SPTexture optionsForPath:path mipmaps:mipmaps pma:pma];
     
+    [SPTexture checkForOpenGLError];
     GLKTextureInfo *info = [GLKTextureLoader textureWithContentsOfData:data
                                                                options:options error:&error];
     
@@ -98,6 +102,8 @@
 - (id)initWithWidth:(float)width height:(float)height generateMipmaps:(BOOL)mipmaps
               scale:(float)scale draw:(SPTextureDrawingBlock)drawingBlock
 {
+    [self release]; // class factory - we'll return a subclass!
+
     // only textures with sidelengths that are powers of 2 support all OpenGL ES features.
     int legalWidth  = [SPUtils nextPowerOfTwo:width  * scale];
     int legalHeight = [SPUtils nextPowerOfTwo:height * scale];
@@ -124,12 +130,12 @@
         UIGraphicsPopContext();        
     }
     
-    SPGLTexture *glTexture = [[SPGLTexture alloc] initWithData:imageData
+    SPGLTexture *glTexture = [[[SPGLTexture alloc] initWithData:imageData
                                                          width:legalWidth
                                                         height:legalHeight
                                                generateMipmaps:mipmaps
                                                          scale:scale
-                                            premultipliedAlpha:premultipliedAlpha];
+                                            premultipliedAlpha:premultipliedAlpha] autorelease];
     
     CGContextRelease(context);
     free(imageData);
@@ -159,6 +165,8 @@
 
 - (id)initWithRegion:(SPRectangle*)region frame:(SPRectangle *)frame ofTexture:(SPTexture*)texture
 {
+    [self release]; // class factory - we'll return a subclass!
+
     if (frame || region.x != 0.0f || region.width  != texture.width
               || region.y != 0.0f || region.height != texture.height)
     {
@@ -166,33 +174,33 @@
     }
     else
     {
-        return texture;
+        return [texture retain];
     }
 }
 
 + (id)textureWithContentsOfFile:(NSString *)path
 {
-    return [[self alloc] initWithContentsOfFile:path];
+    return [[[self alloc] initWithContentsOfFile:path] autorelease];
 }
 
 + (id)textureWithContentsOfFile:(NSString*)path generateMipmaps:(BOOL)mipmaps
 {
-    return [[self alloc] initWithContentsOfFile:path generateMipmaps:mipmaps];
+    return [[[self alloc] initWithContentsOfFile:path generateMipmaps:mipmaps] autorelease];
 }
 
 + (id)textureWithRegion:(SPRectangle *)region ofTexture:(SPTexture *)texture
 {
-    return [[self alloc] initWithRegion:region ofTexture:texture];
+    return [[[self alloc] initWithRegion:region ofTexture:texture] autorelease];
 }
 
 + (id)textureWithWidth:(float)width height:(float)height draw:(SPTextureDrawingBlock)drawingBlock
 {
-    return [[self alloc] initWithWidth:width height:height draw:drawingBlock];
+    return [[[self alloc] initWithWidth:width height:height draw:drawingBlock] autorelease];
 }
 
 + (id)emptyTexture
 {
-    return [[self alloc] init];
+    return [[[self alloc] init] autorelease];
 }
 
 - (void)adjustVertexData:(SPVertexData *)vertexData atIndex:(int)index numVertices:(int)count
@@ -257,19 +265,23 @@
 
 + (NSDictionary *)optionsForPath:(NSString *)path mipmaps:(BOOL)mipmaps pma:(BOOL)pma
 {
-    // This is a workaround for a nasty bug in the iOS 6 simulators :|
+    // This is a workaround for a nasty inconsistency between different iOS versions :|
     
+    NSString *osVersion = [[UIDevice currentDevice] systemVersion];
     NSDictionary *options = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                              @(mipmaps), GLKTextureLoaderGenerateMipmaps, nil];
     
     #if TARGET_IPHONE_SIMULATOR
-    NSString *osVersion = [[UIDevice currentDevice] systemVersion];
-    if ([osVersion isEqualToString:@"6.0"] || [osVersion isEqualToString:@"6.1"])
+    BOOL applyPma = [osVersion compare:@"5.9"] == NSOrderedDescending;
+    #else
+    BOOL applyPma = [osVersion compare:@"6.9"] == NSOrderedDescending;
+    #endif
+    
+    if (applyPma)
     {
         BOOL usePma = pma && [self expectedPmaValueForFile:path];
         [options setValue:@(usePma) forKey:GLKTextureLoaderApplyPremultiplication];
     }
-    #endif
     
     return options;
 }
@@ -308,6 +320,16 @@
     else return NO;
 }
 
++ (void)checkForOpenGLError
+{
+    // GLKTextureLoader always fails if 'glGetError()' is not clean -- even though the error
+    // actually happened somewhere else. So we better remove any pending error.
+    
+    GLenum error;
+    while ((error = glGetError()))
+        NSLog(@"Texture loading was initiated while OpenGL error flag was set to: %s", sglGetErrorString(error));
+}
+
 #pragma mark - Asynchronous Texture Loading
 
 + (void)loadFromFile:(NSString *)path onComplete:(SPTextureLoadingBlock)callback
@@ -338,6 +360,7 @@
     NSDictionary *options = [SPTexture optionsForPath:path mipmaps:mipmaps pma:pma];
     GLKTextureLoader *loader = Sparrow.currentController.textureLoader;
 
+    [self checkForOpenGLError];
     [loader textureWithContentsOfFile:fullPath options:options queue:NULL
                     completionHandler:^(GLKTextureInfo *info, NSError *outError)
      {
@@ -348,6 +371,7 @@
                                              premultipliedAlpha:pma];
          
          callback(texture, outError);
+         [texture release];
      }];
 }
 
@@ -373,6 +397,7 @@
     NSDictionary *options = @{ GLKTextureLoaderGenerateMipmaps: @(mipmaps) };
     GLKTextureLoader *loader = Sparrow.currentController.textureLoader;
     
+    [self checkForOpenGLError];
     [loader textureWithContentsOfURL:url options:options queue:NULL
                    completionHandler:^(GLKTextureInfo *info, NSError *outError)
      {
@@ -382,6 +407,7 @@
              texture = [[SPGLTexture alloc] initWithTextureInfo:info scale:scale];
          
          callback(texture, outError);
+         [texture release];
      }];
 }
 

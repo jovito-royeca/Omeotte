@@ -10,9 +10,10 @@
 //
 
 #import "SPEventListener.h"
+#import "SPMacros.h"
 #import "SPNSExtensions.h"
 
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+#import <objc/message.h>
 
 @implementation SPEventListener
 {
@@ -28,7 +29,7 @@
 {
     if ((self = [super init]))
     {
-        _block = block;
+        _block = [block copy];
         _target = target;
         _selector = selector;
     }
@@ -38,12 +39,18 @@
 
 - (id)initWithTarget:(id)target selector:(SEL)selector
 {
-    id __weak weakTarget = target;
+    __block id weakTarget = target;
     
     return [self initWithTarget:target selector:selector block:^(SPEvent *event)
             {
-                [weakTarget performSelector:selector withObject:event];
+                objc_msgSend(weakTarget, selector, event);
             }];
+}
+
+- (void)dealloc
+{
+    [_block release];
+    [super dealloc];
 }
 
 - (id)initWithBlock:(SPEventBlock)block
