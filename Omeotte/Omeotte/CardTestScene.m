@@ -140,8 +140,10 @@
 {
     NSString *query = [sections objectAtIndex:indexPath.section];
     OCard *card = [[self searchCards:query cardType:searchBar.selectedScopeButtonIndex] objectAtIndex:indexPath.row];
+    
+    [cardUI setLocked:NO];
     [cardUI setCard:card];
-    [cardUI paintCard:YES];
+    [cardUI paintCard];
     [searchBar resignFirstResponder];
 }
 

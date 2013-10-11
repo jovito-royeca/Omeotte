@@ -12,24 +12,28 @@
 {
     OPlayer *_currentPlayer;
     OCard *_currentCard;
+    OCardUI *_lastPlayedCard;
     GamePhase _gamePhase;
     NSTimer *_timer;
     int elapsedTurnTime;
 }
 
 @synthesize txtPlayer1Name;
+@synthesize txtPlayer1Status;
 @synthesize player1Resources;
 @synthesize player1Health;
 
 @synthesize txtPlayer2Name;
+@synthesize txtPlayer2Status;
 @synthesize player2Resources;
 @synthesize player2Health;
 
 @synthesize txtTimer;
 @synthesize players;
+@synthesize hand;
+@synthesize graveyard;
 @synthesize winners;
 @synthesize rule;
-@synthesize hand;
 
 -(id) init
 {
@@ -54,19 +58,22 @@
 - (void)dealloc
 {
     [super dealloc];
-    
+
     for (OCardUI *card in hand)
     {
         [card removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
     }
-    [hand release];
+    
     [rule release];
     [players release];
+    [hand release];
     [winners release];
     [txtPlayer1Name release];
+    [txtPlayer1Status release];
     [player1Resources release];
     [player1Health release];
     [txtPlayer2Name release];
+    [txtPlayer2Status release];
     [player2Resources release];
     [player2Health release];
     
@@ -76,7 +83,6 @@
 - (void)setup
 {
     [SPTextField registerBitmapFontFromFile:EXETER_FILE];
-    hand = [[NSMutableArray alloc] initWithCapacity:6];
     
     float _width = Sparrow.stage.width;
     float _height = Sparrow.stage.height;
@@ -86,7 +92,6 @@
     float currentHeight = 0;
     float cardWidth  = _width/6;
     float cardHeight = (cardWidth*128)/95;
-    CGRect cardRect  = CGRectMake(0, 0, cardWidth, cardHeight);
     
     // Background
     SPImage *background = [[SPImage alloc] initWithContentsOfFile:@"background.png"];
@@ -95,7 +100,7 @@
     [self addChild:background];
     
     // Player1 Name
-    currentWidth = _width*2/5;
+    currentWidth = (_width*2/5)*0.30;
     currentHeight = 15;
     txtPlayer1Name = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
     txtPlayer1Name.color = 0xff0000;
@@ -104,6 +109,14 @@
     txtPlayer1Name.y = currentY;
     txtPlayer1Name.fontName = EXETER_FONT;
     [self addChild:txtPlayer1Name];
+    currentWidth = (_width*2/5)*0.70;
+    txtPlayer1Status = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
+    txtPlayer1Status.color = 0xffffff;
+    txtPlayer1Status.hAlign = SPHAlignLeft;
+    txtPlayer1Status.x = txtPlayer1Name.width;
+    txtPlayer1Status.y = currentY;
+    txtPlayer1Status.fontName = EXETER_FONT;
+    [self addChild:txtPlayer1Status];
     
     // Player1 Stats
     currentY += txtPlayer1Name.height+10;
@@ -122,7 +135,7 @@
     [self addChild:player1Health];
     
     // Menu and Timer
-    currentX = txtPlayer1Name.width;
+    currentX = _width*2/5;
     currentY = 0;
     currentWidth = _width/5;
     currentHeight = 15;
@@ -139,6 +152,7 @@
     btnMenu.fontColor = 0xffffff;
     btnMenu.fontSize = 15;
     btnMenu.x = currentX;
+    btnMenu.fontName = EXETER_FONT;
     [btnMenu addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TRIGGERED];
     [container addChild:btnMenu];
     currentY = 1;
@@ -150,14 +164,25 @@
     txtTimer.x = currentX;
     txtTimer.y = btnMenu.height+10;
     txtTimer.fontName = EXETER_FONT;
+    txtTimer.fontSize = currentHeight;
     [container addChild:txtTimer];
     [self addChild:container];
     
     // AI name
-    currentX = txtPlayer1Name.width+btnMenu.width;
+    currentX = _width*3/5;
     currentY = 0;
-    currentWidth = _width*2/5;
+    currentWidth = (_width*2/5)*0.70;
     currentHeight = 15;
+    txtPlayer2Status = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
+    txtPlayer2Status.color = 0xffffff;
+    txtPlayer2Status.hAlign = SPHAlignRight;
+    txtPlayer2Status.x = currentX;
+    txtPlayer2Status.y = currentY;
+    txtPlayer2Status.fontName = EXETER_FONT;
+    [self addChild:txtPlayer2Status];
+    currentX = (_width*3/5)+txtPlayer2Status.width;
+    currentY = 0;
+    currentWidth = (_width*2/5)*0.30;
     txtPlayer2Name = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
     txtPlayer2Name.color = 0x0000ff;
     txtPlayer2Name.hAlign = SPHAlignLeft;
@@ -176,28 +201,13 @@
     player2Resources.x = currentX;
     player2Resources.y = currentY;
     [self addChild:player2Resources];
-    currentX = txtPlayer1Name.width+btnMenu.width;
+    currentX = _width*3/5;
     currentWidth  = (_width*2/5)-currentWidth;
     currentHeight = _height - cardHeight - 40;
     player2Health = [[OHealthUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule ai:YES];
     player2Health.x = currentX;
     player2Health.y = currentY;
     [self addChild:player2Health];
-    
-    // Cards
-    currentX = 0;
-    currentY = 0;
-    for (int i=0; i<6; i++)
-    {
-        OCardUI *card = [[OCardUI alloc] initWithWidth:cardRect.size.width height:cardRect.size.height];
-
-        card.x = currentX;
-        card.y = Sparrow.stage.height-cardRect.size.height;
-        currentX += cardRect.size.width;
-        [self addChild:card];
-        [hand addObject:card];
-        card.delegate = self;
-    }
 }
 
 -(void) initPlayers
@@ -227,6 +237,9 @@
     
     txtPlayer1Name.text = player1.name;
     txtPlayer2Name.text = player2.name;
+    
+    hand = [[NSMutableArray alloc] init];
+    graveyard = [[NSMutableArray alloc] init];
 }
 
 -(void) gameLoop:(SPEnterFrameEvent*)event
@@ -258,13 +271,30 @@
 
 -(void) showHand
 {
-    for (int j=0; j<_currentPlayer.hand.count; j++)
+    // remove previous hand
+    for (OCardUI *cardUI in hand)
     {
-        OCardUI *cardUI = [hand objectAtIndex:j];
-        OCard *card = [_currentPlayer.hand objectAtIndex:j];
+        SPTween *tween = [SPTween tweenWithTarget:cardUI time:1.0];
         
-        cardUI.card = card;
-        [cardUI paintCard:[_currentPlayer canPlayCard:card]];
+        [tween animateProperty:@"y" targetValue:Sparrow.stage.height];
+        [Sparrow.juggler addObject:tween];
+        [self removeChild:cardUI];
+    }
+    [hand removeAllObjects];
+    
+    // show current hand
+    float currentX = 0;
+    for (OCard *card in _currentPlayer.hand)
+    {
+        OCardUI *cardUI = [self createCardUI:card];
+        
+        cardUI.x = currentX;
+        cardUI.y = Sparrow.stage.height-cardUI.height;
+        currentX += cardUI.width;
+        cardUI.locked = ![_currentPlayer canPlayCard:cardUI.card];
+        [self addChild:cardUI];
+        [hand addObject:cardUI];
+        [cardUI paintCard];
     }
 }
 
@@ -273,14 +303,34 @@
     if ([_currentPlayer canPlayCard:card])
     {
         [_currentPlayer play:card onTarget:[self opponentPlayer]];
-        NSLog(@"%@ played: %@", _currentPlayer.name, card.name);
+        
+        NSString *status = [NSString stringWithFormat:@"Played %@.", card.name];
+        if (_currentPlayer.ai)
+        {
+            txtPlayer2Status.text = status;
+        }
+        else
+        {
+            txtPlayer1Status.text = status;
+        }
+        [self putCardToGraveyard:card];
     }
 }
 
 -(void) discardCard:(OCard*) card
 {
     [_currentPlayer discard:card];
-    NSLog(@"%@ discarded: %@", _currentPlayer.name, card.name);
+    
+    NSString *status = [NSString stringWithFormat:@"Discarded %@.", card.name];
+    if (_currentPlayer.ai)
+    {
+        txtPlayer2Status.text = status;
+    }
+    else
+    {
+        txtPlayer1Status.text = status;
+    }
+    [self putCardToGraveyard:card];
 }
 
 -(OPlayer*) opponentPlayer
@@ -374,11 +424,22 @@
     [self updateStats];
     [self showHand];
     _gamePhase = Draw;
+    
+    if (_currentPlayer.ai)
+    {
+        txtPlayer1Name.text = [NSString stringWithFormat:@"%@", [self opponentPlayer].name];
+        txtPlayer2Name.text = [NSString stringWithFormat:@"** %@", _currentPlayer.name];
+    }
+    else
+    {
+        txtPlayer1Name.text = [NSString stringWithFormat:@"%@ **", _currentPlayer.name];
+        txtPlayer2Name.text = [NSString stringWithFormat:@"%@", [self opponentPlayer].name];
+    }
 }
 
 -(void) drawPhase
 {
-    int cardsToDraw = rule.cardsInHand - [_currentPlayer.hand count];
+    int cardsToDraw = MAX_CARDS_IN_HAND - [_currentPlayer.hand count];
     
     if (cardsToDraw > 0)
     {
@@ -479,28 +540,91 @@
     }
 }
 
+-(void) putCardToGraveyard:(OCard*)card
+{
+    for (OCardUI *cardUI in hand)
+    {
+        if (cardUI.card == card)
+        {
+            SPTween *tween = [SPTween tweenWithTarget:cardUI time:2.0];
+            int centerX = (txtTimer.width-cardUI.width)/2;
+            
+            [tween animateProperty:@"x" targetValue:txtTimer.x+centerX];
+            [tween animateProperty:@"y" targetValue:txtTimer.y+txtTimer.height];
+            [Sparrow.juggler addObject:tween];
+            
+            [graveyard addObject:cardUI];
+            [hand removeObject:cardUI];
+            break;
+        }
+    }
+    
+    if (graveyard.count >= 4)
+    {
+        OCardUI *cardUI = [graveyard objectAtIndex:0];
+
+        [self removeChild:cardUI];
+        [graveyard removeObject:cardUI];
+    }
+}
+
+-(OCardUI*) createCardUI:(OCard*)card
+{
+    float cardWidth  = Sparrow.stage.width/6;
+    float cardHeight = (cardWidth*128)/95;
+    CGRect cardRect  = CGRectMake(0, 0, cardWidth, cardHeight);
+    OCardUI *cardUI = [[OCardUI alloc] initWithWidth:cardRect.size.width height:cardRect.size.height];
+    
+    cardUI.delegate = self;
+    cardUI.card = card;
+    return cardUI;
+}
+
 #pragma mark - OCardUIDelegate
-- (void)promote:(OCard*)card
+- (void)promote:(OCardUI*)cardUI
 {
-    NSLog(@"promote... %@", card.name);
+    NSLog(@"promote... %@", cardUI.card.name);
+    
+    for (OCardUI *cardUI in hand)
+    {
+        [self demote:cardUI];
+    }
+    
+    SPTween *tween = [SPTween tweenWithTarget:cardUI time:0.5];
+	[tween animateProperty:@"y" targetValue:cardUI.y-20];
+	[Sparrow.juggler addObject:tween];
 }
 
-- (void)play:(OCard*)card
+- (void)play:(OCardUI*)cardUI
 {
-    NSLog(@"play... %@", card.name);
-    _currentCard = card;
+    NSLog(@"play... %@", cardUI.card.name);
+    _currentCard = cardUI.card;
 }
 
-- (void)discard:(OCard*)card
+- (void)discard:(OCardUI*)cardUI
 {
-    NSLog(@"discard... %@", card.name);
-    [self discardCard:card];
+    NSLog(@"discard... %@", cardUI.card.name);
+    [self discardCard:cardUI.card];
     [self switchTurn:[self opponentPlayer]];
 }
 
-- (void)demote:(OCard*)card
+- (void)demote:(OCardUI*)cardUI
 {
-    NSLog(@"demote... %@", card.name);
+    float cardWidth  = Sparrow.stage.width/6;
+    float cardHeight = (cardWidth*128)/95;
+    float y = Sparrow.stage.height-cardHeight;
+    
+    if (cardUI.y < y)
+    {
+        NSLog(@"demote... %@", cardUI.card.name);
+        cardUI.touchStatus = 0;
+        
+        SPTween *tween = [SPTween tweenWithTarget:cardUI time:0.5];
+    
+        [tween animateProperty:@"y" targetValue:y];
+    
+        [Sparrow.juggler addObject:tween];
+    }
 }
 
 @end

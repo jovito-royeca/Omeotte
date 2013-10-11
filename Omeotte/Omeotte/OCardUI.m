@@ -10,7 +10,6 @@
 
 @implementation OCardUI
 {
-    int touchStatus;
     float _width;
     float _height;
 }
@@ -23,6 +22,8 @@
 @synthesize lblText;
 @synthesize imgBackground;
 @synthesize delegate;
+@synthesize touchStatus;
+@synthesize locked;
 
 - (void)dealloc
 {
@@ -117,60 +118,55 @@
 
 - (void)onCardTouched:(SPTouchEvent*)event
 {
+//    if (locked)
+//    {
+//        return;
+//    }
+
     SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
     
     if (touch && touch.phase == SPTouchPhaseEnded)
     {
         SPPoint *position = [touch locationInSpace:self];
-        int arena = Sparrow.stage.height-_height;
         
         if (touchStatus == 0)
         {
+            [delegate promote:self];
             touchStatus++;
         }
         else if (touchStatus >= 1)
         {
-            if (position.y < arena)
+            if (position.y < self.height)
             {
                 touchStatus++;
             }
-            else if (position.y > arena)
+            else if (position.y >= self.height)
             {
                 touchStatus--;
             }
+            
+            switch (touchStatus)
+            {
+                case 2:
+                {
+                    [delegate play:self];
+                    break;
+                }
+                case 0:
+                {
+                    [delegate discard:self];
+                    break;
+                }
+                default:
+                {
+                    break;
+                }
+            }
         }
-        
-        switch (touchStatus)
-        {
-            case 2:
-            {
-                [delegate play:card];
-                break;
-            }
-            case 1:
-            {
-                [delegate promote:card];
-                break;
-            }
-            case 0:
-            {
-                [delegate demote:card];
-                break;
-            }
-            case -1:
-            {
-                [delegate discard:card];
-                break;
-            }
-            default:
-                break;
-        }
-        
-        touchStatus = 0;
     }
 }
 
--(void) paintCard:(BOOL) unlocked
+-(void) paintCard
 {
     static NSString *ui = nil;
     static NSString *cards = nil;
@@ -226,7 +222,7 @@
     SPTexture *background = [OMedia texture:szBackground fromAtlas:ui];
     imgBackground.texture = background;
     
-    self.alpha = unlocked ? 1.0 : 0.2;
+    self.alpha = locked ? 0.2 : 1.0;
     [self flatten];
 }
 

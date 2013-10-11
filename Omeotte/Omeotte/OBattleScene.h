@@ -30,22 +30,26 @@ typedef enum
 @interface OBattleScene : SPSprite <OCardUIDelegate>
 
 @property (strong, nonatomic) SPTextField *txtPlayer1Name;
+@property (strong, nonatomic) SPTextField *txtPlayer1Status;
 @property (strong, nonatomic) OResourcesUI *player1Resources;
 @property (strong, nonatomic) OHealthUI *player1Health;
 
 @property (strong, nonatomic) SPTextField *txtPlayer2Name;
+@property (strong, nonatomic) SPTextField *txtPlayer2Status;
 @property (strong, nonatomic) OResourcesUI *player2Resources;
 @property (strong, nonatomic) OHealthUI *player2Health;
 
 @property (strong, nonatomic) SPTextField *txtTimer;
 @property (strong, nonatomic) NSArray *players;
+@property (strong, nonatomic) NSMutableArray *hand;
+@property (strong, nonatomic) NSMutableArray *graveyard;
 @property (strong, nonatomic) NSMutableArray *winners;
 @property (strong, nonatomic) ORule* rule;
-@property (strong, nonatomic) NSMutableArray *hand;
 
 //-(id) initWithRule:(ORule*)rule;
 
 -(void) initPlayers;
 -(void) showHand;
+-(void) putCardToGraveyard:(OCard*)card;
 
 @end

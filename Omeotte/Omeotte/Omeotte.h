@@ -11,6 +11,8 @@
 
 #define GAME_TITLE    @"Deck of Omeotte"
 
+#define MAX_CARDS_IN_HAND   6
+
 #define RED_COLOR     0xB22222  // firebrick
 #define BLUE_COLOR    0x0000CD  // medium blue
 #define GREEN_COLOR   0x228B22  // forestgreen
