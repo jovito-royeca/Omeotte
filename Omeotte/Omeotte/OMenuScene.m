@@ -22,7 +22,7 @@
 - (void)setup
 {
     int stageWidth = Sparrow.stage.width;
-    int stageHeight = Sparrow.stage.height;
+//    int stageHeight = Sparrow.stage.height;
     int currentX = 0;
     int currentY = 0;
 
@@ -48,26 +48,26 @@
     [self addChild:title];
     
     
-    SPButton *btnSinglePlayer = [SPButton buttonWithUpState:texture text:@"Single Player"];
-    currentX = (self.width-btnSinglePlayer.width)/2;
+    SPButton *btnCampaign = [SPButton buttonWithUpState:texture text:@"Campaign"];
+    currentX = (self.width-btnCampaign.width)/2;
     currentY = title.y+title.height+20;
-    btnSinglePlayer.fontColor = 0xffffff;
-    btnSinglePlayer.fontSize = 30;
-    btnSinglePlayer.x = currentX;
-    btnSinglePlayer.y = currentY;
-    btnSinglePlayer.fontName = EXETER_FONT;
-    [btnSinglePlayer addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
+    btnCampaign.fontColor = 0xffffff;
+    btnCampaign.fontSize = 30;
+    btnCampaign.x = currentX;
+    btnCampaign.y = currentY;
+    btnCampaign.fontName = EXETER_FONT;
+    [btnCampaign addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
      {
          OBattleScene *scene = [[OBattleScene alloc] init];
          OGameScene* game = (OGameScene*)self.root;
          
          [game showScene:scene];
      }];
-    [self addChild:btnSinglePlayer];
+    [self addChild:btnCampaign];
     
     SPButton *btnMultiPlayer = [SPButton buttonWithUpState:texture text:@"Multi Player"];
     currentX = (self.width-btnMultiPlayer.width)/2;
-    currentY = btnSinglePlayer.y+btnMultiPlayer.height+10;
+    currentY = btnCampaign.y+btnMultiPlayer.height+10;
     btnMultiPlayer.fontColor = 0xffffff;
     btnMultiPlayer.fontSize = 30;
     btnMultiPlayer.x = currentX;
@@ -75,27 +75,18 @@
     btnMultiPlayer.fontName = EXETER_FONT;
     [btnMultiPlayer addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
      {
-         NSLog(@"Multi Player not yet implemented.");
+         UIAlertView *alertMessage =  [[UIAlertView alloc] initWithTitle:@"Message"
+                                                                 message:@"Multi Player not yet implemented."
+                                                                delegate:nil
+                                                       cancelButtonTitle:nil
+                                                       otherButtonTitles:@"OK", nil];
+         [alertMessage show];
      }];
     [self addChild:btnMultiPlayer];
     
-    SPButton *btnDeckBuilder = [SPButton buttonWithUpState:texture text:@"Deck Builder"];
-    currentX = (self.width-btnDeckBuilder.width)/2;
-    currentY = btnMultiPlayer.y+btnDeckBuilder.height+10;
-    btnDeckBuilder.fontColor = 0xffffff;
-    btnDeckBuilder.fontSize = 30;
-    btnDeckBuilder.x = currentX;
-    btnDeckBuilder.y = currentY;
-    btnDeckBuilder.fontName = EXETER_FONT;
-    [btnDeckBuilder addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
-     {
-         NSLog(@"Deck Builder not yet implemented.");
-     }];
-    [self addChild:btnDeckBuilder];
-    
     SPButton *btnCardBrowser = [SPButton buttonWithUpState:texture text:@"Card Browser"];
     currentX = (self.width-btnCardBrowser.width)/2;
-    currentY = btnDeckBuilder.y+btnCardBrowser.height+10;
+    currentY = btnMultiPlayer.y+btnCardBrowser.height+10;
     btnCardBrowser.fontColor = 0xffffff;
     btnCardBrowser.fontSize = 30;
     btnCardBrowser.x = currentX;
@@ -105,10 +96,29 @@
      {
          CardTestScene *scene = [[CardTestScene alloc] init];
          OGameScene* game = (OGameScene*)self.root;
-
+         
          [game showScene:scene];
      }];
     [self addChild:btnCardBrowser];
+    
+    SPButton *btnSettings = [SPButton buttonWithUpState:texture text:@"Settings"];
+    currentX = (self.width-btnSettings.width)/2;
+    currentY = btnCardBrowser.y+btnSettings.height+10;
+    btnSettings.fontColor = 0xffffff;
+    btnSettings.fontSize = 30;
+    btnSettings.x = currentX;
+    btnSettings.y = currentY;
+    btnSettings.fontName = EXETER_FONT;
+    [btnSettings addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
+     {
+         UIAlertView *alertMessage =  [[UIAlertView alloc] initWithTitle:@"Message"
+                                                                 message:@"Settings not yet implemented."
+                                                                delegate:nil
+                                                       cancelButtonTitle:nil
+                                                       otherButtonTitles:@"OK", nil];
+         [alertMessage show];
+     }];
+    [self addChild:btnSettings];
 }
 
 

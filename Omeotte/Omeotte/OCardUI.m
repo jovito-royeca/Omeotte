@@ -23,7 +23,12 @@
 @synthesize imgBackground;
 @synthesize delegate;
 @synthesize touchStatus;
-@synthesize locked;
+@synthesize imgTower;
+@synthesize qdBorder;
+@synthesize qdBackground;
+@synthesize imgLocked;
+@synthesize lblDiscarded;
+
 
 - (void)dealloc
 {
@@ -35,21 +40,38 @@
     [lblCost release];
     [imgArt release];
     [lblText release];
+    [imgBackground release];
+    [imgTower release];
+    [qdBorder release];
+    [qdBackground release];
+    [imgLocked release];
+    [lblDiscarded release];
 }
 
--(id) initWithWidth:(float)width height:(float)height
+-(id) initWithWidth:(float)width height:(float)height faceUp:(BOOL)faceUp
 {
     if ((self = [super init]))
     {
         _width = width;
         _height = height;
-        [self setup];
+        
+        if (faceUp)
+        {
+            [self setupFace];
+        }
+        else
+        {
+            [self setupBack];
+        }
     }
     return self;
 }
 
--(void) setup
+-(void) setupFace
 {
+    // cleanup first
+    [self removeAllChildren];
+    
     [SPTextField registerBitmapFontFromFile:CALLIGRAPHICA_FILE];
     [SPTextField registerBitmapFontFromFile:EXETER_FILE];
     
@@ -59,8 +81,8 @@
     float currentHeight = 0;
 
     imgBackground = [[SPImage alloc] initWithWidth:_width height:_height];
-    imgBackground.x = 0;
-    imgBackground.y = 0;
+    imgBackground.x = currentX;
+    imgBackground.y = currentY;
     [self addChild:imgBackground];
 
     currentX = _width * 0.08;
@@ -98,7 +120,6 @@
     lblCost.x = currentX;
     lblCost.y = currentY;
     lblCost.fontSize = currentHeight;
-    lblCost.color = 0xffffff;
     lblCost.fontName = EXETER_FONT;
     [self addChild:lblCost];
     
@@ -116,13 +137,41 @@
     [self addEventListener:@selector(onCardTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
 }
 
+-(void) setupBack
+{
+    // cleanup first
+    [self removeAllChildren];
+    
+    float currentWidth  = _width;
+    float currentHeight = _height;
+    float currentX      = 0;
+    float currentY      = 0;
+    
+    qdBorder = [[SPQuad alloc] initWithWidth:currentWidth height:currentHeight];
+    qdBorder.x = currentX;
+    qdBorder.y = currentY;
+    qdBorder.color = 0x000000;
+    [self addChild:qdBorder];
+    
+    currentWidth = _width-16;
+    currentHeight = _height-16;
+    qdBackground = [[SPQuad alloc] initWithWidth:currentWidth height:currentHeight];
+    qdBackground.x = 8;
+    qdBackground.y = 8;
+    qdBackground.color = 0xffffff;
+    [self addChild:qdBackground];
+    
+    currentWidth = (_width-16)*0.369;
+    currentHeight = _height-16;
+    currentX = (_width-currentWidth)/2;
+    imgTower = [[SPImage alloc] initWithWidth:currentWidth height:currentHeight];
+    imgTower.x = currentX;
+    imgTower.y = 8;
+    [self addChild:imgTower];
+}
+
 - (void)onCardTouched:(SPTouchEvent*)event
 {
-//    if (locked)
-//    {
-//        return;
-//    }
-
     SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
     
     if (touch && touch.phase == SPTouchPhaseEnded)
@@ -166,8 +215,10 @@
     }
 }
 
--(void) paintCard
+-(void) showFace:(BOOL)locked
 {
+    [self setupFace];
+    
     static NSString *ui = nil;
     static NSString *cards = nil;
     if (!ui)
@@ -224,6 +275,22 @@
     
     self.alpha = locked ? 0.2 : 1.0;
     [self flatten];
+}
+
+-(void) showBack:(BOOL)opponent
+{
+    [self setupBack];
+    
+    static NSString *ui = nil;
+    if (!ui)
+    {
+        ui = @"ui.xml";
+        [OMedia initAtlas:ui];
+    }
+    
+    NSString *szTower = opponent ? @"blue tower" : @"red tower";
+    SPTexture *tower = [OMedia texture:szTower fromAtlas:ui];
+    imgTower.texture = tower;
 }
 
 @end

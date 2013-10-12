@@ -27,21 +27,26 @@
 @property(strong,nonatomic) SPImage *imgArt;
 @property(strong,nonatomic) SPTextField *lblText;
 @property(strong,nonatomic) SPImage *imgBackground;
+
+@property(strong,nonatomic) SPImage *imgTower;
+@property(strong,nonatomic) SPQuad *qdBorder;
+@property(strong,nonatomic) SPQuad *qdBackground;
+@property(strong,nonatomic) SPImage *imgLocked;
+@property(strong,nonatomic) SPTextField *lblDiscarded;
+
 @property(nonatomic) BOOL touchStatus;
-@property(nonatomic) BOOL locked;
 
 @property(nonatomic, assign) id<OCardUIDelegate> delegate;
 
--(id) initWithWidth:(float)width height:(float)height;
--(void) paintCard;
+-(id) initWithWidth:(float)width height:(float)height faceUp:(BOOL)faceUp;
+-(void) showFace:(BOOL)locked;
+-(void) showBack:(BOOL)opponent;
 
 @end
 
 @protocol OCardUIDelegate <NSObject>
-
 - (void)promote:(OCardUI*)cardUI;
 - (void)play:(OCardUI*)cardUI;
 - (void)discard:(OCardUI*)cardUI;
 - (void)demote:(OCardUI*)cardUI;
-
 @end

@@ -96,8 +96,15 @@
     // Background
     SPImage *background = [[SPImage alloc] initWithContentsOfFile:@"background.png"];
     background.width = _width;
-    background.height = _height - cardHeight;
+    background.height = _height - cardHeight -40;
     [self addChild:background];
+    
+    // Base
+//    SPQuad *base = [[SPQuad alloc] initWithWidth:_width height:20];
+//    base.x = 0;
+//    base.y = _height-cardHeight-40;
+//    base.color = GREEN_COLOR;
+//    [self addChild:base];
     
     // Player1 Name
     currentWidth = (_width*2/5)*0.30;
@@ -156,7 +163,7 @@
     [btnMenu addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TRIGGERED];
     [container addChild:btnMenu];
     currentY = 1;
-    currentHeight = 30;
+    currentHeight = 20;
     txtTimer = [[SPTextField alloc] initWithWidth:currentWidth
                                            height:currentHeight
                                              text:[NSString stringWithFormat:@"%d", GAME_TURN]];
@@ -274,27 +281,31 @@
     // remove previous hand
     for (OCardUI *cardUI in hand)
     {
-        SPTween *tween = [SPTween tweenWithTarget:cardUI time:1.0];
-        
-        [tween animateProperty:@"y" targetValue:Sparrow.stage.height];
-        [Sparrow.juggler addObject:tween];
         [self removeChild:cardUI];
     }
     [hand removeAllObjects];
     
     // show current hand
     float currentX = 0;
+    float currentWidth = Sparrow.stage.width/6;
     for (OCard *card in _currentPlayer.hand)
     {
         OCardUI *cardUI = [self createCardUI:card];
         
         cardUI.x = currentX;
         cardUI.y = Sparrow.stage.height-cardUI.height;
-        currentX += cardUI.width;
-        cardUI.locked = ![_currentPlayer canPlayCard:cardUI.card];
+        if (_currentPlayer.ai)
+        {
+            [cardUI showBack:_currentPlayer.ai];
+        }
+        else
+        {
+            [cardUI showFace:![_currentPlayer canPlayCard:card]];
+        }
         [self addChild:cardUI];
         [hand addObject:cardUI];
-        [cardUI paintCard];
+
+        currentX += currentWidth;
     }
 }
 
@@ -546,6 +557,9 @@
     {
         if (cardUI.card == card)
         {
+            [hand removeObject:cardUI];
+            [cardUI showFace:NO];
+            
             SPTween *tween = [SPTween tweenWithTarget:cardUI time:2.0];
             int centerX = (txtTimer.width-cardUI.width)/2;
             
@@ -554,11 +568,12 @@
             [Sparrow.juggler addObject:tween];
             
             [graveyard addObject:cardUI];
-            [hand removeObject:cardUI];
+            
             break;
         }
     }
-    
+
+    // remove old cards in the graveyard to minimize memory usage
     if (graveyard.count >= 4)
     {
         OCardUI *cardUI = [graveyard objectAtIndex:0];
@@ -573,7 +588,7 @@
     float cardWidth  = Sparrow.stage.width/6;
     float cardHeight = (cardWidth*128)/95;
     CGRect cardRect  = CGRectMake(0, 0, cardWidth, cardHeight);
-    OCardUI *cardUI = [[OCardUI alloc] initWithWidth:cardRect.size.width height:cardRect.size.height];
+    OCardUI *cardUI  = [[OCardUI alloc] initWithWidth:cardRect.size.width height:cardRect.size.height faceUp:_currentPlayer.ai];
     
     cardUI.delegate = self;
     cardUI.card = card;

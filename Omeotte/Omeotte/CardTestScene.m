@@ -56,7 +56,7 @@
     currentHeight = stageHeight;
     currentWidth = (currentHeight * CARD_WIDTH_PIXELS) / CARD_HEIGHT_PIXELS;
     currentX = ((stageWidth/2) - currentWidth) /2;
-    cardUI = [[OCardUI alloc] initWithWidth:currentWidth height:currentHeight];
+    cardUI = [[OCardUI alloc] initWithWidth:currentWidth height:currentHeight faceUp:YES];
     cardUI.x = currentX;
     cardUI.y = currentY;
     [self addChild:cardUI];
@@ -141,9 +141,8 @@
     NSString *query = [sections objectAtIndex:indexPath.section];
     OCard *card = [[self searchCards:query cardType:searchBar.selectedScopeButtonIndex] objectAtIndex:indexPath.row];
     
-    [cardUI setLocked:NO];
     [cardUI setCard:card];
-    [cardUI paintCard];
+    [cardUI showFace:NO];
     [searchBar resignFirstResponder];
 }
 
