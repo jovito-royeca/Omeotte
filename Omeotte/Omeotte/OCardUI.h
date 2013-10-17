@@ -43,6 +43,7 @@
              faceUp:(BOOL)faceUp;
 -(void) showFace:(BOOL)locked;
 -(void) showBack:(BOOL)opponent;
+-(void) showDiscarded;
 
 @end
 

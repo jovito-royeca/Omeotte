@@ -272,7 +272,18 @@
     SPTexture *background = [OMedia texture:szBackground fromAtlas:ui];
     imgBackground.texture = background;
     
-    self.alpha = locked ? 0.2 : 1.0;
+    if (locked)
+    {
+        imgLocked = [[SPImage alloc] initWithWidth:_width height:_height/2];
+        imgLocked.x = 0;
+        imgLocked.y = 0;
+        imgLocked.texture = [[SPTexture alloc] initWithContentsOfFile:@"chain and lock.png"];
+        [self addChild:imgLocked];
+    }
+    else
+    {
+        [self removeChild:imgLocked];
+    }
     [self flatten];
 }
 
@@ -290,6 +301,19 @@
     NSString *szTower = opponent ? @"blue tower" : @"red tower";
     SPTexture *tower = [OMedia texture:szTower fromAtlas:ui];
     imgTower.texture = tower;
+}
+
+-(void) showDiscarded
+{
+    [self unflatten];
+    lblDiscarded = [[SPTextField alloc] initWithWidth:_width height:20 text:@"DISCARDED"];
+    lblDiscarded.x = 0;
+    lblDiscarded.y = _width * 0.16;
+    lblDiscarded.color = 0xffffff;
+    lblDiscarded.fontName = CALLIGRAPHICA_FONT;
+    lblDiscarded.fontSize = 20;
+    [self addChild:lblDiscarded];
+    [self flatten];
 }
 
 @end

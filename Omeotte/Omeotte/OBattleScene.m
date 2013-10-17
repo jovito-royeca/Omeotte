@@ -591,9 +591,7 @@
         cardUI.touchStatus = 0;
         
         SPTween *tween = [SPTween tweenWithTarget:cardUI time:0.5];
-    
         [tween animateProperty:@"y" targetValue:y];
-    
         [Sparrow.juggler addObject:tween];
     }
 }
@@ -743,7 +741,8 @@
         {
             [hand removeObject:cardUI];
             [cardUI showFace:NO];
-            
+            [cardUI showDiscarded];
+
             SPTween *tween = [SPTween tweenWithTarget:cardUI time:2.0];
             int centerX = (txtTimer.width-cardUI.width)/2;
             
@@ -752,7 +751,6 @@
             [Sparrow.juggler addObject:tween];
             
             [graveyard addObject:cardUI];
-            
             break;
         }
     }

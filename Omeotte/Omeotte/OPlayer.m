@@ -171,7 +171,7 @@
 {
     [hand removeObject:card];
     [deck discard:card];
-    [delegate showHand];
+//    [delegate showHand];
     [delegate putCardToGraveyard:card];
 }
 
