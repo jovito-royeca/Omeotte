@@ -43,6 +43,7 @@
         [hand addObject:card];
         [cards addObject:card];
     }
+    [delegate showHand];
     return cards;
 }
 
@@ -73,6 +74,7 @@
     self.base.bricks += self.base.quarries;
     self.base.gems += self.base.magics;
     self.base.recruits += self.base.dungeons;
+    [delegate showHand];
 }
 
 -(OCard*) chooseCardToPlay
@@ -169,6 +171,7 @@
 {
     [hand removeObject:card];
     [deck discard:card];
+    [delegate showHand];
     [delegate putCardToGraveyard:card];
 }
 

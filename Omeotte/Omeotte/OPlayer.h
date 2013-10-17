@@ -42,4 +42,5 @@
              player:(OPlayer*)player;
 
 -(void) putCardToGraveyard:(OCard*)card;
+-(void) showHand;
 @end

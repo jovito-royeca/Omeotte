@@ -14,6 +14,7 @@
     OCard *_currentCard;
     OCardUI *_lastPlayedCard;
     GamePhase _gamePhase;
+    int _turns;
     NSTimer *_timer;
     int elapsedTurnTime;
 }
@@ -222,22 +223,22 @@
     OPlayer *player1 = [[OPlayer alloc] init];
     OPlayer *player2 = [[OPlayer alloc] init];
 
-    [player1 draw:[rule cardsInHand]];
-    [player1.base setStats:rule.base];
+//    [player1 draw:[rule cardsInHand]];
     player1.name = @"Player 1";
-    // to compensate during first Upkeep...
-    player1.base.bricks -= rule.base.bricks;
-    player1.base.gems -= rule.base.gems;
-    player1.base.recruits -= rule.base.recruits;
+    player1.base.tower    = rule.base.tower;
+    player1.base.wall     = rule.base.tower;
+    player1.base.quarries = rule.base.quarries;
+    player1.base.magics   = rule.base.magics;
+    player1.base.dungeons = rule.base.dungeons;
     player1.delegate = self;
 
-    [player2 draw:[rule cardsInHand]];
-    [player2.base setStats:rule.base];
+//    [player2 draw:[rule cardsInHand]];
     player2.name = @"A.I.";
-    // to compensate during first Upkeep...
-    player2.base.bricks -= rule.base.bricks;
-    player2.base.gems -= rule.base.gems;
-    player2.base.recruits -= rule.base.recruits;
+    player2.base.tower    = rule.base.tower;
+    player2.base.wall     = rule.base.tower;
+    player2.base.quarries = rule.base.quarries;
+    player2.base.magics   = rule.base.magics;
+    player2.base.dungeons = rule.base.dungeons;
     player2.delegate = self;
 
     _currentPlayer = player1;
@@ -275,39 +276,10 @@
             [self victoryPhase];
             break;
         }
-    }
-}
-
--(void) showHand
-{
-    // remove previous hand
-    for (OCardUI *cardUI in hand)
-    {
-        [self removeChild:cardUI];
-    }
-    [hand removeAllObjects];
-    
-    // show current hand
-    float currentX = 0;
-    float currentWidth = Sparrow.stage.width/6;
-    for (OCard *card in _currentPlayer.hand)
-    {
-        OCardUI *cardUI = [self createCardUI:card];
-        
-        cardUI.x = currentX;
-        cardUI.y = Sparrow.stage.height-cardUI.height;
-        if (_currentPlayer.ai)
+        case Pause:
         {
-            [cardUI showBack:_currentPlayer.ai];
+            break;
         }
-        else
-        {
-            [cardUI showFace:![_currentPlayer canPlayCard:card]];
-        }
-        [self addChild:cardUI];
-        [hand addObject:cardUI];
-
-        currentX += currentWidth;
     }
 }
 
@@ -416,6 +388,11 @@
 
 - (void)timerTick:(NSTimer *)timer
 {
+    if (_gamePhase == Pause)
+    {
+        return;
+    }
+
     elapsedTurnTime--;
     txtTimer.color = elapsedTurnTime <= 5 ? RED_COLOR : 0xffffff;
     txtTimer.text = [NSString stringWithFormat:@"%@%d", (elapsedTurnTime < 10 ? @"0" : @""), elapsedTurnTime];
@@ -434,7 +411,6 @@
 {
     [_currentPlayer upkeep];
     [self updateStats];
-    [self showHand];
     _gamePhase = Draw;
     
     if (_currentPlayer.ai)
@@ -451,12 +427,12 @@
 
 -(void) drawPhase
 {
-    int cardsToDraw = MAX_CARDS_IN_HAND - [_currentPlayer.hand count];
+    int cardsToDraw = _turns == 0 ?
+        rule.cardsInHand : MAX_CARDS_IN_HAND - [_currentPlayer.hand count];
     
     if (cardsToDraw > 0)
     {
         [_currentPlayer draw:cardsToDraw];
-        [self showHand];
     }
     _gamePhase = Main;
 }
@@ -464,7 +440,8 @@
 -(void) mainPhase
 {
     OPlayer *opponentPlayer = [self opponentPlayer];
-
+    BOOL turnTaken = NO;
+    
     if (!_timer)
     {
         elapsedTurnTime = GAME_TURN;
@@ -484,13 +461,13 @@
     if (_currentCard)
     {
         [self playCard:_currentCard];
-        [self showHand];
         [self updateStats];
         [self checkWinner];
 
         if (_gamePhase != Victory)
         {
             [self switchTurn:_currentCard.playAgain ? _currentPlayer : opponentPlayer];
+            turnTaken = YES;
         }
     }
     else
@@ -505,12 +482,19 @@
             }
 
             [self switchTurn:opponentPlayer];
+            turnTaken = YES;
         }
     }
 
     if (elapsedTurnTime <= 0)
     {
         [self switchTurn:opponentPlayer];
+        turnTaken = YES;
+    }
+    
+    if (turnTaken)
+    {
+        _turns++;
     }
 }
 
@@ -780,6 +764,39 @@
         
         [self removeChild:cardUI];
         [graveyard removeObject:cardUI];
+    }
+}
+
+-(void) showHand
+{
+    // remove previous hand
+    for (OCardUI *cardUI in hand)
+    {
+        [self removeChild:cardUI];
+    }
+    [hand removeAllObjects];
+    
+    // show current hand
+    float currentX = 0;
+    float currentWidth = Sparrow.stage.width/6;
+    for (OCard *card in _currentPlayer.hand)
+    {
+        OCardUI *cardUI = [self createCardUI:card];
+        
+        cardUI.x = currentX;
+        cardUI.y = Sparrow.stage.height-cardUI.height;
+        if (_currentPlayer.ai)
+        {
+            [cardUI showBack:_currentPlayer.ai];
+        }
+        else
+        {
+            [cardUI showFace:![_currentPlayer canPlayCard:card]];
+        }
+        [self addChild:cardUI];
+        [hand addObject:cardUI];
+        
+        currentX += currentWidth;
     }
 }
 
