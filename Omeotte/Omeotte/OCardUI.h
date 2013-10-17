@@ -45,6 +45,8 @@
 -(void) showBack:(BOOL)opponent;
 -(void) showDiscarded;
 
+-(void) advanceTime:(double)seconds;
+-(void) setupAnimation:(float)x y:(float)y time:(float)time;
 @end
 
 @protocol OCardUIDelegate <NSObject>

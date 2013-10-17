@@ -51,7 +51,5 @@ typedef enum
 //-(id) initWithRule:(ORule*)rule;
 
 -(void) initPlayers;
--(void) showHand;
--(void) putCardToGraveyard:(OCard*)card;
 
 @end

@@ -20,7 +20,7 @@
     newField.x = x;
     newField.y = statField.y;
     newField.text = [NSString stringWithFormat:@"%@%d %@", (modValue>0 ? @"+":@""), modValue, message];
-    newField.color = modValue<0 ? RED_COLOR : 0xffffff;
+    newField.color = modValue<0 ? RED_COLOR : WHITE_COLOR;
     newField.fontSize = 10;
     newField.fontName = statField.fontName;
     newField.hAlign = statField.hAlign;

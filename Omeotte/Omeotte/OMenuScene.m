@@ -30,10 +30,10 @@
                                                                  height:50
                                                            cornerRadius:10
                                                             strokeWidth:2
-                                                            strokeColor:0xffffff
+                                                            strokeColor:WHITE_COLOR
                                                                   gloss:NO
-                                                             startColor:0x0000ff
-                                                               endColor:0x0000ff];
+                                                             startColor:BLUE_COLOR
+                                                               endColor:BLUE_COLOR];
 
     [SPTextField registerBitmapFontFromFile:CALLIGRAPHICA_FILE];
     [SPTextField registerBitmapFontFromFile:EXETER_FILE];
@@ -43,7 +43,7 @@
                                                     text:GAME_TITLE
                                                 fontName:CALLIGRAPHICA_FONT
                                                 fontSize:50
-                                                   color:0xff0000];
+                                                   color:RED_COLOR];
 
     [self addChild:title];
     
@@ -51,7 +51,7 @@
     SPButton *btnCampaign = [SPButton buttonWithUpState:texture text:@"Campaign"];
     currentX = (self.width-btnCampaign.width)/2;
     currentY = title.y+title.height+20;
-    btnCampaign.fontColor = 0xffffff;
+    btnCampaign.fontColor = WHITE_COLOR;
     btnCampaign.fontSize = 30;
     btnCampaign.x = currentX;
     btnCampaign.y = currentY;
@@ -68,7 +68,7 @@
     SPButton *btnMultiPlayer = [SPButton buttonWithUpState:texture text:@"Multi Player"];
     currentX = (self.width-btnMultiPlayer.width)/2;
     currentY = btnCampaign.y+btnMultiPlayer.height+10;
-    btnMultiPlayer.fontColor = 0xffffff;
+    btnMultiPlayer.fontColor = WHITE_COLOR;
     btnMultiPlayer.fontSize = 30;
     btnMultiPlayer.x = currentX;
     btnMultiPlayer.y = currentY;
@@ -87,7 +87,7 @@
     SPButton *btnCardBrowser = [SPButton buttonWithUpState:texture text:@"Card Browser"];
     currentX = (self.width-btnCardBrowser.width)/2;
     currentY = btnMultiPlayer.y+btnCardBrowser.height+10;
-    btnCardBrowser.fontColor = 0xffffff;
+    btnCardBrowser.fontColor = WHITE_COLOR;
     btnCardBrowser.fontSize = 30;
     btnCardBrowser.x = currentX;
     btnCardBrowser.y = currentY;
@@ -104,7 +104,7 @@
     SPButton *btnSettings = [SPButton buttonWithUpState:texture text:@"Settings"];
     currentX = (self.width-btnSettings.width)/2;
     currentY = btnCardBrowser.y+btnSettings.height+10;
-    btnSettings.fontColor = 0xffffff;
+    btnSettings.fontColor = WHITE_COLOR;
     btnSettings.fontSize = 30;
     btnSettings.x = currentX;
     btnSettings.y = currentY;

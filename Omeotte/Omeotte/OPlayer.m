@@ -143,17 +143,20 @@
             struct _Effect e;
             [[card.effects objectAtIndex:i] getValue:&e];
 
+            StatField targetField = (e.field == Wall && target.base.wall <= 0) ?
+                Tower : e.field;
+            
             switch (e.target)
             {
                 case Current:
                 {
-                    [base setStatField:e.field withValue:e.value];
-                    [delegate statChanged:e.field fieldValue:[base statField:e.field] modValue:e.value player:self];
+                    [base setStatField:targetField withValue:e.value];
+                    [delegate statChanged:targetField fieldValue:[base statField:e.field] modValue:e.value player:self];
                     break;
                 }
                 case Opponent:
                 {
-                    [target.base setStatField:e.field withValue:e.value];
+                    [target.base setStatField:targetField withValue:e.value];
                     [delegate statChanged:e.field fieldValue:[target.base statField:e.field] modValue:e.value player:target];
                     break;
                 }

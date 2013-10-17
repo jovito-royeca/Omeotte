@@ -119,7 +119,7 @@
     [self addChild:txtPlayer1Name];
     currentWidth = (_width*2/5)*0.70;
     txtPlayer1Status = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
-    txtPlayer1Status.color = 0xffffff;
+    txtPlayer1Status.color = WHITE_COLOR;
     txtPlayer1Status.hAlign = SPHAlignLeft;
     txtPlayer1Status.x = txtPlayer1Name.width;
     txtPlayer1Status.y = currentY;
@@ -152,12 +152,12 @@
                                                                  height:currentHeight
                                                            cornerRadius:3
                                                             strokeWidth:2
-                                                            strokeColor:0xFFFFFF
+                                                            strokeColor:WHITE_COLOR
                                                                   gloss:NO
-                                                             startColor:0xff0000
-                                                               endColor:0x0000ff];
+                                                             startColor:RED_COLOR
+                                                               endColor:BLUE_COLOR];
     SPButton *btnMenu = [SPButton buttonWithUpState:texture text:@"Menu"];
-    btnMenu.fontColor = 0xffffff;
+    btnMenu.fontColor = WHITE_COLOR;
     btnMenu.fontSize = 15;
     btnMenu.x = currentX;
     btnMenu.fontName = EXETER_FONT;
@@ -168,7 +168,7 @@
     txtTimer = [[SPTextField alloc] initWithWidth:currentWidth
                                            height:currentHeight
                                              text:[NSString stringWithFormat:@"%d", GAME_TURN]];
-    txtTimer.color = 0xffffff;
+    txtTimer.color = WHITE_COLOR;
     txtTimer.x = currentX;
     txtTimer.y = btnMenu.height+10;
     txtTimer.fontName = EXETER_FONT;
@@ -182,7 +182,7 @@
     currentWidth = (_width*2/5)*0.70;
     currentHeight = 15;
     txtPlayer2Status = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
-    txtPlayer2Status.color = 0xffffff;
+    txtPlayer2Status.color = WHITE_COLOR;
     txtPlayer2Status.hAlign = SPHAlignRight;
     txtPlayer2Status.x = currentX;
     txtPlayer2Status.y = currentY;
@@ -254,6 +254,15 @@
 
 -(void) gameLoop:(SPEnterFrameEvent*)event
 {
+    for (OCardUI *cardUI in hand)
+    {
+        [cardUI advanceTime:event.passedTime];
+    }
+    for (OCardUI *cardUI in graveyard)
+    {
+        [cardUI advanceTime:event.passedTime];
+    }
+    
     switch (_gamePhase)
     {
         case Upkeep:
@@ -285,19 +294,16 @@
 
 -(void) playCard:(OCard*) card
 {
-    if ([_currentPlayer canPlayCard:card])
-    {
-        [_currentPlayer play:card onTarget:[self opponentPlayer]];
+    [_currentPlayer play:card onTarget:[self opponentPlayer]];
         
-        NSString *status = [NSString stringWithFormat:@"Played %@.", card.name];
-        if (_currentPlayer.ai)
-        {
-            txtPlayer2Status.text = status;
-        }
-        else
-        {
-            txtPlayer1Status.text = status;
-        }
+    NSString *status = [NSString stringWithFormat:@"Played %@.", card.name];
+    if (_currentPlayer.ai)
+    {
+        txtPlayer2Status.text = status;
+    }
+    else
+    {
+        txtPlayer1Status.text = status;
     }
 }
 
@@ -394,7 +400,7 @@
     }
 
     elapsedTurnTime--;
-    txtTimer.color = elapsedTurnTime <= 5 ? RED_COLOR : 0xffffff;
+    txtTimer.color = elapsedTurnTime <= 5 ? RED_COLOR : WHITE_COLOR;
     txtTimer.text = [NSString stringWithFormat:@"%@%d", (elapsedTurnTime < 10 ? @"0" : @""), elapsedTurnTime];
 }
 
@@ -460,14 +466,29 @@
     
     if (_currentCard)
     {
-        [self playCard:_currentCard];
-        [self updateStats];
-        [self checkWinner];
-
-        if (_gamePhase != Victory)
+        if ([_currentPlayer canPlayCard:_currentCard])
         {
-            [self switchTurn:_currentCard.playAgain ? _currentPlayer : opponentPlayer];
-            turnTaken = YES;
+            [self playCard:_currentCard];
+            [self updateStats];
+            [self checkWinner];
+            
+            if (_gamePhase != Victory)
+            {
+                [self switchTurn:_currentCard.playAgain ? _currentPlayer : opponentPlayer];
+                turnTaken = YES;
+            }
+        }
+        else
+        {
+            for (OCardUI *cardUI in hand)
+            {
+                if (cardUI.card == _currentCard)
+                {
+                    [self demote:cardUI];
+                    _currentCard = nil;
+                    break;
+                }
+            }
         }
     }
     else
@@ -560,10 +581,7 @@
     {
         [self demote:cardUI];
     }
-    
-    SPTween *tween = [SPTween tweenWithTarget:cardUI time:0.5];
-	[tween animateProperty:@"y" targetValue:cardUI.y-20];
-	[Sparrow.juggler addObject:tween];
+    [cardUI setupAnimation:cardUI.x y:cardUI.y-20 time:0.5];
 }
 
 - (void)play:(OCardUI*)cardUI
@@ -589,10 +607,7 @@
     {
         NSLog(@"demote... %@", cardUI.card.name);
         cardUI.touchStatus = 0;
-        
-        SPTween *tween = [SPTween tweenWithTarget:cardUI time:0.5];
-        [tween animateProperty:@"y" targetValue:y];
-        [Sparrow.juggler addObject:tween];
+        [cardUI setupAnimation:cardUI.x y:y time:0.5];
     }
 }
 
@@ -739,20 +754,16 @@
     {
         if (cardUI.card == card)
         {
-            [hand removeObject:cardUI];
             [cardUI showFace:NO];
             if (discarded)
             {
                 [cardUI showDiscarded];
             }
             
-            SPTween *tween = [SPTween tweenWithTarget:cardUI time:2.0];
             int centerX = (txtTimer.width-cardUI.width)/2;
+            [cardUI setupAnimation:txtTimer.x+centerX y:txtTimer.y+txtTimer.height time:2.0];
             
-            [tween animateProperty:@"x" targetValue:txtTimer.x+centerX];
-            [tween animateProperty:@"y" targetValue:txtTimer.y+txtTimer.height];
-            [Sparrow.juggler addObject:tween];
-            
+            [hand removeObject:cardUI];
             [graveyard addObject:cardUI];
             break;
         }

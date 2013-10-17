@@ -12,6 +12,7 @@
 {
     float _width;
     float _height;
+    SPJuggler *_juggler;
 }
 
 @synthesize card;
@@ -45,6 +46,7 @@
     [qdBackground release];
     [imgLocked release];
     [lblDiscarded release];
+    [_juggler release];
 }
 
 -(id) initWithWidth:(float)width height:(float)height faceUp:(BOOL)faceUp
@@ -53,7 +55,8 @@
     {
         _width = width;
         _height = height;
-        
+        _juggler = [[SPJuggler alloc] init];
+
         if (faceUp)
         {
             [self setupFace];
@@ -91,7 +94,7 @@
     lblName = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
     lblName.x = currentX;
     lblName.y = currentY;
-    lblName.color = 0x000000;
+    lblName.color = BLACK_COLOR;
     lblName.fontSize = currentX;
     lblName.hAlign = SPHAlignLeft;
     lblName.fontName = EXETER_FONT;
@@ -129,7 +132,7 @@
     lblText = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
     lblText.x = currentX;
     lblText.y = currentY;
-    lblText.color = 0x000000;
+    lblText.color = BLACK_COLOR;
     lblText.fontSize = currentX;
     [self addChild:lblText];
 
@@ -149,7 +152,7 @@
     qdBorder = [[SPQuad alloc] initWithWidth:currentWidth height:currentHeight];
     qdBorder.x = currentX;
     qdBorder.y = currentY;
-    qdBorder.color = 0x000000;
+    qdBorder.color = BLACK_COLOR;
     [self addChild:qdBorder];
     
     currentWidth = _width-16;
@@ -157,7 +160,7 @@
     qdBackground = [[SPQuad alloc] initWithWidth:currentWidth height:currentHeight];
     qdBackground.x = 8;
     qdBackground.y = 8;
-    qdBackground.color = 0xffffff;
+    qdBackground.color = WHITE_COLOR;
     [self addChild:qdBackground];
     
     currentWidth = (_width-16)*0.369;
@@ -279,10 +282,12 @@
         imgLocked.y = 0;
         imgLocked.texture = [[SPTexture alloc] initWithContentsOfFile:@"chain and lock.png"];
         [self addChild:imgLocked];
+        [imgArt setAlpha:0.3];
     }
     else
     {
         [self removeChild:imgLocked];
+        [imgArt setAlpha:1.0];
     }
     [self flatten];
 }
@@ -309,11 +314,24 @@
     lblDiscarded = [[SPTextField alloc] initWithWidth:_width height:20 text:@"DISCARDED"];
     lblDiscarded.x = 0;
     lblDiscarded.y = _width * 0.16;
-    lblDiscarded.color = 0xffffff;
+    lblDiscarded.color = WHITE_COLOR;
     lblDiscarded.fontName = CALLIGRAPHICA_FONT;
     lblDiscarded.fontSize = 20;
     [self addChild:lblDiscarded];
     [self flatten];
+}
+
+-(void) advanceTime:(double)seconds
+{
+    [_juggler advanceTime:seconds];
+}
+
+-(void) setupAnimation:(float)x y:(float)y time:(float)time
+{
+    SPTween *tween = [SPTween tweenWithTarget:self time:time];
+    [tween animateProperty:@"x" targetValue:x];
+	[tween animateProperty:@"y" targetValue:y];
+	[_juggler addObject:tween];
 }
 
 @end

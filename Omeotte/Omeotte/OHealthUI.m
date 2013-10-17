@@ -67,7 +67,7 @@
         imgWall.texture = [OMedia texture:@"wall" fromAtlas:atlas];
         [self addChild:imgWall];
         lblWall = [[SPTextField alloc] initWithWidth:currentWidth height:TOWER_LABEL_HEIGHT];
-        lblWall.color = 0xffffff;
+        lblWall.color = WHITE_COLOR;
         lblWall.x = currentX;
         lblWall.y = imgWall.height;
         lblWall.fontName = EXETER_FONT;
@@ -83,7 +83,7 @@
         currentX = _width/2;
         currentWidth = _width/2;
         lblTower = [[SPTextField alloc] initWithWidth:currentWidth height:TOWER_LABEL_HEIGHT];
-        lblTower.color = 0xffffff;
+        lblTower.color = WHITE_COLOR;
         lblTower.x = currentX;
         lblTower.y = imgTower.height;
         lblTower.fontName = EXETER_FONT;
@@ -101,7 +101,7 @@
         currentX = 0;
         currentWidth = _width/2;
         lblTower = [[SPTextField alloc] initWithWidth:currentWidth height:TOWER_LABEL_HEIGHT];
-        lblTower.color = 0xffffff;
+        lblTower.color = WHITE_COLOR;
         lblTower.x = currentX;
         lblTower.y = imgTower.height;
         lblTower.fontName = EXETER_FONT;
@@ -116,7 +116,7 @@
         [self addChild:imgWall];
         currentX = _width/2;
         lblWall = [[SPTextField alloc] initWithWidth:currentWidth height:TOWER_LABEL_HEIGHT];
-        lblWall.color = 0xffffff;
+        lblWall.color = WHITE_COLOR;
         lblWall.x = currentX;
         lblWall.y = imgTower.height;
         lblWall.fontName = EXETER_FONT;
