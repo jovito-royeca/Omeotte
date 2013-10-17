@@ -164,15 +164,18 @@
     // To Do: handle ops
     // ...
     
-    [self discard:card];
+    [hand removeObject:card];
+    [deck discard:card];
+    [delegate putCardToGraveyard:card discarded:NO];
+    [delegate showHand];
 }
 
 -(void) discard:(OCard*)card
 {
     [hand removeObject:card];
     [deck discard:card];
-//    [delegate showHand];
-    [delegate putCardToGraveyard:card];
+    [delegate putCardToGraveyard:card discarded:YES];
+    [delegate showHand];
 }
 
 //+(NSString*) description

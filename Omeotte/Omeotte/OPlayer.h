@@ -41,6 +41,6 @@
            modValue:(int)modValue
              player:(OPlayer*)player;
 
--(void) putCardToGraveyard:(OCard*)card;
+-(void) putCardToGraveyard:(OCard*)card discarded:(BOOL)discarded;
 -(void) showHand;
 @end

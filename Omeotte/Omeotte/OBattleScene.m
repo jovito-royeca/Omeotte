@@ -733,7 +733,7 @@
     }
 }
 
--(void) putCardToGraveyard:(OCard*)card
+-(void) putCardToGraveyard:(OCard*)card discarded:(BOOL)discarded
 {
     for (OCardUI *cardUI in hand)
     {
@@ -741,8 +741,11 @@
         {
             [hand removeObject:cardUI];
             [cardUI showFace:NO];
-            [cardUI showDiscarded];
-
+            if (discarded)
+            {
+                [cardUI showDiscarded];
+            }
+            
             SPTween *tween = [SPTween tweenWithTarget:cardUI time:2.0];
             int centerX = (txtTimer.width-cardUI.width)/2;
             
