@@ -522,11 +522,11 @@
     {
         case 1:
         {
-            if ([winners containsObject:_currentPlayer])
+            if ([winners containsObject:players[0]])
             {
                 message = @"Victory";
             }
-            else if ([winners containsObject:[self opponentPlayer]])
+            else if ([winners containsObject:players[1]])
             {
                 message = @"Defeat";
             }
