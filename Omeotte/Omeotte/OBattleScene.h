@@ -24,7 +24,8 @@ typedef enum
     Upkeep = 0,
     Draw,
     Main,
-    Victory
+    Victory,
+    Pause
 //    Discard
 } GamePhase;
 

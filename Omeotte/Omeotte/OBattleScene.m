@@ -417,6 +417,7 @@
 - (void)timerTick:(NSTimer *)timer
 {
     elapsedTurnTime--;
+    txtTimer.color = elapsedTurnTime <= 5 ? RED_COLOR : 0xffffff;
     txtTimer.text = [NSString stringWithFormat:@"%@%d", (elapsedTurnTime < 10 ? @"0" : @""), elapsedTurnTime];
 }
 
@@ -466,12 +467,13 @@
 
     if (!_timer)
     {
+        elapsedTurnTime = GAME_TURN;
+        
         _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                   target:self
                                                 selector:@selector(timerTick:)
                                                 userInfo:nil
                                                  repeats:YES];
-        elapsedTurnTime = GAME_TURN;
     }
 
     if (_currentPlayer.ai)
