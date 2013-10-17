@@ -21,14 +21,13 @@
 @synthesize imgArt;
 @synthesize lblText;
 @synthesize imgBackground;
-@synthesize delegate;
 @synthesize touchStatus;
 @synthesize imgTower;
 @synthesize qdBorder;
 @synthesize qdBackground;
 @synthesize imgLocked;
 @synthesize lblDiscarded;
-
+@synthesize delegate;
 
 - (void)dealloc
 {

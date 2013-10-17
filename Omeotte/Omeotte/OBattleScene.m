@@ -110,7 +110,7 @@
     currentWidth = (_width*2/5)*0.30;
     currentHeight = 15;
     txtPlayer1Name = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
-    txtPlayer1Name.color = 0xff0000;
+    txtPlayer1Name.color = RED_COLOR;
     txtPlayer1Name.hAlign = SPHAlignLeft;
     txtPlayer1Name.x = currentX;
     txtPlayer1Name.y = currentY;
@@ -191,7 +191,7 @@
     currentY = 0;
     currentWidth = (_width*2/5)*0.30;
     txtPlayer2Name = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
-    txtPlayer2Name.color = 0x0000ff;
+    txtPlayer2Name.color = BLUE_COLOR;
     txtPlayer2Name.hAlign = SPHAlignLeft;
     txtPlayer2Name.x = currentX;
     txtPlayer2Name.y = currentY;
@@ -229,6 +229,7 @@
     player1.base.bricks -= rule.base.bricks;
     player1.base.gems -= rule.base.gems;
     player1.base.recruits -= rule.base.recruits;
+    player1.delegate = self;
 
     [player2 draw:[rule cardsInHand]];
     [player2.base setStats:rule.base];
@@ -237,6 +238,7 @@
     player2.base.bricks -= rule.base.bricks;
     player2.base.gems -= rule.base.gems;
     player2.base.recruits -= rule.base.recruits;
+    player2.delegate = self;
 
     _currentPlayer = player1;
     player2.ai = YES;
@@ -324,7 +326,6 @@
         {
             txtPlayer1Status.text = status;
         }
-        [self putCardToGraveyard:card];
     }
 }
 
@@ -341,7 +342,6 @@
     {
         txtPlayer1Status.text = status;
     }
-    [self putCardToGraveyard:card];
 }
 
 -(OPlayer*) opponentPlayer
@@ -551,44 +551,14 @@
     }
 }
 
--(void) putCardToGraveyard:(OCard*)card
-{
-    for (OCardUI *cardUI in hand)
-    {
-        if (cardUI.card == card)
-        {
-            [hand removeObject:cardUI];
-            [cardUI showFace:NO];
-            
-            SPTween *tween = [SPTween tweenWithTarget:cardUI time:2.0];
-            int centerX = (txtTimer.width-cardUI.width)/2;
-            
-            [tween animateProperty:@"x" targetValue:txtTimer.x+centerX];
-            [tween animateProperty:@"y" targetValue:txtTimer.y+txtTimer.height];
-            [Sparrow.juggler addObject:tween];
-            
-            [graveyard addObject:cardUI];
-            
-            break;
-        }
-    }
-
-    // remove old cards in the graveyard to minimize memory usage
-    if (graveyard.count >= 4)
-    {
-        OCardUI *cardUI = [graveyard objectAtIndex:0];
-
-        [self removeChild:cardUI];
-        [graveyard removeObject:cardUI];
-    }
-}
-
 -(OCardUI*) createCardUI:(OCard*)card
 {
     float cardWidth  = Sparrow.stage.width/6;
     float cardHeight = (cardWidth*128)/95;
     CGRect cardRect  = CGRectMake(0, 0, cardWidth, cardHeight);
-    OCardUI *cardUI  = [[OCardUI alloc] initWithWidth:cardRect.size.width height:cardRect.size.height faceUp:_currentPlayer.ai];
+    OCardUI *cardUI  = [[OCardUI alloc] initWithWidth:cardRect.size.width
+                                               height:cardRect.size.height
+                                               faceUp:_currentPlayer.ai];
     
     cardUI.delegate = self;
     cardUI.card = card;
@@ -639,6 +609,175 @@
         [tween animateProperty:@"y" targetValue:y];
     
         [Sparrow.juggler addObject:tween];
+    }
+}
+
+#pragma mark - OPlayerDelegate
+-(void) statChanged:(StatField)field
+         fieldValue:(int)fieldValue
+           modValue:(int)modValue
+             player:(OPlayer*)player
+{
+    OResourcesUI *resourcesUI;
+    OHealthUI *healthUI;
+    float x = 0;
+    
+    if (player == players[0])
+    {
+        resourcesUI = player1Resources;
+        healthUI = player1Health;
+    }
+    else if (player == players[1])
+    {
+        resourcesUI = player2Resources;
+        healthUI = player2Health;
+    }
+    
+    switch (field)
+    {
+        case Tower:
+        {
+            x = (player == players[1]) ?
+                (Sparrow.stage.width*3/5) + healthUI.lblTower.x :
+                resourcesUI.width;
+            break;
+        }
+        case Wall:
+        {
+            x = (player == players[1]) ?
+                (Sparrow.stage.width*3/5) + healthUI.lblWall.x :
+                resourcesUI.width + healthUI.lblWall.x;
+            break;
+        }
+        
+        case Bricks:
+        case Gems:
+        case Recruits:
+        case Quarries:
+        case Magics:
+        case Dungeons:
+        {
+            x = (player == players[1]) ?
+                Sparrow.stage.width-(RESOURCES_WIDTH_PIXELS*3/5) :
+                0;
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+
+    switch (field)
+    {
+        case Tower:
+        {
+            [OEffects applyEffectsOnStatField:healthUI.lblTower
+                                     modValue:modValue
+                                      message:@"Tower"
+                                            xOffset:x
+                                    parent:self];
+            break;
+        }
+        case Wall:
+        {
+            [OEffects applyEffectsOnStatField:healthUI.lblWall
+                                     modValue:modValue
+                                      message:@"Wall"
+                                            xOffset:x
+                                       parent:self];
+            break;
+        }
+        case Bricks:
+        {
+            [OEffects applyEffectsOnStatField:resourcesUI.lblBricks
+                                     modValue:modValue
+                                      message:@"bricks"
+                                            xOffset:x
+                                       parent:self];
+            break;
+        }
+        case Gems:
+        {
+            [OEffects applyEffectsOnStatField:resourcesUI.lblGems
+                                     modValue:modValue
+                                      message:@"gems"
+                                            xOffset:x
+                                       parent:self];
+            break;
+        }
+        case Recruits:
+        {
+            [OEffects applyEffectsOnStatField:resourcesUI.lblRecruits
+                                     modValue:modValue
+                                      message:@"recruits"
+                                            xOffset:x
+                                       parent:self];
+            break;
+        }
+        case Quarries:
+        {
+            [OEffects applyEffectsOnStatField:resourcesUI.lblQuarries
+                                     modValue:modValue
+                                      message:@"Quarries"
+                                            xOffset:x
+                                       parent:self];
+            break;
+        }
+        case Magics:
+        {
+            [OEffects applyEffectsOnStatField:resourcesUI.lblMagics
+                                     modValue:modValue
+                                      message:@"Magics"
+                                            xOffset:x
+                                       parent:self];
+            break;
+        }
+        case Dungeons:
+        {
+            [OEffects applyEffectsOnStatField:resourcesUI.lblDungeons
+                                     modValue:modValue
+                                      message:@"Dungeons"
+                                            xOffset:x
+                                       parent:self];
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+}
+
+-(void) putCardToGraveyard:(OCard*)card
+{
+    for (OCardUI *cardUI in hand)
+    {
+        if (cardUI.card == card)
+        {
+            [hand removeObject:cardUI];
+            [cardUI showFace:NO];
+            
+            SPTween *tween = [SPTween tweenWithTarget:cardUI time:2.0];
+            int centerX = (txtTimer.width-cardUI.width)/2;
+            
+            [tween animateProperty:@"x" targetValue:txtTimer.x+centerX];
+            [tween animateProperty:@"y" targetValue:txtTimer.y+txtTimer.height];
+            [Sparrow.juggler addObject:tween];
+            
+            [graveyard addObject:cardUI];
+            
+            break;
+        }
+    }
+    
+    // remove old cards in the graveyard to minimize memory usage
+    if (graveyard.count >= 4)
+    {
+        OCardUI *cardUI = [graveyard objectAtIndex:0];
+        
+        [self removeChild:cardUI];
+        [graveyard removeObject:cardUI];
     }
 }
 

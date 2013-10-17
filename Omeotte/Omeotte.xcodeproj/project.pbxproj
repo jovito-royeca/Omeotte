@@ -52,6 +52,7 @@
 		1195D28817C2728700C4DA25 /* OPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28717C2728700C4DA25 /* OPlayer.m */; };
 		1195D28E17C272B600C4DA25 /* OCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28D17C272B600C4DA25 /* OCard.m */; };
 		1195D29117C2772700C4DA25 /* ODeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D29017C2772700C4DA25 /* ODeck.m */; };
+		11D36F8718098E3E00897552 /* OEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D36F8618098E3E00897552 /* OEffects.m */; };
 		11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D5CF5917C32F6A00AA96BC /* ORule.m */; };
 		11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5C17C33CEC00AA96BC /* quarry.plist */; };
 		11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5E17C33D0A00AA96BC /* rules.plist */; };
@@ -154,6 +155,8 @@
 		1195D28D17C272B600C4DA25 /* OCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCard.m; sourceTree = "<group>"; };
 		1195D28F17C2772700C4DA25 /* ODeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODeck.h; sourceTree = "<group>"; };
 		1195D29017C2772700C4DA25 /* ODeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODeck.m; sourceTree = "<group>"; };
+		11D36F8518098E3E00897552 /* OEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEffects.h; sourceTree = "<group>"; };
+		11D36F8618098E3E00897552 /* OEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEffects.m; sourceTree = "<group>"; };
 		11D5CF5817C32F6900AA96BC /* ORule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORule.h; sourceTree = "<group>"; };
 		11D5CF5917C32F6A00AA96BC /* ORule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORule.m; sourceTree = "<group>"; };
 		11D5CF5C17C33CEC00AA96BC /* quarry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quarry.plist; sourceTree = "<group>"; };
@@ -355,6 +358,8 @@
 				1195D28D17C272B600C4DA25 /* OCard.m */,
 				1195D28F17C2772700C4DA25 /* ODeck.h */,
 				1195D29017C2772700C4DA25 /* ODeck.m */,
+				11D36F8518098E3E00897552 /* OEffects.h */,
+				11D36F8618098E3E00897552 /* OEffects.m */,
 				11722F6917C640CC00014D16 /* OMedia.h */,
 				11722F6A17C640CC00014D16 /* OMedia.m */,
 				11306C7E17D6BE0200156E78 /* Omeotte.h */,
@@ -576,6 +581,7 @@
 				1195D28517C2723600C4DA25 /* OGameScene.m in Sources */,
 				110EE84B17FA512F00C48834 /* OHealthUI.m in Sources */,
 				1195D28817C2728700C4DA25 /* OPlayer.m in Sources */,
+				11D36F8718098E3E00897552 /* OEffects.m in Sources */,
 				1195D28E17C272B600C4DA25 /* OCard.m in Sources */,
 				1195D29117C2772700C4DA25 /* ODeck.m in Sources */,
 				11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */,

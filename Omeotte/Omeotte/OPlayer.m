@@ -15,6 +15,7 @@
 @synthesize hand;
 @synthesize deck;
 @synthesize ai;
+@synthesize delegate;
 
 -(id) init
 {
@@ -145,11 +146,13 @@
                 case Current:
                 {
                     [base setStatField:e.field withValue:e.value];
+                    [delegate statChanged:e.field fieldValue:[base statField:e.field] modValue:e.value player:self];
                     break;
                 }
                 case Opponent:
                 {
                     [target.base setStatField:e.field withValue:e.value];
+                    [delegate statChanged:e.field fieldValue:[target.base statField:e.field] modValue:e.value player:target];
                     break;
                 }
             }
@@ -166,6 +169,7 @@
 {
     [hand removeObject:card];
     [deck discard:card];
+    [delegate putCardToGraveyard:card];
 }
 
 //+(NSString*) description

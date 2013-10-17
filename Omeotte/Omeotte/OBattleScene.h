@@ -11,6 +11,7 @@
 #import "OButtonTextureUI.h"
 #import "OCard.h"
 #import "OCardUI.h"
+#import "OEffects.h"
 #import "OHealthUI.h"
 #import "OMedia.h"
 #import "OMenuScene.h"
@@ -27,7 +28,7 @@ typedef enum
 //    Discard
 } GamePhase;
 
-@interface OBattleScene : SPSprite <OCardUIDelegate>
+@interface OBattleScene : SPSprite <OCardUIDelegate, OPlayerDelegate>
 
 @property (strong, nonatomic) SPTextField *txtPlayer1Name;
 @property (strong, nonatomic) SPTextField *txtPlayer1Status;

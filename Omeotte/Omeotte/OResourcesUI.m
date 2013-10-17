@@ -74,14 +74,15 @@
     
     currentX = _width * 0.03;
     currentY = _height * 0.11;
-    currentWidth = _width * 0.384;
-    currentHeight = currentWidth;
+    currentWidth = _width;
+    currentHeight = _width * 0.384;
     lblQuarries = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
     lblQuarries.x = currentX;
     lblQuarries.y = currentY;
     lblQuarries.color = GOLD_COLOR;
     lblQuarries.fontSize = currentHeight;
     lblQuarries.fontName = EXETER_FONT;
+    lblQuarries.hAlign = SPHAlignLeft;
     [self addChild:lblQuarries];
     
     currentY += _height/3;
@@ -91,6 +92,7 @@
     lblMagics.color = GOLD_COLOR;
     lblMagics.fontSize = currentHeight;
     lblMagics.fontName = EXETER_FONT;
+    lblMagics.hAlign = SPHAlignLeft;
     [self addChild:lblMagics];
 
     currentY += _height/3;
@@ -100,8 +102,8 @@
     lblDungeons.color = GOLD_COLOR;
     lblDungeons.fontSize = currentHeight;
     lblDungeons.fontName = EXETER_FONT;
+    lblDungeons.hAlign = SPHAlignLeft;
     [self addChild:lblDungeons];
-
     
     currentY = _height * 0.259;
     currentWidth = _width - (_width*0.06);

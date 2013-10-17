@@ -38,7 +38,9 @@
 
 @property(nonatomic, assign) id<OCardUIDelegate> delegate;
 
--(id) initWithWidth:(float)width height:(float)height faceUp:(BOOL)faceUp;
+-(id) initWithWidth:(float)width
+             height:(float)height
+             faceUp:(BOOL)faceUp;
 -(void) showFace:(BOOL)locked;
 -(void) showBack:(BOOL)opponent;
 
