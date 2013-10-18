@@ -36,7 +36,7 @@
                rule:(ORule*)rule;
 
 -(void) update:(OStats*)stats;
-
 -(void) animateResourceBar:(SPQuad*)bar width:(float)width;
+-(void) advanceTime:(double)seconds;
 
 @end

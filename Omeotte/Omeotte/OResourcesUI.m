@@ -14,6 +14,7 @@
     float _width;
     float _height;
     ORule *_rule;
+    SPJuggler *_juggler;
 }
 
 @synthesize lblQuarries;
@@ -39,6 +40,7 @@
     [lblDungeons release];
     [lblRecruits release];
     [qdRecruits release];
+    [_juggler release];
 }
 
 -(id) initWithWidth:(float)width
@@ -50,6 +52,7 @@
         _width = width;
         _height = height;
         _rule = rule;
+        _juggler = [[SPJuggler alloc] init];
 
         [self setup];
     }
@@ -183,10 +186,12 @@
 	SPTween *tween = [SPTween tweenWithTarget:bar time:1.0];
 
 	[tween animateProperty:@"width" targetValue:width];
-    
-    //	tween.loop = SPLoopTypeReverse;
-    
-	[Sparrow.juggler addObject:tween];
+	[_juggler addObject:tween];
+}
+
+-(void) advanceTime:(double)seconds
+{
+    [_juggler advanceTime:seconds];
 }
 
 @end

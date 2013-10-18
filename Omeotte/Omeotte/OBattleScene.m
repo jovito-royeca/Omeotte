@@ -17,6 +17,7 @@
     int _turns;
     NSTimer *_timer;
     int elapsedTurnTime;
+    OEffects *_effects;
 }
 
 @synthesize txtPlayer1Name;
@@ -48,6 +49,7 @@
         rule = [rules objectAtIndex:random];
         
         _gamePhase = Upkeep;
+        _effects = [[OEffects alloc] init];
         
         [self setup];
         [self initPlayers];
@@ -77,6 +79,7 @@
     [txtPlayer2Status release];
     [player2Resources release];
     [player2Health release];
+    [_effects release];
     
     //    [SPMedia releaseSound];
 }
@@ -254,13 +257,23 @@
 
 -(void) gameLoop:(SPEnterFrameEvent*)event
 {
-    for (OCardUI *cardUI in hand)
+    // animate
+    if (_gamePhase != Pause)
     {
-        [cardUI advanceTime:event.passedTime];
-    }
-    for (OCardUI *cardUI in graveyard)
-    {
-        [cardUI advanceTime:event.passedTime];
+        [_effects advanceTime:event.passedTime];
+        [player1Resources advanceTime:event.passedTime];
+        [player1Health advanceTime:event.passedTime];
+        [player2Resources advanceTime:event.passedTime];
+        [player2Health advanceTime:event.passedTime];
+        
+        for (OCardUI *cardUI in hand)
+        {
+            [cardUI advanceTime:event.passedTime];
+        }
+        for (OCardUI *cardUI in graveyard)
+        {
+            [cardUI advanceTime:event.passedTime];
+        }
     }
     
     switch (_gamePhase)
@@ -394,14 +407,12 @@
 
 - (void)timerTick:(NSTimer *)timer
 {
-    if (_gamePhase == Pause)
+    if (_gamePhase != Pause)
     {
-        return;
+        elapsedTurnTime--;
+        txtTimer.color = elapsedTurnTime <= 5 ? RED_COLOR : WHITE_COLOR;
+        txtTimer.text = [NSString stringWithFormat:@"%@%d", (elapsedTurnTime < 10 ? @"0" : @""), elapsedTurnTime];
     }
-
-    elapsedTurnTime--;
-    txtTimer.color = elapsedTurnTime <= 5 ? RED_COLOR : WHITE_COLOR;
-    txtTimer.text = [NSString stringWithFormat:@"%@%d", (elapsedTurnTime < 10 ? @"0" : @""), elapsedTurnTime];
 }
 
 -(void) switchTurn:(OPlayer*)activePlayer
@@ -576,7 +587,6 @@
 - (void)promote:(OCardUI*)cardUI
 {
     NSLog(@"promote... %@", cardUI.card.name);
-    
     for (OCardUI *cardUI in hand)
     {
         [self demote:cardUI];
@@ -620,6 +630,7 @@
     OResourcesUI *resourcesUI;
     OHealthUI *healthUI;
     float x = 0;
+    float width = (Sparrow.stage.width*3/5);
     
     if (player == players[0])
     {
@@ -637,15 +648,13 @@
         case Tower:
         {
             x = (player == players[1]) ?
-                (Sparrow.stage.width*3/5) + healthUI.lblTower.x :
-                resourcesUI.width;
+                width + healthUI.lblTower.x : resourcesUI.width;
             break;
         }
         case Wall:
         {
             x = (player == players[1]) ?
-                (Sparrow.stage.width*3/5) + healthUI.lblWall.x :
-                resourcesUI.width + healthUI.lblWall.x;
+                width + healthUI.lblWall.x : resourcesUI.width + healthUI.lblWall.x;
             break;
         }
         
@@ -671,73 +680,81 @@
     {
         case Tower:
         {
-            [OEffects applyEffectsOnStatField:healthUI.lblTower
+            [_effects applyEffectsOnStatField:healthUI.lblTower
                                      modValue:modValue
                                       message:@"Tower"
-                                            xOffset:x
-                                    parent:self];
+                                      xOffset:x
+                                      yOffset:healthUI.lblTower.y
+                                       parent:self];
             break;
         }
         case Wall:
         {
-            [OEffects applyEffectsOnStatField:healthUI.lblWall
+            [_effects applyEffectsOnStatField:healthUI.lblWall
                                      modValue:modValue
                                       message:@"Wall"
-                                            xOffset:x
+                                      xOffset:x
+                                      yOffset:healthUI.lblWall.y
                                        parent:self];
             break;
         }
         case Bricks:
         {
-            [OEffects applyEffectsOnStatField:resourcesUI.lblBricks
+            [_effects applyEffectsOnStatField:resourcesUI.lblBricks
                                      modValue:modValue
                                       message:@"bricks"
-                                            xOffset:x
+                                      xOffset:x
+                                      yOffset:resourcesUI.lblBricks.y
                                        parent:self];
             break;
         }
         case Gems:
         {
-            [OEffects applyEffectsOnStatField:resourcesUI.lblGems
+            [_effects applyEffectsOnStatField:resourcesUI.lblGems
                                      modValue:modValue
                                       message:@"gems"
-                                            xOffset:x
+                                        xOffset:x
+                                      yOffset:resourcesUI.lblGems.y
                                        parent:self];
             break;
         }
         case Recruits:
         {
-            [OEffects applyEffectsOnStatField:resourcesUI.lblRecruits
+            [_effects applyEffectsOnStatField:resourcesUI.lblRecruits
                                      modValue:modValue
                                       message:@"recruits"
-                                            xOffset:x
+                                      xOffset:x
+                                      yOffset:resourcesUI.lblRecruits.y
                                        parent:self];
             break;
         }
         case Quarries:
         {
-            [OEffects applyEffectsOnStatField:resourcesUI.lblQuarries
+            [_effects applyEffectsOnStatField:resourcesUI.lblQuarries
                                      modValue:modValue
                                       message:@"Quarries"
-                                            xOffset:x
+                                      xOffset:x
+                                      yOffset:resourcesUI.lblQuarries.y
                                        parent:self];
             break;
         }
         case Magics:
         {
-            [OEffects applyEffectsOnStatField:resourcesUI.lblMagics
+            [_effects applyEffectsOnStatField:resourcesUI.lblMagics
                                      modValue:modValue
                                       message:@"Magics"
-                                            xOffset:x
+                                      xOffset:x
+                                      yOffset:resourcesUI.lblMagics.y
                                        parent:self];
             break;
         }
         case Dungeons:
         {
-            [OEffects applyEffectsOnStatField:resourcesUI.lblDungeons
+            [_effects applyEffectsOnStatField:resourcesUI.lblDungeons
                                      modValue:modValue
                                       message:@"Dungeons"
-                                            xOffset:x
+                                      xOffset:x
+                                      yOffset:resourcesUI.lblDungeons.y
                                        parent:self];
             break;
         }

@@ -9,16 +9,45 @@
 #import "OEffects.h"
 
 @implementation OEffects
+{
+    NSMutableArray *_statFields;
+    SPJuggler *_juggler;
+}
 
-+(void) applyEffectsOnStatField:(SPTextField*)statField
+- (void)dealloc
+{
+    [super dealloc];
+    
+    [_statFields release];
+    [_juggler release];
+}
+
+-(id) init
+{
+    if ((self = [super init]))
+    {
+        _statFields = [[NSMutableArray alloc] init];
+        _juggler = [[SPJuggler alloc] init];
+        
+    }
+    return self;
+}
+
+-(void) advanceTime:(double)seconds
+{
+    [_juggler advanceTime:seconds];
+}
+
+-(void) applyEffectsOnStatField:(SPTextField*)statField
                        modValue:(int)modValue
                         message:(NSString*)message
-                              xOffset:(float)x
+                        xOffset:(float)x
+                        yOffset:(float)y
                          parent:(SPSprite*)parent
 {
     SPTextField *newField = [[SPTextField alloc] initWithWidth:statField.width height:10];
     newField.x = x;
-    newField.y = statField.y;
+    newField.y = y;
     newField.text = [NSString stringWithFormat:@"%@%d %@", (modValue>0 ? @"+":@""), modValue, message];
     newField.color = modValue<0 ? RED_COLOR : WHITE_COLOR;
     newField.fontSize = 10;
@@ -29,7 +58,7 @@
     SPTween *tween = [SPTween tweenWithTarget:newField time:3.0];
 	[tween animateProperty:@"y" targetValue:0-newField.height];
     [tween animateProperty:@"alpha" targetValue:0];
-	[Sparrow.juggler addObject:tween];
+	[_juggler addObject:tween];
     
     if (newField.y < 0)
     {

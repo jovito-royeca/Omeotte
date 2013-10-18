@@ -45,5 +45,6 @@
                clipY:(float)clipY
            clipWidth:(float)clipWidth
           clipHeight:(float)clipHeight;
+-(void) advanceTime:(double)seconds;
 
 @end

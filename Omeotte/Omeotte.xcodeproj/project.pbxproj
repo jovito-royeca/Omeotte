@@ -701,6 +701,7 @@
 		1195D1AA17C25F5F00C4DA25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
 				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
@@ -718,6 +719,7 @@
 		1195D1AB17C25F5F00C4DA25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
 				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";

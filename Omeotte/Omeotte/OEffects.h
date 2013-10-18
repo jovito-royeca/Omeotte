@@ -14,10 +14,13 @@
 
 @interface OEffects : NSObject
 
-+(void) applyEffectsOnStatField:(SPTextField*)statField
+-(void) advanceTime:(double)seconds;
+
+-(void) applyEffectsOnStatField:(SPTextField*)statField
                        modValue:(int)modValue
                         message:(NSString*)message
-                              xOffset:(float)x
+                        xOffset:(float)x
+                        yOffset:(float)y
                          parent:(SPSprite*)parent;
 
 @end

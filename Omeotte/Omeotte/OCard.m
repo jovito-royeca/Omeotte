@@ -91,7 +91,6 @@ NSArray *_cards;
                 NSDictionary *_eval = [dict valueForKey:@"eval"];
                 if (_eval)
                 {
-                    
 //                    card.eval = evalDict;
                 }
                 
@@ -101,6 +100,7 @@ NSArray *_cards;
         
         NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
         _cards=[macards sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+        [macards release];
     }
     
     [_cards retain];

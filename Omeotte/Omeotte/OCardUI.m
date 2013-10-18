@@ -46,6 +46,7 @@
     [qdBackground release];
     [imgLocked release];
     [lblDiscarded release];
+    [delegate release];
     [_juggler release];
 }
 
@@ -86,7 +87,7 @@
     imgBackground.x = currentX;
     imgBackground.y = currentY;
     [self addChild:imgBackground];
-
+    
     currentX = _width * 0.08;
     currentY = _width * 0.08;
     currentWidth = _width * 0.84;
@@ -282,12 +283,12 @@
         imgLocked.y = 0;
         imgLocked.texture = [[SPTexture alloc] initWithContentsOfFile:@"chain and lock.png"];
         [self addChild:imgLocked];
-        [imgArt setAlpha:0.3];
+//        [imgArt setAlpha:0.3];
     }
     else
     {
         [self removeChild:imgLocked];
-        [imgArt setAlpha:1.0];
+//        [imgArt setAlpha:1.0];
     }
     [self flatten];
 }
@@ -296,6 +297,7 @@
 {
     [self setupBack];
     
+    [self unflatten];
     static NSString *ui = nil;
     if (!ui)
     {
@@ -306,6 +308,7 @@
     NSString *szTower = opponent ? @"blue tower" : @"red tower";
     SPTexture *tower = [OMedia texture:szTower fromAtlas:ui];
     imgTower.texture = tower;
+    [self flatten];
 }
 
 -(void) showDiscarded
@@ -326,7 +329,9 @@
     [_juggler advanceTime:seconds];
 }
 
--(void) setupAnimation:(float)x y:(float)y time:(float)time
+-(void) setupAnimation:(float)x
+                     y:(float)y
+                  time:(float)time
 {
     SPTween *tween = [SPTween tweenWithTarget:self time:time];
     [tween animateProperty:@"x" targetValue:x];

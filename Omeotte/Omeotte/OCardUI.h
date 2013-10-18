@@ -27,7 +27,6 @@
 @property(strong,nonatomic) SPImage *imgArt;
 @property(strong,nonatomic) SPTextField *lblText;
 @property(strong,nonatomic) SPImage *imgBackground;
-
 @property(strong,nonatomic) SPImage *imgTower;
 @property(strong,nonatomic) SPQuad *qdBorder;
 @property(strong,nonatomic) SPQuad *qdBackground;
@@ -46,7 +45,9 @@
 -(void) showDiscarded;
 
 -(void) advanceTime:(double)seconds;
--(void) setupAnimation:(float)x y:(float)y time:(float)time;
+-(void) setupAnimation:(float)x
+                     y:(float)y
+                  time:(float)time;
 @end
 
 @protocol OCardUIDelegate <NSObject>

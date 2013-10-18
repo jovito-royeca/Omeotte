@@ -14,6 +14,7 @@
     float _height;
     ORule *_rule;
     BOOL _isAI;
+    SPJuggler *_juggler;
 }
 
 @synthesize imgTower;
@@ -25,8 +26,11 @@
 {
     [super dealloc];
     
+    [imgTower release];
     [lblTower release];
+    [imgWall release];
     [lblWall release];
+    [_juggler release];
 }
 
 -(id) initWithWidth:(float)width
@@ -40,7 +44,8 @@
         _height = height;
         _rule = rule;
         _isAI = isAI;
-        
+        _juggler = [[SPJuggler alloc] init];
+
         [self setup];
     }
     return self;
@@ -176,9 +181,12 @@
 	[tween animateProperty:@"clipWidth" targetValue:clipWidth];
 	[tween animateProperty:@"clipHeight" targetValue:clipHeight];
     
-//	tween.loop = SPLoopTypeReverse;
-    
-	[Sparrow.juggler addObject:tween];
+	[_juggler addObject:tween];
+}
+
+-(void) advanceTime:(double)seconds
+{
+    [_juggler advanceTime:seconds];
 }
 
 @end
