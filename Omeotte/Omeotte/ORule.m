@@ -53,8 +53,7 @@ NSMutableArray *_rules;
 
             [_rules addObject:rule];
         }
-        [ma release];
-        
+//        [ma release]; // crash!
     }
     
     [_rules retain];

@@ -20,12 +20,7 @@
     float _height;
 }
 
-@synthesize x = _x;
-@synthesize y = _y;
-@synthesize width = _width;
-@synthesize height = _height;
-
-- (id)initWithX:(float)x y:(float)y width:(float)width height:(float)height
+- (instancetype)initWithX:(float)x y:(float)y width:(float)width height:(float)height
 {
     if ((self = [super init]))
     {
@@ -38,7 +33,7 @@
     return self;
 }
 
-- (id)init
+- (instancetype)init
 {
     return [self initWithX:0.0f y:0.0f width:0.0f height:0.0f];
 }
@@ -48,12 +43,12 @@
     return x >= _x && y >= _y && x <= _x + _width && y <= _y + _height;
 }
 
-- (BOOL)containsPoint:(SPPoint*)point
+- (BOOL)containsPoint:(SPPoint *)point
 {
     return [self containsX:point.x y:point.y];
 }
 
-- (BOOL)containsRectangle:(SPRectangle*)rectangle
+- (BOOL)containsRectangle:(SPRectangle *)rectangle
 {
     if (!rectangle) return NO;
     
@@ -66,7 +61,7 @@
            rY >= _y && rY + rHeight <= _y + _height;
 }
 
-- (BOOL)intersectsRectangle:(SPRectangle*)rectangle
+- (BOOL)intersectsRectangle:(SPRectangle *)rectangle
 {
     if (!rectangle) return  NO;
     
@@ -81,7 +76,7 @@
     return !outside;
 }
 
-- (SPRectangle*)intersectionWithRectangle:(SPRectangle*)rectangle
+- (SPRectangle *)intersectionWithRectangle:(SPRectangle *)rectangle
 {
     if (!rectangle) return nil;
     
@@ -96,7 +91,7 @@
         return [SPRectangle rectangleWithX:left y:top width:right-left height:bottom-top];
 }
 
-- (SPRectangle*)uniteWithRectangle:(SPRectangle*)rectangle
+- (SPRectangle *)uniteWithRectangle:(SPRectangle *)rectangle
 {
     if (!rectangle) return [[self copy] autorelease];
     
@@ -160,26 +155,26 @@
     else if (!other) return NO;
     else 
     {
-        SPRectangle *rect = (SPRectangle*)other;
+        SPRectangle *rect = (SPRectangle *)other;
         return SP_IS_FLOAT_EQUAL(_x, rect->_x) && SP_IS_FLOAT_EQUAL(_y, rect->_y) &&
                SP_IS_FLOAT_EQUAL(_width, rect->_width) && SP_IS_FLOAT_EQUAL(_height, rect->_height);    
     }
 }
 
-- (NSString*)description
+- (NSString *)description
 {
     return [NSString stringWithFormat:@"[SPRectangle: x=%f, y=%f, width=%f, height=%f]",
             _x, _y, _width, _height];
 }
 
-+ (id)rectangleWithX:(float)x y:(float)y width:(float)width height:(float)height
++ (instancetype)rectangleWithX:(float)x y:(float)y width:(float)width height:(float)height
 {
     return [[[self allocWithZone:nil] initWithX:x y:y width:width height:height] autorelease];
 }
 
 #pragma mark NSCopying
 
-- (id)copyWithZone:(NSZone*)zone
+- (instancetype)copyWithZone:(NSZone *)zone
 {
     return [[[self class] allocWithZone:zone] initWithX:_x y:_y width:_width height:_height];
 }

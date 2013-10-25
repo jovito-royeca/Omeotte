@@ -18,8 +18,6 @@
 #import "SPStage_Internal.h"
 #import "SPTouchEvent.h"
 
-float square(float value) { return value * value; }
-
 // --- class implementation ------------------------------------------------------------------------
 
 @implementation SPDisplayObject
@@ -45,28 +43,12 @@ float square(float value) { return value * value; }
     NSString *_name;
 }
 
-@synthesize x = _x;
-@synthesize y = _y;
-@synthesize pivotX = _pivotX;
-@synthesize pivotY = _pivotY;
-@synthesize scaleX = _scaleX;
-@synthesize scaleY = _scaleY;
-@synthesize skewX  = _skewX;
-@synthesize skewY  = _skewY;
-@synthesize rotation = _rotation;
-@synthesize parent = _parent;
-@synthesize alpha = _alpha;
-@synthesize visible = _visible;
-@synthesize touchable = _touchable;
-@synthesize name = _name;
-@synthesize blendMode = _blendMode;
-
-- (id)init
+- (instancetype)init
 {    
     #ifdef DEBUG    
     if ([self isMemberOfClass:[SPDisplayObject class]]) 
     {
-        [NSException raise:SP_EXC_ABSTRACT_CLASS 
+        [NSException raise:SPExceptionAbstractClass
                     format:@"Attempting to initialize abstract class SPDisplayObject."];        
         return nil;
     }    
@@ -81,19 +63,19 @@ float square(float value) { return value * value; }
         _touchable = YES;
         _transformationMatrix = [[SPMatrix alloc] init];
         _orientationChanged = NO;
-        _blendMode = SP_BLEND_MODE_AUTO;
+        _blendMode = SPBlendModeAuto;
     }
     return self;
 }
 
-- (void) dealloc
+- (void)dealloc
 {
     [_name release];
     [_transformationMatrix release];
     [super dealloc];
 }
 
-- (void)render:(SPRenderSupport*)support
+- (void)render:(SPRenderSupport *)support
 {
     // override in subclass
 }
@@ -165,7 +147,7 @@ float square(float value) { return value * value; }
     }
     
     if (!commonParent)
-        [NSException raise:SP_EXC_NOT_RELATED format:@"Object not connected to target"];
+        [NSException raise:SPExceptionNotRelated format:@"Object not connected to target"];
     
     // 2.: Move up from self to common parent
     SPMatrix *selfMatrix = [SPMatrix matrixWithIdentity];
@@ -192,9 +174,9 @@ float square(float value) { return value * value; }
     return selfMatrix;
 }
 
-- (SPRectangle*)boundsInSpace:(SPDisplayObject*)targetSpace
+- (SPRectangle *)boundsInSpace:(SPDisplayObject *)targetSpace
 {
-    [NSException raise:SP_EXC_ABSTRACT_METHOD 
+    [NSException raise:SPExceptionAbstractMethod 
                 format:@"Method 'boundsInSpace:' needs to be implemented in subclasses"];
     return nil;
 }
@@ -229,13 +211,13 @@ float square(float value) { return value * value; }
 
 #pragma mark - Events
 
-- (void)dispatchEvent:(SPEvent*)event
+- (void)dispatchEvent:(SPEvent *)event
 {
     // on one given moment, there is only one set of touches -- thus, 
     // we process only one touch event with a certain timestamp
     if ([event isKindOfClass:[SPTouchEvent class]])
     {
-        SPTouchEvent *touchEvent = (SPTouchEvent*)event;
+        SPTouchEvent *touchEvent = (SPTouchEvent *)event;
         if (touchEvent.timestamp == _lastTouchTimestamp) return;        
         else _lastTouchTimestamp = touchEvent.timestamp;
     }
@@ -246,7 +228,7 @@ float square(float value) { return value * value; }
 - (void)broadcastEvent:(SPEvent *)event
 {
     if (event.bubbles)
-        [NSException raise:SP_EXC_INVALID_OPERATION
+        [NSException raise:SPExceptionInvalidOperation
                     format:@"Broadcast of bubbling events is prohibited"];
 
     [self dispatchEvent:event];
@@ -260,7 +242,7 @@ float square(float value) { return value * value; }
 // SPEnterFrame event optimization
 
 // To avoid looping through the complete display tree each frame to find out who's listening to
-// SP_EVENT_TYPE_ENTER_FRAME events, we manage a list of them manually in the SPStage class.
+// SPEventTypeEnterFrame events, we manage a list of them manually in the SPStage class.
 
 - (void)addEnterFrameListenerToStage
 {
@@ -272,26 +254,26 @@ float square(float value) { return value * value; }
     [[[Sparrow currentController] stage] removeEnterFrameListener:self];
 }
 
-- (void)addEventListener:(id)listener forType:(NSString*)eventType
+- (void)addEventListener:(id)listener forType:(NSString *)eventType
 {
-    if ([eventType isEqualToString:SP_EVENT_TYPE_ENTER_FRAME] && ![self hasEventListenerForType:SP_EVENT_TYPE_ENTER_FRAME])
+    if ([eventType isEqualToString:SPEventTypeEnterFrame] && ![self hasEventListenerForType:SPEventTypeEnterFrame])
     {
-        [self addEventListener:@selector(addEnterFrameListenerToStage) atObject:self forType:SP_EVENT_TYPE_ADDED_TO_STAGE];
-        [self addEventListener:@selector(removeEnterFrameListenerFromStage) atObject:self forType:SP_EVENT_TYPE_REMOVED_FROM_STAGE];
+        [self addEventListener:@selector(addEnterFrameListenerToStage) atObject:self forType:SPEventTypeAddedToStage];
+        [self addEventListener:@selector(removeEnterFrameListenerFromStage) atObject:self forType:SPEventTypeRemovedFromStage];
         if (self.stage) [self addEnterFrameListenerToStage];
     }
 
     [super addEventListener:listener forType:eventType];
 }
 
-- (void)removeEventListenersForType:(NSString*)eventType withTarget:(id)object andSelector:(SEL)selector orBlock:(SPEventBlock)block
+- (void)removeEventListenersForType:(NSString *)eventType withTarget:(id)object andSelector:(SEL)selector orBlock:(SPEventBlock)block
 {
     [super removeEventListenersForType:eventType withTarget:object andSelector:selector orBlock:block];
 
-    if ([eventType isEqualToString:SP_EVENT_TYPE_ENTER_FRAME] && ![self hasEventListenerForType:SP_EVENT_TYPE_ENTER_FRAME])
+    if ([eventType isEqualToString:SPEventTypeEnterFrame] && ![self hasEventListenerForType:SPEventTypeEnterFrame])
     {
-        [self removeEventListener:@selector(addEnterFrameListenerToStage) atObject:self forType:SP_EVENT_TYPE_ADDED_TO_STAGE];
-        [self removeEventListener:@selector(removeEnterFrameListenerFromStage) atObject:self forType:SP_EVENT_TYPE_REMOVED_FROM_STAGE];
+        [self removeEventListener:@selector(addEnterFrameListenerToStage) atObject:self forType:SPEventTypeAddedToStage];
+        [self removeEventListener:@selector(removeEnterFrameListenerFromStage) atObject:self forType:SPEventTypeRemovedFromStage];
         [self removeEnterFrameListenerFromStage];
     }
 }
@@ -434,14 +416,14 @@ float square(float value) { return value * value; }
     return nil;
 }
 
-- (SPStage*)stage
+- (SPStage *)stage
 {
     SPDisplayObject *base = self.base;
-    if ([base isKindOfClass:[SPStage class]]) return (SPStage*) base;
+    if ([base isKindOfClass:[SPStage class]]) return (SPStage *) base;
     else return nil;
 }
 
-- (SPMatrix*)transformationMatrix
+- (SPMatrix *)transformationMatrix
 {
     if (_orientationChanged)
     {
@@ -504,7 +486,7 @@ float square(float value) { return value * value; }
     _x = matrix.tx;
     _y = matrix.ty;
     
-    _scaleX = sqrtf(square(matrix.a) + square(matrix.b));
+    _scaleX = sqrtf(SP_SQUARE(matrix.a) + SP_SQUARE(matrix.b));
     _skewY  = acosf(matrix.a / _scaleX);
     
     if (!SP_IS_FLOAT_EQUAL(matrix.b, _scaleX * sinf(_skewY)))
@@ -513,7 +495,7 @@ float square(float value) { return value * value; }
         _skewY = acosf(matrix.a / _scaleX);
     }
     
-    _scaleY = sqrtf(square(matrix.c) + square(matrix.d));
+    _scaleY = sqrtf(SP_SQUARE(matrix.c) + SP_SQUARE(matrix.d));
     _skewX  = acosf(matrix.d / _scaleY);
     
     if (!SP_IS_FLOAT_EQUAL(matrix.c, -_scaleY * sinf(_skewX)))
@@ -551,7 +533,7 @@ float square(float value) { return value * value; }
         ancestor = ancestor->_parent;
     
     if (ancestor == self)
-        [NSException raise:SP_EXC_INVALID_OPERATION 
+        [NSException raise:SPExceptionInvalidOperation 
                     format:@"An object cannot be added as a child to itself or one of its children"];
     else
         _parent = parent; // only assigned, not retained (to avoid a circular reference).

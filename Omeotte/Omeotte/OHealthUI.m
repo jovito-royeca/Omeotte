@@ -53,6 +53,8 @@
 
 -(void) setup
 {
+    self.touchable = NO;
+
     NSString *atlas = @"ui.xml";
     [OMedia initAtlas:atlas];
     [SPTextField registerBitmapFontFromFile:EXETER_FILE];

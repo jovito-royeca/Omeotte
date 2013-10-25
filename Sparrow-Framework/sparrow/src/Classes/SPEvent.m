@@ -14,6 +14,19 @@
 #import "SPEvent_Internal.h"
 #import "SPMacros.h"
 
+// --- event types ---------------------------------------------------------------------------------
+
+NSString *const SPEventTypeAdded                = @"SPEventTypeAdded";
+NSString *const SPEventTypeAddedToStage         = @"SPEventTypeAddedToStage";
+NSString *const SPEventTypeRemoved              = @"SPEventTypeRemoved";
+NSString *const SPEventTypeRemovedFromStage     = @"SPEventTypeRemovedFromStage";
+NSString *const SPEventTypeRemoveFromJuggler    = @"SPEventTypeRemoveFromJuggler";
+NSString *const SPEventTypeCompleted            = @"SPEventTypeCompleted";
+NSString *const SPEventTypeTriggered            = @"SPEventTypeTriggered";
+NSString *const SPEventTypeFlatten              = @"SPEventTypeFlatten";
+
+// --- class implementation ------------------------------------------------------------------------
+
 @implementation SPEvent
 {
     SPEventDispatcher *__weak _target;
@@ -24,12 +37,7 @@
     BOOL _bubbles;
 }
 
-@synthesize target = _target;
-@synthesize currentTarget = _currentTarget;
-@synthesize type = _type;
-@synthesize bubbles = _bubbles;
-
-- (id)initWithType:(NSString*)type bubbles:(BOOL)bubbles
+- (instancetype)initWithType:(NSString *)type bubbles:(BOOL)bubbles
 {    
     if ((self = [super init]))
     {        
@@ -39,12 +47,12 @@
     return self;
 }
 
-- (id)initWithType:(NSString*)type
+- (instancetype)initWithType:(NSString *)type
 {
     return [self initWithType:type bubbles:NO];
 }
 
-- (id)init
+- (instancetype)init
 {
     return [self initWithType:@"undefined"];
 }
@@ -71,12 +79,12 @@
             NSStringFromClass([self class]), _type, _bubbles ? @"YES" : @"NO"];
 }
 
-+ (id)eventWithType:(NSString*)type bubbles:(BOOL)bubbles
++ (instancetype)eventWithType:(NSString *)type bubbles:(BOOL)bubbles
 {
     return [[[self alloc] initWithType:type bubbles:bubbles] autorelease];
 }
 
-+ (id)eventWithType:(NSString*)type
++ (instancetype)eventWithType:(NSString *)type
 {
     return [[[self alloc] initWithType:type] autorelease];
 }
@@ -84,7 +92,7 @@
 
 @end
 
-// -------------------------------------------------------------------------------------------------
+// --- internal implementation ---------------------------------------------------------------------
 
 @implementation SPEvent (Internal)
 
@@ -98,13 +106,13 @@
     return _stopsPropagation;
 }
 
-- (void)setTarget:(SPEventDispatcher*)target
+- (void)setTarget:(SPEventDispatcher *)target
 {
     if (_target != target)
         _target = target;
 }
 
-- (void)setCurrentTarget:(SPEventDispatcher*)currentTarget
+- (void)setCurrentTarget:(SPEventDispatcher *)currentTarget
 {
     if (_currentTarget != currentTarget)
         _currentTarget = currentTarget;

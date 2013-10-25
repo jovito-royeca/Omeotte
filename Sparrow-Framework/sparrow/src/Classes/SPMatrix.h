@@ -36,16 +36,16 @@
 /// -----------------
 
 /// Initializes a matrix with the specified components. _Designated Initializer_.
-- (id)initWithA:(float)a b:(float)b c:(float)c d:(float)d tx:(float)tx ty:(float)ty;
+- (instancetype)initWithA:(float)a b:(float)b c:(float)c d:(float)d tx:(float)tx ty:(float)ty;
 
 /// Initializes an identity matrix.
-- (id)init;
+- (instancetype)init;
 
 /// Factory method.
-+ (id)matrixWithA:(float)a b:(float)b c:(float)c d:(float)d tx:(float)tx ty:(float)ty;
++ (instancetype)matrixWithA:(float)a b:(float)b c:(float)c d:(float)d tx:(float)tx ty:(float)ty;
 
 /// Factory method.
-+ (id)matrixWithIdentity;
++ (instancetype)matrixWithIdentity;
 
 /// -------------
 /// @name Methods
@@ -99,7 +99,7 @@
 - (GLKMatrix3)convertToGLKMatrix3;
 
 /// Applies the geometric transformation represented by the matrix to the specified point.
-- (SPPoint *)transformPoint:(SPPoint*)point;
+- (SPPoint *)transformPoint:(SPPoint *)point;
 
 /// Applies the geometric transformation represented by the matrix to the specified coordinates.
 - (SPPoint *)transformPointWithX:(float)x y:(float)y;

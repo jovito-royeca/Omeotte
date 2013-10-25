@@ -24,6 +24,8 @@
 #import "SPNSExtensions.h"
 #import "SPQuadBatch.h"
 
+NSString *const SPBitmapFontMiniName = @"mini";
+
 #define CHAR_SPACE           32
 #define CHAR_TAB              9
 #define CHAR_NEWLINE         10
@@ -38,13 +40,13 @@
 @property (nonatomic) float x;
 @property (nonatomic) float y;
 
-- (id)initWithChar:(SPBitmapChar *)bitmapChar;
+- (instancetype)initWithChar:(SPBitmapChar *)bitmapChar;
 
 @end
 
 @implementation SPCharLocation
 
-- (id)initWithChar:(SPBitmapChar *)bitmapChar
+- (instancetype)initWithChar:(SPBitmapChar *)bitmapChar
 {
     if ((self = [super init]))
         _bitmapChar = bitmapChar;
@@ -69,11 +71,7 @@ SP_IMPLEMENT_MEMORY_POOL();
     SPImage *_helperImage;
 }
 
-@synthesize name = _name;
-@synthesize lineHeight = _lineHeight;
-@synthesize size = _size;
-
-- (id)initWithContentsOfData:(NSData *)data texture:(SPTexture *)texture
+- (instancetype)initWithContentsOfData:(NSData *)data texture:(SPTexture *)texture
 {
     if ((self = [super init]))
     {
@@ -86,7 +84,7 @@ SP_IMPLEMENT_MEMORY_POOL();
         }
         
         _name = @"unknown";
-        _lineHeight = _size = _baseline = SP_DEFAULT_FONT_SIZE;
+        _lineHeight = _size = _baseline = SPDefaultFontSize;
         _chars = [[NSMutableDictionary alloc] init];
         _fontTexture = texture ? [texture retain] : [self textureReferencedByXmlData:data];
         _helperImage = [[SPImage alloc] initWithTexture:_fontTexture];
@@ -97,15 +95,15 @@ SP_IMPLEMENT_MEMORY_POOL();
     return self;
 }
 
-- (id)initWithContentsOfData:(NSData *)data
+- (instancetype)initWithContentsOfData:(NSData *)data
 {
     return [self initWithContentsOfData:data texture:nil];
 }
 
-- (id)initWithContentsOfFile:(NSString *)path texture:(SPTexture *)texture
+- (instancetype)initWithContentsOfFile:(NSString *)path texture:(SPTexture *)texture
 {
     NSString *absolutePath = [SPUtils absolutePathToFile:path];
-    if (!absolutePath) [NSException raise:SP_EXC_FILE_NOT_FOUND format:@"file not found: %@", path];
+    if (!absolutePath) [NSException raise:SPExceptionFileNotFound format:@"file not found: %@", path];
     NSData *xmlData = [NSData dataWithContentsOfFile:absolutePath];
 
     if (!texture)
@@ -117,17 +115,17 @@ SP_IMPLEMENT_MEMORY_POOL();
     return [self initWithContentsOfData:xmlData texture:texture];
 }
 
-- (id)initWithContentsOfFile:(NSString *)path
+- (instancetype)initWithContentsOfFile:(NSString *)path
 {
     return [self initWithContentsOfFile:path texture:nil];
 }
 
-- (id)init
+- (instancetype)init
 {
     return [self initWithContentsOfData:nil texture:nil];
 }
 
-- (id)initWithMiniFont
+- (instancetype)initWithMiniFont
 {
     return [self init];
 }
@@ -157,7 +155,7 @@ SP_IMPLEMENT_MEMORY_POOL();
         if ([elementName isEqualToString:@"page"])
         {
             int id = [[attributes valueForKey:@"id"] intValue];
-            if (id != 0) [NSException raise:SP_EXC_FILE_INVALID
+            if (id != 0) [NSException raise:SPExceptionFileInvalid
                                      format:@"Bitmap fonts with multiple pages are not supported"];
             
             NSString *filename = [attributes valueForKey:@"file"];
@@ -172,7 +170,7 @@ SP_IMPLEMENT_MEMORY_POOL();
     [parser release];
     
     if (!texture)
-        [NSException raise:SP_EXC_DATA_INVALID format:@"Font XML did not contain path to texture"];
+        [NSException raise:SPExceptionDataInvalid format:@"Font XML did not contain path to texture"];
     
     return [texture autorelease];
 }
@@ -180,7 +178,7 @@ SP_IMPLEMENT_MEMORY_POOL();
 - (BOOL)parseFontData:(NSData *)data
 {
     if (!_fontTexture)
-        [NSException raise:SP_EXC_INVALID_OPERATION format:@"Font parsing requires texture to be set"];
+        [NSException raise:SPExceptionInvalidOperation format:@"Font parsing requires texture to be set"];
     
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
     BOOL success = [parser parseElementsWithBlock:^(NSString *elementName, NSDictionary *attributes)
@@ -238,7 +236,7 @@ SP_IMPLEMENT_MEMORY_POOL();
     [parser release];
     
     if (!success)
-        [NSException raise:SP_EXC_DATA_INVALID format:@"Error parsing font XML: %@",
+        [NSException raise:SPExceptionDataInvalid format:@"Error parsing font XML: %@",
                      parser.parserError.localizedDescription];
     
     return success;
@@ -283,7 +281,7 @@ SP_IMPLEMENT_MEMORY_POOL();
     _helperImage.color = color;
     
     if (charLocations.count > 8192)
-        [NSException raise:SP_EXC_INVALID_OPERATION
+        [NSException raise:SPExceptionInvalidOperation
                     format:@"Bitmap font text is limited to 8192 characters"];
     
     for (SPCharLocation *charLocation in charLocations)

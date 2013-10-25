@@ -17,27 +17,27 @@
 @class SPQuad;
 @class SPBitmapFont;
 
-#define SP_DEFAULT_FONT_NAME  @"Helvetica"
-#define SP_DEFAULT_FONT_SIZE  14.0f
-#define SP_DEFAULT_FONT_COLOR SP_BLACK
+SP_EXTERN NSString *const   SPDefaultFontName;
+SP_EXTERN const float       SPDefaultFontSize;
+SP_EXTERN const uint        SPDefaultFontColor;
 
-#define SP_NATIVE_FONT_SIZE -1.0f
+SP_EXTERN const float       SPNativeFontSize;
 
 /// Horizontal Alignment
-typedef enum 
+typedef NS_ENUM(NSInteger, SPHAlign)
 {
-    SPHAlignLeft = 0,
+    SPHAlignLeft,
     SPHAlignCenter,
     SPHAlignRight
-} SPHAlign;
+};
 
 /// Vertical Alignment
-typedef enum 
+typedef NS_ENUM(NSInteger, SPVAlign)
 {
-    SPVAlignTop = 0,
+    SPVAlignTop,
     SPVAlignCenter,
     SPVAlignBottom
-} SPVAlign;
+};
 
 /** ------------------------------------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ typedef enum
 	textField.fontName = fontName;
  
  Tip: Sparrow comes with a small bitmap font that is great for debug output. Just assign the 
- font name `SP_BITMAP_FONT_MINI` to a text field to use it.
+ font name `SPBitmapFontMiniName` to a text field to use it.
  
 ------------------------------------------------------------------------------------------------- */
 
@@ -94,27 +94,27 @@ typedef enum
 /// ------------------
 
 /// Initialize a text field with all important font properties. _Designated Initializer_.
-- (id)initWithWidth:(float)width height:(float)height text:(NSString*)text fontName:(NSString*)name
+- (instancetype)initWithWidth:(float)width height:(float)height text:(NSString *)text fontName:(NSString *)name
            fontSize:(float)size color:(uint)color;
 
 /// Initialize a text field with default settings (Helvetica, 14pt, black).
-- (id)initWithWidth:(float)width height:(float)height text:(NSString*)text;
+- (instancetype)initWithWidth:(float)width height:(float)height text:(NSString *)text;
 
 /// Initialize a text field with default settings (Helvetica, 14pt, black) and an empty string.
-- (id)initWithWidth:(float)width height:(float)height;
+- (instancetype)initWithWidth:(float)width height:(float)height;
 
 /// Initialize a 128x128 textField (Helvetica, 14pt, black).
-- (id)initWithText:(NSString *)text;
+- (instancetype)initWithText:(NSString *)text;
 
 /// Factory method.
-+ (id)textFieldWithWidth:(float)width height:(float)height text:(NSString*)text
-                          fontName:(NSString*)name fontSize:(float)size color:(uint)color;
++ (instancetype)textFieldWithWidth:(float)width height:(float)height text:(NSString *)text
+                          fontName:(NSString *)name fontSize:(float)size color:(uint)color;
 
 /// Factory method.
-+ (id)textFieldWithWidth:(float)width height:(float)height text:(NSString*)text;
++ (instancetype)textFieldWithWidth:(float)width height:(float)height text:(NSString *)text;
 
 /// Factory method.
-+ (id)textFieldWithText:(NSString *)text;
++ (instancetype)textFieldWithText:(NSString *)text;
 
 /// -------------
 /// @name Methods
@@ -163,7 +163,7 @@ typedef enum
 /// The name of the font.
 @property (nonatomic, copy) NSString *fontName;
 
-/// The size of the font. For bitmap fonts, use `SP_NATIVE_FONT_SIZE` for the original size.
+/// The size of the font. For bitmap fonts, use `SPNativeFontSize` for the original size.
 @property (nonatomic, assign) float fontSize;
 
 /// The horizontal alignment of the text.

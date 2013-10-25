@@ -242,6 +242,13 @@
 			path = graphics;
 			sourceTree = "<group>";
 		};
+		113F4D2F181130CB00067720 /* SXParticleSystem */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SXParticleSystem;
+			sourceTree = "<group>";
+		};
 		1148A85F17D40FE500D7E3B3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +282,7 @@
 		1154D1BA17E93BA000A3EC2B /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				113F4D2F181130CB00067720 /* SXParticleSystem */,
 				112EE3F217FCF60400C495D3 /* SXSimpleClippedImage */,
 				1154D1C217E93BCC00A3EC2B /* SXGauge */,
 				1154D1BB17E93BBE00A3EC2B /* SHPolygon */,

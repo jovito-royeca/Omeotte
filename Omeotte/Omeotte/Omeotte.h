@@ -17,7 +17,7 @@
 #define BLUE_COLOR    0x0000CD  // medium blue
 #define GREEN_COLOR   0x228B22  // forestgreen
 #define GOLD_COLOR    0xD9D919  // bright gold
-#define WHITE_COLOR   0xF0F8FF  // alice blue
+#define WHITE_COLOR   0xF0FFFF  // azure
 #define BLACK_COLOR   0x000000
 
 #define GAME_TURN     30        // seconds

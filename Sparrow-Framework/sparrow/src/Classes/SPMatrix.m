@@ -19,8 +19,6 @@
     float _tx, _ty;
 }
 
-@synthesize a=_a, b=_b, c=_c, d=_d, tx=_tx, ty=_ty;
-
 // --- c functions ---
 
 static inline void setValues(SPMatrix *matrix, float a, float b, float c, float d, float tx, float ty)
@@ -35,7 +33,7 @@ static inline void setValues(SPMatrix *matrix, float a, float b, float c, float 
 
 // ---
 
-- (id)initWithA:(float)a b:(float)b c:(float)c d:(float)d tx:(float)tx ty:(float)ty
+- (instancetype)initWithA:(float)a b:(float)b c:(float)c d:(float)d tx:(float)tx ty:(float)ty
 {
     if ((self = [super init]))
     {
@@ -45,7 +43,7 @@ static inline void setValues(SPMatrix *matrix, float a, float b, float c, float 
     return self;
 }
 
-- (id)init
+- (instancetype)init
 {
     return [self initWithA:1 b:0 c:0 d:1 tx:0 ty:0];
 }
@@ -61,7 +59,7 @@ static inline void setValues(SPMatrix *matrix, float a, float b, float c, float 
     return _a * _d - _c * _b;
 }
 
-- (void)appendMatrix:(SPMatrix*)lhs
+- (void)appendMatrix:(SPMatrix *)lhs
 {
     setValues(self, lhs->_a * _a  + lhs->_c * _b, 
                     lhs->_b * _a  + lhs->_d * _b, 
@@ -141,7 +139,7 @@ static inline void setValues(SPMatrix *matrix, float a, float b, float c, float 
     setValues(self, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
 }
 
-- (SPPoint*)transformPoint:(SPPoint*)point
+- (SPPoint *)transformPoint:(SPPoint *)point
 {
     return [SPPoint pointWithX:_a*point.x + _c*point.y + _tx
                              y:_b*point.x + _d*point.y + _ty];
@@ -191,7 +189,7 @@ static inline void setValues(SPMatrix *matrix, float a, float b, float c, float 
     else if (!other) return NO;
     else 
     {    
-        SPMatrix *matrix = (SPMatrix*)other;
+        SPMatrix *matrix = (SPMatrix *)other;
         return SP_IS_FLOAT_EQUAL(_a, matrix->_a) && SP_IS_FLOAT_EQUAL(_b, matrix->_b) &&
                SP_IS_FLOAT_EQUAL(_c, matrix->_c) && SP_IS_FLOAT_EQUAL(_d, matrix->_d) &&
                SP_IS_FLOAT_EQUAL(_tx, matrix->_tx) && SP_IS_FLOAT_EQUAL(_ty, matrix->_ty);
@@ -204,19 +202,19 @@ static inline void setValues(SPMatrix *matrix, float a, float b, float c, float 
             _a, _b, _c, _d, _tx, _ty];
 }
 
-+ (id)matrixWithA:(float)a b:(float)b c:(float)c d:(float)d tx:(float)tx ty:(float)ty
++ (instancetype)matrixWithA:(float)a b:(float)b c:(float)c d:(float)d tx:(float)tx ty:(float)ty
 {
     return [[[self allocWithZone:nil] initWithA:a b:b c:c d:d tx:tx ty:ty] autorelease];
 }
 
-+ (id)matrixWithIdentity
++ (instancetype)matrixWithIdentity
 {
     return [[[self allocWithZone:nil] init] autorelease];
 }
 
 #pragma mark NSCopying
 
-- (id)copyWithZone:(NSZone*)zone
+- (instancetype)copyWithZone:(NSZone *)zone
 {
     return [[[self class] allocWithZone:zone] initWithA:_a b:_b c:_c d:_d 
                                                      tx:_tx ty:_ty];

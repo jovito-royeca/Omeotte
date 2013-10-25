@@ -37,7 +37,7 @@
     SPEventDispatcher *_broadcastTarget;
 }
 
-- (void)addQuadToSprite:(SPSprite*)sprite;
+- (void)addQuadToSprite:(SPSprite *)sprite;
 
 @end
 
@@ -263,7 +263,7 @@
     STAssertThrows([sprite addChild:sprite], @"container allowed adding self as child");
 }
 
-- (void)addQuadToSprite:(SPSprite*)sprite
+- (void)addQuadToSprite:(SPSprite *)sprite
 {
     SPQuad *quad = [[SPQuad alloc] initWithWidth:100 height:100];
     quad.alpha = 0.2f;
@@ -277,10 +277,10 @@
     SPSprite *sprite = [[SPSprite alloc] init];
     SPQuad *quad = [[SPQuad alloc] initWithWidth:20 height:20];
     
-    [quad addEventListener:@selector(onAdded:) atObject:self forType:SP_EVENT_TYPE_ADDED];
-    [quad addEventListener:@selector(onAddedToStage:) atObject:self forType:SP_EVENT_TYPE_ADDED_TO_STAGE];
-    [quad addEventListener:@selector(onRemoved:) atObject:self forType:SP_EVENT_TYPE_REMOVED];
-    [quad addEventListener:@selector(onRemovedFromStage:) atObject:self forType:SP_EVENT_TYPE_REMOVED_FROM_STAGE];
+    [quad addEventListener:@selector(onAdded:) atObject:self forType:SPEventTypeAdded];
+    [quad addEventListener:@selector(onAddedToStage:) atObject:self forType:SPEventTypeAddedToStage];
+    [quad addEventListener:@selector(onRemoved:) atObject:self forType:SPEventTypeRemoved];
+    [quad addEventListener:@selector(onRemovedFromStage:) atObject:self forType:SPEventTypeRemovedFromStage];
     
     [sprite addChild:quad];
     
@@ -310,25 +310,25 @@
     STAssertEquals(1, _addedToStage, @"failure on event 'addedToStage'");
     STAssertEquals(1, _removedFromStage, @"failure on event 'removedFromStage'");
     
-    [quad removeEventListenersAtObject:self forType:SP_EVENT_TYPE_ADDED];
-    [quad removeEventListenersAtObject:self forType:SP_EVENT_TYPE_ADDED_TO_STAGE];
-    [quad removeEventListenersAtObject:self forType:SP_EVENT_TYPE_REMOVED];
-    [quad removeEventListenersAtObject:self forType:SP_EVENT_TYPE_REMOVED_FROM_STAGE];
+    [quad removeEventListenersAtObject:self forType:SPEventTypeAdded];
+    [quad removeEventListenersAtObject:self forType:SPEventTypeAddedToStage];
+    [quad removeEventListenersAtObject:self forType:SPEventTypeRemoved];
+    [quad removeEventListenersAtObject:self forType:SPEventTypeRemovedFromStage];
 }
 
-- (void)onAdded:(SPEvent*)event { _added++; }
-- (void)onRemoved:(SPEvent*)event { _removed++; }
-- (void)onAddedToStage:(SPEvent*)event { _addedToStage++; }
-- (void)onRemovedFromStage:(SPEvent*)event { _removedFromStage++; }
+- (void)onAdded:(SPEvent *)event { _added++; }
+- (void)onRemoved:(SPEvent *)event { _removed++; }
+- (void)onAddedToStage:(SPEvent *)event { _addedToStage++; }
+- (void)onRemovedFromStage:(SPEvent *)event { _removedFromStage++; }
 
 - (void)testRemovedFromStage
 {
     SPStage *stage = [[SPStage alloc] init];
     [stage addChild:_testSprite];    
     [_testSprite addEventListener:@selector(onTestSpriteRemovedFromStage:) atObject:self
-                          forType:SP_EVENT_TYPE_REMOVED_FROM_STAGE];    
+                          forType:SPEventTypeRemovedFromStage];    
     [_testSprite removeFromParent];
-    [_testSprite removeEventListenersAtObject:self forType:SP_EVENT_TYPE_REMOVED_FROM_STAGE];        
+    [_testSprite removeEventListenersAtObject:self forType:SPEventTypeRemovedFromStage];        
 }
 
 - (void)onTestSpriteRemovedFromStage:(SPEvent *)event
@@ -483,7 +483,7 @@
     // Remove last child, and in its event listener remove first child.
     // That must work, even though the child changes its index in the event handler.
     
-    [child2 addEventListener:@selector(onRemoveChild2:) atObject:self forType:SP_EVENT_TYPE_REMOVED];
+    [child2 addEventListener:@selector(onRemoveChild2:) atObject:self forType:SPEventTypeRemoved];
 
     STAssertNoThrow([parent removeChildAtIndex:2], @"exception raised");
     STAssertNil(child2.parent, @"child 2 not properly removed");

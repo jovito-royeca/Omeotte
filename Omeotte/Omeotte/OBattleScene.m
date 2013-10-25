@@ -101,6 +101,7 @@
     SPImage *background = [[SPImage alloc] initWithContentsOfFile:@"background.png"];
     background.width = _width;
     background.height = _height - cardHeight -40;
+    background.blendMode = SP_BLEND_MODE_NONE;
     [self addChild:background];
     
     // Base
@@ -630,12 +631,13 @@
     OResourcesUI *resourcesUI;
     OHealthUI *healthUI;
     float x = 0;
-    float width = (Sparrow.stage.width*3/5);
+    float width35 = (Sparrow.stage.width*3/5);
     
     if (player == players[0])
     {
         resourcesUI = player1Resources;
         healthUI = player1Health;
+        
     }
     else if (player == players[1])
     {
@@ -648,13 +650,13 @@
         case Tower:
         {
             x = (player == players[1]) ?
-                width + healthUI.lblTower.x : resourcesUI.width;
+                width35 + healthUI.lblTower.x : resourcesUI.width;
             break;
         }
         case Wall:
         {
             x = (player == players[1]) ?
-                width + healthUI.lblWall.x : resourcesUI.width + healthUI.lblWall.x;
+                width35 + healthUI.lblWall.x : resourcesUI.width + healthUI.lblWall.x;
             break;
         }
         
@@ -767,6 +769,9 @@
 
 -(void) putCardToGraveyard:(OCard*)card discarded:(BOOL)discarded
 {
+    float width = txtTimer.width;
+    float height = txtTimer.height;
+    
     for (OCardUI *cardUI in hand)
     {
         if (cardUI.card == card)
@@ -777,8 +782,8 @@
                 [cardUI showDiscarded];
             }
             
-            int centerX = (txtTimer.width-cardUI.width)/2;
-            [cardUI setupAnimation:txtTimer.x+centerX y:txtTimer.y+txtTimer.height time:2.0];
+            int centerX = (width-cardUI.width)/2;
+            [cardUI setupAnimation:txtTimer.x+centerX y:txtTimer.y+height time:2.0];
             
             [hand removeObject:cardUI];
             [graveyard addObject:cardUI];
