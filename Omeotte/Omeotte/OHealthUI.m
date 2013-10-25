@@ -133,6 +133,8 @@
 
 -(void) update:(OStats*)stats
 {
+//    [self unflatten];
+    
     float totalTowerHeight   = _height-TOWER_LABEL_HEIGHT;
     float towerRoofHeight    = TOWER_ROOF_PIXELS*0.524;
     float stemTowerHeight    = totalTowerHeight - towerRoofHeight;
@@ -162,6 +164,8 @@
              clipWidth:imgWall.width
             clipHeight:wallRoofHeight+newWallHeight];
     lblWall.text = [NSString stringWithFormat:@"%d", stats.wall];
+    
+//    [self flatten];
 }
 
 -(void) animateImage:(SXSimpleClippedImage*)image

@@ -38,7 +38,7 @@
     [_juggler advanceTime:seconds];
 }
 
--(void) applyEffectsOnStatField:(SPTextField*)statField
+-(void) applyFloatingTextOnStatField:(SPTextField*)statField
                        modValue:(int)modValue
                         message:(NSString*)message
                         xOffset:(float)x
@@ -63,7 +63,43 @@
     if (newField.y < 0)
     {
         [parent removeChild:newField];
+        [newField release];
     }
+}
+
+-(void) setFireOnStructure:(SPImage*)structure
+                   xOffset:(float)x
+                   yOffset:(float)y
+                    parent:(SPSprite*)parent
+{
+    // create particle system
+    SXParticleSystem *ps = [[SXParticleSystem alloc] initWithContentsOfFile:@"fire.pex"];
+    ps.x = x;
+    ps.y = y;
+    ps.emitterXVariance=0;
+    ps.emitterYVariance=0;
+    ps.maxNumParticles=100;
+    ps.emitAngleVariance=50;
+    ps.scaleY = -1;
+    
+    [parent addChild:ps];
+    [_juggler addObject:ps];
+//    [ps release];
+    
+    [ps start];
+    
+    // emit particles for one second, then stop
+    [ps startBurst:0.5];
+    
+    // stop emitting particles
+//    [ps stop];
+    
+    // or get notified when all particles are gone
+    [ps addEventListenerForType:SP_EVENT_TYPE_COMPLETED block:^(id event)
+    {
+        [parent removeChild:ps];
+        [ps release];
+    }];
 }
 
 @end

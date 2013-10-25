@@ -17,8 +17,10 @@
 		112EE3F517FCF62000C495D3 /* SXSimpleClippedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 112EE3F417FCF62000C495D3 /* SXSimpleClippedImage.m */; };
 		112EE3F817FD07DD00C495D3 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 112EE3F717FD07DD00C495D3 /* background.png */; };
 		11312106180F770400A332E7 /* chain and lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 11312105180F770400A332E7 /* chain and lock.png */; };
+		11360DEE181AC54B00E797B6 /* fire.pex in Resources */ = {isa = PBXBuildFile; fileRef = 11360DED181AC54B00E797B6 /* fire.pex */; };
 		1137991F17C49ADF00794158 /* magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137991E17C49ADF00794158 /* magic.plist */; };
 		1137992117C49AF000794158 /* dungeon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137992017C49AF000794158 /* dungeon.plist */; };
+		113F4D34181130E400067720 /* SXParticleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 113F4D33181130E400067720 /* SXParticleSystem.m */; };
 		1148A85A17D4083300D7E3B3 /* OBattleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A85917D4083300D7E3B3 /* OBattleScene.m */; };
 		1148A86617D411E200D7E3B3 /* OButtonTextureUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A86517D411E200D7E3B3 /* OButtonTextureUI.m */; };
 		1148A86C17D4227C00D7E3B3 /* OMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A86B17D4227C00D7E3B3 /* OMenuScene.m */; };
@@ -104,8 +106,11 @@
 		112EE3F717FD07DD00C495D3 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		11306C7E17D6BE0200156E78 /* Omeotte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Omeotte.h; sourceTree = "<group>"; };
 		11312105180F770400A332E7 /* chain and lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chain and lock.png"; sourceTree = "<group>"; };
+		11360DED181AC54B00E797B6 /* fire.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fire.pex; sourceTree = "<group>"; };
 		1137991E17C49ADF00794158 /* magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic.plist; sourceTree = "<group>"; };
 		1137992017C49AF000794158 /* dungeon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dungeon.plist; sourceTree = "<group>"; };
+		113F4D32181130E400067720 /* SXParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXParticleSystem.h; sourceTree = "<group>"; };
+		113F4D33181130E400067720 /* SXParticleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXParticleSystem.m; sourceTree = "<group>"; };
 		1148A85817D4083300D7E3B3 /* OBattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBattleScene.h; sourceTree = "<group>"; };
 		1148A85917D4083300D7E3B3 /* OBattleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBattleScene.m; sourceTree = "<group>"; };
 		1148A86117D4109400D7E3B3 /* OMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMenuScene.h; sourceTree = "<group>"; };
@@ -232,6 +237,7 @@
 		113517DF17CF103200C7EAA7 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				11360DED181AC54B00E797B6 /* fire.pex */,
 				11312105180F770400A332E7 /* chain and lock.png */,
 				112EE3F717FD07DD00C495D3 /* background.png */,
 				111FB82A17E7DC1700CDBAF0 /* cards.png */,
@@ -245,6 +251,8 @@
 		113F4D2F181130CB00067720 /* SXParticleSystem */ = {
 			isa = PBXGroup;
 			children = (
+				113F4D32181130E400067720 /* SXParticleSystem.h */,
+				113F4D33181130E400067720 /* SXParticleSystem.m */,
 			);
 			path = SXParticleSystem;
 			sourceTree = "<group>";
@@ -540,6 +548,7 @@
 				1195D18D17C25F5E00C4DA25 /* Default.png in Resources */,
 				1195D18F17C25F5E00C4DA25 /* Default@2x.png in Resources */,
 				11FE27EA1803B1E600159D4A /* Kingthings_Calligraphica.fnt in Resources */,
+				11360DEE181AC54B00E797B6 /* fire.pex in Resources */,
 				1195D19117C25F5E00C4DA25 /* Default-568h@2x.png in Resources */,
 				11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */,
 				11312106180F770400A332E7 /* chain and lock.png in Resources */,
@@ -607,6 +616,7 @@
 				11FBAA3D17DEF5BA008CE6E6 /* CardTestScene.m in Sources */,
 				111FB83717E7EB6D00CDBAF0 /* OResourcesUI.m in Sources */,
 				1154D1C017E93BBE00A3EC2B /* SHPolygon.m in Sources */,
+				113F4D34181130E400067720 /* SXParticleSystem.m in Sources */,
 				1154D1C117E93BBE00A3EC2B /* SHPolygonImage.m in Sources */,
 				1154D1C517E93BCC00A3EC2B /* SXGauge.m in Sources */,
 			);

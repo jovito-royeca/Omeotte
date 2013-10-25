@@ -11,16 +11,22 @@
 #import "Sparrow.h"
 
 #import "Omeotte.h"
+#import "SXParticleSystem.h"
 
 @interface OEffects : NSObject
 
 -(void) advanceTime:(double)seconds;
 
--(void) applyEffectsOnStatField:(SPTextField*)statField
+-(void) applyFloatingTextOnStatField:(SPTextField*)statField
                        modValue:(int)modValue
                         message:(NSString*)message
                         xOffset:(float)x
                         yOffset:(float)y
                          parent:(SPSprite*)parent;
+
+-(void) setFireOnStructure:(SPImage*)structure
+                             xOffset:(float)x
+                             yOffset:(float)y
+                              parent:(SPSprite*)parent;
 
 @end

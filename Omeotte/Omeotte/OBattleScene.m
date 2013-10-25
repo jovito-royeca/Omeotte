@@ -258,25 +258,6 @@
 
 -(void) gameLoop:(SPEnterFrameEvent*)event
 {
-    // animate
-    if (_gamePhase != Pause)
-    {
-        [_effects advanceTime:event.passedTime];
-        [player1Resources advanceTime:event.passedTime];
-        [player1Health advanceTime:event.passedTime];
-        [player2Resources advanceTime:event.passedTime];
-        [player2Health advanceTime:event.passedTime];
-        
-        for (OCardUI *cardUI in hand)
-        {
-            [cardUI advanceTime:event.passedTime];
-        }
-        for (OCardUI *cardUI in graveyard)
-        {
-            [cardUI advanceTime:event.passedTime];
-        }
-    }
-    
     switch (_gamePhase)
     {
         case Upkeep:
@@ -302,6 +283,25 @@
         case Pause:
         {
             break;
+        }
+    }
+    
+    // animate
+    if (_gamePhase != Pause)
+    {
+        [_effects advanceTime:event.passedTime];
+        [player1Resources advanceTime:event.passedTime];
+        [player1Health advanceTime:event.passedTime];
+        [player2Resources advanceTime:event.passedTime];
+        [player2Health advanceTime:event.passedTime];
+        
+        for (OCardUI *cardUI in hand)
+        {
+            [cardUI advanceTime:event.passedTime];
+        }
+        for (OCardUI *cardUI in graveyard)
+        {
+            [cardUI advanceTime:event.passedTime];
         }
     }
 }
@@ -587,38 +587,50 @@
 #pragma mark - OCardUIDelegate
 - (void)promote:(OCardUI*)cardUI
 {
-    NSLog(@"promote... %@", cardUI.card.name);
-    for (OCardUI *cardUI in hand)
+    if (!_currentPlayer.ai)
     {
-        [self demote:cardUI];
+        NSLog(@"promote... %@", cardUI.card.name);
+        for (OCardUI *cardUI in hand)
+        {
+            [self demote:cardUI];
+        }
+        [cardUI setupAnimation:cardUI.x y:cardUI.y-20 time:0.5];
     }
-    [cardUI setupAnimation:cardUI.x y:cardUI.y-20 time:0.5];
 }
 
 - (void)play:(OCardUI*)cardUI
 {
-    NSLog(@"play... %@", cardUI.card.name);
-    _currentCard = cardUI.card;
+    if (!_currentPlayer.ai)
+    {
+        NSLog(@"play... %@", cardUI.card.name);
+        _currentCard = cardUI.card;
+    }
 }
 
 - (void)discard:(OCardUI*)cardUI
 {
-    NSLog(@"discard... %@", cardUI.card.name);
-    [self discardCard:cardUI.card];
-    [self switchTurn:[self opponentPlayer]];
+    if (!_currentPlayer.ai)
+    {
+        NSLog(@"discard... %@", cardUI.card.name);
+        [self discardCard:cardUI.card];
+        [self switchTurn:[self opponentPlayer]];
+    }
 }
 
 - (void)demote:(OCardUI*)cardUI
 {
-    float cardWidth  = Sparrow.stage.width/6;
-    float cardHeight = (cardWidth*128)/95;
-    float y = Sparrow.stage.height-cardHeight;
-    
-    if (cardUI.y < y)
+    if (!_currentPlayer.ai)
     {
-        NSLog(@"demote... %@", cardUI.card.name);
-        cardUI.touchStatus = 0;
-        [cardUI setupAnimation:cardUI.x y:y time:0.5];
+        float cardWidth  = Sparrow.stage.width/6;
+        float cardHeight = (cardWidth*128)/95;
+        float y = Sparrow.stage.height-cardHeight;
+    
+        if (cardUI.y < y)
+        {
+            NSLog(@"demote... %@", cardUI.card.name);
+            cardUI.touchStatus = 0;
+            [cardUI setupAnimation:cardUI.x y:y time:0.5];
+        }
     }
 }
 
@@ -682,27 +694,41 @@
     {
         case Tower:
         {
-            [_effects applyEffectsOnStatField:healthUI.lblTower
+            [_effects applyFloatingTextOnStatField:healthUI.lblTower
                                      modValue:modValue
                                       message:@"Tower"
                                       xOffset:x
                                       yOffset:healthUI.lblTower.y
                                        parent:self];
+            if (modValue < 0)
+            {
+                [_effects setFireOnStructure:healthUI.imgTower
+                                     xOffset:x+(healthUI.width/4)
+                                     yOffset:healthUI.y+healthUI.height
+                                      parent:self];
+            }
             break;
         }
         case Wall:
         {
-            [_effects applyEffectsOnStatField:healthUI.lblWall
+            [_effects applyFloatingTextOnStatField:healthUI.lblWall
                                      modValue:modValue
                                       message:@"Wall"
                                       xOffset:x
                                       yOffset:healthUI.lblWall.y
                                        parent:self];
+            if (modValue < 0)
+            {
+                [_effects setFireOnStructure:healthUI.imgWall
+                                     xOffset:x+(healthUI.width/4)
+                                     yOffset:healthUI.y+healthUI.height
+                                      parent:self];
+            }
             break;
         }
         case Bricks:
         {
-            [_effects applyEffectsOnStatField:resourcesUI.lblBricks
+            [_effects applyFloatingTextOnStatField:resourcesUI.lblBricks
                                      modValue:modValue
                                       message:@"bricks"
                                       xOffset:x
@@ -712,7 +738,7 @@
         }
         case Gems:
         {
-            [_effects applyEffectsOnStatField:resourcesUI.lblGems
+            [_effects applyFloatingTextOnStatField:resourcesUI.lblGems
                                      modValue:modValue
                                       message:@"gems"
                                         xOffset:x
@@ -722,7 +748,7 @@
         }
         case Recruits:
         {
-            [_effects applyEffectsOnStatField:resourcesUI.lblRecruits
+            [_effects applyFloatingTextOnStatField:resourcesUI.lblRecruits
                                      modValue:modValue
                                       message:@"recruits"
                                       xOffset:x
@@ -732,7 +758,7 @@
         }
         case Quarries:
         {
-            [_effects applyEffectsOnStatField:resourcesUI.lblQuarries
+            [_effects applyFloatingTextOnStatField:resourcesUI.lblQuarries
                                      modValue:modValue
                                       message:@"Quarries"
                                       xOffset:x
@@ -742,7 +768,7 @@
         }
         case Magics:
         {
-            [_effects applyEffectsOnStatField:resourcesUI.lblMagics
+            [_effects applyFloatingTextOnStatField:resourcesUI.lblMagics
                                      modValue:modValue
                                       message:@"Magics"
                                       xOffset:x
@@ -752,7 +778,7 @@
         }
         case Dungeons:
         {
-            [_effects applyEffectsOnStatField:resourcesUI.lblDungeons
+            [_effects applyFloatingTextOnStatField:resourcesUI.lblDungeons
                                      modValue:modValue
                                       message:@"Dungeons"
                                       xOffset:x
@@ -798,6 +824,7 @@
         
         [self removeChild:cardUI];
         [graveyard removeObject:cardUI];
+        [cardUI release];
     }
 }
 
@@ -807,6 +834,7 @@
     for (OCardUI *cardUI in hand)
     {
         [self removeChild:cardUI];
+        [cardUI release];
     }
     [hand removeAllObjects];
     

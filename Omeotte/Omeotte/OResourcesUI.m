@@ -164,6 +164,8 @@
     float ratio = 0;
     float width = 0;
     
+    [self unflatten];
+    
     lblQuarries.text = [NSString stringWithFormat:@"%d", stats.quarries];
     lblBricks.text = [NSString stringWithFormat:@"%d bricks", stats.bricks];
     ratio = (float) stats.bricks / (float) _rule.winningResource;
@@ -181,6 +183,8 @@
     ratio = (float) stats.recruits / (float) _rule.winningResource;
     width = baseWidth * ratio;
     [self animateResourceBar:qdRecruits width:width];
+
+    [self flatten];
 }
 
 -(void) animateResourceBar:(SPQuad*)bar width:(float)width

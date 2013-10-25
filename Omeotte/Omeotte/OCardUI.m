@@ -33,8 +33,8 @@
 - (void)dealloc
 {
     [super dealloc];
-    
-    [card release];
+ 
+//    [card release];
     [lblName release];
     [qdCost release];
     [lblCost release];
@@ -46,7 +46,7 @@
     [qdBackground release];
     [imgLocked release];
     [lblDiscarded release];
-    [delegate release];
+//    [delegate release];
     [_juggler release];
 }
 
@@ -89,16 +89,16 @@
     [self addChild:imgBackground];
     
     currentX = _width * 0.08;
-    currentY = _width * 0.08;
+    currentY = _width * 0.06;
     currentWidth = _width * 0.84;
-    currentHeight = _width * 0.08;
+    currentHeight = _width * 0.10;
     lblName = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
     lblName.x = currentX;
     lblName.y = currentY;
     lblName.color = BLACK_COLOR;
-    lblName.fontSize = currentX;
+    lblName.fontSize = currentHeight;
     lblName.hAlign = SPHAlignLeft;
-    lblName.fontName = EXETER_FONT;
+    lblName.fontName = CALLIGRAPHICA_FONT;
     [self addChild:lblName];
 
     currentY = _width * 0.16;
@@ -135,6 +135,8 @@
     lblText.y = currentY;
     lblText.color = BLACK_COLOR;
     lblText.fontSize = currentX;
+    lblText.fontName = EXETER_FONT;
+    lblText.vAlign = SPVAlignTop;
     [self addChild:lblText];
 
     [self addEventListener:@selector(onCardTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
@@ -156,16 +158,16 @@
     qdBorder.color = BLACK_COLOR;
     [self addChild:qdBorder];
     
-    currentWidth = _width-16;
-    currentHeight = _height-16;
+    currentWidth = _width-10;
+    currentHeight = _height-10;
     qdBackground = [[SPQuad alloc] initWithWidth:currentWidth height:currentHeight];
     qdBackground.x = 8;
     qdBackground.y = 8;
     qdBackground.color = WHITE_COLOR;
     [self addChild:qdBackground];
     
-    currentWidth = (_width-16)*0.369;
-    currentHeight = _height-16;
+    currentWidth = (_width-10)*0.369;
+    currentHeight = _height-10;
     currentX = (_width-currentWidth)/2;
     imgTower = [[SPImage alloc] initWithWidth:currentWidth height:currentHeight];
     imgTower.x = currentX;
@@ -193,6 +195,10 @@
                 touchStatus++;
             }
             else if (position.y >= self.height)
+            {
+                touchStatus--;
+            }
+            else
             {
                 touchStatus--;
             }
@@ -290,6 +296,7 @@
         [self removeChild:imgLocked];
 //        [imgArt setAlpha:1.0];
     }
+
     [self flatten];
 }
 
@@ -298,6 +305,7 @@
     [self setupBack];
     
     [self unflatten];
+    
     static NSString *ui = nil;
     if (!ui)
     {
@@ -308,6 +316,7 @@
     NSString *szTower = opponent ? @"blue tower" : @"red tower";
     SPTexture *tower = [OMedia texture:szTower fromAtlas:ui];
     imgTower.texture = tower;
+
     [self flatten];
 }
 
