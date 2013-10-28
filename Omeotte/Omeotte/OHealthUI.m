@@ -21,6 +21,10 @@
 @synthesize lblTower;
 @synthesize imgWall;
 @synthesize lblWall;
+@synthesize towerCenterX;
+@synthesize towerCenterY;
+@synthesize wallCenterX;
+@synthesize wallCenterY;
 
 - (void)dealloc
 {
@@ -139,6 +143,8 @@
     float towerRoofHeight    = TOWER_ROOF_PIXELS*0.524;
     float stemTowerHeight    = totalTowerHeight - towerRoofHeight;
     float newTowerHeight     = stemTowerHeight * ((float)stats.tower/(float)_rule.winningTower);
+    towerCenterX = (_width/2)*0.542;
+    towerCenterY = stemTowerHeight;
     [self animateImage:imgTower
                      x:imgTower.x
                      y:totalTowerHeight-(towerRoofHeight+newTowerHeight)
@@ -147,7 +153,7 @@
              clipWidth:imgTower.width
             clipHeight:towerRoofHeight+newTowerHeight];
     lblTower.text = [NSString stringWithFormat:@"%d / %d", stats.tower, _rule.winningTower];
-
+    
     float totalWallHeight   = _height-TOWER_LABEL_HEIGHT;
     float wallRoofHeight    = WALL_ROOF_PIXELS*0.639;
     float stemWallHeight    = totalWallHeight - wallRoofHeight;
@@ -156,6 +162,8 @@
     {
         newWallHeight = stemWallHeight;
     }
+    wallCenterX = (_width/4)*0.445;
+    wallCenterY = stemWallHeight;
     [self animateImage:imgWall
                      x:imgWall.x
                      y:totalWallHeight-(wallRoofHeight+newWallHeight)

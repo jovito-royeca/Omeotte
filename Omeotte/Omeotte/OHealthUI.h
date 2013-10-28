@@ -32,12 +32,18 @@
 @property(strong,nonatomic) SPTextField *lblTower;
 @property(strong,nonatomic) SXSimpleClippedImage *imgWall;
 @property(strong,nonatomic) SPTextField *lblWall;
+@property(nonatomic) float towerCenterX;
+@property(nonatomic) float towerCenterY;
+@property(nonatomic) float wallCenterX;
+@property(nonatomic) float wallCenterY;
 
 -(id) initWithWidth:(float)width
              height:(float)height
                rule:(ORule*)rule
                  ai:(BOOL)isAI;
+
 -(void) update:(OStats*)stats;
+
 -(void) animateImage:(SXSimpleClippedImage*)image
                    x:(float)x
                    y:(float)y

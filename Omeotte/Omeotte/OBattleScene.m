@@ -101,7 +101,7 @@
     SPImage *background = [[SPImage alloc] initWithContentsOfFile:@"background.png"];
     background.width = _width;
     background.height = _height - cardHeight -40;
-    background.blendMode = SP_BLEND_MODE_NONE;
+    background.blendMode = SPBlendModeNone;
     [self addChild:background];
     
     // Base
@@ -703,8 +703,8 @@
             if (modValue < 0)
             {
                 [_effects setFireOnStructure:healthUI.imgTower
-                                     xOffset:x+(healthUI.width/4)
-                                     yOffset:healthUI.y+healthUI.height
+                                     xOffset:x+healthUI.towerCenterX
+                                     yOffset:healthUI.y+healthUI.towerCenterY
                                       parent:self];
             }
             break;
@@ -720,8 +720,8 @@
             if (modValue < 0)
             {
                 [_effects setFireOnStructure:healthUI.imgWall
-                                     xOffset:x+(healthUI.width/4)
-                                     yOffset:healthUI.y+healthUI.height
+                                     xOffset:x+healthUI.wallCenterX
+                                     yOffset:healthUI.y+healthUI.wallCenterY
                                       parent:self];
             }
             break;

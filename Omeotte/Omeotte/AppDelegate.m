@@ -22,7 +22,8 @@
 {
     if ((self = [super init]))
     {
-        _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        CGRect screenBounds = [UIScreen mainScreen].bounds;
+        _window = [[UIWindow alloc] initWithFrame:screenBounds];
         _viewController = [[SPViewController alloc] init];
     }
     return self;
@@ -30,21 +31,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-//    self.window.backgroundColor = [UIColor whiteColor];
-    
-
     // Enable some common settings here:
     // _viewController.showStats = YES;
     _viewController.multitouchEnabled = YES;
-    _viewController.preferredFramesPerSecond = 60;
+//    _viewController.preferredFramesPerSecond = 60;
   
     [_viewController startWithRoot:[OGameScene class] supportHighResolutions:YES doubleOnPad:YES];
-//    _viewController.onRootCreated = ^(OGame *game)
-//	{
-//	    // access your game instance here
-//	};
     
     [_window setRootViewController:_viewController];
     [_window makeKeyAndVisible];

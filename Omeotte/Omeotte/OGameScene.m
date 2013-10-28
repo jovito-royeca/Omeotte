@@ -10,14 +10,18 @@
 #import "OBattleScene.h"
 
 @implementation OGameScene
+{
+    float _offsetY;
+}
 
 - (id)init
 {
     if ((self = [super init]))
     {
-        screenWidth = Sparrow.stage.width;
-        screenHeight = Sparrow.stage.height;
-
+        _screenWidth = Sparrow.stage.width;
+        _screenHeight = Sparrow.stage.height;
+        _offsetY = (Sparrow.stage.height - 480) / 2;
+        
         OMenuScene *menuScene = [[OMenuScene alloc] init];
         [self showScene:menuScene];
     }
@@ -28,8 +32,14 @@
 {
     if ([self containsChild:_currentScene])
     {
-        [self removeChild:_currentScene];
+//        [self removeChild:_currentScene];
+        [_currentScene removeFromParent];
+        _currentScene = nil;
     }
+//    scene.width = _screenWidth;
+//    scene.height = _screenHeight;
+//    scene.y = _offsetY;
+    
     [self addChild:scene];
     _currentScene = scene;
 }
