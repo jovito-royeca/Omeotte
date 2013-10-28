@@ -150,14 +150,14 @@
             {
                 case Current:
                 {
-                    [base setStatField:targetField withValue:e.value];
                     [delegate statChanged:targetField fieldValue:[base statField:e.field] modValue:e.value player:self];
+                    [base setStatField:targetField withValue:e.value];
                     break;
                 }
                 case Opponent:
                 {
-                    [target.base setStatField:targetField withValue:e.value];
                     [delegate statChanged:e.field fieldValue:[target.base statField:e.field] modValue:e.value player:target];
+                    [target.base setStatField:targetField withValue:e.value];
                     break;
                 }
             }

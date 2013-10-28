@@ -30,6 +30,6 @@
 
 #define pix2points(x) (x)
 
-//#define CARD_TO_TEST            @"Gemstone Flaw"
+//#define CARD_TO_TEST            @"Gnome"
 
 #endif

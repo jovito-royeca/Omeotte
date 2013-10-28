@@ -711,19 +711,43 @@
         }
         case Wall:
         {
-            [_effects applyFloatingTextOnStatField:healthUI.lblWall
-                                     modValue:modValue
-                                      message:@"Wall"
-                                      xOffset:x
-                                      yOffset:healthUI.lblWall.y
-                                       parent:self];
-            if (modValue < 0)
+            int result = fieldValue+modValue;
+            
+            if (result > 0)
             {
-                [_effects setFireOnStructure:healthUI.imgWall
-                                     xOffset:x+healthUI.wallCenterX
-                                     yOffset:healthUI.y+healthUI.wallCenterY
+                [_effects applyFloatingTextOnStatField:healthUI.lblWall
+                                              modValue:modValue
+                                               message:@"Wall"
+                                               xOffset:x
+                                               yOffset:healthUI.lblWall.y
+                                                parent:self];
+                if (modValue < 0)
+                {
+                    [_effects setFireOnStructure:healthUI.imgWall
+                                         xOffset:x+healthUI.wallCenterX
+                                         yOffset:healthUI.y+healthUI.wallCenterY
+                                          parent:self];
+                }
+            }
+            
+            // wall can't take more damage; apply extra damage to Tower
+            if (result < 0)
+            {
+                x = (player == players[1]) ?
+                    width35 + healthUI.lblTower.x : resourcesUI.width;
+                
+                [_effects applyFloatingTextOnStatField:healthUI.lblTower
+                                              modValue:result
+                                               message:@"Tower"
+                                               xOffset:x
+                                               yOffset:healthUI.lblTower.y
+                                                parent:self];
+                [_effects setFireOnStructure:healthUI.imgTower
+                                     xOffset:x+healthUI.towerCenterX
+                                     yOffset:healthUI.y+healthUI.towerCenterY
                                       parent:self];
             }
+            
             break;
         }
         case Bricks:
