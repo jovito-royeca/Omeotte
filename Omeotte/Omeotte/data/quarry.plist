@@ -386,23 +386,12 @@
 		<false/>
 		<key>type</key>
 		<integer>0</integer>
-		<key>effects</key>
-		<array>
-			<dict>
-				<key>field</key>
-				<integer>1</integer>
-				<key>value</key>
-				<integer>3</integer>
-				<key>target</key>
-				<integer>0</integer>
-			</dict>
-		</array>
 		<key>eval</key>
 		<dict>
 			<key>op1</key>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
 				<integer>0</integer>
 				<key>target</key>
@@ -411,7 +400,7 @@
 			<key>op2</key>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
 				<integer>0</integer>
 				<key>target</key>
@@ -429,9 +418,9 @@
 			<key>equalsResult</key>
 			<dict>
 				<key>field</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>value</key>
-				<integer>0</integer>
+				<integer>3</integer>
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
@@ -445,6 +434,17 @@
 				<integer>0</integer>
 			</dict>
 		</dict>
+		<key>effects</key>
+		<array>
+			<dict>
+				<key>field</key>
+				<integer>1</integer>
+				<key>value</key>
+				<integer>3</integer>
+				<key>target</key>
+				<integer>0</integer>
+			</dict>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -565,23 +565,6 @@
 				<integer>0</integer>
 			</dict>
 		</array>
-		<key>evals</key>
-		<array>
-			<dict>
-				<key>op1</key>
-				<integer>5</integer>
-				<key>op2</key>
-				<integer>13</integer>
-				<key>opResult</key>
-				<integer>-1</integer>
-				<key>opTarget</key>
-				<integer>5</integer>
-				<key>opValue</key>
-				<integer>1</integer>
-				<key>opType</key>
-				<integer>0</integer>
-			</dict>
-		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -640,23 +623,6 @@
 				<integer>0</integer>
 				<key>target</key>
 				<integer>0</integer>
-			</dict>
-		</array>
-		<key>evals</key>
-		<array>
-			<dict>
-				<key>op1</key>
-				<integer>5</integer>
-				<key>op2</key>
-				<integer>13</integer>
-				<key>opResult</key>
-				<integer>-1</integer>
-				<key>opTarget</key>
-				<integer>5</integer>
-				<key>opValue</key>
-				<integer>0</integer>
-				<key>opType</key>
-				<integer>1</integer>
 			</dict>
 		</array>
 	</dict>

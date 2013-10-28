@@ -28,13 +28,12 @@
 
 - (void)dealloc
 {
-    [super dealloc];
-    
     [imgTower release];
     [lblTower release];
     [imgWall release];
     [lblWall release];
     [_juggler release];
+    [super dealloc];
 }
 
 -(id) initWithWidth:(float)width

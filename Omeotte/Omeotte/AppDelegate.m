@@ -40,6 +40,8 @@
     
     [_window setRootViewController:_viewController];
     [_window makeKeyAndVisible];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    
     return YES;
 }
 

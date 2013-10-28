@@ -15,8 +15,35 @@
 @synthesize text;
 @synthesize playAgain;
 @synthesize type;
-@synthesize effects;
 @synthesize eval;
+@synthesize effects;
+
+- (id) init
+{
+    if ((self = [super init]))
+    {
+        eval = create(Eval);
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    free(eval);
+    
+//    if (effects)
+//    {
+//        for (int i=0; i<effects.count; i++)
+//        {
+//            struct _Effect e;
+//            [[effects objectAtIndex:i] getValue:&e];
+//            free(&e);
+//        }
+//    }
+//    [effects removeAllObjects];
+    
+    [super dealloc];
+}
 
 NSArray *_cards;
 
@@ -64,12 +91,40 @@ NSArray *_cards;
                 card.playAgain = [[dict valueForKey:@"playAgain"] boolValue];
                 card.type = [[dict valueForKey:@"type"] intValue];
             
-                NSArray *_effects = [dict valueForKey:@"effects"];
-                if (_effects)
+                NSDictionary *evalDict = [dict valueForKey:@"eval"];
+                if (evalDict)
                 {
-                    NSMutableArray *effectsArr = [[NSMutableArray alloc] init];
+//                    for (NSString *key in [evalDict allKeys])
+//                    {
+//                        if ([key isEqualToString:@"op1"])
+//                        {
+//                            card.eval->op1 = [self createEffect:[evalDict objectForKey:key]];
+//                        }
+//                        else if ([key isEqualToString:@"op2"])
+//                        {
+//                            card.eval->op2 = [self createEffect:[evalDict objectForKey:key]];
+//                        }
+//                        else if ([key isEqualToString:@"lesserThanResult"])
+//                        {
+//                            card.eval->lesserThanResult = [self createEffect:[evalDict objectForKey:key]];
+//                        }
+//                        else if ([key isEqualToString:@"equalsResult"])
+//                        {
+//                            card.eval->equalsResult = [self createEffect:[evalDict objectForKey:key]];
+//                        }
+//                        else if ([key isEqualToString:@"greaterThanResult"])
+//                        {
+//                            card.eval->greaterThanResult = [self createEffect:[evalDict objectForKey:key]];
+//                        }
+//                    }
+                }
+                
+                NSArray *fx = [dict valueForKey:@"effects"];
+                if (fx)
+                {
+                    NSMutableArray *fxArr = [[NSMutableArray alloc] init];
                     
-                    for (NSDictionary *x in _effects)
+                    for (NSDictionary *x in fx)
                     {
                         Effect e = [self createEffect:x];
                         
@@ -83,17 +138,11 @@ NSArray *_cards;
                          struct Point p;
                          [[array objectAtIndex:i] getValue:&p];
                          */
-                        [effectsArr addObject:[NSValue value:e withObjCType:@encode(struct _Effect)]];
+                        [fxArr addObject:[NSValue value:e withObjCType:@encode(struct _Effect)]];
                     }
-                    card.effects = effectsArr;
+                    card.effects = fxArr;
                 }
             
-                NSDictionary *_eval = [dict valueForKey:@"eval"];
-                if (_eval)
-                {
-//                    card.eval = evalDict;
-                }
-                
                 [macards addObject:card];
             }
         }

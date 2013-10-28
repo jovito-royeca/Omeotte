@@ -20,6 +20,14 @@
 
 @interface OCardUI : SPSprite
 
+typedef enum
+{
+    InDeck = 0,
+    InHand,
+    InStack,
+    InGraveyard
+} CardStatus;
+
 @property(strong,nonatomic) OCard *card;
 @property(strong,nonatomic) SPTextField *lblName;
 @property(strong,nonatomic) SPQuad *qdCost;
@@ -34,6 +42,7 @@
 @property(strong,nonatomic) SPTextField *lblDiscarded;
 
 @property(nonatomic) BOOL touchStatus;
+@property(nonatomic) CardStatus cardStatus;
 
 @property(nonatomic, assign) id<OCardUIDelegate> delegate;
 

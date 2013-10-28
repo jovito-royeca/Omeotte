@@ -58,9 +58,9 @@ typedef struct _Eval
 @property(nonatomic) int magics;
 @property(nonatomic) int dungeons;
 
-+(void) applyEffect:(Effect)effect onCurrent:(OStats*)current  orOpponent:(OStats*) opponent;
++(void) applyEffect:(Effect)effect onCurrent:(OStats*)current orOpponent:(OStats*)opponent;
 
-+(void) evaluate:(Eval)eval onCurrent:(OStats*) current  orOpponent:(OStats*) opponent;
++(void) evaluate:(Eval)eval onCurrent:(OStats*)current orOpponent:(OStats*)opponent;
 
 -(int) statField:(StatField)field;
 

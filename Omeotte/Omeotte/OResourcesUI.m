@@ -29,8 +29,6 @@
 
 - (void)dealloc
 {
-    [super dealloc];
-    
     [lblQuarries release];
     [lblBricks release];
     [qdBricks release];
@@ -41,6 +39,7 @@
     [lblRecruits release];
     [qdRecruits release];
     [_juggler release];
+    [super dealloc];
 }
 
 -(id) initWithWidth:(float)width

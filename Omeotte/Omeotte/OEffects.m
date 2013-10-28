@@ -16,10 +16,9 @@
 
 - (void)dealloc
 {
-    [super dealloc];
-    
     [_statFields release];
     [_juggler release];
+    [super dealloc];
 }
 
 -(id) init

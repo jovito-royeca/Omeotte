@@ -28,12 +28,11 @@
 
 - (void)dealloc
 {
-    [super dealloc];
-
     [cardUI release];
     [searchBar release];
     [tblCards release];
     [OMedia releaseAllAtlas];
+    [super dealloc];
 }
 
 - (void)setup

@@ -60,13 +60,6 @@
 
 - (void)dealloc
 {
-    [super dealloc];
-
-    for (OCardUI *card in hand)
-    {
-        [card removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
-    }
-    
     [rule release];
     [players release];
     [hand release];
@@ -80,8 +73,8 @@
     [player2Resources release];
     [player2Health release];
     [_effects release];
-    
     //    [SPMedia releaseSound];
+    [super dealloc];
 }
 
 - (void)setup
@@ -275,9 +268,9 @@
             [self mainPhase];
             break;
         }
-        case Victory:
+        case GameOver:
         {
-            [self victoryPhase];
+            [self gameOverPhase];
             break;
         }
         case Pause:
@@ -287,7 +280,7 @@
     }
     
     // animate
-    if (_gamePhase != Pause)
+    if (_gamePhase != Pause || _gamePhase != GameOver)
     {
         [_effects advanceTime:event.passedTime];
         [player1Resources advanceTime:event.passedTime];
@@ -394,7 +387,10 @@
     
     if (winners.count > 0)
     {
-        _gamePhase = Victory;
+        _gamePhase = GameOver;
+        _currentCard = nil;
+        [_timer invalidate];
+        _timer = nil;
     }
 }
 
@@ -408,7 +404,7 @@
 
 - (void)timerTick:(NSTimer *)timer
 {
-    if (_gamePhase != Pause)
+    if (_gamePhase != Pause || _gamePhase != GameOver)
     {
         elapsedTurnTime--;
         txtTimer.color = elapsedTurnTime <= 5 ? RED_COLOR : WHITE_COLOR;
@@ -484,7 +480,7 @@
             [self updateStats];
             [self checkWinner];
             
-            if (_gamePhase != Victory)
+            if (_gamePhase != GameOver)
             {
                 [self switchTurn:_currentCard.playAgain ? _currentPlayer : opponentPlayer];
                 turnTaken = YES;
@@ -531,9 +527,10 @@
     }
 }
 
--(void) victoryPhase
+-(void) gameOverPhase
 {
-    NSString *message = nil;
+    NSString *szMessage = nil;
+    NSString *szBackground = nil;
     
     switch (winners.count)
     {
@@ -541,33 +538,45 @@
         {
             if ([winners containsObject:players[0]])
             {
-                message = @"Victory";
+                szMessage = @"Victory";
+                szBackground = @"winner.png";
             }
             else if ([winners containsObject:players[1]])
             {
-                message = @"Defeat";
+                szMessage = @"Defeat";
+                szBackground = @"looser.png";
             }
             break;
         }
         case 2:
         {
-            message = @"Draw";
+            szMessage = @"Draw";
+            szBackground = @"draw.png";
             break;
         }
-        default:
-            break;
     }
     
-    if (message)
-    {
-        UIAlertView *alertMessage =  [[UIAlertView alloc] initWithTitle:@"Game Over"
-                                                                message:message
-                                                               delegate:nil
-                                                      cancelButtonTitle:nil
-                                                      otherButtonTitles:@"OK", nil];
-        [alertMessage show];
-        [self showMenu];
-    }
+    float _width = 352;
+    float _height = 128;
+    
+    SPSprite *spDialog = [[SPSprite alloc] init];
+    spDialog.width = _width;
+    spDialog.height = _height;
+    spDialog.x = (Sparrow.stage.width-_width)/2;
+    spDialog.y = (Sparrow.stage.height-_height)/2;
+    SPImage *background = [[SPImage alloc] initWithContentsOfFile:szBackground];
+    background.width = _width;
+    background.height = _height;
+    background.blendMode = SPBlendModeNone;
+    [spDialog addChild:background];
+    SPTextField *txtMessage = [[SPTextField alloc] initWithWidth:_width height:_height text:szMessage];
+    txtMessage.fontName = CALLIGRAPHICA_FONT;
+    txtMessage.fontSize = _height/2;
+    txtMessage.color = WHITE_COLOR;
+    [spDialog addChild:txtMessage];
+    [spDialog addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
+    [self addChild:spDialog];
 }
 
 -(OCardUI*) createCardUI:(OCard*)card
@@ -600,6 +609,8 @@
 
 - (void)play:(OCardUI*)cardUI
 {
+    cardUI.cardStatus = InStack;
+    
     if (!_currentPlayer.ai)
     {
         NSLog(@"play... %@", cardUI.card.name);
@@ -831,6 +842,7 @@
             {
                 [cardUI showDiscarded];
             }
+            cardUI.cardStatus = InGraveyard;
             
             int centerX = (width-cardUI.width)/2;
             [cardUI setupAnimation:txtTimer.x+centerX y:txtTimer.y+height time:2.0];
@@ -871,6 +883,7 @@
         
         cardUI.x = currentX;
         cardUI.y = Sparrow.stage.height-cardUI.height;
+        cardUI.cardStatus = InHand;
         if (_currentPlayer.ai)
         {
             [cardUI showBack:_currentPlayer.ai];

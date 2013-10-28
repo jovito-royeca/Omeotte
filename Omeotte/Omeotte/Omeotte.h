@@ -28,8 +28,9 @@
 #define EXETER_FILE             @"Kingthings_Exeter.fnt"
 #define EXETER_FONT             @"Kingthings Exeter"
 
-#define pix2points(x) (x)
+#define stage_width_mod(height,x)  ((x)/(Sparrow.stage.width)) * (Sparrow.stage.height)
+#define stage_height_mod(width,x)  ((x)/(Sparrow.stage.height)) * (Sparrow.stage.width)
 
-//#define CARD_TO_TEST            @"Gnome"
+#define CARD_TO_TEST            @"Foundations"
 
 #endif

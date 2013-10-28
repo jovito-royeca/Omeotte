@@ -12,24 +12,23 @@
 #import "Omeotte.h"
 #import "OStats.h"
 
-enum
+typedef enum
 {
     Quarry = 0,
     Magic,
     Dungeon,
     Mixed
-};
-typedef int CardType;
+} CardType;
 
 @interface OCard : NSObject
 
 @property(strong, nonatomic) NSString *name;
-@property(strong, nonatomic) OStats *cost;
+@property(assign, nonatomic) OStats *cost;
 @property(strong, nonatomic) NSString *text;
 @property(nonatomic) BOOL playAgain;
 @property(nonatomic) CardType type;
-@property(strong,nonatomic) NSArray *effects;
-@property(nonatomic) Eval eval;
+@property(assign,nonatomic) Eval eval;
+@property(strong,nonatomic) NSMutableArray *effects;
 
 +(NSArray*)allCards;
 +(NSArray*)onlyThisCard:(NSString*)cardName;

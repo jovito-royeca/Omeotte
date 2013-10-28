@@ -21,7 +21,7 @@
 @synthesize magics;
 @synthesize dungeons;
 
-+(void) applyEffect:(Effect)effect onCurrent:(OStats*)current  orOpponent:(OStats*) opponent
++(void) applyEffect:(Effect)effect onCurrent:(OStats*)current  orOpponent:(OStats*)opponent
 {
     switch (effect->target)
     {
@@ -38,7 +38,7 @@
     }
 }
 
-+(void) evaluate:(Eval)eval onCurrent:(OStats*) current  orOpponent:(OStats*) opponent
++(void) evaluate:(Eval)eval onCurrent:(OStats*)current  orOpponent:(OStats*)opponent
 {
     
 }

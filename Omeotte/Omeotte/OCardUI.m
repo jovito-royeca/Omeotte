@@ -13,6 +13,7 @@
     float _width;
     float _height;
     SPJuggler *_juggler;
+    BOOL _faceUp;
 }
 
 @synthesize card;
@@ -29,11 +30,10 @@
 @synthesize imgLocked;
 @synthesize lblDiscarded;
 @synthesize delegate;
+@synthesize cardStatus;
 
 - (void)dealloc
 {
-    [super dealloc];
- 
 //    [card release];
     [lblName release];
     [qdCost release];
@@ -48,6 +48,7 @@
     [lblDiscarded release];
 //    [delegate release];
     [_juggler release];
+    [super dealloc];
 }
 
 -(id) initWithWidth:(float)width height:(float)height faceUp:(BOOL)faceUp
@@ -57,6 +58,7 @@
         _width = width;
         _height = height;
         _juggler = [[SPJuggler alloc] init];
+        _faceUp = faceUp;
 
         if (faceUp)
         {
@@ -177,6 +179,11 @@
 
 - (void)onCardTouched:(SPTouchEvent*)event
 {
+    if (cardStatus != InHand)
+    {
+        return;
+    }
+
     SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
     
     if (touch && touch.phase == SPTouchPhaseEnded)
@@ -226,6 +233,10 @@
 
 -(void) showFace:(BOOL)locked
 {
+    if (_faceUp)
+    {
+        [self removeEventListenersAtObject:self forType:SPEventTypeTriggered];
+    }
     [self setupFace];
     
     static NSString *ui = nil;
@@ -298,10 +309,16 @@
     }
 
     [self flatten];
+    
+    _faceUp = YES;
 }
 
 -(void) showBack:(BOOL)opponent
 {
+    if (_faceUp)
+    {
+        [self removeEventListenersAtObject:self forType:SPEventTypeTriggered];
+    }
     [self setupBack];
     
     [self unflatten];
@@ -318,6 +335,8 @@
     imgTower.texture = tower;
 
     [self flatten];
+    
+    _faceUp = NO;
 }
 
 -(void) showDiscarded
