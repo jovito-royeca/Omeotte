@@ -19,11 +19,12 @@
 
     if (self)
     {
-        cardsInLibrary = [[NSMutableArray alloc] initWithCapacity:500];
-        cardsInGraveyard = [[NSMutableArray alloc] initWithCapacity:500];
-        NSArray *cards = [OCard allCards];
+        cardsInLibrary = [[NSMutableArray alloc] initWithCapacity:DEFAULT_CARDS_IN_DECK];
+        cardsInGraveyard = [[NSMutableArray alloc] initWithCapacity:DEFAULT_CARDS_IN_DECK];
+//        NSArray *cards = [OCard allCards];
+        NSArray *cards = [OCard onlyThisCard:@"Gnome"];
         
-        for (int i=0; i<500; i++)
+        for (int i=0; i<DEFAULT_CARDS_IN_DECK; i++)
         {
             NSUInteger random = arc4random() % [cards count];
 

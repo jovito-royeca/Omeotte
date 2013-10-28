@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "OCard.h"
+#import "Omeotte.h"
 
 @interface ODeck : NSObject
 

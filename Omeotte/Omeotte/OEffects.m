@@ -76,10 +76,10 @@
     SXParticleSystem *ps = [[SXParticleSystem alloc] initWithContentsOfFile:@"fire.pex"];
     ps.x = x;
     ps.y = y;
-    ps.emitterXVariance=0;
-    ps.emitterYVariance=0;
-    ps.maxNumParticles=100;
-    ps.emitAngleVariance=50;
+    ps.emitterXVariance = 0;
+    ps.emitterYVariance = 0;
+    ps.maxNumParticles  = 100;
+    ps.emitAngleVariance= 15;
     ps.scaleY = -1;
     
     [parent addChild:ps];

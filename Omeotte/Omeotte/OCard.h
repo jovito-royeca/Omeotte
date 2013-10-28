@@ -9,6 +9,7 @@
 #import  <CoreFoundation/CoreFoundation.h>
 #import <Foundation/Foundation.h>
 
+#import "Omeotte.h"
 #import "OStats.h"
 
 enum
@@ -31,6 +32,7 @@ typedef int CardType;
 @property(nonatomic) Eval eval;
 
 +(NSArray*)allCards;
++(NSArray*)onlyThisCard:(NSString*)cardName;
 
 -(int) totalCost;
 

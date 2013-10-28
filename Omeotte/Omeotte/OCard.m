@@ -107,6 +107,35 @@ NSArray *_cards;
     return _cards;
 }
 
++(NSArray*)onlyThisCard:(NSString*)cardName
+{
+    NSMutableArray *cards = [[NSMutableArray alloc] initWithCapacity:DEFAULT_CARDS_IN_DECK];
+    
+    for (OCard *card in [self allCards])
+    {
+        if ([card.name isEqualToString:cardName])
+        {
+            for (int i=0; i<DEFAULT_CARDS_IN_DECK; i++)
+            {
+                OCard *cardClone = [[OCard alloc] init];
+
+                cardClone.name = card.name;
+                cardClone.cost = card.cost;
+                cardClone.text = card.text;
+                cardClone.playAgain = card.playAgain;
+                cardClone.type = card.type;
+                cardClone.effects = card.effects;
+                cardClone.eval = card.eval;
+                
+                [cards addObject:cardClone];
+            }
+            break;
+        }
+    }
+    
+    return cards;
+}
+
 + (Effect) createEffect:(NSDictionary*)dict
 {
     Effect e = create(Effect);
