@@ -36,6 +36,17 @@ typedef struct _Effect
     EffectTarget target;
 } *Effect;
 
+typedef struct _EvalResult
+{
+    enum
+    {
+        LessThan = 0,
+        Equals,
+        GreaterThan
+    } type;
+    Effect effect;
+} *EvalResult;
+
 typedef struct _Eval
 {
     Effect op1;

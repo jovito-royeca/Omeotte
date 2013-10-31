@@ -42,8 +42,8 @@
         
         [hand addObject:card];
         [cards addObject:card];
+        [delegate animateDrawCard:card];
     }
-    [delegate showHand];
     return cards;
 }
 
@@ -74,7 +74,7 @@
     self.base.bricks += self.base.quarries;
     self.base.gems += self.base.magics;
     self.base.recruits += self.base.dungeons;
-    [delegate showHand];
+    [delegate animateShowHand];
 }
 
 -(OCard*) chooseCardToPlay
@@ -150,13 +150,13 @@
             {
                 case Current:
                 {
-                    [delegate statChanged:targetField fieldValue:[base statField:e.field] modValue:e.value player:self];
+                    [delegate animateStatChanged:targetField fieldValue:[base statField:e.field] modValue:e.value player:self];
                     [base setStatField:targetField withValue:e.value];
                     break;
                 }
                 case Opponent:
                 {
-                    [delegate statChanged:e.field fieldValue:[target.base statField:e.field] modValue:e.value player:target];
+                    [delegate animateStatChanged:e.field fieldValue:[target.base statField:e.field] modValue:e.value player:target];
                     [target.base setStatField:targetField withValue:e.value];
                     break;
                 }
@@ -169,16 +169,14 @@
     
     [hand removeObject:card];
     [deck discard:card];
-    [delegate putCardToGraveyard:card discarded:NO];
-    [delegate showHand];
+    [delegate animatePutCardToGraveyard:card discarded:NO];
 }
 
 -(void) discard:(OCard*)card
 {
     [hand removeObject:card];
     [deck discard:card];
-    [delegate putCardToGraveyard:card discarded:YES];
-    [delegate showHand];
+    [delegate animatePutCardToGraveyard:card discarded:YES];
 }
 
 //+(NSString*) description

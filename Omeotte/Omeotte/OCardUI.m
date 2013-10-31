@@ -163,8 +163,8 @@
     currentWidth = _width-10;
     currentHeight = _height-10;
     qdBackground = [[SPQuad alloc] initWithWidth:currentWidth height:currentHeight];
-    qdBackground.x = 8;
-    qdBackground.y = 8;
+    qdBackground.x = 5;
+    qdBackground.y = 5;
     qdBackground.color = WHITE_COLOR;
     [self addChild:qdBackground];
     
@@ -173,14 +173,15 @@
     currentX = (_width-currentWidth)/2;
     imgTower = [[SPImage alloc] initWithWidth:currentWidth height:currentHeight];
     imgTower.x = currentX;
-    imgTower.y = 8;
+    imgTower.y = 5;
     [self addChild:imgTower];
 }
 
 - (void)onCardTouched:(SPTouchEvent*)event
 {
-    if (cardStatus != InHand)
+    if (cardStatus != InHand || !delegate)
     {
+        touchStatus = 0;
         return;
     }
 
@@ -359,11 +360,15 @@
 
 -(void) setupAnimation:(float)x
                      y:(float)y
+                 width:(float)width
+                height:(float)height
                   time:(float)time
 {
     SPTween *tween = [SPTween tweenWithTarget:self time:time];
     [tween animateProperty:@"x" targetValue:x];
 	[tween animateProperty:@"y" targetValue:y];
+    [tween animateProperty:@"width" targetValue:width];
+	[tween animateProperty:@"height" targetValue:height];
 	[_juggler addObject:tween];
 }
 

@@ -73,7 +73,7 @@ NSArray *_cards;
                 card.name = [dict valueForKey:@"name"];
 
                 NSDictionary *costDict = [dict valueForKey:@"cost"];
-                OStats *cost = [[[OStats alloc] init] autorelease];
+                OStats *cost = [[OStats alloc] init];
                 if ([costDict objectForKey:@"bricks"])
                 {
                     cost.bricks = [[costDict objectForKey:@"bricks"] intValue];
@@ -91,9 +91,9 @@ NSArray *_cards;
                 card.playAgain = [[dict valueForKey:@"playAgain"] boolValue];
                 card.type = [[dict valueForKey:@"type"] intValue];
             
-                NSDictionary *evalDict = [dict valueForKey:@"eval"];
-                if (evalDict)
-                {
+//                NSDictionary *evalDict = [dict valueForKey:@"eval"];
+//                if (evalDict)
+//                {
 //                    for (NSString *key in [evalDict allKeys])
 //                    {
 //                        if ([key isEqualToString:@"op1"])
@@ -117,7 +117,7 @@ NSArray *_cards;
 //                            card.eval->greaterThanResult = [self createEffect:[evalDict objectForKey:key]];
 //                        }
 //                    }
-                }
+//                }
                 
                 NSArray *fx = [dict valueForKey:@"effects"];
                 if (fx)

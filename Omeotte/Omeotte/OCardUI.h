@@ -56,6 +56,8 @@ typedef enum
 -(void) advanceTime:(double)seconds;
 -(void) setupAnimation:(float)x
                      y:(float)y
+                 width:(float)width
+                height:(float)height
                   time:(float)time;
 @end
 

@@ -6,11 +6,14 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 #import "Sparrow.h"
 
 #import "OButtonTextureUI.h"
 #import "OCard.h"
 #import "OCardUI.h"
+#import "ODeckAndGraveyardUI.h"
 #import "OEffects.h"
 #import "OHealthUI.h"
 #import "OMedia.h"
@@ -29,7 +32,7 @@ typedef enum
 //    Discard
 } GamePhase;
 
-@interface OBattleScene : SPSprite <OCardUIDelegate, OPlayerDelegate>
+@interface OBattleScene : SPSprite <OCardUIDelegate, OPlayerAnimationDelegate>
 
 @property (strong, nonatomic) SPTextField *txtPlayer1Name;
 @property (strong, nonatomic) SPTextField *txtPlayer1Status;
@@ -42,9 +45,9 @@ typedef enum
 @property (strong, nonatomic) OHealthUI *player2Health;
 
 @property (strong, nonatomic) SPTextField *txtTimer;
+@property (strong, nonatomic) ODeckAndGraveyardUI *deckAndGraveyard;
 @property (strong, nonatomic) NSArray *players;
-@property (strong, nonatomic) NSMutableArray *hand;
-@property (strong, nonatomic) NSMutableArray *graveyard;
+@property (strong, nonatomic) NSMutableDictionary *hand;
 @property (strong, nonatomic) NSMutableArray *winners;
 @property (strong, nonatomic) ORule* rule;
 

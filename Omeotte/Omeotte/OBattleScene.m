@@ -10,6 +10,7 @@
 
 @implementation OBattleScene
 {
+    SPButton *_btnMenu;
     OPlayer *_currentPlayer;
     OCard *_currentCard;
     OCardUI *_lastPlayedCard;
@@ -31,9 +32,9 @@
 @synthesize player2Health;
 
 @synthesize txtTimer;
+@synthesize deckAndGraveyard;
 @synthesize players;
 @synthesize hand;
-@synthesize graveyard;
 @synthesize winners;
 @synthesize rule;
 
@@ -72,6 +73,8 @@
     [txtPlayer2Status release];
     [player2Resources release];
     [player2Health release];
+    [txtTimer release];
+    [deckAndGraveyard release];
     [_effects release];
     //    [SPMedia releaseSound];
     [super dealloc];
@@ -123,25 +126,8 @@
     txtPlayer1Status.fontName = EXETER_FONT;
     [self addChild:txtPlayer1Status];
     
-    // Player1 Stats
-    currentY += txtPlayer1Name.height+10;
-    currentWidth  = RESOURCES_WIDTH_PIXELS*3/5;
-    currentHeight = RESOURCES_HEIGHT_PIXELS*3/5;
-    player1Resources = [[OResourcesUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule];
-    player1Resources.x = currentX;
-    player1Resources.y = currentY;
-    [self addChild:player1Resources];
-    currentX += player1Resources.width;
-    currentWidth = (_width*2/5)-currentWidth;
-    currentHeight = _height - cardHeight - 40;
-    player1Health = [[OHealthUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule  ai:NO];
-    player1Health.x = currentX;
-    player1Health.y = currentY;
-    [self addChild:player1Health];
-    
     // Menu and Timer
     currentX = _width*2/5;
-    currentY = 0;
     currentWidth = _width/5;
     currentHeight = 15;
     SPSprite *container = [[SPSprite alloc] init];
@@ -153,21 +139,21 @@
                                                                   gloss:NO
                                                              startColor:RED_COLOR
                                                                endColor:BLUE_COLOR];
-    SPButton *btnMenu = [SPButton buttonWithUpState:texture text:@"Menu"];
-    btnMenu.fontColor = WHITE_COLOR;
-    btnMenu.fontSize = 15;
-    btnMenu.x = currentX;
-    btnMenu.fontName = EXETER_FONT;
-    [btnMenu addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TRIGGERED];
-    [container addChild:btnMenu];
+    _btnMenu = [SPButton buttonWithUpState:texture text:@"Menu"];
+    _btnMenu.fontColor = WHITE_COLOR;
+    _btnMenu.fontSize = 15;
+    _btnMenu.x = currentX;
+    _btnMenu.fontName = EXETER_FONT;
+    [_btnMenu addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TRIGGERED];
+    [container addChild:_btnMenu];
     currentY = 1;
     currentHeight = 20;
     txtTimer = [[SPTextField alloc] initWithWidth:currentWidth
                                            height:currentHeight
                                              text:[NSString stringWithFormat:@"%d", GAME_TURN]];
-    txtTimer.color = WHITE_COLOR;
     txtTimer.x = currentX;
-    txtTimer.y = btnMenu.height+10;
+    txtTimer.y = _btnMenu.height+10;
+    txtTimer.color = WHITE_COLOR;
     txtTimer.fontName = EXETER_FONT;
     txtTimer.fontSize = currentHeight;
     [container addChild:txtTimer];
@@ -186,7 +172,6 @@
     txtPlayer2Status.fontName = EXETER_FONT;
     [self addChild:txtPlayer2Status];
     currentX = (_width*3/5)+txtPlayer2Status.width;
-    currentY = 0;
     currentWidth = (_width*2/5)*0.30;
     txtPlayer2Name = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight];
     txtPlayer2Name.color = BLUE_COLOR;
@@ -197,17 +182,45 @@
     txtPlayer2Name.fontName = EXETER_FONT;
     [self addChild:txtPlayer2Name];
     
+    // Player1 Stats
+    currentX = 0;
+    currentY = txtPlayer1Name.height+10;
+    currentWidth  = RESOURCES_WIDTH_PIXELS*3/5;
+    currentHeight = RESOURCES_HEIGHT_PIXELS*3/5;
+    player1Resources = [[OResourcesUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule];
+    player1Resources.x = currentX;
+    player1Resources.y = currentY;
+    [self addChild:player1Resources];
+    currentX += player1Resources.width;
+    currentWidth = (_width*1.5/5)-currentWidth;
+    currentHeight = _height - cardHeight - 40;
+    player1Health = [[OHealthUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule  ai:NO];
+    player1Health.x = currentX;
+    player1Health.y = currentY;
+    [self addChild:player1Health];
+
+    // deck and graveyard
+    currentX = (_width*1.5/5);
+    currentY = _btnMenu.height+10+txtTimer.height;
+    currentWidth = (_width*2/5);
+    currentHeight = (((Sparrow.stage.width/6)*128)/95)+20;
+    deckAndGraveyard = [[ODeckAndGraveyardUI alloc] initWithWidth:currentWidth height:currentHeight];
+    deckAndGraveyard.x = currentX;
+    deckAndGraveyard.y = currentY;
+    [self addChild:deckAndGraveyard];
+    //
+    
     // AI stats
     currentWidth  = RESOURCES_WIDTH_PIXELS*3/5;
     currentHeight = RESOURCES_HEIGHT_PIXELS*3/5;
     currentX = _width-currentWidth;
-    currentY += txtPlayer2Name.height+10;
+    currentY = txtPlayer2Name.height+10;
     player2Resources = [[OResourcesUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule];
     player2Resources.x = currentX;
     player2Resources.y = currentY;
     [self addChild:player2Resources];
-    currentX = _width*3/5;
-    currentWidth  = (_width*2/5)-currentWidth;
+    currentX = _width*3.5/5;
+    currentWidth  = (_width*1.5/5)-currentWidth;
     currentHeight = _height - cardHeight - 40;
     player2Health = [[OHealthUI alloc] initWithWidth:currentWidth height:currentHeight rule:rule ai:YES];
     player2Health.x = currentX;
@@ -245,8 +258,11 @@
     txtPlayer1Name.text = player1.name;
     txtPlayer2Name.text = player2.name;
     
-    hand = [[NSMutableArray alloc] init];
-    graveyard = [[NSMutableArray alloc] init];
+    hand = [[NSMutableDictionary alloc] init];
+    for (int i=0; i<MAX_CARDS_IN_HAND; i++)
+    {
+        [hand setObject:[NSNull null] forKey:[NSString stringWithFormat:@"%d", i]];
+    }
 }
 
 -(void) gameLoop:(SPEnterFrameEvent*)event
@@ -288,11 +304,20 @@
         [player2Resources advanceTime:event.passedTime];
         [player2Health advanceTime:event.passedTime];
         
-        for (OCardUI *cardUI in hand)
+        for (NSString *key in [hand allKeys])
+        {
+            OCardUI *cardUI = [hand objectForKey:key];
+            
+            if (cardUI != (id)[NSNull null])
+            {
+                [cardUI advanceTime:event.passedTime];
+            }
+        }
+        for (OCardUI *cardUI in deckAndGraveyard.deckCards)
         {
             [cardUI advanceTime:event.passedTime];
         }
-        for (OCardUI *cardUI in graveyard)
+        for (OCardUI *cardUI in deckAndGraveyard.graveyardCards)
         {
             [cardUI advanceTime:event.passedTime];
         }
@@ -423,6 +448,7 @@
 
 -(void) upkeepPhase
 {
+    [deckAndGraveyard changePlayer:_currentPlayer];
     [_currentPlayer upkeep];
     [self updateStats];
     _gamePhase = Draw;
@@ -488,10 +514,13 @@
         }
         else
         {
-            for (OCardUI *cardUI in hand)
+            for (NSString *key in [hand allKeys])
             {
+                OCardUI *cardUI = [hand objectForKey:key];
+                
                 if (cardUI.card == _currentCard)
                 {
+                    cardUI.cardStatus = InHand;
                     [self demote:cardUI];
                     _currentCard = nil;
                     break;
@@ -576,6 +605,16 @@
     [spDialog addChild:txtMessage];
     [spDialog addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
+    for (NSString *key in [hand allKeys])
+    {
+        if ([hand objectForKey:key] != [NSNull null])
+        {
+            OCardUI *cardUI = [hand objectForKey:key];
+            [cardUI removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
+        }
+    }
+    [_btnMenu removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
     [self addChild:spDialog];
 }
 
@@ -599,11 +638,23 @@
     if (!_currentPlayer.ai)
     {
         NSLog(@"promote... %@", cardUI.card.name);
-        for (OCardUI *cardUI in hand)
+        
+        // demote other cards in hand
+        for (NSString *key in [hand allKeys])
         {
-            [self demote:cardUI];
+            OCardUI *x = [hand objectForKey:key];
+            
+            if (x != (id)[NSNull null])
+            {
+                [self demote:x];
+            }
         }
-        [cardUI setupAnimation:cardUI.x y:cardUI.y-20 time:0.5];
+        
+        [cardUI setupAnimation:cardUI.x
+                             y:cardUI.y-20
+                         width:cardUI.width
+                        height:cardUI.height
+                          time:0.5];
     }
 }
 
@@ -640,13 +691,17 @@
         {
             NSLog(@"demote... %@", cardUI.card.name);
             cardUI.touchStatus = 0;
-            [cardUI setupAnimation:cardUI.x y:y time:0.5];
+            [cardUI setupAnimation:cardUI.x
+                                 y:y
+                             width:cardUI.width
+                            height:cardUI.height
+                              time:0.5];
         }
     }
 }
 
-#pragma mark - OPlayerDelegate
--(void) statChanged:(StatField)field
+#pragma mark - OPlayeAnimationrDelegate
+-(void) animateStatChanged:(StatField)field
          fieldValue:(int)fieldValue
            modValue:(int)modValue
              player:(OPlayer*)player
@@ -654,7 +709,7 @@
     OResourcesUI *resourcesUI;
     OHealthUI *healthUI;
     float x = 0;
-    float width35 = (Sparrow.stage.width*3/5);
+    float width35 = (Sparrow.stage.width*3.5/5);
     
     if (player == players[0])
     {
@@ -828,74 +883,144 @@
     }
 }
 
--(void) putCardToGraveyard:(OCard*)card discarded:(BOOL)discarded
+-(void) animateDrawCard:(OCard*)card
 {
-    float width = txtTimer.width;
-    float height = txtTimer.height;
-    
-    for (OCardUI *cardUI in hand)
+    if (_currentPlayer.ai)
     {
-        if (cardUI.card == card)
+        txtPlayer2Status.text = @"Drew card.";
+        deckAndGraveyard.lblDeck.text = [NSString stringWithFormat:@"Deck %d", _currentPlayer.deck.cardsInLibrary.count];
+        return;
+    }
+
+    float width = Sparrow.stage.width;
+    float height = Sparrow.stage.height;
+    
+    float cardWidth  = width/6;
+    float cardHeight = (cardWidth*128)/95;
+    float cardY = height-cardHeight;
+    
+    float deckX = width*1.5/5;
+    float deckY = 45;
+    
+    txtPlayer1Status.text = [NSString stringWithFormat:@"Drew %@.", card.name];
+    deckAndGraveyard.lblDeck.text = [NSString stringWithFormat:@"Deck %d", _currentPlayer.deck.cardsInLibrary.count];
+    
+    NSArray *sortedKeys = [[hand allKeys] sortedArrayUsingSelector: @selector(compare:)];
+    for (NSString *key in sortedKeys)
+    {
+        if ([hand objectForKey:key] == [NSNull null])
         {
-            [cardUI showFace:NO];
-            if (discarded)
-            {
-                [cardUI showDiscarded];
-            }
-            cardUI.cardStatus = InGraveyard;
+            OCardUI *cardUI = [[OCardUI alloc] initWithWidth:cardWidth height:cardHeight faceUp:!_currentPlayer.ai];
+            int index = [key integerValue];
             
-            int centerX = (width-cardUI.width)/2;
-            [cardUI setupAnimation:txtTimer.x+centerX y:txtTimer.y+height time:2.0];
+            cardUI.card = card;
+            cardUI.delegate = self;
+            cardUI.x = deckX;
+            cardUI.y = deckY;
+            [cardUI showFace:![_currentPlayer canPlayCard:card]];
+            cardUI.cardStatus = InDeck;
+            [self addChild:cardUI];
             
-            [hand removeObject:cardUI];
-            [graveyard addObject:cardUI];
+            [cardUI setupAnimation:index*cardWidth
+                                 y:cardY
+                             width:cardWidth
+                            height:cardHeight
+                              time:2.0];
+            [hand setObject:cardUI forKey:key];
+            cardUI.cardStatus = InHand;
             break;
         }
     }
-    
-    // remove old cards in the graveyard to minimize memory usage
-    if (graveyard.count >= 4)
+}
+
+-(void) animateShowHand
+{
+    if (_currentPlayer.ai)
     {
-        OCardUI *cardUI = [graveyard objectAtIndex:0];
-        
-        [self removeChild:cardUI];
-        [graveyard removeObject:cardUI];
-        [cardUI release];
+        return;
+    }
+
+    float width = Sparrow.stage.width;
+    float height = Sparrow.stage.height;
+    
+    float cardWidth  = width/6;
+    float cardHeight = (cardWidth*128)/95;
+    float cardY = height-cardHeight;
+    
+    for (NSString *key in [hand allKeys])
+    {
+        if ([hand objectForKey:key] != [NSNull null])
+        {
+            OCardUI *cardUI = [hand objectForKey:key];
+            int index = [key integerValue];
+            
+            cardUI.touchStatus = 0;
+            [cardUI showFace:![_currentPlayer canPlayCard:cardUI.card]];
+            [cardUI setupAnimation:index*cardWidth
+                                 y:cardY
+                             width:cardWidth
+                            height:cardHeight
+                              time:2.0];
+        }
     }
 }
 
--(void) showHand
+-(void) animatePutCardToGraveyard:(OCard*)card discarded:(BOOL)discarded
 {
-    // remove previous hand
-    for (OCardUI *cardUI in hand)
-    {
-        [self removeChild:cardUI];
-        [cardUI release];
-    }
-    [hand removeAllObjects];
+    float width = Sparrow.stage.width;
+    float cardWidth  = width/6;
+    float cardHeight = (cardWidth*128)/95;
     
-    // show current hand
-    float currentX = 0;
-    float currentWidth = Sparrow.stage.width/6;
-    for (OCard *card in _currentPlayer.hand)
+    float currentX = width*1.5/5 + ((width*2/5)/2);
+    float currentY = 45;
+    
+    if (_currentPlayer.ai)
     {
         OCardUI *cardUI = [self createCardUI:card];
         
-        cardUI.x = currentX;
-        cardUI.y = Sparrow.stage.height-cardUI.height;
-        cardUI.cardStatus = InHand;
-        if (_currentPlayer.ai)
+        cardUI.x = Sparrow.stage.width - (RESOURCES_WIDTH_PIXELS*3/5) - cardWidth;
+        cardUI.y = currentY;
+        [cardUI showFace:NO];
+        if (discarded)
         {
-            [cardUI showBack:_currentPlayer.ai];
+            [cardUI showDiscarded];
         }
-        else
-        {
-            [cardUI showFace:![_currentPlayer canPlayCard:card]];
-        }
+        cardUI.cardStatus = InGraveyard;
+        [deckAndGraveyard addCardToGraveyard:cardUI];
         [self addChild:cardUI];
-        [hand addObject:cardUI];
+        [cardUI setupAnimation:currentX
+                             y:currentY
+                         width:cardWidth
+                        height:cardHeight
+                          time:2.0];
+    }
+    else
+    {
+        for (NSString *key in [hand allKeys])
+        {
+            OCardUI *cardUI = [hand objectForKey:key];
         
-        currentX += currentWidth;
+            if (cardUI.card == card)
+            {
+                [cardUI showFace:NO];
+                if (discarded)
+                {
+                    [cardUI showDiscarded];
+                }
+                cardUI.cardStatus = InGraveyard;
+                [deckAndGraveyard addCardToGraveyard:cardUI];
+                
+                [cardUI setupAnimation:currentX
+                                     y:currentY
+                                 width:cardWidth
+                                height:cardHeight
+                                  time:2.0];
+            
+                [hand setObject:[NSNull null] forKey:key];
+                deckAndGraveyard.lblGraveyard.text = [NSString stringWithFormat:@"Graveyard %d", _currentPlayer.deck.cardsInGraveyard.count];
+                break;
+            }
+        }
     }
 }
 

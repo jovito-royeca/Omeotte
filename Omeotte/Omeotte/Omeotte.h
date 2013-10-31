@@ -31,6 +31,6 @@
 #define stage_width_mod(height,x)  ((x)/(Sparrow.stage.width)) * (Sparrow.stage.height)
 #define stage_height_mod(width,x)  ((x)/(Sparrow.stage.height)) * (Sparrow.stage.width)
 
-#define CARD_TO_TEST            @"Foundations"
+//#define CARD_TO_TEST            @"Foundations"
 
 #endif

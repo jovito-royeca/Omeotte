@@ -12,7 +12,7 @@
 #import "ODeck.h"
 #import "OStats.h"
 
-@protocol OPlayerDelegate;
+@protocol OPlayerAnimationDelegate;
 
 @interface OPlayer : NSObject
 
@@ -22,7 +22,7 @@
 @property(strong,nonatomic) ODeck *deck;
 @property(nonatomic) BOOL ai;
 
-@property(nonatomic, assign) id<OPlayerDelegate> delegate;
+@property(nonatomic, assign) id<OPlayerAnimationDelegate> delegate;
 
 -(BOOL) shouldDiscard:(int)maxHand;
 -(BOOL) canPlayCard:(OCard*)card;
@@ -35,12 +35,13 @@
 
 @end
 
-@protocol OPlayerDelegate<NSObject>
--(void) statChanged:(StatField)field
+@protocol OPlayerAnimationDelegate<NSObject>
+-(void) animateStatChanged:(StatField)field
          fieldValue:(int)fieldValue
            modValue:(int)modValue
              player:(OPlayer*)player;
 
--(void) putCardToGraveyard:(OCard*)card discarded:(BOOL)discarded;
--(void) showHand;
+-(void) animateDrawCard:(OCard*)card;
+-(void) animateShowHand;
+-(void) animatePutCardToGraveyard:(OCard*)card discarded:(BOOL)discarded;
 @end

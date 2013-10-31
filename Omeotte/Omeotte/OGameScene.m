@@ -32,8 +32,9 @@
 {
     if ([self containsChild:_currentScene])
     {
-//        [self removeChild:_currentScene];
-        [_currentScene removeFromParent];
+        [self removeChild:_currentScene];
+//        [_currentScene removeFromParent];
+        [_currentScene release];
         _currentScene = nil;
     }
 //    scene.width = _screenWidth;
