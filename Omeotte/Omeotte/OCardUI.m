@@ -59,6 +59,7 @@
         _height = height;
         _juggler = [[SPJuggler alloc] init];
         _faceUp = faceUp;
+        touchStatus = 0;
 
         if (faceUp)
         {
@@ -189,46 +190,91 @@
     
     if (touch && touch.phase == SPTouchPhaseEnded)
     {
-        SPPoint *position = [touch locationInSpace:self];
+        touchStatus++;
         
-        if (touchStatus == 0)
+        switch (touchStatus)
         {
-            [delegate promote:self];
-            touchStatus++;
-        }
-        else if (touchStatus >= 1)
-        {
-            if (position.y < self.height)
+            case 2:
             {
-                touchStatus++;
+                [delegate promote:self];
+                break;
             }
-            else if (position.y >= self.height)
+            case 4:
             {
-                touchStatus--;
-            }
-            else
-            {
-                touchStatus--;
-            }
-            
-            switch (touchStatus)
-            {
-                case 2:
+                SPPoint *position = [touch locationInSpace:self];
+                
+                if (position.y < self.height)
                 {
                     [delegate play:self];
-                    break;
                 }
-                case 0:
+                else if (position.y >= self.height)
                 {
                     [delegate discard:self];
-                    break;
                 }
-                default:
+                else
                 {
-                    break;
+                    [delegate demote:self];
+                    touchStatus = 0;
                 }
+                break;
             }
+//            default:
+//            {
+//                if (touchStatus > 1)
+//                {
+//                    [delegate demote:self];
+//                    touchStatus = 0;
+//                }
+//                break;
+//            }
         }
+        
+//        SPPoint *position = [touch locationInSpace:self];
+        
+//        if (_touchStatus == 0)
+//        {
+//            [delegate promote:self];
+//            _touchStatus++;
+//        }
+//        NSLog(@"touchStatus = %d", _touchStatus);
+//        else if (touchStatus >= 1)
+//        {
+//            if (position.y < self.height)
+//            {
+//                touchStatus++;
+//            }
+//            else if (position.y >= self.height)
+//            {
+//                touchStatus--;
+//            }
+//            else
+//            {
+//                touchStatus--;
+//            }
+//            
+//            switch (touchStatus)
+//            {
+//                case 0:
+//                {
+//                    [delegate discard:self];
+//                    break;
+//                }
+//                case 1:
+//                {
+//                    [delegate promote:self];
+//                    break;
+//                }
+//                case 2:
+//                {
+//                    [delegate play:self];
+//                    break;
+//                }
+//                default:
+//                {
+//                    break;
+//                }
+//            }
+//        }
     }
 }
 
