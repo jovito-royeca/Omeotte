@@ -13,7 +13,6 @@
     float _width;
     float _height;
     SPJuggler *_juggler;
-    BOOL _faceUp;
 }
 
 @synthesize card;
@@ -23,13 +22,13 @@
 @synthesize imgArt;
 @synthesize lblText;
 @synthesize imgBackground;
-@synthesize touchStatus;
 @synthesize imgTower;
 @synthesize qdBorder;
 @synthesize qdBackground;
 @synthesize imgLocked;
 @synthesize lblDiscarded;
 @synthesize delegate;
+@synthesize selected;
 @synthesize cardStatus;
 
 - (void)dealloc
@@ -57,9 +56,6 @@
     {
         _width = width;
         _height = height;
-        _juggler = [[SPJuggler alloc] init];
-        _faceUp = faceUp;
-        touchStatus = 0;
 
         if (faceUp)
         {
@@ -77,6 +73,7 @@
 {
     // cleanup first
     [self removeAllChildren];
+    [self removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     [SPTextField registerBitmapFontFromFile:CALLIGRAPHICA_FILE];
     [SPTextField registerBitmapFontFromFile:EXETER_FILE];
@@ -149,6 +146,7 @@
 {
     // cleanup first
     [self removeAllChildren];
+    [self removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     float currentWidth  = _width;
     float currentHeight = _height;
@@ -182,7 +180,6 @@
 {
     if (cardStatus != InHand || !delegate)
     {
-        touchStatus = 0;
         return;
     }
 
@@ -190,100 +187,35 @@
     
     if (touch && touch.phase == SPTouchPhaseEnded)
     {
-        touchStatus++;
-        
-        switch (touchStatus)
+        if (!selected)
         {
-            case 2:
-            {
-                [delegate promote:self];
-                break;
-            }
-            case 4:
-            {
-                SPPoint *position = [touch locationInSpace:self];
-                
-                if (position.y < self.height)
-                {
-                    [delegate play:self];
-                }
-                else if (position.y >= self.height)
-                {
-                    [delegate discard:self];
-                }
-                else
-                {
-                    [delegate demote:self];
-                    touchStatus = 0;
-                }
-                break;
-            }
-//            default:
-//            {
-//                if (touchStatus > 1)
-//                {
-//                    [delegate demote:self];
-//                    touchStatus = 0;
-//                }
-//                break;
-//            }
+            selected = YES;
+            [delegate promote:self];
+            return;
         }
         
-//        SPPoint *position = [touch locationInSpace:self];
-        
-//        if (_touchStatus == 0)
-//        {
-//            [delegate promote:self];
-//            _touchStatus++;
-//        }
-//        NSLog(@"touchStatus = %d", _touchStatus);
-//        else if (touchStatus >= 1)
-//        {
-//            if (position.y < self.height)
-//            {
-//                touchStatus++;
-//            }
-//            else if (position.y >= self.height)
-//            {
-//                touchStatus--;
-//            }
-//            else
-//            {
-//                touchStatus--;
-//            }
-//            
-//            switch (touchStatus)
-//            {
-//                case 0:
-//                {
-//                    [delegate discard:self];
-//                    break;
-//                }
-//                case 1:
-//                {
-//                    [delegate promote:self];
-//                    break;
-//                }
-//                case 2:
-//                {
-//                    [delegate play:self];
-//                    break;
-//                }
-//                default:
-//                {
-//                    break;
-//                }
-//            }
-//        }
+        if (selected)
+        {
+            SPPoint *position = [touch locationInSpace:self];
+                
+            if (position.y < self.height)
+            {
+                [delegate play:self];
+            }
+            else if (position.y >= self.height)
+            {
+                [delegate discard:self];
+            }
+            else
+            {
+                [delegate demote:self];
+            }
+        }
     }
 }
 
 -(void) showFace:(BOOL)locked
 {
-    if (_faceUp)
-    {
-        [self removeEventListenersAtObject:self forType:SPEventTypeTriggered];
-    }
     [self setupFace];
     
     static NSString *ui = nil;
@@ -347,25 +279,17 @@
         imgLocked.y = 0;
         imgLocked.texture = [[SPTexture alloc] initWithContentsOfFile:@"chain and lock.png"];
         [self addChild:imgLocked];
-//        [imgArt setAlpha:0.3];
     }
     else
     {
         [self removeChild:imgLocked];
-//        [imgArt setAlpha:1.0];
     }
 
     [self flatten];
-    
-    _faceUp = YES;
 }
 
 -(void) showBack:(BOOL)opponent
 {
-    if (_faceUp)
-    {
-        [self removeEventListenersAtObject:self forType:SPEventTypeTriggered];
-    }
     [self setupBack];
     
     [self unflatten];
@@ -382,8 +306,6 @@
     imgTower.texture = tower;
 
     [self flatten];
-    
-    _faceUp = NO;
 }
 
 -(void) showDiscarded
@@ -397,25 +319,6 @@
     lblDiscarded.fontSize = 20;
     [self addChild:lblDiscarded];
     [self flatten];
-}
-
--(void) advanceTime:(double)seconds
-{
-    [_juggler advanceTime:seconds];
-}
-
--(void) setupAnimation:(float)x
-                     y:(float)y
-                 width:(float)width
-                height:(float)height
-                  time:(float)time
-{
-    SPTween *tween = [SPTween tweenWithTarget:self time:time];
-    [tween animateProperty:@"x" targetValue:x];
-	[tween animateProperty:@"y" targetValue:y];
-    [tween animateProperty:@"width" targetValue:width];
-	[tween animateProperty:@"height" targetValue:height];
-	[_juggler addObject:tween];
 }
 
 @end

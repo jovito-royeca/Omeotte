@@ -101,4 +101,25 @@
     }];
 }
 
+-(void) animate:(SPDisplayObject*)target
+  withPropeties:(NSDictionary*)properties
+           time:(float)time
+       callback:(void (^)(void))callback
+{
+    SPTween *tween = [SPTween tweenWithTarget:target time:time];
+    
+    for (NSString *key in [properties allKeys])
+    {
+        NSNumber *number = [properties objectForKey:key];
+        [tween animateProperty:key targetValue:[number floatValue]];
+    }
+    
+	[_juggler addObject:tween];
+    
+    if (callback)
+    {
+        [_juggler delayInvocationByTime:time block:callback];
+    }
+}
+
 @end

@@ -303,24 +303,6 @@
         [player1Health advanceTime:event.passedTime];
         [player2Resources advanceTime:event.passedTime];
         [player2Health advanceTime:event.passedTime];
-        
-        for (NSString *key in [hand allKeys])
-        {
-            OCardUI *cardUI = [hand objectForKey:key];
-            
-            if (cardUI != (id)[NSNull null])
-            {
-                [cardUI advanceTime:event.passedTime];
-            }
-        }
-        for (OCardUI *cardUI in deckAndGraveyard.deckCards)
-        {
-            [cardUI advanceTime:event.passedTime];
-        }
-        for (OCardUI *cardUI in deckAndGraveyard.graveyardCards)
-        {
-            [cardUI advanceTime:event.passedTime];
-        }
     }
 }
 
@@ -516,14 +498,17 @@
         {
             for (NSString *key in [hand allKeys])
             {
-                OCardUI *cardUI = [hand objectForKey:key];
-                
-                if (cardUI.card == _currentCard)
+                if ([hand objectForKey:key] != [NSNull null])
                 {
-                    cardUI.cardStatus = InHand;
-                    [self demote:cardUI];
-                    _currentCard = nil;
-                    break;
+                    OCardUI *cardUI = [hand objectForKey:key];
+                
+                    if (cardUI.card == _currentCard)
+                    {
+                        cardUI.cardStatus = InHand;
+                        [self demote:cardUI];
+                        _currentCard = nil;
+                        break;
+                    }
                 }
             }
         }
@@ -646,15 +631,24 @@
             
             if (x != (id)[NSNull null])
             {
-                [self demote:x];
+                if (x == cardUI)
+                {
+                    continue;
+                }
+                else
+                {
+                    [self demote:x];
+                }
             }
         }
         
-        [cardUI setupAnimation:cardUI.x
-                             y:cardUI.y-20
-                         width:cardUI.width
-                        height:cardUI.height
-                          time:0.5];
+        NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
+        [props setObject:[NSNumber numberWithFloat:cardUI.x] forKey:@"x"];
+        [props setObject:[NSNumber numberWithFloat:cardUI.y-20] forKey:@"y"];
+        [props setObject:[NSNumber numberWithFloat:cardUI.width] forKey:@"width"];
+        [props setObject:[NSNumber numberWithFloat:cardUI.height] forKey:@"height"];
+
+        [_effects animate:cardUI withPropeties:props time:0.5 callback:nil];
     }
 }
 
@@ -686,16 +680,22 @@
         float cardWidth  = Sparrow.stage.width/6;
         float cardHeight = (cardWidth*128)/95;
         float y = Sparrow.stage.height-cardHeight;
-    
+        
         if (cardUI.y < y)
         {
             NSLog(@"demote... %@", cardUI.card.name);
-            cardUI.touchStatus = 0;
-            [cardUI setupAnimation:cardUI.x
-                                 y:y
-                             width:cardUI.width
-                            height:cardUI.height
-                              time:0.5];
+            
+            NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
+            [props setObject:[NSNumber numberWithFloat:cardUI.x] forKey:@"x"];
+            [props setObject:[NSNumber numberWithFloat:y] forKey:@"y"];
+            [props setObject:[NSNumber numberWithFloat:cardUI.width] forKey:@"width"];
+            [props setObject:[NSNumber numberWithFloat:cardUI.height] forKey:@"height"];
+            
+            [_effects animate:cardUI withPropeties:props time:0.5 callback:^
+            {
+                cardUI.selected = NO;
+            }];
+            
         }
     }
 }
@@ -887,8 +887,6 @@
 {
     if (_currentPlayer.ai)
     {
-        txtPlayer2Status.text = @"Drew card.";
-        deckAndGraveyard.lblDeck.text = [NSString stringWithFormat:@"Deck %d", _currentPlayer.deck.cardsInLibrary.count];
         return;
     }
 
@@ -902,15 +900,16 @@
     float deckX = width*1.5/5;
     float deckY = 45;
     
-    txtPlayer1Status.text = [NSString stringWithFormat:@"Drew %@.", card.name];
     deckAndGraveyard.lblDeck.text = [NSString stringWithFormat:@"Deck %d", _currentPlayer.deck.cardsInLibrary.count];
     
     NSArray *sortedKeys = [[hand allKeys] sortedArrayUsingSelector: @selector(compare:)];
     for (NSString *key in sortedKeys)
     {
+        OCardUI *cardUI = nil;
+        
         if ([hand objectForKey:key] == [NSNull null])
         {
-            OCardUI *cardUI = [[OCardUI alloc] initWithWidth:cardWidth height:cardHeight faceUp:!_currentPlayer.ai];
+            cardUI = [[OCardUI alloc] initWithWidth:cardWidth height:cardHeight faceUp:!_currentPlayer.ai];
             int index = [key integerValue];
             
             cardUI.card = card;
@@ -920,14 +919,19 @@
             [cardUI showFace:![_currentPlayer canPlayCard:card]];
             cardUI.cardStatus = InDeck;
             [self addChild:cardUI];
-            
-            [cardUI setupAnimation:index*cardWidth
-                                 y:cardY
-                             width:cardWidth
-                            height:cardHeight
-                              time:2.0];
             [hand setObject:cardUI forKey:key];
-            cardUI.cardStatus = InHand;
+            
+            NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
+            [props setObject:[NSNumber numberWithFloat:index*cardWidth] forKey:@"x"];
+            [props setObject:[NSNumber numberWithFloat:cardY] forKey:@"y"];
+            [props setObject:[NSNumber numberWithFloat:cardWidth] forKey:@"width"];
+            [props setObject:[NSNumber numberWithFloat:cardHeight] forKey:@"height"];
+            
+            [_effects animate:cardUI withPropeties:props time:2.0 callback:^
+            {
+                 cardUI.cardStatus = InHand;
+            }];
+
             break;
         }
     }
@@ -954,13 +958,17 @@
             OCardUI *cardUI = [hand objectForKey:key];
             int index = [key integerValue];
             
-            cardUI.touchStatus = 0;
             [cardUI showFace:![_currentPlayer canPlayCard:cardUI.card]];
-            [cardUI setupAnimation:index*cardWidth
-                                 y:cardY
-                             width:cardWidth
-                            height:cardHeight
-                              time:2.0];
+            NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
+            [props setObject:[NSNumber numberWithFloat:index*cardWidth] forKey:@"x"];
+            [props setObject:[NSNumber numberWithFloat:cardY] forKey:@"y"];
+            [props setObject:[NSNumber numberWithFloat:cardWidth] forKey:@"width"];
+            [props setObject:[NSNumber numberWithFloat:cardHeight] forKey:@"height"];
+            
+            [_effects animate:cardUI withPropeties:props time:1.0 callback:^
+            {
+                cardUI.selected = NO;
+            }];
         }
     }
 }
@@ -985,40 +993,52 @@
         {
             [cardUI showDiscarded];
         }
-        cardUI.cardStatus = InGraveyard;
-        [deckAndGraveyard addCardToGraveyard:cardUI];
         [self addChild:cardUI];
-        [cardUI setupAnimation:currentX
-                             y:currentY
-                         width:cardWidth
-                        height:cardHeight
-                          time:2.0];
+        
+        NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
+        [props setObject:[NSNumber numberWithFloat:currentX] forKey:@"x"];
+        [props setObject:[NSNumber numberWithFloat:currentY] forKey:@"y"];
+        [props setObject:[NSNumber numberWithFloat:cardWidth] forKey:@"width"];
+        [props setObject:[NSNumber numberWithFloat:cardHeight] forKey:@"height"];
+        
+        [_effects animate:cardUI withPropeties:props time:2.0 callback:^
+        {
+             cardUI.cardStatus = InGraveyard;
+             [deckAndGraveyard addCardToGraveyard:cardUI];
+             
+        }];
     }
     else
     {
         for (NSString *key in [hand allKeys])
         {
-            OCardUI *cardUI = [hand objectForKey:key];
-        
-            if (cardUI.card == card)
+            if ([hand objectForKey:key] != [NSNull null])
             {
-                [cardUI showFace:NO];
-                if (discarded)
+                OCardUI *cardUI = [hand objectForKey:key];
+        
+                if (cardUI.card == card)
                 {
-                    [cardUI showDiscarded];
-                }
-                cardUI.cardStatus = InGraveyard;
-                [deckAndGraveyard addCardToGraveyard:cardUI];
+                    [cardUI showFace:NO];
+                    if (discarded)
+                    {
+                        [cardUI showDiscarded];
+                    }
+                    [hand setObject:[NSNull null] forKey:key];
                 
-                [cardUI setupAnimation:currentX
-                                     y:currentY
-                                 width:cardWidth
-                                height:cardHeight
-                                  time:2.0];
-            
-                [hand setObject:[NSNull null] forKey:key];
-                deckAndGraveyard.lblGraveyard.text = [NSString stringWithFormat:@"Graveyard %d", _currentPlayer.deck.cardsInGraveyard.count];
-                break;
+                    NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
+                    [props setObject:[NSNumber numberWithFloat:currentX] forKey:@"x"];
+                    [props setObject:[NSNumber numberWithFloat:currentY] forKey:@"y"];
+                    [props setObject:[NSNumber numberWithFloat:cardWidth] forKey:@"width"];
+                    [props setObject:[NSNumber numberWithFloat:cardHeight] forKey:@"height"];
+                
+                    [_effects animate:cardUI withPropeties:props time:2.0 callback:^
+                    {
+                        cardUI.cardStatus = InGraveyard;
+                        [deckAndGraveyard addCardToGraveyard:cardUI];
+                    }];
+                
+                    break;
+                }
             }
         }
     }

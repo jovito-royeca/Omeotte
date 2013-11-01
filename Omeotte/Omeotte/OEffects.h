@@ -29,4 +29,10 @@
                              yOffset:(float)y
                               parent:(SPSprite*)parent;
 
+-(void) animate:(SPDisplayObject*)target
+  withPropeties:(NSDictionary*)properties
+             time:(float)time
+         callback:(void (^)(void))callback;
+
+
 @end

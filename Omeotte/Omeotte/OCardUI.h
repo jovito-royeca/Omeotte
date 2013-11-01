@@ -41,7 +41,7 @@ typedef enum
 @property(strong,nonatomic) SPImage *imgLocked;
 @property(strong,nonatomic) SPTextField *lblDiscarded;
 
-@property(nonatomic) BOOL touchStatus;
+@property(nonatomic) BOOL selected;
 @property(nonatomic) CardStatus cardStatus;
 
 @property(nonatomic, assign) id<OCardUIDelegate> delegate;
@@ -52,13 +52,6 @@ typedef enum
 -(void) showFace:(BOOL)locked;
 -(void) showBack:(BOOL)opponent;
 -(void) showDiscarded;
-
--(void) advanceTime:(double)seconds;
--(void) setupAnimation:(float)x
-                     y:(float)y
-                 width:(float)width
-                height:(float)height
-                  time:(float)time;
 @end
 
 @protocol OCardUIDelegate <NSObject>
