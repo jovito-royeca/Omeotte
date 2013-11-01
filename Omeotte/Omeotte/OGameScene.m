@@ -22,10 +22,20 @@
         _screenHeight = Sparrow.stage.height;
         _offsetY = (Sparrow.stage.height - 480) / 2;
         
+        [SPAudioEngine start];
+        
         OMenuScene *menuScene = [[OMenuScene alloc] init];
         [self showScene:menuScene];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [OMedia releaseAllAtlas];
+    [OMedia releaseSound];
+    [_currentScene release];
+    [super dealloc];
 }
 
 - (void)showScene:(SPSprite *)scene

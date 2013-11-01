@@ -11,6 +11,7 @@
 @implementation OBattleScene
 {
     SPButton *_btnMenu;
+    SPSprite *_spDialog;
     OPlayer *_currentPlayer;
     OCard *_currentCard;
     OCardUI *_lastPlayedCard;
@@ -76,7 +77,8 @@
     [txtTimer release];
     [deckAndGraveyard release];
     [_effects release];
-    //    [SPMedia releaseSound];
+    [_btnMenu release];
+    [_spDialog release];
     [super dealloc];
 }
 
@@ -543,64 +545,71 @@
 
 -(void) gameOverPhase
 {
-    NSString *szMessage = nil;
-    NSString *szBackground = nil;
-    
-    switch (winners.count)
+    if (!_spDialog)
     {
-        case 1:
+        NSString *szMessage = nil;
+        NSString *szBackground = nil;
+        SoundType stSound = -1;
+    
+        switch (winners.count)
         {
-            if ([winners containsObject:players[0]])
+            case 1:
             {
-                szMessage = @"Victory";
-                szBackground = @"winner.png";
+                if ([winners containsObject:players[0]])
+                {
+                    szMessage = @"Victory";
+                    szBackground = @"winner.png";
+                    stSound = VictorySound;
+                }
+                else if ([winners containsObject:players[1]])
+                {
+                    szMessage = @"Defeat";
+                    szBackground = @"looser.png";
+                    stSound = DefeatSound;
+                }
+                break;
             }
-            else if ([winners containsObject:players[1]])
+            case 2:
             {
-                szMessage = @"Defeat";
-                szBackground = @"looser.png";
+                szMessage = @"Draw";
+                szBackground = @"draw.png";
+                break;
             }
-            break;
         }
-        case 2:
+    
+        float _width = 352/2;
+        float _height = 128/2;
+    
+        _spDialog = [[SPSprite alloc] init];
+        _spDialog.width = _width;
+        _spDialog.height = _height;
+        _spDialog.x = (Sparrow.stage.width-_width)/2;
+        _spDialog.y = (Sparrow.stage.height-_height)/2;
+        SPImage *background = [[SPImage alloc] initWithContentsOfFile:szBackground];
+        background.width = _width;
+        background.height = _height;
+        background.blendMode = SPBlendModeNone;
+        [_spDialog addChild:background];
+        SPTextField *txtMessage = [[SPTextField alloc] initWithWidth:_width height:_height text:szMessage];
+        txtMessage.fontName = CALLIGRAPHICA_FONT;
+        txtMessage.fontSize = _height/2;
+        txtMessage.color = WHITE_COLOR;
+        [_spDialog addChild:txtMessage];
+        [_spDialog addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
+        for (NSString *key in [hand allKeys])
         {
-            szMessage = @"Draw";
-            szBackground = @"draw.png";
-            break;
+            if ([hand objectForKey:key] != [NSNull null])
+            {
+                OCardUI *cardUI = [hand objectForKey:key];
+                [cardUI removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
+            }
         }
+        [_btnMenu removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
+        [self addChild:_spDialog];
+        [_effects playSound:stSound];
     }
-    
-    float _width = 352;
-    float _height = 128;
-    
-    SPSprite *spDialog = [[SPSprite alloc] init];
-    spDialog.width = _width;
-    spDialog.height = _height;
-    spDialog.x = (Sparrow.stage.width-_width)/2;
-    spDialog.y = (Sparrow.stage.height-_height)/2;
-    SPImage *background = [[SPImage alloc] initWithContentsOfFile:szBackground];
-    background.width = _width;
-    background.height = _height;
-    background.blendMode = SPBlendModeNone;
-    [spDialog addChild:background];
-    SPTextField *txtMessage = [[SPTextField alloc] initWithWidth:_width height:_height text:szMessage];
-    txtMessage.fontName = CALLIGRAPHICA_FONT;
-    txtMessage.fontSize = _height/2;
-    txtMessage.color = WHITE_COLOR;
-    [spDialog addChild:txtMessage];
-    [spDialog addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TOUCH];
-    
-    for (NSString *key in [hand allKeys])
-    {
-        if ([hand objectForKey:key] != [NSNull null])
-        {
-            OCardUI *cardUI = [hand objectForKey:key];
-            [cardUI removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
-        }
-    }
-    [_btnMenu removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
-    
-    [self addChild:spDialog];
 }
 
 -(OCardUI*) createCardUI:(OCard*)card
@@ -694,8 +703,8 @@
             [_effects animate:cardUI withPropeties:props time:0.5 callback:^
             {
                 cardUI.selected = NO;
+                cardUI.cardStatus = InHand;
             }];
-            
         }
     }
 }
@@ -772,6 +781,11 @@
                                      xOffset:x+healthUI.towerCenterX
                                      yOffset:healthUI.y+healthUI.towerCenterY
                                       parent:self];
+                [_effects playSound:TowerDownSound];
+            }
+            else
+            {
+                [_effects playSound:TowerUpSound];
             }
             break;
         }
@@ -793,6 +807,11 @@
                                          xOffset:x+healthUI.wallCenterX
                                          yOffset:healthUI.y+healthUI.wallCenterY
                                           parent:self];
+                    [_effects playSound:WallDownSound];
+                }
+                else
+                {
+                    [_effects playSound:WallUpSound];
                 }
             }
             
@@ -824,6 +843,7 @@
                                       xOffset:x
                                       yOffset:resourcesUI.lblBricks.y
                                        parent:self];
+            [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound];
             break;
         }
         case Gems:
@@ -834,6 +854,7 @@
                                         xOffset:x
                                       yOffset:resourcesUI.lblGems.y
                                        parent:self];
+            [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound];
             break;
         }
         case Recruits:
@@ -844,6 +865,7 @@
                                       xOffset:x
                                       yOffset:resourcesUI.lblRecruits.y
                                        parent:self];
+            [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound];
             break;
         }
         case Quarries:
@@ -854,6 +876,7 @@
                                       xOffset:x
                                       yOffset:resourcesUI.lblQuarries.y
                                        parent:self];
+            [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound];
             break;
         }
         case Magics:
@@ -864,6 +887,7 @@
                                       xOffset:x
                                       yOffset:resourcesUI.lblMagics.y
                                        parent:self];
+            [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound];
             break;
         }
         case Dungeons:
@@ -874,6 +898,7 @@
                                       xOffset:x
                                       yOffset:resourcesUI.lblDungeons.y
                                        parent:self];
+            [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound];
             break;
         }
         default:
@@ -931,6 +956,10 @@
             {
                  cardUI.cardStatus = InHand;
             }];
+            if (_turns > 0)
+            {
+                [_effects playSound:DrawSound];
+            }
 
             break;
         }
@@ -968,6 +997,7 @@
             [_effects animate:cardUI withPropeties:props time:1.0 callback:^
             {
                 cardUI.selected = NO;
+                cardUI.cardStatus = InHand;
             }];
         }
     }
@@ -992,6 +1022,7 @@
         if (discarded)
         {
             [cardUI showDiscarded];
+            [_effects playSound:DiscardSound];
         }
         [self addChild:cardUI];
         
@@ -1022,6 +1053,7 @@
                     if (discarded)
                     {
                         [cardUI showDiscarded];
+                        [_effects playSound:DiscardSound];
                     }
                     [hand setObject:[NSNull null] forKey:key];
                 

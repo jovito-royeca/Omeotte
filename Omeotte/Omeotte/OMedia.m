@@ -56,10 +56,10 @@ static NSMutableDictionary *sounds = NULL;
 }
 
 #pragma mark Audio
-
 + (void)initSound
 {
-    if (sounds) return;
+    if (sounds)
+        return;
     
     [SPAudioEngine start];
     sounds = [[NSMutableDictionary alloc] init];
@@ -94,7 +94,7 @@ static NSMutableDictionary *sounds = NULL;
     if (sound)
         [sound play];
     else        
-        [[SPSound soundWithContentsOfFile:soundName] play];    
+        [[SPSound soundWithContentsOfFile:soundName] play];
 }
 
 + (SPSoundChannel *)soundChannel:(NSString *)soundName

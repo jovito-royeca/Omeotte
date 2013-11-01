@@ -165,19 +165,19 @@
     
     [self unflatten];
     
-    lblQuarries.text = [NSString stringWithFormat:@"%d", stats.quarries];
+    lblQuarries.text = [NSString stringWithFormat:@"+%d", stats.quarries];
     lblBricks.text = [NSString stringWithFormat:@"%d bricks", stats.bricks];
     ratio = (float) stats.bricks / (float) _rule.winningResource;
     width = baseWidth * ratio;
     [self animateResourceBar:qdBricks width:width];
     
-    lblMagics.text = [NSString stringWithFormat:@"%d", stats.magics];
+    lblMagics.text = [NSString stringWithFormat:@"+%d", stats.magics];
     lblGems.text = [NSString stringWithFormat:@"%d gems", stats.gems];
     ratio = (float) stats.gems / (float) _rule.winningResource;
     width = baseWidth * ratio;
     [self animateResourceBar:qdGems width:width];
     
-    lblDungeons.text = [NSString stringWithFormat:@"%d", stats.dungeons];
+    lblDungeons.text = [NSString stringWithFormat:@"+%d", stats.dungeons];
     lblRecruits.text = [NSString stringWithFormat:@"%d recruits", stats.recruits];
     ratio = (float) stats.recruits / (float) _rule.winningResource;
     width = baseWidth * ratio;

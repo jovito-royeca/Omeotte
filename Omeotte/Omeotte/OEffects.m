@@ -37,6 +37,65 @@
     [_juggler advanceTime:seconds];
 }
 
+-(void) playSound:(SoundType)type
+{
+    switch (type)
+    {
+        case DrawSound:
+        case DiscardSound:
+        {
+            [OMedia playSound:@"card.caf"];
+            break;
+        }
+        case ResourceUpSound:
+        {
+            [OMedia playSound:@"resb_upO.caf"];
+            break;
+        }
+        case ResourceDownSound:
+        {
+            [OMedia playSound:@"resb_downO.caf"];
+            break;
+        }
+        case ResourceValueUpSound:
+        {
+            [OMedia playSound:@"ress_upO.caf"];
+            break;
+        }
+        case ResourceValueDownSound:
+        {
+            [OMedia playSound:@"ress_downO.caf"];
+            break;
+        }
+        case TowerUpSound:
+        {
+            [OMedia playSound:@"tower_upO.caf"];
+            break;
+        }
+        case TowerDownSound:
+        case WallDownSound:
+        {
+            [OMedia playSound:@"damageO.caf"];
+            break;
+        }
+        case WallUpSound:
+        {
+            [OMedia playSound:@"wall_upO.caf"];
+            break;
+        }
+        case DefeatSound:
+        {
+            [OMedia playSound:@"defeat.caf"];
+            break;
+        }
+        case VictorySound:
+        {
+            [OMedia playSound:@"victory.caf"];
+            break;
+        }
+    }
+}
+
 -(void) applyFloatingTextOnStatField:(SPTextField*)statField
                        modValue:(int)modValue
                         message:(NSString*)message

@@ -26,7 +26,7 @@ typedef enum
 typedef enum
 {
     Current = 0,
-    Opponent,
+    Opponent
 } EffectTarget;
 
 typedef struct _Effect
