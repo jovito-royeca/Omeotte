@@ -98,9 +98,16 @@
     // Background
     SPImage *background = [[SPImage alloc] initWithContentsOfFile:@"background.png"];
     background.width = _width;
-    background.height = _height - cardHeight -40;
+    background.height = _height - cardHeight - 40;
     background.blendMode = SPBlendModeNone;
     [self addChild:background];
+    
+    SPImage *scroll = [[SPImage alloc] initWithContentsOfFile:@"scroll.png"];
+    scroll.width = _width;
+    scroll.height = cardHeight + 40;
+    scroll.y = _height - cardHeight - 40;
+    scroll.blendMode = SPBlendModeNone;
+    [self addChild:scroll];
     
     // Base
 //    SPQuad *base = [[SPQuad alloc] initWithWidth:_width height:20];
@@ -928,20 +935,17 @@
     deckAndGraveyard.lblDeck.text = [NSString stringWithFormat:@"Deck %d", _currentPlayer.deck.cardsInLibrary.count];
     
     NSArray *sortedKeys = [[hand allKeys] sortedArrayUsingSelector: @selector(compare:)];
+    OCardUI *cardUI = nil;
     for (NSString *key in sortedKeys)
     {
-        OCardUI *cardUI = nil;
-        
         if ([hand objectForKey:key] == [NSNull null])
         {
-            cardUI = [[OCardUI alloc] initWithWidth:cardWidth height:cardHeight faceUp:!_currentPlayer.ai];
+            cardUI = [self createCardUI:card];
             int index = [key integerValue];
             
-            cardUI.card = card;
-            cardUI.delegate = self;
             cardUI.x = deckX;
             cardUI.y = deckY;
-            [cardUI showFace:![_currentPlayer canPlayCard:card]];
+            [cardUI showBack:NO];
             cardUI.cardStatus = InDeck;
             [self addChild:cardUI];
             [hand setObject:cardUI forKey:key];
@@ -955,6 +959,7 @@
             [_effects animate:cardUI withPropeties:props time:2.0 callback:^
             {
                  cardUI.cardStatus = InHand;
+                [cardUI showFace:![_currentPlayer canPlayCard:card]];
             }];
             if (_turns > 0)
             {
@@ -979,13 +984,15 @@
     float cardWidth  = width/6;
     float cardHeight = (cardWidth*128)/95;
     float cardY = height-cardHeight;
+    OCardUI *cardUI = nil;
     
     for (NSString *key in [hand allKeys])
     {
+        int index = [key integerValue];
+        
         if ([hand objectForKey:key] != [NSNull null])
         {
-            OCardUI *cardUI = [hand objectForKey:key];
-            int index = [key integerValue];
+            cardUI = [hand objectForKey:key];
             
             [cardUI showFace:![_currentPlayer canPlayCard:cardUI.card]];
             NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
@@ -999,6 +1006,19 @@
                 cardUI.selected = NO;
                 cardUI.cardStatus = InHand;
             }];
+        }
+        else
+        {
+//            OCard *card = [_currentPlayer.hand objectAtIndex:index];
+//            cardUI = [self createCardUI:card];
+//            
+//            cardUI.x = index*cardWidth;
+//            cardUI.y = cardY;
+//            [cardUI showFace:![_currentPlayer canPlayCard:card]];
+//            cardUI.selected = NO;
+//            cardUI.cardStatus = InHand;
+//            [self addChild:cardUI];
+//            [hand setObject:cardUI forKey:key];
         }
     }
 }
