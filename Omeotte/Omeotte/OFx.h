@@ -12,6 +12,7 @@
 
 #import "Omeotte.h"
 #import "OMedia.h"
+#import "OStats.h"
 #import "SXParticleSystem.h"
 
 typedef enum
@@ -30,7 +31,7 @@ typedef enum
     VictorySound
 } SoundType;
 
-@interface OEffects : NSObject
+@interface OFx : NSObject
 
 -(void) advanceTime:(double)seconds;
 
@@ -38,9 +39,9 @@ typedef enum
 
 -(void) stopSound:(SoundType)type;
 
--(void) applyFloatingTextOnStatField:(SPTextField*)statField
+-(void) applyFloatingTextOnStatField:(SPTextField*)statFieldText
+                               field:(StatField)field
                        modValue:(int)modValue
-                        message:(NSString*)message
                         xOffset:(float)x
                         yOffset:(float)y
                          parent:(SPSprite*)parent;

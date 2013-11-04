@@ -16,8 +16,6 @@
 		</dict>
 		<key>text</key>
 		<string>Each player loses eight bricks.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -54,8 +52,6 @@
 		</dict>
 		<key>text</key>
 		<string>Each player&apos;s Quarry level is reduced by one.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -92,8 +88,6 @@
 		</dict>
 		<key>text</key>
 		<string>Each player receives two bricks and two gems. Play an additional card.</string>
-		<key>playAgain</key>
-		<true/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -131,6 +125,10 @@
 				<integer>1</integer>
 			</dict>
 		</array>
+		<key>specialPowers</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -146,8 +144,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by ten. You receive five gems. Your Quarry level is reduced by one.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -192,8 +188,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by one. Play an additional card.</string>
-		<key>playAgain</key>
-		<true/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -206,6 +200,10 @@
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
+		</array>
+		<key>specialPowers</key>
+		<array>
+			<integer>0</integer>
 		</array>
 	</dict>
 	<dict>
@@ -222,8 +220,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall and tower by one each. You receive two recruits.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -268,8 +264,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by three.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -298,8 +292,6 @@
 		</dict>
 		<key>text</key>
 		<string>You receive four gems. Each player&apos;s Quarry level increases by one.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -344,8 +336,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by five. You lose six gems.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -382,8 +372,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by three. Increases your wall by an additional three if your wall was at 0 when you played this card.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>eval</key>
@@ -460,8 +448,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your Quarry level by one.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -490,8 +476,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by four.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -520,8 +504,6 @@
 		</dict>
 		<key>text</key>
 		<string>Reduces your opponent&apos;s Quarry level by one.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -550,8 +532,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your Quarry level by one. Increases your Quarry level by an additional one if your Quarry level was lower than your opponents when you played this card.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -580,8 +560,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by six.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -610,8 +588,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your Quarry level to match your opponent&apos;s Quarry level. This does not lower your Quarry level if you&apos;re Quarry level is higher.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -640,8 +616,6 @@
 		</dict>
 		<key>text</key>
 		<string>The player or players with the lowest wall take two damage to their tower and their Dungeon levels are reduced by one.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -670,8 +644,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your Quarry level by two.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -700,8 +672,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by four. Increases your Quarry level by one.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -738,8 +708,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by nine. You lose five recruits.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -776,8 +744,6 @@
 		</dict>
 		<key>text</key>
 		<string>Deals five damage to all walls. Play an additional card.</string>
-		<key>playAgain</key>
-		<true/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -799,6 +765,10 @@
 				<integer>1</integer>
 			</dict>
 		</array>
+		<key>specialPowers</key>
+		<array>
+			<integer>0</integer>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -814,8 +784,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by eight.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -844,8 +812,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your Magic level by one. Play an additional card.</string>
-		<key>playAgain</key>
-		<true/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -858,6 +824,10 @@
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
+		</array>
+		<key>specialPowers</key>
+		<array>
+			<integer>0</integer>
 		</array>
 	</dict>
 	<dict>
@@ -874,8 +844,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by seven. You gain seven gems.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -912,8 +880,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by five. Increases your Dungeon level by one.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -950,8 +916,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by six. You gain six recruits. Increases your Dungeon level by one if your dungeon level is lower than your opponent&apos;s Dungeon level.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -988,8 +952,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by six. Increases your tower by three.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -1026,8 +988,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by twelve.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -1056,8 +1016,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by seven. Does six damage to the enemy.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -1094,8 +1052,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by eight. Increases your tower by five.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -1132,8 +1088,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by fifteen.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -1162,8 +1116,6 @@
 		</dict>
 		<key>text</key>
 		<string>Switch your wall with the opponent&apos;s wall.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -1192,8 +1144,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by six. Does ten damage to the enemy.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>
@@ -1230,8 +1180,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your wall by twenty. Increases your tower by eight.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>0</integer>
 		<key>effects</key>

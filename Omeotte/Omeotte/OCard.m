@@ -13,10 +13,10 @@
 @synthesize name;
 @synthesize cost;
 @synthesize text;
-@synthesize playAgain;
 @synthesize type;
-@synthesize eval;
 @synthesize effects;
+@synthesize specialPowers;
+@synthesize eval;
 
 - (id) init
 {
@@ -42,6 +42,7 @@
 //        }
 //    }
     
+    [specialPowers release];
     [super dealloc];
 }
 
@@ -88,7 +89,6 @@ NSArray *_cards;
                 }
                 card.cost = cost;
                 card.text = [dict valueForKey:@"text"];
-                card.playAgain = [[dict valueForKey:@"playAgain"] boolValue];
                 card.type = [[dict valueForKey:@"type"] intValue];
             
 //                NSDictionary *evalDict = [dict valueForKey:@"eval"];
@@ -143,6 +143,17 @@ NSArray *_cards;
                     card.effects = fxArr;
                 }
             
+                NSArray *specialPowers = [dict valueForKey:@"specialPowers"];
+                if (specialPowers)
+                {
+                    NSMutableArray *spArr = [[NSMutableArray alloc] init];
+                    
+                    for (NSNumber *n in specialPowers)
+                    {
+                        [spArr addObject:n];
+                    }
+                    card.specialPowers = spArr;
+                }
                 [macards addObject:card];
             }
         }
@@ -171,9 +182,9 @@ NSArray *_cards;
                 cardClone.name = card.name;
                 cardClone.cost = card.cost;
                 cardClone.text = card.text;
-                cardClone.playAgain = card.playAgain;
                 cardClone.type = card.type;
                 cardClone.effects = card.effects;
+                cardClone.specialPowers = card.specialPowers;
                 cardClone.eval = card.eval;
                 
                 [cards addObject:cardClone];
@@ -194,6 +205,29 @@ NSArray *_cards;
     e->target = [[dict valueForKey:@"target"] intValue];
     
     return e;
+}
+
++(NSString*) specialPowerName:(CardSpecialPower)sp
+{
+    switch (sp)
+    {
+        case CardPlayAnother:
+        {
+            return @"Play an additional card.";
+        }
+        case CardUndiscardable:
+        {
+            return @"This card can't be discarded.";
+        }
+        case CardDraw:
+        {
+            return @"Draw 1 card.";
+        }
+        case CardDiscard:
+        {
+            return @"Discard 1 card.";
+        }
+    }
 }
 
 -(int) totalCost
@@ -221,14 +255,64 @@ NSArray *_cards;
 
 -(NSString*) canonicalText
 {
-    NSMutableString *ct = [[NSMutableString alloc] init];
+    NSMutableString *stCurrent = [[NSMutableString alloc] init];
+    NSMutableString *stOpponent = [[NSMutableString alloc] init];
+    NSMutableString *stAll = [[NSMutableString alloc] init];
     
     if (effects)
     {
-        return @"";
+        for (int i=0; i<effects.count; i++)
+        {
+            struct _Effect e;
+            [[effects objectAtIndex:i] getValue:&e];
+            
+            switch (e.target)
+            {
+                case Current:
+                {
+                    [stCurrent appendFormat:@"%@%@%d %@", stCurrent.length>0 ? @"\n":@"", e.value>0?@"+":@"", e.value, [OStats statName:e.field]];
+                    break;
+                }
+                case Opponent:
+                {
+                    [stOpponent appendFormat:@"%@%@%d %@", stOpponent.length>0 ? @"\n":@"", e.value>0?@"+":@"", e.value, [OStats statName:e.field]];
+                    break;
+                }
+            }
+        }
     }
     
-    return ct;
+    [stAll appendFormat:@"%@", stCurrent];
+    if (stOpponent.length > 0)
+    {
+        [stAll appendFormat:@"\nOpponent:\n%@", stOpponent];
+    }
+    [stCurrent release];
+    [stOpponent release];
+    
+    if (specialPowers)
+    {
+        for (NSNumber *n in specialPowers)
+        {
+            [stAll appendFormat:@"%@%@", stAll.length>0 ? @"\n":@"", [OCard specialPowerName:[n intValue]]];
+        }
+    }
+    return stAll;
+}
+
+-(BOOL) hasSpecialPower:(CardSpecialPower)sp
+{
+    if (specialPowers)
+    {
+        for (NSNumber *n in specialPowers)
+        {
+            if ([n intValue] == sp)
+            {
+                return YES;
+            }
+        }
+    }
+    return NO;
 }
 
 @end

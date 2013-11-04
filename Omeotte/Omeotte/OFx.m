@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
-#import "OEffects.h"
+#import "OFx.h"
 
-@implementation OEffects
+@implementation OFx
 {
     NSMutableArray *_statFields;
     SPJuggler *_juggler;
@@ -114,21 +114,21 @@
     }
 }
 
--(void) applyFloatingTextOnStatField:(SPTextField*)statField
-                       modValue:(int)modValue
-                        message:(NSString*)message
-                        xOffset:(float)x
-                        yOffset:(float)y
-                         parent:(SPSprite*)parent
+-(void) applyFloatingTextOnStatField:(SPTextField*)statFieldText
+                               field:(StatField)field
+                            modValue:(int)modValue
+                             xOffset:(float)x
+                             yOffset:(float)y
+                              parent:(SPSprite*)parent
 {
-    SPTextField *newField = [[SPTextField alloc] initWithWidth:statField.width height:10];
+    SPTextField *newField = [[SPTextField alloc] initWithWidth:statFieldText.width height:10];
     newField.x = x;
     newField.y = y;
-    newField.text = [NSString stringWithFormat:@"%@%d %@", (modValue>0 ? @"+":@""), modValue, message];
+    newField.text = [NSString stringWithFormat:@"%@%d %@", (modValue>0 ? @"+":@""), modValue, [OStats statName:field]];
     newField.color = modValue<0 ? RED_COLOR : WHITE_COLOR;
     newField.fontSize = 10;
-    newField.fontName = statField.fontName;
-    newField.hAlign = statField.hAlign;
+    newField.fontName = statFieldText.fontName;
+    newField.hAlign = statFieldText.hAlign;
     [parent addChild:newField];
     
     SPTween *tween = [SPTween tweenWithTarget:newField time:3.0];

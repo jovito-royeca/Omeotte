@@ -78,6 +78,7 @@
     
     results = [self searchCards:@"" cardType:0];
     [self createSections];
+    [cardUI showBack:NO];
 }
 
 - (NSArray*) searchCards:(NSString*)query cardType:(int)type
@@ -140,8 +141,15 @@
     NSString *query = [sections objectAtIndex:indexPath.section];
     OCard *card = [[self searchCards:query cardType:searchBar.selectedScopeButtonIndex] objectAtIndex:indexPath.row];
     
-    [cardUI setCard:card];
-    [cardUI showFace:NO];
+    if (card)
+    {
+        [cardUI setCard:card];
+        [cardUI showFace:NO];
+    }
+    else
+    {
+        [cardUI showBack:NO];
+    }
     [searchBar resignFirstResponder];
 }
 

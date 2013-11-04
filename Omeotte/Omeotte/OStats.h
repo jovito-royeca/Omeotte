@@ -71,6 +71,8 @@ typedef struct _Eval
 
 +(void) evaluate:(Eval)eval onCurrent:(OStats*)current orOpponent:(OStats*)opponent;
 
++(NSString*) statName:(StatField)field;
+
 -(int) statField:(StatField)field;
 
 -(void) setStatField:(StatField)field withValue:(int)value;

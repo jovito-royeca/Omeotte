@@ -19,7 +19,7 @@
     int _turns;
     NSTimer *_timer;
     int elapsedTurnTime;
-    OEffects *_effects;
+    OFx *_effects;
 }
 
 @synthesize txtPlayer1Name;
@@ -51,7 +51,7 @@
         rule = [rules objectAtIndex:random];
         
         _gamePhase = Upkeep;
-        _effects = [[OEffects alloc] init];
+        _effects = [[OFx alloc] init];
         
         [self setup];
         [self initPlayers];
@@ -108,13 +108,6 @@
     scroll.y = _height - cardHeight - 40;
     scroll.blendMode = SPBlendModeNone;
     [self addChild:scroll];
-    
-    // Base
-//    SPQuad *base = [[SPQuad alloc] initWithWidth:_width height:20];
-//    base.x = 0;
-//    base.y = _height-cardHeight-40;
-//    base.color = GREEN_COLOR;
-//    [self addChild:base];
     
     // Player1 Name
     currentWidth = (_width*2/5)*0.30;
@@ -499,7 +492,36 @@
             
             if (_gamePhase != GameOver)
             {
-                [self switchTurn:_currentCard.playAgain ? _currentPlayer : opponentPlayer];
+                if ([_currentCard hasSpecialPower:CardPlayAnother])
+                {
+                    [_timer invalidate];
+                    _timer = nil;
+                    return;
+                }
+                
+                if ([_currentCard hasSpecialPower:CardDraw])
+                {
+                    [self drawPhase];
+                }
+                
+                if ([_currentCard hasSpecialPower:CardDiscard])
+                {
+                    if (_currentPlayer.ai)
+                    {
+                        _currentCard = [_currentPlayer chooseCardToDiscard];
+                        
+                        if (_currentCard)
+                        {
+                            [self discardCard:_currentCard];
+                        }
+                    }
+                    else
+                    {
+                        // handle discard here...
+                    }
+                }
+
+                [self switchTurn:opponentPlayer];
                 turnTaken = YES;
             }
         }
@@ -683,9 +705,16 @@
 {
     if (!_currentPlayer.ai)
     {
-        NSLog(@"discard... %@", cardUI.card.name);
-        [self discardCard:cardUI.card];
-        [self switchTurn:[self opponentPlayer]];
+        if ([cardUI.card hasSpecialPower:CardUndiscardable])
+        {
+            NSLog(@"Card undiscardable... %@", cardUI.card.name);
+        }
+        else
+        {
+            NSLog(@"discard... %@", cardUI.card.name);
+            [self discardCard:cardUI.card];
+            [self switchTurn:[self opponentPlayer]];
+        }
     }
 }
 
@@ -777,11 +806,11 @@
         case Tower:
         {
             [_effects applyFloatingTextOnStatField:healthUI.lblTower
-                                     modValue:modValue
-                                      message:@"Tower"
-                                      xOffset:x
-                                      yOffset:healthUI.lblTower.y
-                                       parent:self];
+                                             field:Tower
+                                          modValue:modValue
+                                           xOffset:x
+                                           yOffset:healthUI.lblTower.y
+                                            parent:self];
             if (modValue < 0)
             {
                 [_effects setFireOnStructure:healthUI.imgTower
@@ -803,8 +832,8 @@
             if (result > 0)
             {
                 [_effects applyFloatingTextOnStatField:healthUI.lblWall
+                                                 field:Wall
                                               modValue:modValue
-                                               message:@"Wall"
                                                xOffset:x
                                                yOffset:healthUI.lblWall.y
                                                 parent:self];
@@ -829,11 +858,12 @@
                     width35 + healthUI.lblTower.x : resourcesUI.width;
                 
                 [_effects applyFloatingTextOnStatField:healthUI.lblTower
+                                                 field:Tower
                                               modValue:result
-                                               message:@"Tower"
                                                xOffset:x
                                                yOffset:healthUI.lblTower.y
                                                 parent:self];
+
                 [_effects setFireOnStructure:healthUI.imgTower
                                      xOffset:x+healthUI.towerCenterX
                                      yOffset:healthUI.y+healthUI.towerCenterY
@@ -845,66 +875,66 @@
         case Bricks:
         {
             [_effects applyFloatingTextOnStatField:resourcesUI.lblBricks
-                                     modValue:modValue
-                                      message:@"bricks"
-                                      xOffset:x
-                                      yOffset:resourcesUI.lblBricks.y
-                                       parent:self];
+                                             field:Bricks
+                                          modValue:modValue
+                                           xOffset:x
+                                           yOffset:resourcesUI.lblBricks.y
+                                            parent:self];
             [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound  loop:NO];
             break;
         }
         case Gems:
         {
             [_effects applyFloatingTextOnStatField:resourcesUI.lblGems
-                                     modValue:modValue
-                                      message:@"gems"
-                                        xOffset:x
-                                      yOffset:resourcesUI.lblGems.y
-                                       parent:self];
+                                             field:Gems
+                                          modValue:modValue
+                                           xOffset:x
+                                           yOffset:resourcesUI.lblGems.y
+                                            parent:self];
             [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound loop:NO];
             break;
         }
         case Recruits:
         {
             [_effects applyFloatingTextOnStatField:resourcesUI.lblRecruits
-                                     modValue:modValue
-                                      message:@"recruits"
-                                      xOffset:x
-                                      yOffset:resourcesUI.lblRecruits.y
-                                       parent:self];
+                                             field:Recruits
+                                          modValue:modValue
+                                           xOffset:x
+                                           yOffset:resourcesUI.lblRecruits.y
+                                            parent:self];
             [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound loop:NO];
             break;
         }
         case Quarries:
         {
             [_effects applyFloatingTextOnStatField:resourcesUI.lblQuarries
-                                     modValue:modValue
-                                      message:@"Quarries"
-                                      xOffset:x
-                                      yOffset:resourcesUI.lblQuarries.y
-                                       parent:self];
+                                             field:Quarries
+                                          modValue:modValue
+                                           xOffset:x
+                                           yOffset:resourcesUI.lblQuarries.y
+                                            parent:self];
             [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound loop:NO];
             break;
         }
         case Magics:
         {
             [_effects applyFloatingTextOnStatField:resourcesUI.lblMagics
-                                     modValue:modValue
-                                      message:@"Magics"
-                                      xOffset:x
-                                      yOffset:resourcesUI.lblMagics.y
-                                       parent:self];
+                                             field:Magics
+                                          modValue:modValue
+                                           xOffset:x
+                                           yOffset:resourcesUI.lblMagics.y
+                                            parent:self];
             [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound loop:NO];
             break;
         }
         case Dungeons:
         {
             [_effects applyFloatingTextOnStatField:resourcesUI.lblDungeons
-                                     modValue:modValue
-                                      message:@"Dungeons"
-                                      xOffset:x
-                                      yOffset:resourcesUI.lblDungeons.y
-                                       parent:self];
+                                             field:Dungeons
+                                          modValue:modValue
+                                           xOffset:x
+                                           yOffset:resourcesUI.lblDungeons.y
+                                            parent:self];
             [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound loop:NO];
             break;
         }

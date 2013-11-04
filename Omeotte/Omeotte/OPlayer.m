@@ -134,6 +134,11 @@
     
     for (OCard *card in hand)
     {
+        if ([card hasSpecialPower:CardUndiscardable])
+        {
+            continue;
+        }
+
         if (worst)
         {
             if ([card totalCost] > [worst totalCost])
@@ -183,6 +188,32 @@
             }
         }
     }
+    
+//    if (card.specialPowers)
+//    {
+//        for (NSNumber *n in card.specialPowers)
+//        {
+//            switch ([n intValue])
+//            {
+//                case CardPlayAnother:
+//                {
+//                    break;
+//                }
+//                case CardUndiscardable:
+//                {
+//                    break;
+//                }
+//                case CardDraw:
+//                {
+//                    break;
+//                }
+//                case CardDiscard:
+//                {
+//                    break;
+//                }
+//            }
+//        }
+//    }
     
     // To Do: handle ops
     // ...

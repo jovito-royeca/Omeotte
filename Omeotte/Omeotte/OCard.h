@@ -20,21 +20,31 @@ typedef enum
     Mixed
 } CardType;
 
+typedef enum
+{
+    CardPlayAnother = 0,
+    CardUndiscardable,
+    CardDraw,
+    CardDiscard
+} CardSpecialPower;
+
 @interface OCard : NSObject
 
 @property(strong, nonatomic) NSString *name;
 @property(assign, nonatomic) OStats *cost;
 @property(strong, nonatomic) NSString *text;
-@property(nonatomic) BOOL playAgain;
 @property(nonatomic) CardType type;
 @property(assign,nonatomic) Eval eval;
 @property(strong,nonatomic) NSMutableArray *effects;
+@property(strong,nonatomic) NSMutableArray *specialPowers;
 
-+(NSArray*)allCards;
-+(NSArray*)onlyThisCard:(NSString*)cardName;
++(NSArray*) allCards;
++(NSArray*) onlyThisCard:(NSString*)cardName;
++(NSString*) specialPowerName:(CardSpecialPower)sp;
 
 -(int) totalCost;
 -(int) totalDamage;
 -(NSString*) canonicalText;
+-(BOOL) hasSpecialPower:(CardSpecialPower)sp;
 
 @end

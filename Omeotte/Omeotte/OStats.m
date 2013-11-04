@@ -43,6 +43,53 @@
     
 }
 
++(NSString*) statName:(StatField)field
+{
+    switch (field)
+    {
+        case  None:
+        {
+            return @"None";
+        }
+        case Tower:
+        {
+            return @"Tower";
+        }
+        case Wall:
+        {
+            return @"Wall";
+        }
+        case Bricks:
+        {
+            return @"Bricks";
+        }
+        case Gems:
+        {
+            return @"Gems";
+        }
+        case Recruits:
+        {
+            return @"Recruits";
+        }
+        case Quarries:
+        {
+            return @"Quarry";
+        }
+        case Magics:
+        {
+            return @"Magic";
+        }
+        case Dungeons:
+        {
+            return @"Dungeon";
+        }
+        default:
+        {
+            return @"";
+        }
+    }
+}
+
 -(int) statField:(StatField)field
 {
     switch (field)

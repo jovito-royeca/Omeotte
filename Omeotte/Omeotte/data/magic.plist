@@ -16,8 +16,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by one. Increases your tower by an additional one if it&apos;s lower than your opponent&apos;s tower when you played this card</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -46,8 +44,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases each player&apos;s tower by one. You receive three gems</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -92,8 +88,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by one. Play an additional card</string>
-		<key>playAgain</key>
-		<true/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -106,6 +100,10 @@
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
+		</array>
+		<key>specialPowers</key>
+		<array>
+			<integer>0</integer>
 		</array>
 	</dict>
 	<dict>
@@ -122,8 +120,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by three</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -152,8 +148,6 @@
 		</dict>
 		<key>text</key>
 		<string>Does three damage to your opponent&apos;s tower</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -182,20 +176,13 @@
 		</dict>
 		<key>text</key>
 		<string>Draw one card and then discard one card. Play an additional card</string>
-		<key>playAgain</key>
-		<true/>
 		<key>type</key>
 		<integer>1</integer>
-		<key>effects</key>
+		<key>specialPowers</key>
 		<array>
-			<dict>
-				<key>field</key>
-				<integer>0</integer>
-				<key>value</key>
-				<integer>0</integer>
-				<key>target</key>
-				<integer>0</integer>
-			</dict>
+			<string>2</string>
+			<integer>3</integer>
+			<integer>0</integer>
 		</array>
 	</dict>
 	<dict>
@@ -212,8 +199,6 @@
 		</dict>
 		<key>text</key>
 		<string>Does one damage to your opponent&apos;s tower. Play an additional card</string>
-		<key>playAgain</key>
-		<true/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -226,6 +211,10 @@
 				<key>target</key>
 				<integer>1</integer>
 			</dict>
+		</array>
+		<key>specialPowers</key>
+		<array>
+			<integer>0</integer>
 		</array>
 	</dict>
 	<dict>
@@ -242,8 +231,6 @@
 		</dict>
 		<key>text</key>
 		<string>Does five damage to your tower. Increases your Magic level by two</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -280,8 +267,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by five</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -310,8 +295,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your Magic level by one</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -340,8 +323,6 @@
 		</dict>
 		<key>text</key>
 		<string>Does five damage to your opponent&apos;s tower</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -370,8 +351,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by seven. You lose ten bricks</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -408,8 +387,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by two. Does two damage to your opponent&apos;s tower</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -446,8 +423,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by four. Does two damage to your opponent&apos;s tower. You lose three recruits</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -492,8 +467,6 @@
 		</dict>
 		<key>text</key>
 		<string>Does seven damage to all towers. Each player&apos;s Magic level is reduced by one</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -545,9 +518,7 @@
 			<integer>0</integer>
 		</dict>
 		<key>text</key>
-		<string>Increases your tower by eight. This card can&apos;t be discarded</string>
-		<key>playAgain</key>
-		<false/>
+		<string>Increases your tower by eight. This card can&apos;t be discarded.</string>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -560,6 +531,10 @@
 				<key>target</key>
 				<integer>0</integer>
 			</dict>
+		</array>
+		<key>specialPowers</key>
+		<array>
+			<integer>1</integer>
 		</array>
 	</dict>
 	<dict>
@@ -576,8 +551,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by three. Increases your Magic level by one. Increases your opponent&apos;s tower by one</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -622,8 +595,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by eight</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -652,8 +623,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by five. Your opponent loses six bricks</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -690,8 +659,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by three. Increases your wall by three. Increases your Magic level by one</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -736,8 +703,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases the each player&apos;s Magic level to that of the highest player&apos;s Magic level</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -766,8 +731,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by eleven. Reduces your wall by eight</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -804,8 +767,6 @@
 		</dict>
 		<key>text</key>
 		<string>Does nine damage to your opponent&apos;s tower. Reduces your Magic level by one</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -842,8 +803,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by five. Increases your Magic level by one</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -860,9 +819,9 @@
 				<key>field</key>
 				<integer>6</integer>
 				<key>value</key>
-				<integer>0</integer>
-				<key>target</key>
 				<integer>1</integer>
+				<key>target</key>
+				<integer>0</integer>
 			</dict>
 		</array>
 	</dict>
@@ -880,8 +839,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by eleven</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -910,8 +867,6 @@
 		</dict>
 		<key>text</key>
 		<string>Does eight damage. If your tower is greater than your opponent&apos;s tower when this card is played, it does eight damage to your opponent&apos;s tower instead</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -940,8 +895,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by eight. Increases your wall by three</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -978,8 +931,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by six. Does four damage to your opponent&apos;s tower</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -1016,8 +967,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by eight. Increases your Dungeon level by one</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -1054,8 +1003,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by ten. Increases your wall by five. You receive five recruits</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -1100,8 +1047,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by fifteen</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -1130,8 +1075,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by twelve. Does six damage to the enemy</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -1168,8 +1111,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by thirteen. You receive six recruits and bricks</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>
@@ -1214,8 +1155,6 @@
 		</dict>
 		<key>text</key>
 		<string>Increases your tower by twenty.</string>
-		<key>playAgain</key>
-		<false/>
 		<key>type</key>
 		<integer>1</integer>
 		<key>effects</key>

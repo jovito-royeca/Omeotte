@@ -136,7 +136,7 @@
     lblText.color = BLACK_COLOR;
     lblText.fontSize = currentX;
     lblText.fontName = EXETER_FONT;
-    lblText.vAlign = SPVAlignTop;
+//    lblText.vAlign = SPVAlignTop;
     [self addChild:lblText];
 
     [self addEventListener:@selector(onCardTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
@@ -238,7 +238,7 @@
     SPTexture *art = [OMedia texture:[[card name] lowercaseString] fromAtlas:cards];
     imgArt.texture = art;
 
-    lblText.text = card.text;
+    lblText.text = [card canonicalText];
 
     NSString *szBackground = nil;
     switch (card.type)

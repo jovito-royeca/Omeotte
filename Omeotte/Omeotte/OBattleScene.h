@@ -14,7 +14,7 @@
 #import "OCard.h"
 #import "OCardUI.h"
 #import "ODeckAndGraveyardUI.h"
-#import "OEffects.h"
+#import "OFx.h"
 #import "OHealthUI.h"
 #import "OMedia.h"
 #import "OMenuScene.h"

@@ -117,7 +117,7 @@
     qdBricks.y = currentY;
     qdBricks.color = RED_COLOR;
     [self addChild:qdBricks];
-    lblBricks = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:@"bricks"];
+    lblBricks = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[OStats statName:Bricks]];
     lblBricks.x = currentX;
     lblBricks.y = currentY;
     lblBricks.color = 0x000000;
@@ -132,7 +132,7 @@
     qdGems.y = currentY;
     qdGems.color = BLUE_COLOR;
     [self addChild:qdGems];
-    lblGems = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:@"gems"];
+    lblGems = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[OStats statName:Gems]];
     lblGems.x = currentX;
     lblGems.y = currentY;
     lblGems.color = 0x000000;
@@ -147,7 +147,7 @@
     qdRecruits.y = currentY;
     qdRecruits.color = GREEN_COLOR;
     [self addChild:qdRecruits];
-    lblRecruits = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:@"recruits"];
+    lblRecruits = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[OStats statName:Recruits]];
     lblRecruits.x = currentX;
     lblRecruits.y = currentY;
     lblRecruits.color = 0x000000;
@@ -166,19 +166,19 @@
     [self unflatten];
     
     lblQuarries.text = [NSString stringWithFormat:@"+%d", stats.quarries];
-    lblBricks.text = [NSString stringWithFormat:@"%d bricks", stats.bricks];
+    lblBricks.text = [NSString stringWithFormat:@"%d %@", stats.bricks, [OStats statName:Bricks]];
     ratio = (float) stats.bricks / (float) _rule.winningResource;
     width = baseWidth * ratio;
     [self animateResourceBar:qdBricks width:width];
     
     lblMagics.text = [NSString stringWithFormat:@"+%d", stats.magics];
-    lblGems.text = [NSString stringWithFormat:@"%d gems", stats.gems];
+    lblGems.text = [NSString stringWithFormat:@"%d %@", stats.gems, [OStats statName:Gems]];
     ratio = (float) stats.gems / (float) _rule.winningResource;
     width = baseWidth * ratio;
     [self animateResourceBar:qdGems width:width];
     
     lblDungeons.text = [NSString stringWithFormat:@"+%d", stats.dungeons];
-    lblRecruits.text = [NSString stringWithFormat:@"%d recruits", stats.recruits];
+    lblRecruits.text = [NSString stringWithFormat:@"%d %@", stats.recruits, [OStats statName:Recruits]];
     ratio = (float) stats.recruits / (float) _rule.winningResource;
     width = baseWidth * ratio;
     [self animateResourceBar:qdRecruits width:width];
