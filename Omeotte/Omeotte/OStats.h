@@ -51,9 +51,7 @@ typedef struct _Eval
 {
     Effect op1;
     Effect op2;
-    Effect lesserThanResult;
-    Effect equalsResult;
-    Effect greaterThanResult;
+    EvalResult *results;
 } *Eval;
 
 @interface OStats : NSObject

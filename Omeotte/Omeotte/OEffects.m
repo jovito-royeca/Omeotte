@@ -37,61 +37,79 @@
     [_juggler advanceTime:seconds];
 }
 
--(void) playSound:(SoundType)type
+-(void) playSound:(SoundType)type loop:(BOOL)bLoop
+{
+#ifndef GAME_SOUNDS_ON
+    return;
+#endif
+
+    SPSoundChannel *soundChannel = [OMedia sound:[self soundFileName:type]];
+    soundChannel.loop = bLoop;
+    [soundChannel play];
+    
+    if (!bLoop)
+    {
+        [soundChannel release];
+    }
+}
+
+-(void) stopSound:(SoundType)type
+{
+#ifndef GAME_SOUNDS_ON
+    return;
+#endif
+    SPSoundChannel *soundChannel = [OMedia sound:[self soundFileName:type]];
+    
+    [soundChannel stop];
+    [soundChannel release];
+}
+
+- (NSString*) soundFileName:(SoundType)type
 {
     switch (type)
     {
         case DrawSound:
         case DiscardSound:
         {
-            [OMedia playSound:@"card.caf"];
-            break;
+            
+            return @"card.caf";
         }
         case ResourceUpSound:
         {
-            [OMedia playSound:@"resb_upO.caf"];
-            break;
+            return @"resb_upO.caf";
         }
         case ResourceDownSound:
         {
-            [OMedia playSound:@"resb_downO.caf"];
-            break;
+            return @"resb_downO.caf";
         }
         case ResourceValueUpSound:
         {
-            [OMedia playSound:@"ress_upO.caf"];
-            break;
+            return @"ress_upO.caf";
         }
         case ResourceValueDownSound:
         {
-            [OMedia playSound:@"ress_downO.caf"];
-            break;
+            return @"ress_downO.caf";
         }
         case TowerUpSound:
         {
-            [OMedia playSound:@"tower_upO.caf"];
-            break;
+            return @"tower_upO.caf";
         }
         case TowerDownSound:
         case WallDownSound:
         {
-            [OMedia playSound:@"damageO.caf"];
-            break;
+            return @"damageO.caf";
         }
         case WallUpSound:
         {
-            [OMedia playSound:@"wall_upO.caf"];
-            break;
+            return @"wall_upO.caf";
         }
         case DefeatSound:
         {
-            [OMedia playSound:@"defeat.caf"];
-            break;
+            return @"defeat.caf";
         }
         case VictorySound:
         {
-            [OMedia playSound:@"victory.caf"];
-            break;
+            return @"victory.caf";
         }
     }
 }

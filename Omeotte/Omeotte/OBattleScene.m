@@ -615,7 +615,7 @@
         [_btnMenu removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
     
         [self addChild:_spDialog];
-        [_effects playSound:stSound];
+        [_effects playSound:stSound loop:YES];
     }
 }
 
@@ -788,11 +788,11 @@
                                      xOffset:x+healthUI.towerCenterX
                                      yOffset:healthUI.y+healthUI.towerCenterY
                                       parent:self];
-                [_effects playSound:TowerDownSound];
+                [_effects playSound:TowerDownSound loop:NO];
             }
             else
             {
-                [_effects playSound:TowerUpSound];
+                [_effects playSound:TowerUpSound loop:NO];
             }
             break;
         }
@@ -814,16 +814,16 @@
                                          xOffset:x+healthUI.wallCenterX
                                          yOffset:healthUI.y+healthUI.wallCenterY
                                           parent:self];
-                    [_effects playSound:WallDownSound];
+                    [_effects playSound:WallDownSound loop:NO];
                 }
                 else
                 {
-                    [_effects playSound:WallUpSound];
+                    [_effects playSound:WallUpSound loop:NO];
                 }
             }
             
             // wall can't take more damage; apply extra damage to Tower
-            if (result < 0)
+            else if (result < 0)
             {
                 x = (player == players[1]) ?
                     width35 + healthUI.lblTower.x : resourcesUI.width;
@@ -850,7 +850,7 @@
                                       xOffset:x
                                       yOffset:resourcesUI.lblBricks.y
                                        parent:self];
-            [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound];
+            [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound  loop:NO];
             break;
         }
         case Gems:
@@ -861,7 +861,7 @@
                                         xOffset:x
                                       yOffset:resourcesUI.lblGems.y
                                        parent:self];
-            [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound];
+            [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound loop:NO];
             break;
         }
         case Recruits:
@@ -872,7 +872,7 @@
                                       xOffset:x
                                       yOffset:resourcesUI.lblRecruits.y
                                        parent:self];
-            [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound];
+            [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound loop:NO];
             break;
         }
         case Quarries:
@@ -883,7 +883,7 @@
                                       xOffset:x
                                       yOffset:resourcesUI.lblQuarries.y
                                        parent:self];
-            [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound];
+            [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound loop:NO];
             break;
         }
         case Magics:
@@ -894,7 +894,7 @@
                                       xOffset:x
                                       yOffset:resourcesUI.lblMagics.y
                                        parent:self];
-            [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound];
+            [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound loop:NO];
             break;
         }
         case Dungeons:
@@ -905,7 +905,7 @@
                                       xOffset:x
                                       yOffset:resourcesUI.lblDungeons.y
                                        parent:self];
-            [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound];
+            [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound loop:NO];
             break;
         }
         default:
@@ -956,14 +956,14 @@
             [props setObject:[NSNumber numberWithFloat:cardWidth] forKey:@"width"];
             [props setObject:[NSNumber numberWithFloat:cardHeight] forKey:@"height"];
             
-            [_effects animate:cardUI withPropeties:props time:2.0 callback:^
+            [_effects animate:cardUI withPropeties:props time:1.0 callback:^
             {
                  cardUI.cardStatus = InHand;
                 [cardUI showFace:![_currentPlayer canPlayCard:card]];
             }];
             if (_turns > 0)
             {
-                [_effects playSound:DrawSound];
+                [_effects playSound:DrawSound loop:NO];
             }
 
             break;
@@ -1042,7 +1042,7 @@
         if (discarded)
         {
             [cardUI showDiscarded];
-            [_effects playSound:DiscardSound];
+            [_effects playSound:DiscardSound loop:NO];
         }
         [self addChild:cardUI];
         
@@ -1054,8 +1054,9 @@
         
         [_effects animate:cardUI withPropeties:props time:2.0 callback:^
         {
-             cardUI.cardStatus = InGraveyard;
-             [deckAndGraveyard addCardToGraveyard:cardUI];
+            cardUI.cardStatus = InGraveyard;
+            [self removeChild:cardUI];
+            [deckAndGraveyard addCardToGraveyard:cardUI];
              
         }];
     }
@@ -1073,7 +1074,7 @@
                     if (discarded)
                     {
                         [cardUI showDiscarded];
-                        [_effects playSound:DiscardSound];
+                        [_effects playSound:DiscardSound loop:NO];
                     }
                     [hand setObject:[NSNull null] forKey:key];
                 

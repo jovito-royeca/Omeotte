@@ -56,56 +56,41 @@ static NSMutableDictionary *sounds = NULL;
 }
 
 #pragma mark Audio
-+ (void)initSound
++ (SPSoundChannel*) sound:(NSString *)name
+{
+    if (!sounds)
+    {
+        sounds = [[NSMutableDictionary alloc] init];
+        [SPAudioEngine start];
+    }
+    
+    if (![sounds objectForKey:name])
+    {
+        SPSound *sound = [[SPSound alloc] initWithContentsOfFile:name];
+        [sounds setValue:sound forKey:name];
+    }
+    
+    return [sounds[name] createChannel];
+    
+}
+
++ (void)releaseSound:(NSString *)name
 {
     if (sounds)
-        return;
-    
-    [SPAudioEngine start];
-    sounds = [[NSMutableDictionary alloc] init];
-    
-    // enumerate all sounds
-    
-    NSString *soundDir = [[NSBundle mainBundle] resourcePath];    
-    NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:soundDir];   
-    
-    NSString *filename;
-    while (filename = [dirEnum nextObject]) 
     {
-        if ([[filename pathExtension] isEqualToString: @"caf"])
-        {
-            SPSound *sound = [[SPSound alloc] initWithContentsOfFile:filename];            
-            sounds[filename] = sound;
-        }
+        [sounds removeObjectForKey:name];
     }
 }
 
-+ (void)releaseSound
++ (void)releaseAllSounds
 {
+    if (sounds)
+    {
+        [sounds removeAllObjects];
+    }
     sounds = nil;
     
     [SPAudioEngine stop];    
-}
-
-+ (void)playSound:(NSString *)soundName
-{
-    SPSound *sound = sounds[soundName];
-    
-    if (sound)
-        [sound play];
-    else        
-        [[SPSound soundWithContentsOfFile:soundName] play];
-}
-
-+ (SPSoundChannel *)soundChannel:(NSString *)soundName
-{
-    SPSound *sound = sounds[soundName];
-    
-    // sound was not preloaded
-    if (!sound)        
-        sound = [SPSound soundWithContentsOfFile:soundName];
-    
-    return [sound createChannel];
 }
 
 @end

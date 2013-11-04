@@ -99,8 +99,28 @@
     }
     else if (cards.count > 1)
     {
-        NSUInteger random = arc4random() % [cards count];
-        return [cards objectAtIndex:random];
+//        random card?
+//        NSUInteger random = arc4random() % [cards count];
+//        return [cards objectAtIndex:random];
+        
+//        replaced with highest damage card
+        OCard * best = nil;
+        
+        for (OCard *card in cards)
+        {
+            if (best)
+            {
+                if ([card totalDamage] > [best totalDamage])
+                {
+                    best = card;
+                }
+            }
+            else
+            {
+                best = card;
+            }
+        }
+        return best;
     }
     else
     {
@@ -110,24 +130,24 @@
 
 -(OCard*) chooseCardToDiscard
 {
-    OCard *highest = nil;
+    OCard *worst = nil;
     
     for (OCard *card in hand)
     {
-        if (highest)
+        if (worst)
         {
-            if (card.totalCost > highest.totalCost)
+            if ([card totalCost] > [worst totalCost])
             {
-                highest = card;
+                worst = card;
             }
         }
         else
         {
-            highest = card;
+            worst = card;
         }
     }
     
-    return highest;
+    return worst;
 }
 
 -(void) play:(OCard*)card onTarget:(OPlayer*)target

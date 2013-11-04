@@ -81,13 +81,16 @@
 -(void) addCardToGraveyard:(OCardUI*)card
 {
     [graveyardCards addObject:card];
+    card.x = lblGraveyard.x;
+    card.y = 0;
+    [self addChild:card];
     
     // remove old cards in the graveyard to minimize memory usage
     if (graveyardCards.count >= 4)
     {
         OCardUI *cardUI = [graveyardCards objectAtIndex:0];
         
-        [self.parent removeChild:cardUI];
+        [self removeChild:cardUI];
         [graveyardCards removeObject:cardUI];
         [cardUI release];
     }

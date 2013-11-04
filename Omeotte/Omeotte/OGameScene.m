@@ -22,8 +22,6 @@
         _screenHeight = Sparrow.stage.height;
         _offsetY = (Sparrow.stage.height - 480) / 2;
         
-        [SPAudioEngine start];
-        
         OMenuScene *menuScene = [[OMenuScene alloc] init];
         [self showScene:menuScene];
     }
@@ -33,7 +31,6 @@
 - (void)dealloc
 {
     [OMedia releaseAllAtlas];
-    [OMedia releaseSound];
     [_currentScene release];
     [super dealloc];
 }
@@ -43,13 +40,10 @@
     if ([self containsChild:_currentScene])
     {
         [self removeChild:_currentScene];
-//        [_currentScene removeFromParent];
+        [OMedia releaseAllSounds];
         [_currentScene release];
         _currentScene = nil;
     }
-//    scene.width = _screenWidth;
-//    scene.height = _screenHeight;
-//    scene.y = _offsetY;
     
     [self addChild:scene];
     _currentScene = scene;

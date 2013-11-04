@@ -34,5 +34,7 @@ typedef enum
 +(NSArray*)onlyThisCard:(NSString*)cardName;
 
 -(int) totalCost;
+-(int) totalDamage;
+-(NSString*) canonicalText;
 
 @end

@@ -37,10 +37,10 @@
 //        {
 //            struct _Effect e;
 //            [[effects objectAtIndex:i] getValue:&e];
+//            [effects removeObjectAtIndex:i];
 //            free(&e);
 //        }
 //    }
-//    [effects removeAllObjects];
     
     [super dealloc];
 }
@@ -199,6 +199,36 @@ NSArray *_cards;
 -(int) totalCost
 {
     return cost.bricks + cost.gems + cost.recruits;
+}
+
+-(int) totalDamage
+{
+    int totalDamage = 0;
+    
+    for (int i=0; i<effects.count; i++)
+    {
+        struct _Effect e;
+        [[effects objectAtIndex:i] getValue:&e];
+        
+        if (e.field == Wall || e.field == Tower)
+        {
+            totalDamage += e.value;
+        }
+    }
+    
+    return totalDamage;
+}
+
+-(NSString*) canonicalText
+{
+    NSMutableString *ct = [[NSMutableString alloc] init];
+    
+    if (effects)
+    {
+        return @"";
+    }
+    
+    return ct;
 }
 
 @end

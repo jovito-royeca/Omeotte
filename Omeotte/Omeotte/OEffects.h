@@ -34,7 +34,9 @@ typedef enum
 
 -(void) advanceTime:(double)seconds;
 
--(void) playSound:(SoundType)type;
+-(void) playSound:(SoundType)type loop:(BOOL)bLoop;
+
+-(void) stopSound:(SoundType)type;
 
 -(void) applyFloatingTextOnStatField:(SPTextField*)statField
                        modValue:(int)modValue
