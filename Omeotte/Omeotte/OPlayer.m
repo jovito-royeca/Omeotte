@@ -157,6 +157,8 @@
 
 -(void) play:(OCard*)card onTarget:(OPlayer*)target
 {
+    NSLog(@"%@ playing %@...", self.name, card.name);
+    
     base.bricks -= card.cost.bricks;
     base.gems -= card.cost.gems;
     base.recruits -= card.cost.recruits;
@@ -189,32 +191,6 @@
         }
     }
     
-//    if (card.specialPowers)
-//    {
-//        for (NSNumber *n in card.specialPowers)
-//        {
-//            switch ([n intValue])
-//            {
-//                case CardPlayAnother:
-//                {
-//                    break;
-//                }
-//                case CardUndiscardable:
-//                {
-//                    break;
-//                }
-//                case CardDraw:
-//                {
-//                    break;
-//                }
-//                case CardDiscard:
-//                {
-//                    break;
-//                }
-//            }
-//        }
-//    }
-    
     // To Do: handle ops
     // ...
     
@@ -225,6 +201,7 @@
 
 -(void) discard:(OCard*)card
 {
+    NSLog(@"%@ discarding %@...", self.name, card.name);
     [hand removeObject:card];
     [deck discard:card];
     [delegate animatePutCardToGraveyard:card discarded:YES];

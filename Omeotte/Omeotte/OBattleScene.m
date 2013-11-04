@@ -464,7 +464,7 @@
 -(void) mainPhase
 {
     OPlayer *opponentPlayer = [self opponentPlayer];
-    BOOL turnTaken = NO;
+//    BOOL turnTaken = NO;
     
     if (!_timer)
     {
@@ -492,16 +492,15 @@
             
             if (_gamePhase != GameOver)
             {
-                if ([_currentCard hasSpecialPower:CardPlayAnother])
-                {
-                    [_timer invalidate];
-                    _timer = nil;
-                    return;
-                }
-                
                 if ([_currentCard hasSpecialPower:CardDraw])
                 {
-                    [self drawPhase];
+                    int cardsToDraw = MAX_CARDS_IN_HAND - [_currentPlayer.hand count];
+                    
+                    if (cardsToDraw > 0)
+                    {
+                        [_currentPlayer draw:cardsToDraw];
+                    }
+                    [self animateShowHand];
                 }
                 
                 if ([_currentCard hasSpecialPower:CardDiscard])
@@ -521,27 +520,23 @@
                     }
                 }
 
+                if ([_currentCard hasSpecialPower:CardPlayAnother])
+                {
+                    [_timer invalidate];
+                    _timer = nil;
+                    _turns++;
+                    [self animateShowHand];
+                    return;
+                }
+                
+                _turns++;
                 [self switchTurn:opponentPlayer];
-                turnTaken = YES;
             }
         }
         else
         {
-            for (NSString *key in [hand allKeys])
-            {
-                if ([hand objectForKey:key] != [NSNull null])
-                {
-                    OCardUI *cardUI = [hand objectForKey:key];
-                
-                    if (cardUI.card == _currentCard)
-                    {
-                        cardUI.cardStatus = InHand;
-                        [self demote:cardUI];
-                        _currentCard = nil;
-                        break;
-                    }
-                }
-            }
+            [self animateShowHand];
+            _currentCard = nil;
         }
     }
     else
@@ -555,20 +550,15 @@
                 [self discardCard:_currentCard];
             }
 
+            _turns++;
             [self switchTurn:opponentPlayer];
-            turnTaken = YES;
         }
     }
 
     if (elapsedTurnTime <= 0)
     {
-        [self switchTurn:opponentPlayer];
-        turnTaken = YES;
-    }
-    
-    if (turnTaken)
-    {
         _turns++;
+        [self switchTurn:opponentPlayer];
     }
 }
 
@@ -660,7 +650,7 @@
 {
     if (!_currentPlayer.ai)
     {
-        NSLog(@"promote... %@", cardUI.card.name);
+//        NSLog(@"promote... %@", cardUI.card.name);
         
         // demote other cards in hand
         for (NSString *key in [hand allKeys])
@@ -696,7 +686,7 @@
     
     if (!_currentPlayer.ai)
     {
-        NSLog(@"play... %@", cardUI.card.name);
+//        NSLog(@"play... %@", cardUI.card.name);
         _currentCard = cardUI.card;
     }
 }
@@ -711,7 +701,7 @@
         }
         else
         {
-            NSLog(@"discard... %@", cardUI.card.name);
+//            NSLog(@"discard... %@", cardUI.card.name);
             [self discardCard:cardUI.card];
             [self switchTurn:[self opponentPlayer]];
         }
