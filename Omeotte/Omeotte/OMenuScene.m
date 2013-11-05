@@ -21,25 +21,17 @@
 
 - (void)setup
 {
-    int stageWidth = Sparrow.stage.width;
-//    int stageHeight = Sparrow.stage.height;
-    int currentX = 0;
-    int currentY = 0;
-
-    OButtonTextureUI *texture = [[OButtonTextureUI alloc] initWithWidth:200
-                                                                 height:50
-                                                           cornerRadius:10
-                                                            strokeWidth:2
-                                                            strokeColor:WHITE_COLOR
-                                                                  gloss:NO
-                                                             startColor:BLUE_COLOR
-                                                               endColor:BLUE_COLOR];
-
-    [SPTextField registerBitmapFontFromFile:CALLIGRAPHICA_FILE];
-    [SPTextField registerBitmapFontFromFile:EXETER_FILE];
+    [OMedia initAtlas:@"ui.xml"];
     
-    SPTextField *title = [SPTextField textFieldWithWidth:stageWidth
-                                                  height:50
+    float _width = Sparrow.stage.width;
+    float _height = Sparrow.stage.height;
+    
+    float currentX = 0;
+    float currentY = 0;
+    float currentWidth = _width;
+    float currentHeight = 50;
+    SPTextField *title = [SPTextField textFieldWithWidth:_width
+                                                  height:currentHeight
                                                     text:GAME_TITLE
                                                 fontName:CALLIGRAPHICA_FONT
                                                 fontSize:50
@@ -48,9 +40,40 @@
     [self addChild:title];
     
     
+    // the towers...
+    currentX = 0;
+    currentY = currentHeight;
+    currentWidth = (_width/4)*0.542;
+    currentHeight = _height-currentHeight;
+    SPImage *redTower = [[SPImage alloc] initWithWidth:currentWidth height:currentHeight];
+    redTower.texture = [OMedia texture:@"red tower" fromAtlas:@"ui.xml"];
+    redTower.x = currentX;
+    redTower.y = currentY;
+    [self addChild:redTower];
+    
+    currentX = (_width*3/4)+((_width/4)-currentWidth);
+    SPImage *blueTower = [[SPImage alloc] initWithWidth:currentWidth height:currentHeight];
+    blueTower.texture = [OMedia texture:@"blue tower" fromAtlas:@"ui.xml"];
+    blueTower.x = currentX;
+    blueTower.y = currentY;
+    [self addChild:blueTower];
+    //
+    
+    currentX = _width/4;
+    currentY = 70;
+    currentWidth = _width/2;
+    currentHeight = 50;
+    OButtonTextureUI *texture = [[OButtonTextureUI alloc] initWithWidth:currentWidth
+                                                                 height:currentHeight
+                                                           cornerRadius:10
+                                                            strokeWidth:2
+                                                            strokeColor:WHITE_COLOR
+                                                                  gloss:NO
+                                                             startColor:RED_COLOR
+                                                               endColor:BLUE_COLOR];
+
+    
     SPButton *btnCampaign = [SPButton buttonWithUpState:texture text:@"Campaign"];
-    currentX = (self.width-btnCampaign.width)/2;
-    currentY = title.y+title.height+20;
     btnCampaign.fontColor = WHITE_COLOR;
     btnCampaign.fontSize = 30;
     btnCampaign.x = currentX;
@@ -64,10 +87,9 @@
          [game showScene:scene];
      }];
     [self addChild:btnCampaign];
-    
+
+    currentY += currentHeight+10;
     SPButton *btnMultiPlayer = [SPButton buttonWithUpState:texture text:@"Multi Player"];
-    currentX = (self.width-btnMultiPlayer.width)/2;
-    currentY = btnCampaign.y+btnMultiPlayer.height+10;
     btnMultiPlayer.fontColor = WHITE_COLOR;
     btnMultiPlayer.fontSize = 30;
     btnMultiPlayer.x = currentX;
@@ -84,9 +106,8 @@
      }];
     [self addChild:btnMultiPlayer];
     
+    currentY += currentHeight+10;
     SPButton *btnCardBrowser = [SPButton buttonWithUpState:texture text:@"Card Browser"];
-    currentX = (self.width-btnCardBrowser.width)/2;
-    currentY = btnMultiPlayer.y+btnCardBrowser.height+10;
     btnCardBrowser.fontColor = WHITE_COLOR;
     btnCardBrowser.fontSize = 30;
     btnCardBrowser.x = currentX;
@@ -101,9 +122,8 @@
      }];
     [self addChild:btnCardBrowser];
     
+    currentY += currentHeight+10;
     SPButton *btnSettings = [SPButton buttonWithUpState:texture text:@"Settings"];
-    currentX = (self.width-btnSettings.width)/2;
-    currentY = btnCardBrowser.y+btnSettings.height+10;
     btnSettings.fontColor = WHITE_COLOR;
     btnSettings.fontSize = 30;
     btnSettings.x = currentX;
@@ -119,6 +139,12 @@
          [alertMessage show];
      }];
     [self addChild:btnSettings];
+
+#ifdef GAME_SOUNDS_ON
+    SPSoundChannel *channel = [OMedia sound:@"maintheme.caf"];
+    channel.loop = YES;
+    [channel play];
+#endif
 }
 
 

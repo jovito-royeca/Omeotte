@@ -22,6 +22,9 @@
         _screenHeight = Sparrow.stage.height;
         _offsetY = (Sparrow.stage.height - 480) / 2;
         
+        [SPTextField registerBitmapFontFromFile:CALLIGRAPHICA_FILE];
+        [SPTextField registerBitmapFontFromFile:EXETER_FILE];
+
         OMenuScene *menuScene = [[OMenuScene alloc] init];
         [self showScene:menuScene];
     }

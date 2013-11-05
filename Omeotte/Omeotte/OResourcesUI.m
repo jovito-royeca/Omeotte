@@ -64,7 +64,6 @@
 
     NSString *atlas = @"ui.xml";
     [OMedia initAtlas:atlas];
-    [SPTextField registerBitmapFontFromFile:EXETER_FILE];
     
     float currentX = 0;
     float currentY = 0;

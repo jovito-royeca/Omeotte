@@ -75,9 +75,6 @@
     [self removeAllChildren];
     [self removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
     
-    [SPTextField registerBitmapFontFromFile:CALLIGRAPHICA_FILE];
-    [SPTextField registerBitmapFontFromFile:EXETER_FILE];
-    
     float currentX = 0;
     float currentY = 0;
     float currentWidth = 0;

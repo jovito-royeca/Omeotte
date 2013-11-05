@@ -86,8 +86,6 @@
 
 - (void)setup
 {
-    [SPTextField registerBitmapFontFromFile:EXETER_FILE];
-    
     float _width = Sparrow.stage.width;
     float _height = Sparrow.stage.height;
     float currentX = 0;
@@ -634,40 +632,6 @@
     }
 }
 
--(OCardUI*) createCardUI:(OCard*)card
-{
-    float cardWidth  = Sparrow.stage.width/6;
-    float cardHeight = (cardWidth*128)/95;
-    CGRect cardRect  = CGRectMake(0, 0, cardWidth, cardHeight);
-    OCardUI *cardUI  = [[OCardUI alloc] initWithWidth:cardRect.size.width
-                                               height:cardRect.size.height
-                                               faceUp:_currentPlayer.ai];
-    
-    cardUI.delegate = self;
-    cardUI.card = card;
-    return cardUI;
-}
-
--(void) removeCardBottom
-{
-    if (_btnDiscard)
-    {
-        [_btnDiscard removeEventListenersAtObject:self forType:SPEventTypeTriggered];
-        [self removeChild:_btnDiscard];
-//        [_btnDiscard release];
-    }
-    
-    if (_btnPlay)
-    {
-        [_btnPlay removeEventListenersAtObject:self forType:SPEventTypeTriggered];
-        [self removeChild:_btnPlay];
-//        [_btnPlay release];
-    }
-    
-    _btnDiscard = nil;
-    _btnPlay = nil;
-}
-
 #pragma mark - OCardUIDelegate
 - (void)promote:(OCardUI*)cardUI
 {
@@ -699,17 +663,11 @@
         [props setObject:[NSNumber numberWithFloat:cardUI.width] forKey:@"width"];
         [props setObject:[NSNumber numberWithFloat:cardUI.height] forKey:@"height"];
 
-        [_effects animate:cardUI withPropeties:props time:0.5 callback:^
+        [_effects animate:cardUI withPropeties:props time:0.2 callback:^
         {
             float cardWidth  = Sparrow.stage.width/6;
             float cardHeight = (cardWidth*128)/95;
             
-//            _imgCardBottom = [[SPImage alloc] initWithContentsOfFile:@"card bottom.png"];
-//            _imgCardBottom.x = cardUI.x;
-//            _imgCardBottom.y = cardUI.y+cardHeight;
-//            _imgCardBottom.width = cardWidth;
-//            _imgCardBottom.height = 20;
-//            [self addChild:_imgCardBottom];
             OButtonTextureUI *texture = [[OButtonTextureUI alloc] initWithWidth:cardWidth/2
                                                                          height:20
                                                                    cornerRadius:3
@@ -718,37 +676,35 @@
                                                                           gloss:NO
                                                                      startColor:RED_COLOR
                                                                        endColor:BLUE_COLOR];
-            _btnDiscard = [SPButton buttonWithUpState:texture text:@"Discard"];
-            _btnDiscard.x = cardUI.x;
-            _btnDiscard.y = cardUI.y+cardHeight;
-            _btnDiscard.fontColor = WHITE_COLOR;
-            _btnDiscard.fontSize = 10;
-            _btnDiscard.fontName = EXETER_FONT;
-            [_btnDiscard addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(SPEvent *event)
+            if (!_btnDiscard)
             {
-                [self discard:cardUI];
-            }];
-            [self addChild:_btnDiscard];
+                _btnDiscard = [SPButton buttonWithUpState:texture text:@"Discard"];
+                _btnDiscard.x = cardUI.x;
+                _btnDiscard.y = cardUI.y+cardHeight;
+                _btnDiscard.fontColor = WHITE_COLOR;
+                _btnDiscard.fontSize = 10;
+                _btnDiscard.fontName = EXETER_FONT;
+                [_btnDiscard addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(SPEvent *event)
+                 {
+                     [self discard:cardUI];
+                 }];
+                [self addChild:_btnDiscard];
+            }
             
-            OButtonTextureUI *texture2 = [[OButtonTextureUI alloc] initWithWidth:cardWidth/2
-                                                                         height:20
-                                                                   cornerRadius:3
-                                                                    strokeWidth:2
-                                                                    strokeColor:WHITE_COLOR
-                                                                          gloss:NO
-                                                                     startColor:RED_COLOR
-                                                                       endColor:BLUE_COLOR];
-            _btnPlay = [SPButton buttonWithUpState:texture2 text:@"Play"];
-            _btnPlay.x = cardUI.x+cardWidth/2;
-            _btnPlay.y = cardUI.y+cardHeight;
-            _btnPlay.fontColor = WHITE_COLOR;
-            _btnPlay.fontSize = 10;
-            _btnPlay.fontName = EXETER_FONT;
-            [_btnPlay addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(SPEvent *event)
+            if (!_btnPlay)
             {
-                [self play:cardUI];
-            }];
-            [self addChild:_btnPlay];
+                _btnPlay = [SPButton buttonWithUpState:texture text:@"Play"];
+                _btnPlay.x = cardUI.x+cardWidth/2;
+                _btnPlay.y = cardUI.y+cardHeight;
+                _btnPlay.fontColor = WHITE_COLOR;
+                _btnPlay.fontSize = 10;
+                _btnPlay.fontName = EXETER_FONT;
+                [_btnPlay addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(SPEvent *event)
+                 {
+                     [self play:cardUI];
+                 }];
+                [self addChild:_btnPlay];
+            }
         }];
     }
 }
@@ -789,24 +745,22 @@
         float cardHeight = (cardWidth*128)/95;
         float y = Sparrow.stage.height-cardHeight;
         
-        if (cardUI.y < y)
-        {
+//        if (cardUI.y < y)
+//        {
 //            NSLog(@"demote... %@", cardUI.card.name);
-            
-            [self removeCardBottom];
-            
             NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
             [props setObject:[NSNumber numberWithFloat:cardUI.x] forKey:@"x"];
             [props setObject:[NSNumber numberWithFloat:y] forKey:@"y"];
             [props setObject:[NSNumber numberWithFloat:cardUI.width] forKey:@"width"];
             [props setObject:[NSNumber numberWithFloat:cardUI.height] forKey:@"height"];
             
-            [_effects animate:cardUI withPropeties:props time:0.5 callback:^
+            [_effects animate:cardUI withPropeties:props time:0.2 callback:^
             {
                 cardUI.selected = NO;
                 cardUI.cardStatus = InHand;
+                [self removeCardBottom];
             }];
-        }
+//        }
     }
 }
 
@@ -1088,7 +1042,6 @@
         if ([hand objectForKey:key] != [NSNull null])
         {
             cardUI = [hand objectForKey:key];
-            [self removeCardBottom];
             
             [cardUI showFace:![_currentPlayer canPlayCard:cardUI.card]];
             NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
@@ -1097,10 +1050,11 @@
             [props setObject:[NSNumber numberWithFloat:cardWidth] forKey:@"width"];
             [props setObject:[NSNumber numberWithFloat:cardHeight] forKey:@"height"];
             
-            [_effects animate:cardUI withPropeties:props time:1.0 callback:^
+            [_effects animate:cardUI withPropeties:props time:0.2 callback:^
             {
                 cardUI.selected = NO;
                 cardUI.cardStatus = InHand;
+                [self removeCardBottom];
             }];
         }
         else
@@ -1192,6 +1146,29 @@
             }
         }
     }
+}
+
+-(OCardUI*) createCardUI:(OCard*)card
+{
+    float cardWidth  = Sparrow.stage.width/6;
+    float cardHeight = (cardWidth*128)/95;
+    CGRect cardRect  = CGRectMake(0, 0, cardWidth, cardHeight);
+    OCardUI *cardUI  = [[OCardUI alloc] initWithWidth:cardRect.size.width
+                                               height:cardRect.size.height
+                                               faceUp:_currentPlayer.ai];
+    
+    cardUI.delegate = self;
+    cardUI.card = card;
+    return cardUI;
+}
+
+-(void) removeCardBottom
+{
+    [self removeChild:_btnDiscard];
+    [self removeChild:_btnPlay];
+    
+    _btnDiscard = nil;
+    _btnPlay = nil;
 }
 
 @end
