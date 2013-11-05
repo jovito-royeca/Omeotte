@@ -687,7 +687,7 @@
                                                                           gloss:NO
                                                                      startColor:RED_COLOR
                                                                        endColor:BLUE_COLOR];
-            if (!_btnDiscard)
+            if (![cardUI.card hasSpecialPower:CardUndiscardable] && !_btnDiscard)
             {
                 _btnDiscard = [SPButton buttonWithUpState:texture text:@"Discard"];
                 _btnDiscard.x = cardUI.x;
@@ -702,7 +702,7 @@
                 [self addChild:_btnDiscard];
             }
             
-            if (!_btnPlay)
+            if ([_currentPlayer canPlayCard:cardUI.card] && !_btnPlay)
             {
                 _btnPlay = [SPButton buttonWithUpState:texture text:@"Play"];
                 _btnPlay.x = cardUI.x+cardWidth/2;
