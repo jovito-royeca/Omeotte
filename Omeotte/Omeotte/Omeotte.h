@@ -13,6 +13,7 @@
 
 #define MAX_CARDS_IN_HAND       6
 #define DEFAULT_CARDS_IN_DECK   500
+#define MAX_GAME_TURNS          250
 
 #define RED_COLOR               0xB22222  // firebrick
 #define BLUE_COLOR              0x0000CD  // medium blue
@@ -31,7 +32,7 @@
 #define stage_width_mod(height,x)  ((x)/(Sparrow.stage.width)) * (Sparrow.stage.height)
 #define stage_height_mod(width,x)  ((x)/(Sparrow.stage.height)) * (Sparrow.stage.width)
 
-#define CARD_TO_TEST            @"Smoky Quartz"
+//#define CARD_TO_TEST            @"Smoky Quartz"
 //#define GAME_SOUNDS_ON           1
 
 #endif

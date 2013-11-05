@@ -47,10 +47,13 @@
     soundChannel.loop = bLoop;
     [soundChannel play];
     
-    if (!bLoop)
-    {
-        [soundChannel release];
-    }
+//    if (!bLoop)
+//    {
+//        [soundChannel addEventListenerForType:SP_EVENT_TYPE_COMPLETED block:^
+//        (id){
+//            [soundChannel release];
+//        }];
+//    }
 }
 
 -(void) stopSound:(SoundType)type
@@ -74,19 +77,19 @@
             
             return @"card.caf";
         }
-        case ResourceUpSound:
+        case ResourceFacilityUpSound:
         {
             return @"resb_upO.caf";
         }
-        case ResourceDownSound:
+        case ResourceFacilityDownSound:
         {
             return @"resb_downO.caf";
         }
-        case ResourceValueUpSound:
+        case ResourcesUpSound:
         {
             return @"ress_upO.caf";
         }
-        case ResourceValueDownSound:
+        case ResourcesDownSound:
         {
             return @"ress_downO.caf";
         }

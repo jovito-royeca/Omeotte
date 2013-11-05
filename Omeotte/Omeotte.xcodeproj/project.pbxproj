@@ -49,6 +49,7 @@
 		11722F5F17C6385700014D16 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5E17C6385700014D16 /* AudioToolbox.framework */; };
 		11722F6117C6386400014D16 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F6017C6386400014D16 /* OpenAL.framework */; };
 		11722F6B17C640CC00014D16 /* OMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 11722F6A17C640CC00014D16 /* OMedia.m */; };
+		118C175D1828469600230218 /* card bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 118C175C1828469500230218 /* card bottom.png */; };
 		118E688617C74BD8007801CD /* OStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 118E688517C74BD8007801CD /* OStats.m */; };
 		1195D17B17C25F5E00C4DA25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17A17C25F5E00C4DA25 /* UIKit.framework */; };
 		1195D17D17C25F5E00C4DA25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17C17C25F5E00C4DA25 /* Foundation.framework */; };
@@ -164,6 +165,7 @@
 		11722F6017C6386400014D16 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		11722F6917C640CC00014D16 /* OMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMedia.h; sourceTree = "<group>"; };
 		11722F6A17C640CC00014D16 /* OMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMedia.m; sourceTree = "<group>"; };
+		118C175C1828469500230218 /* card bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card bottom.png"; sourceTree = "<group>"; };
 		118E688417C74BD8007801CD /* OStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OStats.h; sourceTree = "<group>"; };
 		118E688517C74BD8007801CD /* OStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OStats.m; sourceTree = "<group>"; };
 		1195D17717C25F5E00C4DA25 /* Omeotte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omeotte.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,6 +265,7 @@
 		113517DF17CF103200C7EAA7 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				118C175C1828469500230218 /* card bottom.png */,
 				1122E396181E2D2B000F4E89 /* draw.png */,
 				1122E392181E25C8000F4E89 /* looser.png */,
 				1122E393181E25C8000F4E89 /* winner.png */,
@@ -603,6 +606,7 @@
 				11FE27EA1803B1E600159D4A /* Kingthings_Calligraphica.fnt in Resources */,
 				11360DEE181AC54B00E797B6 /* fire.pex in Resources */,
 				116270F918242C5100E2B267 /* ress_upO.caf in Resources */,
+				118C175D1828469600230218 /* card bottom.png in Resources */,
 				1122E395181E25C8000F4E89 /* winner.png in Resources */,
 				116270F718242C5100E2B267 /* resb_upO.caf in Resources */,
 				116270F518242C5100E2B267 /* damageO.caf in Resources */,

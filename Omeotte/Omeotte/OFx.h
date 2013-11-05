@@ -19,16 +19,17 @@ typedef enum
 {
     DrawSound = 0,
     DiscardSound,
-    ResourceUpSound,
-    ResourceDownSound,
-    ResourceValueUpSound,
-    ResourceValueDownSound,
+    ResourceFacilityUpSound,
+    ResourceFacilityDownSound,
+    ResourcesUpSound,
+    ResourcesDownSound,
     TowerUpSound,
     TowerDownSound,
     WallUpSound,
     WallDownSound,
     DefeatSound,
-    VictorySound
+    VictorySound,
+    MenuSound
 } SoundType;
 
 @interface OFx : NSObject

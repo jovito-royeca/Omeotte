@@ -14,12 +14,14 @@
     SPSprite *_spDialog;
     OPlayer *_currentPlayer;
     OCard *_currentCard;
-    OCardUI *_lastPlayedCard;
     GamePhase _gamePhase;
     int _turns;
     NSTimer *_timer;
     int elapsedTurnTime;
     OFx *_effects;
+//    SPImage *_imgCardBottom;
+    SPButton *_btnPlay;
+    SPButton *_btnDiscard;
 }
 
 @synthesize txtPlayer1Name;
@@ -522,6 +524,7 @@
 
                 if ([_currentCard hasSpecialPower:CardPlayAnother])
                 {
+                    _currentCard = nil;
                     [_timer invalidate];
                     _timer = nil;
                     _turns++;
@@ -624,7 +627,7 @@
                 [cardUI removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
             }
         }
-        [_btnMenu removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
+        [_btnMenu removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TRIGGERED];
     
         [self addChild:_spDialog];
         [_effects playSound:stSound loop:YES];
@@ -643,6 +646,26 @@
     cardUI.delegate = self;
     cardUI.card = card;
     return cardUI;
+}
+
+-(void) removeCardBottom
+{
+    if (_btnDiscard)
+    {
+        [_btnDiscard removeEventListenersAtObject:self forType:SPEventTypeTriggered];
+        [self removeChild:_btnDiscard];
+//        [_btnDiscard release];
+    }
+    
+    if (_btnPlay)
+    {
+        [_btnPlay removeEventListenersAtObject:self forType:SPEventTypeTriggered];
+        [self removeChild:_btnPlay];
+//        [_btnPlay release];
+    }
+    
+    _btnDiscard = nil;
+    _btnPlay = nil;
 }
 
 #pragma mark - OCardUIDelegate
@@ -676,7 +699,57 @@
         [props setObject:[NSNumber numberWithFloat:cardUI.width] forKey:@"width"];
         [props setObject:[NSNumber numberWithFloat:cardUI.height] forKey:@"height"];
 
-        [_effects animate:cardUI withPropeties:props time:0.5 callback:nil];
+        [_effects animate:cardUI withPropeties:props time:0.5 callback:^
+        {
+            float cardWidth  = Sparrow.stage.width/6;
+            float cardHeight = (cardWidth*128)/95;
+            
+//            _imgCardBottom = [[SPImage alloc] initWithContentsOfFile:@"card bottom.png"];
+//            _imgCardBottom.x = cardUI.x;
+//            _imgCardBottom.y = cardUI.y+cardHeight;
+//            _imgCardBottom.width = cardWidth;
+//            _imgCardBottom.height = 20;
+//            [self addChild:_imgCardBottom];
+            OButtonTextureUI *texture = [[OButtonTextureUI alloc] initWithWidth:cardWidth/2
+                                                                         height:20
+                                                                   cornerRadius:3
+                                                                    strokeWidth:2
+                                                                    strokeColor:WHITE_COLOR
+                                                                          gloss:NO
+                                                                     startColor:RED_COLOR
+                                                                       endColor:BLUE_COLOR];
+            _btnDiscard = [SPButton buttonWithUpState:texture text:@"Discard"];
+            _btnDiscard.x = cardUI.x;
+            _btnDiscard.y = cardUI.y+cardHeight;
+            _btnDiscard.fontColor = WHITE_COLOR;
+            _btnDiscard.fontSize = 10;
+            _btnDiscard.fontName = EXETER_FONT;
+            [_btnDiscard addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(SPEvent *event)
+            {
+                [self discard:cardUI];
+            }];
+            [self addChild:_btnDiscard];
+            
+            OButtonTextureUI *texture2 = [[OButtonTextureUI alloc] initWithWidth:cardWidth/2
+                                                                         height:20
+                                                                   cornerRadius:3
+                                                                    strokeWidth:2
+                                                                    strokeColor:WHITE_COLOR
+                                                                          gloss:NO
+                                                                     startColor:RED_COLOR
+                                                                       endColor:BLUE_COLOR];
+            _btnPlay = [SPButton buttonWithUpState:texture2 text:@"Play"];
+            _btnPlay.x = cardUI.x+cardWidth/2;
+            _btnPlay.y = cardUI.y+cardHeight;
+            _btnPlay.fontColor = WHITE_COLOR;
+            _btnPlay.fontSize = 10;
+            _btnPlay.fontName = EXETER_FONT;
+            [_btnPlay addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(SPEvent *event)
+            {
+                [self play:cardUI];
+            }];
+            [self addChild:_btnPlay];
+        }];
     }
 }
 
@@ -718,7 +791,9 @@
         
         if (cardUI.y < y)
         {
-            NSLog(@"demote... %@", cardUI.card.name);
+//            NSLog(@"demote... %@", cardUI.card.name);
+            
+            [self removeCardBottom];
             
             NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
             [props setObject:[NSNumber numberWithFloat:cardUI.x] forKey:@"x"];
@@ -870,7 +945,7 @@
                                            xOffset:x
                                            yOffset:resourcesUI.lblBricks.y
                                             parent:self];
-            [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound  loop:NO];
+            [_effects playSound:modValue<0 ? ResourcesDownSound : ResourcesUpSound  loop:NO];
             break;
         }
         case Gems:
@@ -881,7 +956,7 @@
                                            xOffset:x
                                            yOffset:resourcesUI.lblGems.y
                                             parent:self];
-            [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound loop:NO];
+            [_effects playSound:modValue<0 ? ResourcesDownSound : ResourcesUpSound loop:NO];
             break;
         }
         case Recruits:
@@ -892,7 +967,7 @@
                                            xOffset:x
                                            yOffset:resourcesUI.lblRecruits.y
                                             parent:self];
-            [_effects playSound:modValue<0 ? ResourceValueDownSound : ResourceValueUpSound loop:NO];
+            [_effects playSound:modValue<0 ? ResourcesDownSound : ResourcesUpSound loop:NO];
             break;
         }
         case Quarries:
@@ -903,7 +978,7 @@
                                            xOffset:x
                                            yOffset:resourcesUI.lblQuarries.y
                                             parent:self];
-            [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound loop:NO];
+            [_effects playSound:modValue<0 ? ResourceFacilityDownSound : ResourceFacilityUpSound loop:NO];
             break;
         }
         case Magics:
@@ -914,7 +989,7 @@
                                            xOffset:x
                                            yOffset:resourcesUI.lblMagics.y
                                             parent:self];
-            [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound loop:NO];
+            [_effects playSound:modValue<0 ? ResourceFacilityDownSound : ResourceFacilityUpSound loop:NO];
             break;
         }
         case Dungeons:
@@ -925,7 +1000,7 @@
                                            xOffset:x
                                            yOffset:resourcesUI.lblDungeons.y
                                             parent:self];
-            [_effects playSound:modValue<0 ? ResourceDownSound : ResourceUpSound loop:NO];
+            [_effects playSound:modValue<0 ? ResourceFacilityDownSound : ResourceFacilityUpSound loop:NO];
             break;
         }
         default:
@@ -1013,6 +1088,7 @@
         if ([hand objectForKey:key] != [NSNull null])
         {
             cardUI = [hand objectForKey:key];
+            [self removeCardBottom];
             
             [cardUI showFace:![_currentPlayer canPlayCard:cardUI.card]];
             NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
@@ -1090,6 +1166,7 @@
         
                 if (cardUI.card == card)
                 {
+                    [self removeCardBottom];
                     [cardUI showFace:NO];
                     if (discarded)
                     {
