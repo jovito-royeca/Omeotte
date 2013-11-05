@@ -617,6 +617,7 @@
         [_spDialog addChild:txtMessage];
         [_spDialog addEventListener:@selector(showMenu) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
+        [_btnMenu removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TRIGGERED];
         for (NSString *key in [hand allKeys])
         {
             if ([hand objectForKey:key] != [NSNull null])
@@ -625,7 +626,14 @@
                 [cardUI removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
             }
         }
-        [_btnMenu removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TRIGGERED];
+        if (_btnDiscard)
+        {
+            [_btnDiscard removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TRIGGERED];
+        }
+        if (_btnPlay)
+        {
+            [_btnPlay removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TRIGGERED];
+        }
     
         [self addChild:_spDialog];
         [_effects playSound:stSound loop:YES];

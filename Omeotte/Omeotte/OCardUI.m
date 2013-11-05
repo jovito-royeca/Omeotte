@@ -193,20 +193,20 @@
         
         if (selected)
         {
-            SPPoint *position = [touch locationInSpace:self];
-                
-            if (position.y < self.height)
-            {
-                [delegate play:self];
-            }
-            else if (position.y >= self.height)
-            {
-                [delegate discard:self];
-            }
-            else
-            {
+//            SPPoint *position = [touch locationInSpace:self];
+            
+//            if (position.y < self.height)
+//            {
+//                [delegate play:self];
+//            }
+//            else if (position.y >= self.height)
+//            {
+//                [delegate discard:self];
+//            }
+//            else
+//            {
                 [delegate demote:self];
-            }
+//            }
         }
     }
 }

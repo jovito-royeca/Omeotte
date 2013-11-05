@@ -34,5 +34,6 @@
 
 //#define CARD_TO_TEST            @"Lodestone"
 //#define GAME_SOUNDS_ON           1
+//#define CARD_BROWSER_ON         1
 
 #endif

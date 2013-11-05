@@ -105,7 +105,8 @@
          [alertMessage show];
      }];
     [self addChild:btnMultiPlayer];
-    
+
+#ifdef CARD_BROWSER_ON
     currentY += currentHeight+10;
     SPButton *btnCardBrowser = [SPButton buttonWithUpState:texture text:@"Card Browser"];
     btnCardBrowser.fontColor = WHITE_COLOR;
@@ -121,7 +122,8 @@
          [game showScene:scene];
      }];
     [self addChild:btnCardBrowser];
-    
+#endif
+
     currentY += currentHeight+10;
     SPButton *btnSettings = [SPButton buttonWithUpState:texture text:@"Settings"];
     btnSettings.fontColor = WHITE_COLOR;
@@ -139,7 +141,19 @@
          [alertMessage show];
      }];
     [self addChild:btnSettings];
-
+    
+//  show version number
+    NSString *stVersion = @"Version 1.0";
+    currentY = _height-20;
+    currentHeight = 20;
+    SPTextField *lblVersion = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:stVersion];
+    lblVersion.x = currentX;
+    lblVersion.y = currentY;
+    lblVersion.fontName = EXETER_FONT;
+    lblVersion.fontSize = currentHeight;
+    lblVersion.color = WHITE_COLOR;
+    [self addChild:lblVersion];
+    
 #ifdef GAME_SOUNDS_ON
     SPSoundChannel *channel = [OMedia sound:@"maintheme.caf"];
     channel.loop = YES;
