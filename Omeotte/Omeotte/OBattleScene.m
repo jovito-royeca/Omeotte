@@ -409,7 +409,7 @@
 -(void) showMenu
 {
     OMenuScene *menu = [[OMenuScene alloc] init];
-    OGameScene* game = (OGameScene*)self.root;
+    OGame* game = (OGame*)self.root;
     
     [game showScene:menu];
 }

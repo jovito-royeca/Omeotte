@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Sparrow.h"
 
-#import "OGameScene.h"
+#import "OGame.h"
 #import "ORule.h"
 #import "CardTestScene.h"
 

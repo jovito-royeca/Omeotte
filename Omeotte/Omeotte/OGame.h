@@ -13,7 +13,7 @@
 #import "OBattleScene.h"
 #import "OMenuScene.h"
 
-@interface OGameScene : SPSprite
+@interface OGame : SPSprite
 
 - (void)showScene:(SPSprite<OBackgroundMusicScene> *)scene;
 

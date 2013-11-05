@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 JJJ Software. All rights reserved.
 //
 
-#import "OGameScene.h"
+#import "OGame.h"
 #import "OBattleScene.h"
 
-@implementation OGameScene
+@implementation OGame
 {
     SPSprite<OBackgroundMusicScene> *_currentScene;
     float _screenWidth;
