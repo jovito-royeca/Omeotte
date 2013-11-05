@@ -10,11 +10,13 @@
 
 #import "Sparrow.h"
 
+#import "OBackgroundMusicScene.h"
 #import "OButtonTextureUI.h"
 #import "OCard.h"
 #import "OCardUI.h"
 #import "ODeckAndGraveyardUI.h"
 #import "OFx.h"
+#import "OGameScene.h"
 #import "OHealthUI.h"
 #import "OMedia.h"
 #import "OMenuScene.h"
@@ -32,7 +34,7 @@ typedef enum
 //    Discard
 } GamePhase;
 
-@interface OBattleScene : SPSprite <OCardUIDelegate, OPlayerAnimationDelegate>
+@interface OBattleScene : SPSprite <OCardUIDelegate, OPlayerAnimationDelegate, OBackgroundMusicScene>
 
 @property (strong, nonatomic) SPTextField *txtPlayer1Name;
 @property (strong, nonatomic) SPTextField *txtPlayer1Status;

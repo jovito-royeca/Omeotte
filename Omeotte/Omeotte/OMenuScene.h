@@ -9,11 +9,12 @@
 #import "Sparrow.h"
 
 #import "CardTestScene.h"
+#import "OBackgroundMusicScene.h"
 #import "OBattleScene.h"
 #import "OButtonTextureUI.h"
 #import "OGameScene.h"
 #import "Omeotte.h"
 
-@interface OMenuScene : SPSprite
+@interface OMenuScene : SPSprite <OBackgroundMusicScene>
 
 @end

@@ -19,7 +19,6 @@
     NSTimer *_timer;
     int elapsedTurnTime;
     OFx *_effects;
-//    SPImage *_imgCardBottom;
     SPButton *_btnPlay;
     SPButton *_btnDiscard;
 }
@@ -64,6 +63,10 @@
 
 - (void)dealloc
 {
+#ifdef GAME_SOUNDS_ON
+//    [_effects stopSound:BattleSound1];
+#endif
+
     [rule release];
     [players release];
     [hand release];
@@ -1154,6 +1157,17 @@
             }
         }
     }
+}
+
+#pragma mark - OBackgroundMusicScene
+-(void) loopMusic
+{
+    [_effects playSound:BattleSound2 loop:YES];
+}
+
+-(void) stopMusic
+{
+    [_effects stopSound:BattleSound2];
 }
 
 -(OCardUI*) createCardUI:(OCard*)card

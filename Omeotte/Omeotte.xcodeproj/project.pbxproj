@@ -69,6 +69,9 @@
 		1195D28817C2728700C4DA25 /* OPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28717C2728700C4DA25 /* OPlayer.m */; };
 		1195D28E17C272B600C4DA25 /* OCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28D17C272B600C4DA25 /* OCard.m */; };
 		1195D29117C2772700C4DA25 /* ODeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D29017C2772700C4DA25 /* ODeck.m */; };
+		11C1062A1829834F00ED2361 /* menu.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11C106271829834F00ED2361 /* menu.caf */; };
+		11C10638182992BB00ED2361 /* battle1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11C10636182992BB00ED2361 /* battle1.caf */; };
+		11C10639182992BB00ED2361 /* battle2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11C10637182992BB00ED2361 /* battle2.caf */; };
 		11D36F8718098E3E00897552 /* OFx.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D36F8618098E3E00897552 /* OFx.m */; };
 		11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D5CF5917C32F6A00AA96BC /* ORule.m */; };
 		11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5C17C33CEC00AA96BC /* quarry.plist */; };
@@ -195,6 +198,10 @@
 		1195D28D17C272B600C4DA25 /* OCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCard.m; sourceTree = "<group>"; };
 		1195D28F17C2772700C4DA25 /* ODeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODeck.h; sourceTree = "<group>"; };
 		1195D29017C2772700C4DA25 /* ODeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODeck.m; sourceTree = "<group>"; };
+		11C106271829834F00ED2361 /* menu.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = menu.caf; sourceTree = "<group>"; };
+		11C1062D18298D3A00ED2361 /* OBackgroundMusicScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OBackgroundMusicScene.h; sourceTree = "<group>"; };
+		11C10636182992BB00ED2361 /* battle1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = battle1.caf; sourceTree = "<group>"; };
+		11C10637182992BB00ED2361 /* battle2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = battle2.caf; sourceTree = "<group>"; };
 		11D36F8518098E3E00897552 /* OFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFx.h; sourceTree = "<group>"; };
 		11D36F8618098E3E00897552 /* OFx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFx.m; sourceTree = "<group>"; };
 		11D5CF5817C32F6900AA96BC /* ORule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORule.h; sourceTree = "<group>"; };
@@ -295,6 +302,7 @@
 			children = (
 				11FBAA3B17DEF5BA008CE6E6 /* CardTestScene.h */,
 				11FBAA3C17DEF5BA008CE6E6 /* CardTestScene.m */,
+				11C1062D18298D3A00ED2361 /* OBackgroundMusicScene.h */,
 				1148A85817D4083300D7E3B3 /* OBattleScene.h */,
 				1148A85917D4083300D7E3B3 /* OBattleScene.m */,
 				1195D28317C2723600C4DA25 /* OGameScene.h */,
@@ -356,6 +364,9 @@
 		116270EB18242C3A00E2B267 /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				11C10636182992BB00ED2361 /* battle1.caf */,
+				11C10637182992BB00ED2361 /* battle2.caf */,
+				11C106271829834F00ED2361 /* menu.caf */,
 				116270EC18242C5100E2B267 /* card.caf */,
 				116270ED18242C5100E2B267 /* damageO.caf */,
 				11FB95E718243494009D5552 /* defeat.caf */,
@@ -600,6 +611,7 @@
 			files = (
 				1195D18517C25F5E00C4DA25 /* InfoPlist.strings in Resources */,
 				11FB95E918243494009D5552 /* defeat.caf in Resources */,
+				11C1062A1829834F00ED2361 /* menu.caf in Resources */,
 				1195D18D17C25F5E00C4DA25 /* Default.png in Resources */,
 				1195D18F17C25F5E00C4DA25 /* Default@2x.png in Resources */,
 				1122E394181E25C8000F4E89 /* looser.png in Resources */,
@@ -625,10 +637,12 @@
 				111FB82E17E7DC1700CDBAF0 /* cards.png in Resources */,
 				116270FA18242C5100E2B267 /* tower_upO.caf in Resources */,
 				111FB82F17E7DC1700CDBAF0 /* cards.xml in Resources */,
+				11C10638182992BB00ED2361 /* battle1.caf in Resources */,
 				116270F818242C5100E2B267 /* ress_downO.caf in Resources */,
 				116270F418242C5100E2B267 /* card.caf in Resources */,
 				111FB83017E7DC1700CDBAF0 /* ui.png in Resources */,
 				11FE27EC1803B1E600159D4A /* Kingthings_Exeter.fnt in Resources */,
+				11C10639182992BB00ED2361 /* battle2.caf in Resources */,
 				11FE27EB1803B1E600159D4A /* Kingthings_Calligraphica_0.png in Resources */,
 				111FB83117E7DC1700CDBAF0 /* ui.xml in Resources */,
 				1122E391181E1C69000F4E89 /* scroll.png in Resources */,

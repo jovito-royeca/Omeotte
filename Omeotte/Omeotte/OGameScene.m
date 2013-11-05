@@ -11,6 +11,9 @@
 
 @implementation OGameScene
 {
+    SPSprite<OBackgroundMusicScene> *_currentScene;
+    float _screenWidth;
+    float _screenHeight;
     float _offsetY;
 }
 
@@ -38,18 +41,18 @@
     [super dealloc];
 }
 
-- (void)showScene:(SPSprite *)scene
+- (void)showScene:(SPSprite<OBackgroundMusicScene> *)scene
 {
     if ([self containsChild:_currentScene])
     {
+        [_currentScene stopMusic];
         [self removeChild:_currentScene];
-        [OMedia releaseAllSounds];
-        [_currentScene release];
         _currentScene = nil;
     }
     
     [self addChild:scene];
     _currentScene = scene;
+    [_currentScene loopMusic];
 }
 
 @end

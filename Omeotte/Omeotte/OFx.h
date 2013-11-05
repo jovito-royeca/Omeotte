@@ -29,7 +29,9 @@ typedef enum
     WallDownSound,
     DefeatSound,
     VictorySound,
-    MenuSound
+    MenuSound,
+    BattleSound1,
+    BattleSound2
 } SoundType;
 
 @interface OFx : NSObject

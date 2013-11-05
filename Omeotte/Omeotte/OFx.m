@@ -39,10 +39,7 @@
 
 -(void) playSound:(SoundType)type loop:(BOOL)bLoop
 {
-#ifndef GAME_SOUNDS_ON
-    return;
-#endif
-
+#ifdef GAME_SOUNDS_ON
     SPSoundChannel *soundChannel = [OMedia sound:[self soundFileName:type]];
     soundChannel.loop = bLoop;
     [soundChannel play];
@@ -54,17 +51,16 @@
 //            [soundChannel release];
 //        }];
 //    }
+#endif
 }
 
 -(void) stopSound:(SoundType)type
 {
-#ifndef GAME_SOUNDS_ON
-    return;
-#endif
+#ifdef GAME_SOUNDS_ON
     SPSoundChannel *soundChannel = [OMedia sound:[self soundFileName:type]];
     
     [soundChannel stop];
-    [soundChannel release];
+#endif
 }
 
 - (NSString*) soundFileName:(SoundType)type
@@ -113,6 +109,18 @@
         case VictorySound:
         {
             return @"victory.caf";
+        }
+        case MenuSound:
+        {
+            return @"menu.caf";
+        }
+        case BattleSound1:
+        {
+            return @"battle1.caf";
+        }
+        case BattleSound2:
+        {
+            return @"battle2.caf";
         }
     }
 }

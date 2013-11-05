@@ -9,16 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "Sparrow.h"
 
+#import "OBackgroundMusicScene.h"
 #import "OBattleScene.h"
 #import "OMenuScene.h"
 
 @interface OGameScene : SPSprite
-{
-    SPSprite *_currentScene;
-    float _screenWidth;
-    float _screenHeight;
-}
 
-- (void)showScene:(SPSprite *)scene;
+- (void)showScene:(SPSprite<OBackgroundMusicScene> *)scene;
 
 @end
+
+

@@ -9,6 +9,9 @@
 #import "OMenuScene.h"
 
 @implementation OMenuScene
+{
+    SPSoundChannel *_channel;
+}
 
 - (id)init
 {
@@ -17,6 +20,11 @@
         [self setup];
     }
     return self;
+}
+
+-(void) dealloc
+{
+    [super dealloc];
 }
 
 - (void)setup
@@ -153,13 +161,29 @@
     lblVersion.fontSize = currentHeight;
     lblVersion.color = WHITE_COLOR;
     [self addChild:lblVersion];
-    
+}
+
+#pragma mark - OBackgroundMusicScene
+-(void) loopMusic
+{
 #ifdef GAME_SOUNDS_ON
-    SPSoundChannel *channel = [OMedia sound:@"maintheme.caf"];
-    channel.loop = YES;
-    [channel play];
+    if (!_channel)
+    {
+        _channel = [OMedia sound:@"menu.caf"];
+    }
+    _channel.loop = YES;
+    [_channel play];
 #endif
 }
 
+-(void) stopMusic
+{
+#ifdef GAME_SOUNDS_ON
+    if (_channel)
+    {
+        [_channel stop];
+    }
+#endif
+}
 
 @end
