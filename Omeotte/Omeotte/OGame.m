@@ -50,6 +50,7 @@
         _currentScene = nil;
     }
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [self addChild:scene];
     _currentScene = scene;
     [_currentScene loopMusic];

@@ -75,6 +75,41 @@
     imgBackground.texture = texture;
     [self addChild:imgBackground];
     
+//    resource factory legends
+    currentX = _width * 0.03;
+    currentY = _width * 0.03;
+    currentWidth = _width;
+    currentHeight = _width * 0.192;
+    SPTextField *lblQuarriesLegend = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[OStats statName:Quarries]];
+    lblQuarriesLegend.x = currentX;
+    lblQuarriesLegend.y = currentY;
+    lblQuarriesLegend.color = GOLD_COLOR;
+    lblQuarriesLegend.fontSize = currentHeight;
+    lblQuarriesLegend.fontName = EXETER_FONT;
+    lblQuarriesLegend.hAlign = SPHAlignLeft;
+    [self addChild:lblQuarriesLegend];
+    
+    currentY += _height/3;
+    SPTextField *lblMagicsLegend = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[OStats statName:Magics]];
+    lblMagicsLegend.x = currentX;
+    lblMagicsLegend.y = currentY;
+    lblMagicsLegend.color = GOLD_COLOR;
+    lblMagicsLegend.fontSize = currentHeight;
+    lblMagicsLegend.fontName = EXETER_FONT;
+    lblMagicsLegend.hAlign = SPHAlignLeft;
+    [self addChild:lblMagicsLegend];
+    
+    currentY += _height/3;
+    SPTextField *lblDungeonsLegend = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[OStats statName:Dungeons]];
+    lblDungeonsLegend.x = currentX;
+    lblDungeonsLegend.y = currentY;
+    lblDungeonsLegend.color = GOLD_COLOR;
+    lblDungeonsLegend.fontSize = currentHeight;
+    lblDungeonsLegend.fontName = EXETER_FONT;
+    lblDungeonsLegend.hAlign = SPHAlignLeft;
+    [self addChild:lblDungeonsLegend];
+    
+//    resource factory values
     currentX = _width * 0.03;
     currentY = _height * 0.11;
     currentWidth = _width;
@@ -108,6 +143,7 @@
     lblDungeons.hAlign = SPHAlignLeft;
     [self addChild:lblDungeons];
     
+//    resource values
     currentY = _height * 0.259;
     currentWidth = _width - (_width*0.06);
     currentHeight = _width * 0.192;
@@ -119,7 +155,7 @@
     lblBricks = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[OStats statName:Bricks]];
     lblBricks.x = currentX;
     lblBricks.y = currentY;
-    lblBricks.color = 0x000000;
+    lblBricks.color = BLACK_COLOR;
     lblBricks.fontSize = currentHeight;
     lblBricks.hAlign = SPHAlignRight;
     lblBricks.fontName = EXETER_FONT;
@@ -134,7 +170,7 @@
     lblGems = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[OStats statName:Gems]];
     lblGems.x = currentX;
     lblGems.y = currentY;
-    lblGems.color = 0x000000;
+    lblGems.color = BLACK_COLOR;
     lblGems.fontSize = currentHeight;
     lblGems.hAlign = SPHAlignRight;
     lblGems.fontName = EXETER_FONT;
@@ -149,7 +185,7 @@
     lblRecruits = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[OStats statName:Recruits]];
     lblRecruits.x = currentX;
     lblRecruits.y = currentY;
-    lblRecruits.color = 0x000000;
+    lblRecruits.color = BLACK_COLOR;
     lblRecruits.fontSize = currentHeight;
     lblRecruits.hAlign = SPHAlignRight;
     lblRecruits.fontName = EXETER_FONT;

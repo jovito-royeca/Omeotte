@@ -167,22 +167,22 @@
 -(void) loopMusic
 {
 #ifdef GAME_SOUNDS_ON
-    if (!_channel)
-    {
-        _channel = [OMedia sound:@"menu.caf"];
-    }
-    _channel.loop = YES;
-    [_channel play];
+//    if (!_channel)
+//    {
+//        _channel = [OMedia sound:@"menu.caf"];
+//    }
+//    _channel.loop = YES;
+//    [_channel play];
 #endif
 }
 
 -(void) stopMusic
 {
 #ifdef GAME_SOUNDS_ON
-    if (_channel)
-    {
-        [_channel stop];
-    }
+//    if (_channel)
+//    {
+//        [_channel stop];
+//    }
 #endif
 }
 

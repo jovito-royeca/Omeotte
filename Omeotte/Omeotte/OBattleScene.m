@@ -21,6 +21,7 @@
     OFx *_effects;
     SPButton *_btnPlay;
     SPButton *_btnDiscard;
+    SPSoundChannel *_soundChannel;
 }
 
 @synthesize txtPlayer1Name;
@@ -138,8 +139,8 @@
     SPSprite *container = [[SPSprite alloc] init];
     OButtonTextureUI *texture = [[OButtonTextureUI alloc] initWithWidth:currentWidth
                                                                  height:currentHeight
-                                                           cornerRadius:3
-                                                            strokeWidth:2
+                                                           cornerRadius:2
+                                                            strokeWidth:1
                                                             strokeColor:WHITE_COLOR
                                                                   gloss:NO
                                                              startColor:RED_COLOR
@@ -631,11 +632,11 @@
         }
         if (_btnDiscard)
         {
-            [_btnDiscard removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TRIGGERED];
+            [_btnDiscard removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
         }
         if (_btnPlay)
         {
-            [_btnPlay removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TRIGGERED];
+            [_btnPlay removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
         }
     
         [self addChild:_spDialog];
@@ -681,8 +682,8 @@
             
             OButtonTextureUI *texture = [[OButtonTextureUI alloc] initWithWidth:cardWidth/2
                                                                          height:20
-                                                                   cornerRadius:3
-                                                                    strokeWidth:2
+                                                                   cornerRadius:2
+                                                                    strokeWidth:1
                                                                     strokeColor:WHITE_COLOR
                                                                           gloss:NO
                                                                      startColor:RED_COLOR
@@ -695,8 +696,9 @@
                 _btnDiscard.fontColor = WHITE_COLOR;
                 _btnDiscard.fontSize = 10;
                 _btnDiscard.fontName = EXETER_FONT;
-                [_btnDiscard addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(SPEvent *event)
+                [_btnDiscard addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(SPEvent *event)
                  {
+                     NSLog(@"discard");
                      [self discard:cardUI];
                  }];
                 [self addChild:_btnDiscard];
@@ -710,8 +712,9 @@
                 _btnPlay.fontColor = WHITE_COLOR;
                 _btnPlay.fontSize = 10;
                 _btnPlay.fontName = EXETER_FONT;
-                [_btnPlay addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(SPEvent *event)
+                [_btnPlay addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(SPEvent *event)
                  {
+                     NSLog(@"play");
                      [self play:cardUI];
                  }];
                 [self addChild:_btnPlay];
@@ -1162,12 +1165,27 @@
 #pragma mark - OBackgroundMusicScene
 -(void) loopMusic
 {
-    [_effects playSound:BattleSound2 loop:YES];
+#ifdef GAME_SOUNDS_ON
+    if (!_soundChannel)
+    {
+        _soundChannel = [OMedia sound:@"battle2.caf"];
+    }
+    _soundChannel.loop = YES;
+    [_soundChannel play];
+#endif
+
 }
 
 -(void) stopMusic
 {
-    [_effects stopSound:BattleSound2];
+#ifdef GAME_SOUNDS_ON
+    if (_soundChannel)
+    {
+        [_soundChannel stop];
+    }
+    _soundChannel = nil;
+#endif
+
 }
 
 -(OCardUI*) createCardUI:(OCard*)card
