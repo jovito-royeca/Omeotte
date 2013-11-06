@@ -736,11 +736,7 @@
 {
     if (!_currentPlayer.ai)
     {
-        if ([cardUI.card hasSpecialPower:CardUndiscardable])
-        {
-            NSLog(@"Card undiscardable... %@", cardUI.card.name);
-        }
-        else
+        if (![cardUI.card hasSpecialPower:CardUndiscardable])
         {
 //            NSLog(@"discard... %@", cardUI.card.name);
             [self discardCard:cardUI.card];
@@ -751,28 +747,31 @@
 
 - (void)demote:(OCardUI*)cardUI
 {
+    if (cardUI.cardStatus != InHand)
+    {
+        return;
+    }
+
     if (!_currentPlayer.ai)
     {
+//        NSLog(@"demote... %@", cardUI.card.name);
+        
         float cardWidth  = Sparrow.stage.width/6;
         float cardHeight = (cardWidth*128)/95;
         float y = Sparrow.stage.height-cardHeight;
         
-//        if (cardUI.y < y)
-//        {
-//            NSLog(@"demote... %@", cardUI.card.name);
-            NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
-            [props setObject:[NSNumber numberWithFloat:cardUI.x] forKey:@"x"];
-            [props setObject:[NSNumber numberWithFloat:y] forKey:@"y"];
-            [props setObject:[NSNumber numberWithFloat:cardUI.width] forKey:@"width"];
-            [props setObject:[NSNumber numberWithFloat:cardUI.height] forKey:@"height"];
+        NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
+        [props setObject:[NSNumber numberWithFloat:cardUI.x] forKey:@"x"];
+        [props setObject:[NSNumber numberWithFloat:y] forKey:@"y"];
+        [props setObject:[NSNumber numberWithFloat:cardWidth] forKey:@"width"];
+        [props setObject:[NSNumber numberWithFloat:cardHeight] forKey:@"height"];
             
-            [_effects animate:cardUI withPropeties:props time:0.2 callback:^
-            {
-                cardUI.selected = NO;
-                cardUI.cardStatus = InHand;
-                [self removeCardBottom];
-            }];
-//        }
+        [_effects animate:cardUI withPropeties:props time:0.2 callback:^
+        {
+            cardUI.selected = NO;
+            cardUI.cardStatus = InHand;
+            [self removeCardBottom];
+        }];
     }
 }
 

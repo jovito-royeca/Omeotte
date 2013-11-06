@@ -69,9 +69,27 @@ NSArray *_cards;
             NSMutableArray *ma = [NSMutableArray arrayWithContentsOfFile:plistPath];
             for (NSDictionary *dict in ma)
             {
+                BOOL bBanned = NO;
+                NSString *cardName = [dict valueForKey:@"name"];
+
+#ifdef CARDS_TO_BAN
+                NSArray *arrBanned = CARDS_TO_BAN;
+                for (NSString *banned in arrBanned)
+                {
+                    if ([cardName isEqualToString:banned])
+                    {
+                        bBanned = YES;
+                    }
+                }
+#endif
+                if (bBanned)
+                {
+                    continue;
+                }
+
                 OCard *card = [[OCard alloc] init];
             
-                card.name = [dict valueForKey:@"name"];
+                card.name = cardName;
 
                 NSDictionary *costDict = [dict valueForKey:@"cost"];
                 OStats *cost = [[OStats alloc] init];

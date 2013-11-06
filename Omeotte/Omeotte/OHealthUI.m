@@ -141,15 +141,20 @@
     float towerRoofHeight    = TOWER_ROOF_PIXELS*0.524;
     float stemTowerHeight    = totalTowerHeight - towerRoofHeight;
     float newTowerHeight     = stemTowerHeight * ((float)stats.tower/(float)_rule.winningTower);
+    float height             = towerRoofHeight+newTowerHeight;
     towerCenterX = (_width/2)*0.542;
     towerCenterY = stemTowerHeight;
+    if (height > _rule.winningTower)
+    {
+        // to do:
+    }
     [self animateImage:imgTower
                      x:imgTower.x
                      y:totalTowerHeight-(towerRoofHeight+newTowerHeight)
                  clipX:0
                  clipY:0
              clipWidth:imgTower.width
-            clipHeight:towerRoofHeight+newTowerHeight];
+            clipHeight:height];
     lblTower.text = [NSString stringWithFormat:@"%d / %d", stats.tower, _rule.winningTower];
     
     float totalWallHeight   = _height-TOWER_LABEL_HEIGHT;

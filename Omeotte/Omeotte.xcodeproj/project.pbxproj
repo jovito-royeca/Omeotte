@@ -18,6 +18,7 @@
 		1122E394181E25C8000F4E89 /* looser.png in Resources */ = {isa = PBXBuildFile; fileRef = 1122E392181E25C8000F4E89 /* looser.png */; };
 		1122E395181E25C8000F4E89 /* winner.png in Resources */ = {isa = PBXBuildFile; fileRef = 1122E393181E25C8000F4E89 /* winner.png */; };
 		1122E397181E2D2B000F4E89 /* draw.png in Resources */ = {isa = PBXBuildFile; fileRef = 1122E396181E2D2B000F4E89 /* draw.png */; };
+		112AE45F182AD757000D5909 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 112AE45E182AD757000D5909 /* Settings.bundle */; };
 		112EE3F517FCF62000C495D3 /* SXSimpleClippedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 112EE3F417FCF62000C495D3 /* SXSimpleClippedImage.m */; };
 		112EE3F817FD07DD00C495D3 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 112EE3F717FD07DD00C495D3 /* background.png */; };
 		11312106180F770400A332E7 /* chain and lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 11312105180F770400A332E7 /* chain and lock.png */; };
@@ -124,6 +125,7 @@
 		1122E392181E25C8000F4E89 /* looser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = looser.png; sourceTree = "<group>"; };
 		1122E393181E25C8000F4E89 /* winner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winner.png; sourceTree = "<group>"; };
 		1122E396181E2D2B000F4E89 /* draw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = draw.png; sourceTree = "<group>"; };
+		112AE45E182AD757000D5909 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		112EE3F317FCF62000C495D3 /* SXSimpleClippedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSimpleClippedImage.h; sourceTree = "<group>"; };
 		112EE3F417FCF62000C495D3 /* SXSimpleClippedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXSimpleClippedImage.m; sourceTree = "<group>"; };
 		112EE3F717FD07DD00C495D3 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 				118E688417C74BD8007801CD /* OStats.h */,
 				118E688517C74BD8007801CD /* OStats.m */,
 				1148A85F17D40FE500D7E3B3 /* Scenes */,
+				112AE45E182AD757000D5909 /* Settings.bundle */,
 				1195D18117C25F5E00C4DA25 /* Supporting Files */,
 				1148A86017D4100500D7E3B3 /* UI */,
 			);
@@ -525,6 +528,7 @@
 				1195D17317C25F5E00C4DA25 /* Sources */,
 				1195D17417C25F5E00C4DA25 /* Frameworks */,
 				1195D17517C25F5E00C4DA25 /* Resources */,
+				112AE45D182ACEA9000D5909 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -629,6 +633,7 @@
 				112EE3F817FD07DD00C495D3 /* background.png in Resources */,
 				11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */,
 				11FB95EA18243494009D5552 /* victory.caf in Resources */,
+				112AE45F182AD757000D5909 /* Settings.bundle in Resources */,
 				1137991F17C49ADF00794158 /* magic.plist in Resources */,
 				11D8A3F3182A2CF6000428AE /* menu.caf in Resources */,
 				116270F618242C5100E2B267 /* resb_downO.caf in Resources */,
@@ -660,6 +665,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		112AE45D182ACEA9000D5909 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$((0x$buildNumber))\nbuildNumber=$(($buildNumber + 1))\nbuildNumber=$(printf \"%X\" $buildNumber)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
 		1195D19517C25F5E00C4DA25 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -804,6 +822,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jovito Royeca (SZ7K5SF9GM)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
 				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
@@ -813,6 +832,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = Omeotte;
+				PROVISIONING_PROFILE = "18A322E2-5D37-48A3-B499-E3A8A1B028A7";
 				USER_HEADER_SEARCH_PATHS = "../Sparrow-Framework/sparrow/src/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -822,6 +842,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jovito Royeca (SZ7K5SF9GM)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
 				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
@@ -831,6 +852,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = Omeotte;
+				PROVISIONING_PROFILE = "18A322E2-5D37-48A3-B499-E3A8A1B028A7";
 				USER_HEADER_SEARCH_PATHS = "../Sparrow-Framework/sparrow/src/**";
 				WRAPPER_EXTENSION = app;
 			};

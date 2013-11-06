@@ -151,10 +151,12 @@
     [self addChild:btnSettings];
     
 //  show version number
-    NSString *stVersion = @"Version 1.0";
+    NSString *appVersionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString *appBuildString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    NSString *versionBuildString = [NSString stringWithFormat:@"Version: %@ (%@)", appVersionString, appBuildString];
     currentY = _height-20;
     currentHeight = 20;
-    SPTextField *lblVersion = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:stVersion];
+    SPTextField *lblVersion = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:versionBuildString];
     lblVersion.x = currentX;
     lblVersion.y = currentY;
     lblVersion.fontName = EXETER_FONT;
