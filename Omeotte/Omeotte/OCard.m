@@ -270,12 +270,12 @@ NSArray *_cards;
             {
                 case Current:
                 {
-                    [stCurrent appendFormat:@"%@%@%d %@", stCurrent.length>0 ? @"\n":@"", e.value>0?@"+":@"", e.value, [OStats statName:e.field]];
+                    [stCurrent appendFormat:@"%@%@%d %@", stCurrent.length>0 ? @"; ":@"", e.value>0?@"+":@"", e.value, [OStats statName:e.field]];
                     break;
                 }
                 case Opponent:
                 {
-                    [stOpponent appendFormat:@"%@%@%d %@", stOpponent.length>0 ? @"\n":@"", e.value>0?@"+":@"", e.value, [OStats statName:e.field]];
+                    [stOpponent appendFormat:@"%@%@%d %@", stOpponent.length>0 ? @"; ":@"", e.value>0?@"+":@"", e.value, [OStats statName:e.field]];
                     break;
                 }
             }
@@ -285,7 +285,7 @@ NSArray *_cards;
     [stAll appendFormat:@"%@", stCurrent];
     if (stOpponent.length > 0)
     {
-        [stAll appendFormat:@"\nOpponent:\n%@", stOpponent];
+        [stAll appendFormat:@"\nOpponent: %@", stOpponent];
     }
     [stCurrent release];
     [stOpponent release];

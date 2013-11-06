@@ -929,17 +929,6 @@
 		<string>Reduces your opponent&apos;s gems by ten. Reduces your opponent&apos;s bricks by five. You gain half of that amount, rounded up.</string>
 		<key>type</key>
 		<integer>2</integer>
-		<key>effects</key>
-		<array>
-			<dict>
-				<key>field</key>
-				<integer>0</integer>
-				<key>value</key>
-				<integer>0</integer>
-				<key>target</key>
-				<integer>0</integer>
-			</dict>
-		</array>
 	</dict>
 	<dict>
 		<key>name</key>

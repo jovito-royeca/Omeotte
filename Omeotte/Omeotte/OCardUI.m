@@ -33,7 +33,6 @@
 
 - (void)dealloc
 {
-//    [card release];
     [lblName release];
     [qdCost release];
     [lblCost release];
@@ -45,7 +44,6 @@
     [qdBackground release];
     [imgLocked release];
     [lblDiscarded release];
-//    [delegate release];
     [_juggler release];
     [super dealloc];
 }

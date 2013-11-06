@@ -705,17 +705,6 @@
 		<string>Increases the each player&apos;s Magic level to that of the highest player&apos;s Magic level</string>
 		<key>type</key>
 		<integer>1</integer>
-		<key>effects</key>
-		<array>
-			<dict>
-				<key>field</key>
-				<integer>0</integer>
-				<key>value</key>
-				<integer>0</integer>
-				<key>target</key>
-				<integer>0</integer>
-			</dict>
-		</array>
 	</dict>
 	<dict>
 		<key>name</key>

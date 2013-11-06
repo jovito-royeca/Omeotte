@@ -590,17 +590,6 @@
 		<string>Increases your Quarry level to match your opponent&apos;s Quarry level. This does not lower your Quarry level if you&apos;re Quarry level is higher.</string>
 		<key>type</key>
 		<integer>0</integer>
-		<key>effects</key>
-		<array>
-			<dict>
-				<key>field</key>
-				<integer>0</integer>
-				<key>value</key>
-				<integer>0</integer>
-				<key>target</key>
-				<integer>0</integer>
-			</dict>
-		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -618,17 +607,6 @@
 		<string>The player or players with the lowest wall take two damage to their tower and their Dungeon levels are reduced by one.</string>
 		<key>type</key>
 		<integer>0</integer>
-		<key>effects</key>
-		<array>
-			<dict>
-				<key>field</key>
-				<integer>0</integer>
-				<key>value</key>
-				<integer>0</integer>
-				<key>target</key>
-				<integer>0</integer>
-			</dict>
-		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -1118,17 +1096,6 @@
 		<string>Switch your wall with the opponent&apos;s wall.</string>
 		<key>type</key>
 		<integer>0</integer>
-		<key>effects</key>
-		<array>
-			<dict>
-				<key>field</key>
-				<integer>0</integer>
-				<key>value</key>
-				<integer>0</integer>
-				<key>target</key>
-				<integer>0</integer>
-			</dict>
-		</array>
 	</dict>
 	<dict>
 		<key>name</key>

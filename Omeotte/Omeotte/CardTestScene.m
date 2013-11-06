@@ -234,4 +234,15 @@
     [bar resignFirstResponder];
 }
 
+#pragma mark - OBackgroundMusicScene
+-(void) loopMusic
+{
+    
+}
+
+-(void) stopMusic
+{
+    
+}
+
 @end

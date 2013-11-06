@@ -10,12 +10,13 @@
 
 #import "Sparrow.h"
 
+#import "OBackgroundMusicScene.h"
 #import "OCard.h"
 #import "OCardUI.h"
 #import "OPlayer.h"
 #import "OMedia.h"
 
-@interface CardTestScene : SPSprite <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface CardTestScene : SPSprite <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, OBackgroundMusicScene>
 {
     NSArray *results;
     NSArray *sections;

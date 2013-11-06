@@ -125,7 +125,7 @@
     [btnCardBrowser addEventListenerForType:SP_EVENT_TYPE_TRIGGERED block:^(id event)
      {
          CardTestScene *scene = [[CardTestScene alloc] init];
-         OGameScene* game = (OGameScene*)self.root;
+         OGame* game = (OGame*)self.root;
          
          [game showScene:scene];
      }];

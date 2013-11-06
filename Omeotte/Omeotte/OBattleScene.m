@@ -697,10 +697,9 @@
                 _btnDiscard.fontSize = 10;
                 _btnDiscard.fontName = EXETER_FONT;
                 [_btnDiscard addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(SPEvent *event)
-                 {
-                     NSLog(@"discard");
-                     [self discard:cardUI];
-                 }];
+                {
+                    [self discard:cardUI];
+                }];
                 [self addChild:_btnDiscard];
             }
             
@@ -713,10 +712,9 @@
                 _btnPlay.fontSize = 10;
                 _btnPlay.fontName = EXETER_FONT;
                 [_btnPlay addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(SPEvent *event)
-                 {
-                     NSLog(@"play");
-                     [self play:cardUI];
-                 }];
+                {
+                    [self play:cardUI];
+                }];
                 [self addChild:_btnPlay];
             }
         }];
