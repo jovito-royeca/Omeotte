@@ -19,8 +19,8 @@
     NSTimer *_timer;
     int elapsedTurnTime;
     OFx *_effects;
-    SPButton *_btnPlay;
     SPButton *_btnDiscard;
+    SPButton *_btnPlay;
     SPSoundChannel *_soundChannel;
 }
 
@@ -630,15 +630,16 @@
                 [cardUI removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
             }
         }
-        if (_btnDiscard)
-        {
-            [_btnDiscard removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
-        }
+        
         if (_btnPlay)
         {
             [_btnPlay removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
         }
-    
+        if (_btnDiscard)
+        {
+            [_btnDiscard removeEventListenersAtObject:self forType:SP_EVENT_TYPE_TOUCH];
+        }
+
         [self addChild:_spDialog];
         [_effects playSound:stSound loop:YES];
     }
@@ -688,25 +689,10 @@
                                                                           gloss:NO
                                                                      startColor:RED_COLOR
                                                                        endColor:BLUE_COLOR];
-            if (![cardUI.card hasSpecialPower:CardUndiscardable] && !_btnDiscard)
-            {
-                _btnDiscard = [SPButton buttonWithUpState:texture text:@"Discard"];
-                _btnDiscard.x = cardUI.x;
-                _btnDiscard.y = cardUI.y+cardHeight;
-                _btnDiscard.fontColor = WHITE_COLOR;
-                _btnDiscard.fontSize = 10;
-                _btnDiscard.fontName = EXETER_FONT;
-                [_btnDiscard addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(SPEvent *event)
-                {
-                    [self discard:cardUI];
-                }];
-                [self addChild:_btnDiscard];
-            }
-            
             if ([_currentPlayer canPlayCard:cardUI.card] && !_btnPlay)
             {
                 _btnPlay = [SPButton buttonWithUpState:texture text:@"Play"];
-                _btnPlay.x = cardUI.x+cardWidth/2;
+                _btnPlay.x = cardUI.x;
                 _btnPlay.y = cardUI.y+cardHeight;
                 _btnPlay.fontColor = WHITE_COLOR;
                 _btnPlay.fontSize = 10;
@@ -716,6 +702,21 @@
                     [self play:cardUI];
                 }];
                 [self addChild:_btnPlay];
+            }
+            
+            if (![cardUI.card hasSpecialPower:CardUndiscardable] && !_btnDiscard)
+            {
+                _btnDiscard = [SPButton buttonWithUpState:texture text:@"Discard"];
+                _btnDiscard.x = cardUI.x+cardWidth/2;
+                _btnDiscard.y = cardUI.y+cardHeight;
+                _btnDiscard.fontColor = WHITE_COLOR;
+                _btnDiscard.fontSize = 10;
+                _btnDiscard.fontName = EXETER_FONT;
+                [_btnDiscard addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(SPEvent *event)
+                 {
+                     [self discard:cardUI];
+                 }];
+                [self addChild:_btnDiscard];
             }
         }];
     }
@@ -747,7 +748,7 @@
 
 - (void)demote:(OCardUI*)cardUI
 {
-    if (cardUI.cardStatus != InHand)
+    if (cardUI.cardStatus != InHand || !cardUI.selected)
     {
         return;
     }
@@ -1037,49 +1038,43 @@
     {
         return;
     }
-
+    
     float width = Sparrow.stage.width;
     float height = Sparrow.stage.height;
     
     float cardWidth  = width/6;
     float cardHeight = (cardWidth*128)/95;
     float cardY = height-cardHeight;
+    
+    
+    NSArray *sortedKeys = [[hand allKeys] sortedArrayUsingSelector: @selector(compare:)];
     OCardUI *cardUI = nil;
     
-    for (NSString *key in [hand allKeys])
+    for (NSString *key in sortedKeys)
     {
         int index = [key integerValue];
         
         if ([hand objectForKey:key] != [NSNull null])
         {
             cardUI = [hand objectForKey:key];
-            
             [cardUI showFace:![_currentPlayer canPlayCard:cardUI.card]];
-            NSMutableDictionary *props = [[NSMutableDictionary alloc] init];
-            [props setObject:[NSNumber numberWithFloat:index*cardWidth] forKey:@"x"];
-            [props setObject:[NSNumber numberWithFloat:cardY] forKey:@"y"];
-            [props setObject:[NSNumber numberWithFloat:cardWidth] forKey:@"width"];
-            [props setObject:[NSNumber numberWithFloat:cardHeight] forKey:@"height"];
-            
-            [_effects animate:cardUI withPropeties:props time:0.2 callback:^
-            {
-                cardUI.selected = NO;
-                cardUI.cardStatus = InHand;
-                [self removeCardBottom];
-            }];
+            [self demote:cardUI];
         }
         else
         {
-//            OCard *card = [_currentPlayer.hand objectAtIndex:index];
-//            cardUI = [self createCardUI:card];
+//            if (index < _currentPlayer.hand.count)
+//            {
+//                OCard *card = [_currentPlayer.hand objectAtIndex:index];
+//                cardUI = [self createCardUI:card];
 //            
-//            cardUI.x = index*cardWidth;
-//            cardUI.y = cardY;
-//            [cardUI showFace:![_currentPlayer canPlayCard:card]];
-//            cardUI.selected = NO;
-//            cardUI.cardStatus = InHand;
-//            [self addChild:cardUI];
-//            [hand setObject:cardUI forKey:key];
+//                cardUI.x = index*cardWidth;
+//                cardUI.y = cardY;
+//                [cardUI showFace:![_currentPlayer canPlayCard:card]];
+//                cardUI.selected = NO;
+//                cardUI.cardStatus = InHand;
+//                [self addChild:cardUI];
+//                [hand setObject:cardUI forKey:key];
+//            }
         }
     }
 }
@@ -1201,11 +1196,11 @@
 
 -(void) removeCardBottom
 {
-    [self removeChild:_btnDiscard];
     [self removeChild:_btnPlay];
+    [self removeChild:_btnDiscard];
     
-    _btnDiscard = nil;
     _btnPlay = nil;
+    _btnDiscard = nil;
 }
 
 @end

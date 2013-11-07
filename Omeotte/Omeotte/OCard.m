@@ -46,68 +46,65 @@
     [super dealloc];
 }
 
-NSArray *_cards;
-
 +(NSArray*)allCards
 {
-    if (!_cards)
+    NSArray *arrCards;
+    
+    NSMutableArray *mArrCards = [[NSMutableArray alloc] init];
+    
+    for (NSString *card in [NSArray arrayWithObjects:@"quarry", @"magic", @"dungeon", nil])
     {
-        NSMutableArray *macards = [[NSMutableArray alloc] init];
-        NSArray *cards = [NSArray arrayWithObjects:@"quarry", @"magic", @"dungeon", nil];
-        
-        for (NSString *card in cards)
-        {
-            NSString *plistPath;
-            NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+        NSString *plistPath;
+        NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                                       NSUserDomainMask, YES) objectAtIndex:0];
-            plistPath = [rootPath stringByAppendingPathComponent:[NSString stringWithFormat:@"data/%@.plist", card]];
-            if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath])
-            {
-                plistPath = [[NSBundle mainBundle] pathForResource:card ofType:@"plist"];
-            }
+        plistPath = [rootPath stringByAppendingPathComponent:[NSString stringWithFormat:@"data/%@.plist", card]];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath])
+        {
+            plistPath = [[NSBundle mainBundle] pathForResource:card ofType:@"plist"];
+        }
             
-            NSMutableArray *ma = [NSMutableArray arrayWithContentsOfFile:plistPath];
-            for (NSDictionary *dict in ma)
-            {
-                BOOL bBanned = NO;
-                NSString *cardName = [dict valueForKey:@"name"];
+        NSMutableArray *mArr = [NSMutableArray arrayWithContentsOfFile:plistPath];
+        for (NSDictionary *dict in mArr)
+        {
+            BOOL bBanned = NO;
+            NSString *cardName = [dict valueForKey:@"name"];
 
 #ifdef CARDS_TO_BAN
-                NSArray *arrBanned = CARDS_TO_BAN;
-                for (NSString *banned in arrBanned)
+            NSArray *arrBanned = CARDS_TO_BAN;
+            for (NSString *banned in arrBanned)
+            {
+                if ([cardName isEqualToString:banned])
                 {
-                    if ([cardName isEqualToString:banned])
-                    {
-                        bBanned = YES;
-                    }
+                    bBanned = YES;
                 }
+            }
 #endif
-                if (bBanned)
-                {
-                    continue;
-                }
+            if (bBanned)
+            {
+                continue;
+            }
 
-                OCard *card = [[OCard alloc] init];
+            OCard *card = [[OCard alloc] init];
             
-                card.name = cardName;
+            card.name = cardName;
 
-                NSDictionary *costDict = [dict valueForKey:@"cost"];
-                OStats *cost = [[OStats alloc] init];
-                if ([costDict objectForKey:@"bricks"])
-                {
-                    cost.bricks = [[costDict objectForKey:@"bricks"] intValue];
-                }
-                if ([costDict objectForKey:@"gems"])
-                {
-                    cost.gems = [[costDict objectForKey:@"gems"] intValue];
-                }
-                if ([costDict objectForKey:@"recruits"])
-                {
-                    cost.recruits = [[costDict objectForKey:@"recruits"] intValue];
-                }
-                card.cost = cost;
-                card.text = [dict valueForKey:@"text"];
-                card.type = [[dict valueForKey:@"type"] intValue];
+            NSDictionary *costDict = [dict valueForKey:@"cost"];
+            OStats *cost = [[OStats alloc] init];
+            if ([costDict objectForKey:@"bricks"])
+            {
+                cost.bricks = [[costDict objectForKey:@"bricks"] intValue];
+            }
+            if ([costDict objectForKey:@"gems"])
+            {
+                cost.gems = [[costDict objectForKey:@"gems"] intValue];
+            }
+            if ([costDict objectForKey:@"recruits"])
+            {
+                cost.recruits = [[costDict objectForKey:@"recruits"] intValue];
+            }
+            card.cost = cost;
+            card.text = [dict valueForKey:@"text"];
+            card.type = [[dict valueForKey:@"type"] intValue];
             
 //                NSDictionary *evalDict = [dict valueForKey:@"eval"];
 //                if (evalDict)
@@ -137,57 +134,58 @@ NSArray *_cards;
 //                    }
 //                }
                 
-                NSArray *fx = [dict valueForKey:@"effects"];
-                if (fx)
-                {
-                    NSMutableArray *fxArr = [[NSMutableArray alloc] init];
+            NSArray *arrFx = [dict valueForKey:@"effects"];
+            if (arrFx)
+            {
+                NSMutableArray *mArrFx = [[NSMutableArray alloc] init];
                     
-                    for (NSDictionary *x in fx)
-                    {
-                        Effect e = [self createEffect:x];
-                        
-                        /*
-                         structs in NSArray...
-                         
-                         // add:
-                         [array addObject:[NSValue value:&p withObjCType:@encode(struct Point)]];
-                         
-                         // extract:
-                         struct Point p;
-                         [[array objectAtIndex:i] getValue:&p];
-                         */
-                        [fxArr addObject:[NSValue value:e withObjCType:@encode(struct _Effect)]];
-                    }
-                    card.effects = fxArr;
-                }
-            
-                NSArray *specialPowers = [dict valueForKey:@"specialPowers"];
-                if (specialPowers)
+                for (NSDictionary *x in arrFx)
                 {
-                    NSMutableArray *spArr = [[NSMutableArray alloc] init];
+                    Effect e = [self createEffect:x];
                     
-                    for (NSNumber *n in specialPowers)
-                    {
-                        [spArr addObject:n];
-                    }
-                    card.specialPowers = spArr;
+                    /*
+                     structs in NSArray...
+                         
+                    // add:
+                    [array addObject:[NSValue value:&p withObjCType:@encode(struct Point)]];
+                         
+                    // extract:
+                    struct Point p;
+                    [[array objectAtIndex:i] getValue:&p];
+                    */
+                    [mArrFx addObject:[NSValue value:e withObjCType:@encode(struct _Effect)]];
                 }
-                [macards addObject:card];
+                card.effects = mArrFx;
             }
+            
+            NSArray *arrSpecial = [dict valueForKey:@"specialPowers"];
+            if (arrSpecial)
+            {
+                NSMutableArray *mArrSpecial = [[NSMutableArray alloc] init];
+                    
+                for (NSNumber *n in arrSpecial)
+                {
+                    [mArrSpecial addObject:n];
+                }
+                card.specialPowers = mArrSpecial;
+            }
+            
+            [mArrCards addObject:card];
         }
-        
-        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-        _cards=[macards sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
-        [macards release];
     }
+        
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                           ascending:YES
+                                                            selector:@selector(caseInsensitiveCompare:)];
+    arrCards=[mArrCards sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+    [mArrCards release];
     
-    [_cards retain];
-    return _cards;
+    return arrCards;
 }
 
 +(NSArray*)onlyThisCard:(NSString*)cardName
 {
-    NSMutableArray *cards = [[NSMutableArray alloc] initWithCapacity:DEFAULT_CARDS_IN_DECK];
+    NSMutableArray *mArrCards = [[NSMutableArray alloc] initWithCapacity:DEFAULT_CARDS_IN_DECK];
     
     for (OCard *card in [self allCards])
     {
@@ -205,13 +203,13 @@ NSArray *_cards;
                 cardClone.specialPowers = card.specialPowers;
                 cardClone.eval = card.eval;
                 
-                [cards addObject:cardClone];
+                [mArrCards addObject:cardClone];
             }
             break;
         }
     }
     
-    return cards;
+    return mArrCards;
 }
 
 + (Effect) createEffect:(NSDictionary*)dict
@@ -288,12 +286,12 @@ NSArray *_cards;
             {
                 case Current:
                 {
-                    [stCurrent appendFormat:@"%@%@%d %@", stCurrent.length>0 ? @"; ":@"", e.value>0?@"+":@"", e.value, [OStats statName:e.field]];
+                    [stCurrent appendFormat:@"%@%@%d %@", stCurrent.length>0 ? @" ":@"", e.value>0?@"+":@"", e.value, [OStats statName:e.field]];
                     break;
                 }
                 case Opponent:
                 {
-                    [stOpponent appendFormat:@"%@%@%d %@", stOpponent.length>0 ? @"; ":@"", e.value>0?@"+":@"", e.value, [OStats statName:e.field]];
+                    [stOpponent appendFormat:@"%@%@%d %@", stOpponent.length>0 ? @" ":@"", e.value>0?@"+":@"", e.value, [OStats statName:e.field]];
                     break;
                 }
             }
