@@ -49,23 +49,14 @@
 +(NSArray*)allCards
 {
     NSArray *arrCards;
-    
     NSMutableArray *mArrCards = [[NSMutableArray alloc] init];
-    
-    for (NSString *card in [NSArray arrayWithObjects:@"quarry", @"magic", @"dungeon", nil])
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"arcomage" ofType:@"plist"];
+
+    for (NSArray *arrType in [NSMutableArray arrayWithContentsOfFile:filePath])
     {
-        NSString *plistPath;
-        NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                                      NSUserDomainMask, YES) objectAtIndex:0];
-        plistPath = [rootPath stringByAppendingPathComponent:[NSString stringWithFormat:@"data/%@.plist", card]];
-        if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath])
+        for (NSArray *dict in arrType)
         {
-            plistPath = [[NSBundle mainBundle] pathForResource:card ofType:@"plist"];
-        }
-            
-        NSMutableArray *mArr = [NSMutableArray arrayWithContentsOfFile:plistPath];
-        for (NSDictionary *dict in mArr)
-        {
+
             BOOL bBanned = NO;
             NSString *cardName = [dict valueForKey:@"name"];
 
@@ -173,7 +164,7 @@
             [mArrCards addObject:card];
         }
     }
-        
+    
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name"
                                                            ascending:YES
                                                             selector:@selector(caseInsensitiveCompare:)];

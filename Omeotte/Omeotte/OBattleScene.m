@@ -1062,6 +1062,7 @@
         }
         else
         {
+            NSLog(@"Null hand... %d", index);
 //            if (index < _currentPlayer.hand.count)
 //            {
 //                OCard *card = [_currentPlayer.hand objectAtIndex:index];
@@ -1165,7 +1166,6 @@
     _soundChannel.loop = YES;
     [_soundChannel play];
 #endif
-
 }
 
 -(void) stopMusic
@@ -1177,7 +1177,6 @@
     }
     _soundChannel = nil;
 #endif
-
 }
 
 -(OCardUI*) createCardUI:(OCard*)card

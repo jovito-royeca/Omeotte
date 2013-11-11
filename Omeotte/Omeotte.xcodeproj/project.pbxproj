@@ -22,8 +22,6 @@
 		112EE3F817FD07DD00C495D3 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 112EE3F717FD07DD00C495D3 /* background.png */; };
 		11312106180F770400A332E7 /* chain and lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 11312105180F770400A332E7 /* chain and lock.png */; };
 		11360DEE181AC54B00E797B6 /* fire.pex in Resources */ = {isa = PBXBuildFile; fileRef = 11360DED181AC54B00E797B6 /* fire.pex */; };
-		1137991F17C49ADF00794158 /* magic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137991E17C49ADF00794158 /* magic.plist */; };
-		1137992117C49AF000794158 /* dungeon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1137992017C49AF000794158 /* dungeon.plist */; };
 		113F4D34181130E400067720 /* SXParticleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 113F4D33181130E400067720 /* SXParticleSystem.m */; };
 		1148A85A17D4083300D7E3B3 /* OBattleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A85917D4083300D7E3B3 /* OBattleScene.m */; };
 		1148A86617D411E200D7E3B3 /* OButtonTextureUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A86517D411E200D7E3B3 /* OButtonTextureUI.m */; };
@@ -40,6 +38,8 @@
 		116270F918242C5100E2B267 /* ress_upO.caf in Resources */ = {isa = PBXBuildFile; fileRef = 116270F118242C5100E2B267 /* ress_upO.caf */; };
 		116270FA18242C5100E2B267 /* tower_upO.caf in Resources */ = {isa = PBXBuildFile; fileRef = 116270F218242C5100E2B267 /* tower_upO.caf */; };
 		116270FB18242C5100E2B267 /* wall_upO.caf in Resources */ = {isa = PBXBuildFile; fileRef = 116270F318242C5100E2B267 /* wall_upO.caf */; };
+		1163610818316F520028FD28 /* arcomage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1163610718316F520028FD28 /* arcomage.plist */; };
+		1163610C183171270028FD28 /* rules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1163610B183171270028FD28 /* rules.plist */; };
 		11722F5317C636BF00014D16 /* libSparrow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F4F17C635EE00014D16 /* libSparrow.a */; };
 		11722F5517C636CB00014D16 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5417C636CB00014D16 /* libz.dylib */; };
 		11722F5717C636DA00014D16 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11722F5617C636DA00014D16 /* GLKit.framework */; };
@@ -71,8 +71,6 @@
 		1195D29117C2772700C4DA25 /* ODeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D29017C2772700C4DA25 /* ODeck.m */; };
 		11D36F8718098E3E00897552 /* OFx.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D36F8618098E3E00897552 /* OFx.m */; };
 		11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D5CF5917C32F6A00AA96BC /* ORule.m */; };
-		11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5C17C33CEC00AA96BC /* quarry.plist */; };
-		11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D5CF5E17C33D0A00AA96BC /* rules.plist */; };
 		11D8A3F1182A2CF6000428AE /* battle1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11D8A3EE182A2CF6000428AE /* battle1.caf */; };
 		11D8A3F2182A2CF6000428AE /* battle2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11D8A3EF182A2CF6000428AE /* battle2.caf */; };
 		11D8A3F3182A2CF6000428AE /* menu.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11D8A3F0182A2CF6000428AE /* menu.caf */; };
@@ -130,8 +128,6 @@
 		11306C7E17D6BE0200156E78 /* Omeotte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Omeotte.h; sourceTree = "<group>"; };
 		11312105180F770400A332E7 /* chain and lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chain and lock.png"; sourceTree = "<group>"; };
 		11360DED181AC54B00E797B6 /* fire.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fire.pex; sourceTree = "<group>"; };
-		1137991E17C49ADF00794158 /* magic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic.plist; sourceTree = "<group>"; };
-		1137992017C49AF000794158 /* dungeon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dungeon.plist; sourceTree = "<group>"; };
 		113F4D32181130E400067720 /* SXParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXParticleSystem.h; sourceTree = "<group>"; };
 		113F4D33181130E400067720 /* SXParticleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXParticleSystem.m; sourceTree = "<group>"; };
 		1148A85817D4083300D7E3B3 /* OBattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBattleScene.h; sourceTree = "<group>"; };
@@ -158,6 +154,8 @@
 		116270F118242C5100E2B267 /* ress_upO.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ress_upO.caf; sourceTree = "<group>"; };
 		116270F218242C5100E2B267 /* tower_upO.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tower_upO.caf; sourceTree = "<group>"; };
 		116270F318242C5100E2B267 /* wall_upO.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wall_upO.caf; sourceTree = "<group>"; };
+		1163610718316F520028FD28 /* arcomage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = arcomage.plist; sourceTree = "<group>"; };
+		1163610B183171270028FD28 /* rules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = rules.plist; sourceTree = "<group>"; };
 		11722F4917C635EE00014D16 /* Sparrow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparrow.xcodeproj; path = "../Sparrow-Framework/sparrow/src/Sparrow.xcodeproj"; sourceTree = "<group>"; };
 		11722F5417C636CB00014D16 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		11722F5617C636DA00014D16 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -203,8 +201,6 @@
 		11D36F8618098E3E00897552 /* OFx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFx.m; sourceTree = "<group>"; };
 		11D5CF5817C32F6900AA96BC /* ORule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORule.h; sourceTree = "<group>"; };
 		11D5CF5917C32F6A00AA96BC /* ORule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORule.m; sourceTree = "<group>"; };
-		11D5CF5C17C33CEC00AA96BC /* quarry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quarry.plist; sourceTree = "<group>"; };
-		11D5CF5E17C33D0A00AA96BC /* rules.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = rules.plist; sourceTree = "<group>"; };
 		11D8A3EE182A2CF6000428AE /* battle1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = battle1.caf; sourceTree = "<group>"; };
 		11D8A3EF182A2CF6000428AE /* battle2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = battle2.caf; sourceTree = "<group>"; };
 		11D8A3F0182A2CF6000428AE /* menu.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = menu.caf; sourceTree = "<group>"; };
@@ -262,9 +258,11 @@
 		113517D917CED6B400C7EAA7 /* media */ = {
 			isa = PBXGroup;
 			children = (
+				1163610718316F520028FD28 /* arcomage.plist */,
 				116270EB18242C3A00E2B267 /* audio */,
 				11FE27E51803B1E600159D4A /* fonts */,
 				113517DF17CF103200C7EAA7 /* graphics */,
+				1163610B183171270028FD28 /* rules.plist */,
 			);
 			path = media;
 			sourceTree = "<group>";
@@ -435,7 +433,6 @@
 			children = (
 				1195D18917C25F5E00C4DA25 /* AppDelegate.h */,
 				1195D18A17C25F5E00C4DA25 /* AppDelegate.m */,
-				11D5CF5B17C33CD900AA96BC /* data */,
 				1154D1BA17E93BA000A3EC2B /* Libs */,
 				113517D917CED6B400C7EAA7 /* media */,
 				1195D28C17C272B600C4DA25 /* OCard.h */,
@@ -491,17 +488,6 @@
 				1195D1A117C25F5F00C4DA25 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		11D5CF5B17C33CD900AA96BC /* data */ = {
-			isa = PBXGroup;
-			children = (
-				1137992017C49AF000794158 /* dungeon.plist */,
-				1137991E17C49ADF00794158 /* magic.plist */,
-				11D5CF5C17C33CEC00AA96BC /* quarry.plist */,
-				11D5CF5E17C33D0A00AA96BC /* rules.plist */,
-			);
-			path = data;
 			sourceTree = "<group>";
 		};
 		11FE27E51803B1E600159D4A /* fonts */ = {
@@ -625,23 +611,21 @@
 				116270F518242C5100E2B267 /* damageO.caf in Resources */,
 				1195D19117C25F5E00C4DA25 /* Default-568h@2x.png in Resources */,
 				116270FB18242C5100E2B267 /* wall_upO.caf in Resources */,
-				11D5CF5D17C33CEC00AA96BC /* quarry.plist in Resources */,
 				11312106180F770400A332E7 /* chain and lock.png in Resources */,
 				112EE3F817FD07DD00C495D3 /* background.png in Resources */,
-				11D5CF5F17C33D0A00AA96BC /* rules.plist in Resources */,
+				1163610818316F520028FD28 /* arcomage.plist in Resources */,
 				11FB95EA18243494009D5552 /* victory.caf in Resources */,
-				1137991F17C49ADF00794158 /* magic.plist in Resources */,
 				11D8A3F3182A2CF6000428AE /* menu.caf in Resources */,
 				116270F618242C5100E2B267 /* resb_downO.caf in Resources */,
 				1122E397181E2D2B000F4E89 /* draw.png in Resources */,
 				11FE27ED1803B1E600159D4A /* Kingthings_Exeter_0.png in Resources */,
-				1137992117C49AF000794158 /* dungeon.plist in Resources */,
 				11D8A3F2182A2CF6000428AE /* battle2.caf in Resources */,
 				111FB82E17E7DC1700CDBAF0 /* cards.png in Resources */,
 				116270FA18242C5100E2B267 /* tower_upO.caf in Resources */,
 				111FB82F17E7DC1700CDBAF0 /* cards.xml in Resources */,
 				116270F818242C5100E2B267 /* ress_downO.caf in Resources */,
 				116270F418242C5100E2B267 /* card.caf in Resources */,
+				1163610C183171270028FD28 /* rules.plist in Resources */,
 				111FB83017E7DC1700CDBAF0 /* ui.png in Resources */,
 				11FE27EC1803B1E600159D4A /* Kingthings_Exeter.fnt in Resources */,
 				11FE27EB1803B1E600159D4A /* Kingthings_Calligraphica_0.png in Resources */,
