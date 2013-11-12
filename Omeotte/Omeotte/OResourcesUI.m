@@ -83,7 +83,7 @@
     SPTextField *lblQuarriesLegend = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[OStats statName:Quarries]];
     lblQuarriesLegend.x = currentX;
     lblQuarriesLegend.y = currentY;
-    lblQuarriesLegend.color = RED_COLOR;
+    lblQuarriesLegend.color = WHITE_COLOR;
     lblQuarriesLegend.fontSize = currentHeight;
     lblQuarriesLegend.fontName = EXETER_FONT;
     lblQuarriesLegend.hAlign = SPHAlignLeft;
@@ -93,7 +93,7 @@
     SPTextField *lblMagicsLegend = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[OStats statName:Magics]];
     lblMagicsLegend.x = currentX;
     lblMagicsLegend.y = currentY;
-    lblMagicsLegend.color = BLUE_COLOR;
+    lblMagicsLegend.color = WHITE_COLOR;
     lblMagicsLegend.fontSize = currentHeight;
     lblMagicsLegend.fontName = EXETER_FONT;
     lblMagicsLegend.hAlign = SPHAlignLeft;
@@ -103,7 +103,7 @@
     SPTextField *lblDungeonsLegend = [[SPTextField alloc] initWithWidth:currentWidth height:currentHeight text:[OStats statName:Dungeons]];
     lblDungeonsLegend.x = currentX;
     lblDungeonsLegend.y = currentY;
-    lblDungeonsLegend.color = GREEN_COLOR;
+    lblDungeonsLegend.color = WHITE_COLOR;
     lblDungeonsLegend.fontSize = currentHeight;
     lblDungeonsLegend.fontName = EXETER_FONT;
     lblDungeonsLegend.hAlign = SPHAlignLeft;

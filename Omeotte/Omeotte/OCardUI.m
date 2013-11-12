@@ -13,6 +13,8 @@
     float _width;
     float _height;
     SPJuggler *_juggler;
+    float _startY;
+    float _endY;
 }
 
 @synthesize card;
@@ -178,34 +180,62 @@
         return;
     }
 
-    SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
-    
-    if (touch && touch.phase == SPTouchPhaseEnded)
-    {
-        if (!selected)
-        {
-            selected = YES;
-            [delegate promote:self];
-            return;
-        }
-        
-        if (selected)
-        {
-//            SPPoint *position = [touch locationInSpace:self];
-            
-//            if (position.y < self.height)
+//    SPTouch *endTouch;
+//    
+//    for (SPTouch *touch in [[event touchesWithTarget:self] allObjects])
+//    {
+//        if (touch.phase == SPTouchPhaseBegan)
+//        {
+//            _startY = [touch locationInSpace:self].y;
+//        }
+//        else if (touch.phase == SPTouchPhaseEnded)
+//        {
+//            endTouch = touch;
+//            _endY = [touch locationInSpace:self].y;
+//        }
+//    }
+//    
+//    if (endTouch != nil)
+//    {
+//        float swipeLength = 30;
+//        BOOL bDemote = NO;
+//        
+//        NSLog(@"%@: startY=%f, endY=%f", self.card.name, _startY, _endY);
+//        if (_startY-_endY >= swipeLength)
+//        {
+//            [delegate play:self];
+//        }
+//        else if (_endY-_startY >= swipeLength)
+//        {
+//            [delegate discard:self];
+//        }
+//        else
+//        {
+//            selected = !selected;
+//            
+//            if (selected)
 //            {
-//                [delegate play:self];
-//            }
-//            else if (position.y >= self.height)
-//            {
-//                [delegate discard:self];
+//                [delegate promote:self];
 //            }
 //            else
 //            {
-                [delegate demote:self];
+//                [delegate demote:self];
 //            }
+//        }
+//    }
+
+    SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
+    if (touch && touch.phase == SPTouchPhaseEnded)
+    {
+        if (selected)
+        {
+            [delegate demote:self];
         }
+        else
+        {
+            [delegate promote:self];
+        }
+        selected = !selected;
     }
 }
 
