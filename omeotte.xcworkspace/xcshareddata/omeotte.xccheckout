@@ -5,48 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>CFF67689-8042-4282-A495-4AF9055ABDD7</string>
+	<string>0E7A6693-EB66-425F-A39C-623FF80F2C19</string>
 	<key>IDESourceControlProjectName</key>
 	<string>omeotte</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>30B849E8-EF61-46B5-B18A-6B71B6D05A57</key>
-		<string>ssh://jjj/jovito/omeotte.git</string>
-		<key>DFA46A26-29E8-4F76-9E1E-3C79CB17A271</key>
-		<string>git://github.com/Gamua/Sparrow-Framework.git</string>
+		<key>1D5E8108-D383-45F5-A23E-C8712BC6F9D7</key>
+		<string>ssh://bitbucket.org/jovito/omeotte.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>omeotte.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>30B849E8-EF61-46B5-B18A-6B71B6D05A57</key>
+		<key>1D5E8108-D383-45F5-A23E-C8712BC6F9D7</key>
 		<string>..</string>
-		<key>DFA46A26-29E8-4F76-9E1E-3C79CB17A271</key>
-		<string>../Sparrow-Framework</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://jjj/jovito/omeotte.git</string>
+	<string>ssh://bitbucket.org/jovito/omeotte.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>30B849E8-EF61-46B5-B18A-6B71B6D05A57</string>
+	<string>1D5E8108-D383-45F5-A23E-C8712BC6F9D7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>30B849E8-EF61-46B5-B18A-6B71B6D05A57</string>
+			<string>1D5E8108-D383-45F5-A23E-C8712BC6F9D7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>omeotte</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>DFA46A26-29E8-4F76-9E1E-3C79CB17A271</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Sparrow-Framework</string>
 		</dict>
 	</array>
 </dict>

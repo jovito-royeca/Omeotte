@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		110C941917D36C9E0029DC16 /* OCardUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 110C941817D36C9E0029DC16 /* OCardUI.m */; };
-		110EE84B17FA512F00C48834 /* OHealthUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 110EE84A17FA512F00C48834 /* OHealthUI.m */; };
 		111FB82E17E7DC1700CDBAF0 /* cards.png in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82A17E7DC1700CDBAF0 /* cards.png */; };
 		111FB82F17E7DC1700CDBAF0 /* cards.xml in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82B17E7DC1700CDBAF0 /* cards.xml */; };
 		111FB83017E7DC1700CDBAF0 /* ui.png in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82C17E7DC1700CDBAF0 /* ui.png */; };
 		111FB83117E7DC1700CDBAF0 /* ui.xml in Resources */ = {isa = PBXBuildFile; fileRef = 111FB82D17E7DC1700CDBAF0 /* ui.xml */; };
-		111FB83717E7EB6D00CDBAF0 /* OResourcesUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 111FB83617E7EB6D00CDBAF0 /* OResourcesUI.m */; };
 		1122E391181E1C69000F4E89 /* scroll.png in Resources */ = {isa = PBXBuildFile; fileRef = 1122E390181E1C69000F4E89 /* scroll.png */; };
 		1122E394181E25C8000F4E89 /* looser.png in Resources */ = {isa = PBXBuildFile; fileRef = 1122E392181E25C8000F4E89 /* looser.png */; };
 		1122E395181E25C8000F4E89 /* winner.png in Resources */ = {isa = PBXBuildFile; fileRef = 1122E393181E25C8000F4E89 /* winner.png */; };
@@ -23,10 +20,6 @@
 		11312106180F770400A332E7 /* chain and lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 11312105180F770400A332E7 /* chain and lock.png */; };
 		11360DEE181AC54B00E797B6 /* fire.pex in Resources */ = {isa = PBXBuildFile; fileRef = 11360DED181AC54B00E797B6 /* fire.pex */; };
 		113F4D34181130E400067720 /* SXParticleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 113F4D33181130E400067720 /* SXParticleSystem.m */; };
-		1148A85A17D4083300D7E3B3 /* OBattleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A85917D4083300D7E3B3 /* OBattleScene.m */; };
-		1148A86617D411E200D7E3B3 /* OButtonTextureUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A86517D411E200D7E3B3 /* OButtonTextureUI.m */; };
-		1148A86C17D4227C00D7E3B3 /* OMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1148A86B17D4227C00D7E3B3 /* OMenuScene.m */; };
-		115297D018216AD400F03633 /* ODeckAndGraveyardUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 115297CF18216AD400F03633 /* ODeckAndGraveyardUI.m */; };
 		1154D1C017E93BBE00A3EC2B /* SHPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154D1BD17E93BBE00A3EC2B /* SHPolygon.m */; };
 		1154D1C117E93BBE00A3EC2B /* SHPolygonImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154D1BF17E93BBE00A3EC2B /* SHPolygonImage.m */; };
 		1154D1C517E93BCC00A3EC2B /* SXGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154D1C417E93BCC00A3EC2B /* SXGauge.m */; };
@@ -65,7 +58,6 @@
 		1195D19B17C25F5E00C4DA25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1195D17C17C25F5E00C4DA25 /* Foundation.framework */; };
 		1195D1A317C25F5F00C4DA25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1195D1A117C25F5F00C4DA25 /* InfoPlist.strings */; };
 		1195D1A617C25F5F00C4DA25 /* OmeotteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D1A517C25F5F00C4DA25 /* OmeotteTests.m */; };
-		1195D28517C2723600C4DA25 /* OGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28417C2723600C4DA25 /* OGame.m */; };
 		1195D28817C2728700C4DA25 /* OPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28717C2728700C4DA25 /* OPlayer.m */; };
 		1195D28E17C272B600C4DA25 /* OCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D28D17C272B600C4DA25 /* OCard.m */; };
 		1195D29117C2772700C4DA25 /* ODeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1195D29017C2772700C4DA25 /* ODeck.m */; };
@@ -76,11 +68,19 @@
 		11D8A3F3182A2CF6000428AE /* menu.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11D8A3F0182A2CF6000428AE /* menu.caf */; };
 		11FB95E918243494009D5552 /* defeat.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11FB95E718243494009D5552 /* defeat.caf */; };
 		11FB95EA18243494009D5552 /* victory.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11FB95E818243494009D5552 /* victory.caf */; };
-		11FBAA3D17DEF5BA008CE6E6 /* CardTestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FBAA3C17DEF5BA008CE6E6 /* CardTestScene.m */; };
 		11FE27EA1803B1E600159D4A /* Kingthings_Calligraphica.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 11FE27E61803B1E600159D4A /* Kingthings_Calligraphica.fnt */; };
 		11FE27EB1803B1E600159D4A /* Kingthings_Calligraphica_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FE27E71803B1E600159D4A /* Kingthings_Calligraphica_0.png */; };
 		11FE27EC1803B1E600159D4A /* Kingthings_Exeter.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 11FE27E81803B1E600159D4A /* Kingthings_Exeter.fnt */; };
 		11FE27ED1803B1E600159D4A /* Kingthings_Exeter_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FE27E91803B1E600159D4A /* Kingthings_Exeter_0.png */; };
+		58CFCC7818773893000098E5 /* CardTestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFCC7318773893000098E5 /* CardTestScene.m */; };
+		58CFCC7918773893000098E5 /* OBattleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFCC7518773893000098E5 /* OBattleScene.m */; };
+		58CFCC7A18773893000098E5 /* OMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFCC7718773893000098E5 /* OMenuScene.m */; };
+		58CFCC84187738F9000098E5 /* OButtonTextureUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFCC7D187738F9000098E5 /* OButtonTextureUI.m */; };
+		58CFCC85187738F9000098E5 /* ODeckAndGraveyardUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFCC7F187738F9000098E5 /* ODeckAndGraveyardUI.m */; };
+		58CFCC86187738F9000098E5 /* OHealthUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFCC81187738F9000098E5 /* OHealthUI.m */; };
+		58CFCC87187738F9000098E5 /* OResourcesUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFCC83187738F9000098E5 /* OResourcesUI.m */; };
+		58CFCC8B1877397C000098E5 /* OCardUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFCC8A1877397C000098E5 /* OCardUI.m */; };
+		58CFCC8E187739BC000098E5 /* OGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFCC8D187739BC000098E5 /* OGame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,16 +108,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		110C941717D36C9E0029DC16 /* OCardUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCardUI.h; sourceTree = "<group>"; };
-		110C941817D36C9E0029DC16 /* OCardUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCardUI.m; sourceTree = "<group>"; };
-		110EE84917FA512F00C48834 /* OHealthUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHealthUI.h; sourceTree = "<group>"; };
-		110EE84A17FA512F00C48834 /* OHealthUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHealthUI.m; sourceTree = "<group>"; };
 		111FB82A17E7DC1700CDBAF0 /* cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cards.png; sourceTree = "<group>"; };
 		111FB82B17E7DC1700CDBAF0 /* cards.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = cards.xml; sourceTree = "<group>"; };
 		111FB82C17E7DC1700CDBAF0 /* ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui.png; sourceTree = "<group>"; };
 		111FB82D17E7DC1700CDBAF0 /* ui.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ui.xml; sourceTree = "<group>"; };
-		111FB83517E7EB6D00CDBAF0 /* OResourcesUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OResourcesUI.h; sourceTree = "<group>"; };
-		111FB83617E7EB6D00CDBAF0 /* OResourcesUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OResourcesUI.m; sourceTree = "<group>"; };
 		1122E390181E1C69000F4E89 /* scroll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scroll.png; sourceTree = "<group>"; };
 		1122E392181E25C8000F4E89 /* looser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = looser.png; sourceTree = "<group>"; };
 		1122E393181E25C8000F4E89 /* winner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winner.png; sourceTree = "<group>"; };
@@ -130,14 +124,6 @@
 		11360DED181AC54B00E797B6 /* fire.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fire.pex; sourceTree = "<group>"; };
 		113F4D32181130E400067720 /* SXParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXParticleSystem.h; sourceTree = "<group>"; };
 		113F4D33181130E400067720 /* SXParticleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXParticleSystem.m; sourceTree = "<group>"; };
-		1148A85817D4083300D7E3B3 /* OBattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBattleScene.h; sourceTree = "<group>"; };
-		1148A85917D4083300D7E3B3 /* OBattleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBattleScene.m; sourceTree = "<group>"; };
-		1148A86117D4109400D7E3B3 /* OMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMenuScene.h; sourceTree = "<group>"; };
-		1148A86417D411E200D7E3B3 /* OButtonTextureUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OButtonTextureUI.h; sourceTree = "<group>"; };
-		1148A86517D411E200D7E3B3 /* OButtonTextureUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OButtonTextureUI.m; sourceTree = "<group>"; };
-		1148A86B17D4227C00D7E3B3 /* OMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMenuScene.m; sourceTree = "<group>"; };
-		115297CE18216AD400F03633 /* ODeckAndGraveyardUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODeckAndGraveyardUI.h; sourceTree = "<group>"; };
-		115297CF18216AD400F03633 /* ODeckAndGraveyardUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODeckAndGraveyardUI.m; sourceTree = "<group>"; };
 		1154D1BC17E93BBE00A3EC2B /* SHPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPolygon.h; sourceTree = "<group>"; };
 		1154D1BD17E93BBE00A3EC2B /* SHPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPolygon.m; sourceTree = "<group>"; };
 		1154D1BE17E93BBE00A3EC2B /* SHPolygonImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPolygonImage.h; sourceTree = "<group>"; };
@@ -188,15 +174,12 @@
 		1195D1A217C25F5F00C4DA25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1195D1A417C25F5F00C4DA25 /* OmeotteTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmeotteTests.h; sourceTree = "<group>"; };
 		1195D1A517C25F5F00C4DA25 /* OmeotteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmeotteTests.m; sourceTree = "<group>"; };
-		1195D28317C2723600C4DA25 /* OGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGame.h; sourceTree = "<group>"; };
-		1195D28417C2723600C4DA25 /* OGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGame.m; sourceTree = "<group>"; };
 		1195D28617C2728700C4DA25 /* OPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPlayer.h; sourceTree = "<group>"; };
 		1195D28717C2728700C4DA25 /* OPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPlayer.m; sourceTree = "<group>"; };
 		1195D28C17C272B600C4DA25 /* OCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCard.h; sourceTree = "<group>"; };
 		1195D28D17C272B600C4DA25 /* OCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCard.m; sourceTree = "<group>"; };
 		1195D28F17C2772700C4DA25 /* ODeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODeck.h; sourceTree = "<group>"; };
 		1195D29017C2772700C4DA25 /* ODeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODeck.m; sourceTree = "<group>"; };
-		11C1062D18298D3A00ED2361 /* OBackgroundMusicScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OBackgroundMusicScene.h; sourceTree = "<group>"; };
 		11D36F8518098E3E00897552 /* OFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFx.h; sourceTree = "<group>"; };
 		11D36F8618098E3E00897552 /* OFx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFx.m; sourceTree = "<group>"; };
 		11D5CF5817C32F6900AA96BC /* ORule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORule.h; sourceTree = "<group>"; };
@@ -206,12 +189,29 @@
 		11D8A3F0182A2CF6000428AE /* menu.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = menu.caf; sourceTree = "<group>"; };
 		11FB95E718243494009D5552 /* defeat.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = defeat.caf; sourceTree = "<group>"; };
 		11FB95E818243494009D5552 /* victory.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = victory.caf; sourceTree = "<group>"; };
-		11FBAA3B17DEF5BA008CE6E6 /* CardTestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTestScene.h; sourceTree = "<group>"; };
-		11FBAA3C17DEF5BA008CE6E6 /* CardTestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTestScene.m; sourceTree = "<group>"; };
 		11FE27E61803B1E600159D4A /* Kingthings_Calligraphica.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Kingthings_Calligraphica.fnt; sourceTree = "<group>"; };
 		11FE27E71803B1E600159D4A /* Kingthings_Calligraphica_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kingthings_Calligraphica_0.png; sourceTree = "<group>"; };
 		11FE27E81803B1E600159D4A /* Kingthings_Exeter.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Kingthings_Exeter.fnt; sourceTree = "<group>"; };
 		11FE27E91803B1E600159D4A /* Kingthings_Exeter_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kingthings_Exeter_0.png; sourceTree = "<group>"; };
+		58CFCC7218773893000098E5 /* CardTestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTestScene.h; sourceTree = "<group>"; };
+		58CFCC7318773893000098E5 /* CardTestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTestScene.m; sourceTree = "<group>"; };
+		58CFCC7418773893000098E5 /* OBattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBattleScene.h; sourceTree = "<group>"; };
+		58CFCC7518773893000098E5 /* OBattleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBattleScene.m; sourceTree = "<group>"; };
+		58CFCC7618773893000098E5 /* OMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMenuScene.h; sourceTree = "<group>"; };
+		58CFCC7718773893000098E5 /* OMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMenuScene.m; sourceTree = "<group>"; };
+		58CFCC7C187738F9000098E5 /* OButtonTextureUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OButtonTextureUI.h; sourceTree = "<group>"; };
+		58CFCC7D187738F9000098E5 /* OButtonTextureUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OButtonTextureUI.m; sourceTree = "<group>"; };
+		58CFCC7E187738F9000098E5 /* ODeckAndGraveyardUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODeckAndGraveyardUI.h; sourceTree = "<group>"; };
+		58CFCC7F187738F9000098E5 /* ODeckAndGraveyardUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODeckAndGraveyardUI.m; sourceTree = "<group>"; };
+		58CFCC80187738F9000098E5 /* OHealthUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHealthUI.h; sourceTree = "<group>"; };
+		58CFCC81187738F9000098E5 /* OHealthUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHealthUI.m; sourceTree = "<group>"; };
+		58CFCC82187738F9000098E5 /* OResourcesUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OResourcesUI.h; sourceTree = "<group>"; };
+		58CFCC83187738F9000098E5 /* OResourcesUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OResourcesUI.m; sourceTree = "<group>"; };
+		58CFCC8818773929000098E5 /* OBackgroundMusicScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBackgroundMusicScene.h; sourceTree = "<group>"; };
+		58CFCC891877397C000098E5 /* OCardUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCardUI.h; sourceTree = "<group>"; };
+		58CFCC8A1877397C000098E5 /* OCardUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCardUI.m; sourceTree = "<group>"; };
+		58CFCC8C187739BC000098E5 /* OGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGame.h; sourceTree = "<group>"; };
+		58CFCC8D187739BC000098E5 /* OGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,39 +293,6 @@
 				113F4D33181130E400067720 /* SXParticleSystem.m */,
 			);
 			path = SXParticleSystem;
-			sourceTree = "<group>";
-		};
-		1148A85F17D40FE500D7E3B3 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				11FBAA3B17DEF5BA008CE6E6 /* CardTestScene.h */,
-				11FBAA3C17DEF5BA008CE6E6 /* CardTestScene.m */,
-				11C1062D18298D3A00ED2361 /* OBackgroundMusicScene.h */,
-				1148A85817D4083300D7E3B3 /* OBattleScene.h */,
-				1148A85917D4083300D7E3B3 /* OBattleScene.m */,
-				1195D28317C2723600C4DA25 /* OGame.h */,
-				1195D28417C2723600C4DA25 /* OGame.m */,
-				1148A86117D4109400D7E3B3 /* OMenuScene.h */,
-				1148A86B17D4227C00D7E3B3 /* OMenuScene.m */,
-			);
-			name = Scenes;
-			sourceTree = "<group>";
-		};
-		1148A86017D4100500D7E3B3 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				1148A86417D411E200D7E3B3 /* OButtonTextureUI.h */,
-				1148A86517D411E200D7E3B3 /* OButtonTextureUI.m */,
-				110C941717D36C9E0029DC16 /* OCardUI.h */,
-				110C941817D36C9E0029DC16 /* OCardUI.m */,
-				115297CE18216AD400F03633 /* ODeckAndGraveyardUI.h */,
-				115297CF18216AD400F03633 /* ODeckAndGraveyardUI.m */,
-				110EE84917FA512F00C48834 /* OHealthUI.h */,
-				110EE84A17FA512F00C48834 /* OHealthUI.m */,
-				111FB83517E7EB6D00CDBAF0 /* OResourcesUI.h */,
-				111FB83617E7EB6D00CDBAF0 /* OResourcesUI.m */,
-			);
-			name = UI;
 			sourceTree = "<group>";
 		};
 		1154D1BA17E93BA000A3EC2B /* Libs */ = {
@@ -441,6 +408,8 @@
 				1195D29017C2772700C4DA25 /* ODeck.m */,
 				11D36F8518098E3E00897552 /* OFx.h */,
 				11D36F8618098E3E00897552 /* OFx.m */,
+				58CFCC8C187739BC000098E5 /* OGame.h */,
+				58CFCC8D187739BC000098E5 /* OGame.m */,
 				11722F6917C640CC00014D16 /* OMedia.h */,
 				11722F6A17C640CC00014D16 /* OMedia.m */,
 				11306C7E17D6BE0200156E78 /* Omeotte.h */,
@@ -450,9 +419,9 @@
 				11D5CF5917C32F6A00AA96BC /* ORule.m */,
 				118E688417C74BD8007801CD /* OStats.h */,
 				118E688517C74BD8007801CD /* OStats.m */,
-				1148A85F17D40FE500D7E3B3 /* Scenes */,
+				58CFCC7118773850000098E5 /* Scenes */,
 				1195D18117C25F5E00C4DA25 /* Supporting Files */,
-				1148A86017D4100500D7E3B3 /* UI */,
+				58CFCC7B187738AD000098E5 /* UI */,
 			);
 			path = Omeotte;
 			sourceTree = "<group>";
@@ -499,6 +468,37 @@
 				11FE27E91803B1E600159D4A /* Kingthings_Exeter_0.png */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		58CFCC7118773850000098E5 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				58CFCC7218773893000098E5 /* CardTestScene.h */,
+				58CFCC7318773893000098E5 /* CardTestScene.m */,
+				58CFCC7418773893000098E5 /* OBattleScene.h */,
+				58CFCC7518773893000098E5 /* OBattleScene.m */,
+				58CFCC7618773893000098E5 /* OMenuScene.h */,
+				58CFCC7718773893000098E5 /* OMenuScene.m */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		58CFCC7B187738AD000098E5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				58CFCC8818773929000098E5 /* OBackgroundMusicScene.h */,
+				58CFCC7C187738F9000098E5 /* OButtonTextureUI.h */,
+				58CFCC7D187738F9000098E5 /* OButtonTextureUI.m */,
+				58CFCC891877397C000098E5 /* OCardUI.h */,
+				58CFCC8A1877397C000098E5 /* OCardUI.m */,
+				58CFCC7E187738F9000098E5 /* ODeckAndGraveyardUI.h */,
+				58CFCC7F187738F9000098E5 /* ODeckAndGraveyardUI.m */,
+				58CFCC80187738F9000098E5 /* OHealthUI.h */,
+				58CFCC81187738F9000098E5 /* OHealthUI.m */,
+				58CFCC82187738F9000098E5 /* OResourcesUI.h */,
+				58CFCC83187738F9000098E5 /* OResourcesUI.m */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -549,6 +549,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "JJJ Software";
+				TargetAttributes = {
+					1195D17617C25F5E00C4DA25 = {
+						DevelopmentTeam = 43CD66539H;
+					};
+				};
 			};
 			buildConfigurationList = 1195D17217C25F5E00C4DA25 /* Build configuration list for PBXProject "Omeotte" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -679,27 +684,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				1195D18717C25F5E00C4DA25 /* main.m in Sources */,
-				115297D018216AD400F03633 /* ODeckAndGraveyardUI.m in Sources */,
+				58CFCC7818773893000098E5 /* CardTestScene.m in Sources */,
 				1195D18B17C25F5E00C4DA25 /* AppDelegate.m in Sources */,
-				1195D28517C2723600C4DA25 /* OGame.m in Sources */,
-				110EE84B17FA512F00C48834 /* OHealthUI.m in Sources */,
 				1195D28817C2728700C4DA25 /* OPlayer.m in Sources */,
 				11D36F8718098E3E00897552 /* OFx.m in Sources */,
 				1195D28E17C272B600C4DA25 /* OCard.m in Sources */,
 				1195D29117C2772700C4DA25 /* ODeck.m in Sources */,
 				11D5CF5A17C32F6A00AA96BC /* ORule.m in Sources */,
+				58CFCC85187738F9000098E5 /* ODeckAndGraveyardUI.m in Sources */,
+				58CFCC8B1877397C000098E5 /* OCardUI.m in Sources */,
+				58CFCC86187738F9000098E5 /* OHealthUI.m in Sources */,
+				58CFCC7918773893000098E5 /* OBattleScene.m in Sources */,
+				58CFCC7A18773893000098E5 /* OMenuScene.m in Sources */,
 				11722F6B17C640CC00014D16 /* OMedia.m in Sources */,
+				58CFCC87187738F9000098E5 /* OResourcesUI.m in Sources */,
+				58CFCC84187738F9000098E5 /* OButtonTextureUI.m in Sources */,
 				118E688617C74BD8007801CD /* OStats.m in Sources */,
 				112EE3F517FCF62000C495D3 /* SXSimpleClippedImage.m in Sources */,
-				110C941917D36C9E0029DC16 /* OCardUI.m in Sources */,
-				1148A85A17D4083300D7E3B3 /* OBattleScene.m in Sources */,
-				1148A86617D411E200D7E3B3 /* OButtonTextureUI.m in Sources */,
-				1148A86C17D4227C00D7E3B3 /* OMenuScene.m in Sources */,
-				11FBAA3D17DEF5BA008CE6E6 /* CardTestScene.m in Sources */,
-				111FB83717E7EB6D00CDBAF0 /* OResourcesUI.m in Sources */,
 				1154D1C017E93BBE00A3EC2B /* SHPolygon.m in Sources */,
 				113F4D34181130E400067720 /* SXParticleSystem.m in Sources */,
 				1154D1C117E93BBE00A3EC2B /* SHPolygonImage.m in Sources */,
+				58CFCC8E187739BC000098E5 /* OGame.m in Sources */,
 				1154D1C517E93BCC00A3EC2B /* SXGauge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -802,7 +807,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jovito Royeca (SZ7K5SF9GM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
 				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
@@ -812,7 +818,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = Omeotte;
-				PROVISIONING_PROFILE = "18A322E2-5D37-48A3-B499-E3A8A1B028A7";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "../Sparrow-Framework/sparrow/src/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -822,7 +828,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jovito Royeca (SZ7K5SF9GM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Omeotte/Omeotte-Prefix.pch";
 				INFOPLIST_FILE = "Omeotte/Omeotte-Info.plist";
@@ -832,7 +839,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = Omeotte;
-				PROVISIONING_PROFILE = "18A322E2-5D37-48A3-B499-E3A8A1B028A7";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "../Sparrow-Framework/sparrow/src/**";
 				WRAPPER_EXTENSION = app;
 			};
