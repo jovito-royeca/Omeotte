@@ -12,6 +12,7 @@
 @implementation OGame
 {
     SPSprite<OBackgroundMusicScene> *_currentScene;
+    OMenuScene *_menuScene;
     float _screenWidth;
     float _screenHeight;
     float _offsetY;
@@ -28,8 +29,8 @@
         [SPTextField registerBitmapFontFromFile:CALLIGRAPHICA_FILE];
         [SPTextField registerBitmapFontFromFile:EXETER_FILE];
 
-        OMenuScene *menuScene = [[OMenuScene alloc] init];
-        [self showScene:menuScene];
+        _menuScene = [[OMenuScene alloc] init];
+        [self showScene:_menuScene];
     }
     return self;
 }
@@ -51,9 +52,8 @@
         _currentScene = nil;
     }
     
-//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
-    [self addChild:scene];
     _currentScene = scene;
+    [self addChild:_currentScene];
     [_currentScene loopMusic];
 }
 

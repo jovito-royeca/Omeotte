@@ -642,6 +642,7 @@
         }
 
         [self addChild:_spDialog];
+        [self stopMusic];
         [_effects playSound:stSound loop:YES];
     }
 }
@@ -1176,6 +1177,7 @@
     {
         [_soundChannel stop];
         [OMedia releaseSound:@"battle2.caf"];
+        _soundChannel = nil;
     }
 #endif
 }
