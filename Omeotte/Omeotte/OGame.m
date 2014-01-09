@@ -43,14 +43,15 @@
 
 - (void)showScene:(SPSprite<OBackgroundMusicScene> *)scene
 {
-    if ([self containsChild:_currentScene])
+    if (_currentScene)
     {
         [_currentScene stopMusic];
         [self removeChild:_currentScene];
+        [_currentScene release];
         _currentScene = nil;
     }
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [self addChild:scene];
     _currentScene = scene;
     [_currentScene loopMusic];

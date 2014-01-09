@@ -44,13 +44,14 @@
     soundChannel.loop = bLoop;
     [soundChannel play];
     
-//    if (!bLoop)
-//    {
+    
+    if (!bLoop)
+    {
 //        [soundChannel addEventListenerForType:SP_EVENT_TYPE_COMPLETED block:^
 //        (id){
 //            [soundChannel release];
 //        }];
-//    }
+    }
 #endif
 }
 
@@ -60,6 +61,7 @@
     SPSoundChannel *soundChannel = [OMedia sound:[self soundFileName:type]];
     
     [soundChannel stop];
+//    [OMedia releaseSound:type];
 #endif
 }
 

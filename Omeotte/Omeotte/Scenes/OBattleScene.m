@@ -66,6 +66,7 @@
 {
 #ifdef GAME_SOUNDS_ON
 //    [_effects stopSound:BattleSound1];
+    [_soundChannel release];
 #endif
 
     [rule release];
@@ -1040,11 +1041,11 @@
     }
     
     float width = Sparrow.stage.width;
-    float height = Sparrow.stage.height;
+//    float height = Sparrow.stage.height;
     
     float cardWidth  = width/6;
-    float cardHeight = (cardWidth*128)/95;
-    float cardY = height-cardHeight;
+//    float cardHeight = (cardWidth*128)/95;
+//    float cardY = height-cardHeight;
     
     
     NSArray *sortedKeys = [[hand allKeys] sortedArrayUsingSelector: @selector(compare:)];
@@ -1162,9 +1163,9 @@
     if (!_soundChannel)
     {
         _soundChannel = [OMedia sound:@"battle2.caf"];
+//        _soundChannel.loop = YES;
+        [_soundChannel play];
     }
-    _soundChannel.loop = YES;
-    [_soundChannel play];
 #endif
 }
 
@@ -1174,8 +1175,8 @@
     if (_soundChannel)
     {
         [_soundChannel stop];
+        [OMedia releaseSound:@"battle2.caf"];
     }
-    _soundChannel = nil;
 #endif
 }
 

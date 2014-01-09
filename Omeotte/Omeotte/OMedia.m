@@ -8,8 +8,8 @@
 
 @implementation OMedia
 
-static NSMutableDictionary *atlases = NULL;
-static NSMutableDictionary *sounds = NULL;
+static NSMutableDictionary *atlases = nil;
+static NSMutableDictionary *sounds = nil;
 
 #pragma mark Texture Atlas
 
@@ -71,7 +71,6 @@ static NSMutableDictionary *sounds = NULL;
     }
     
     return [sounds[name] createChannel];
-    
 }
 
 + (void)releaseSound:(NSString *)name

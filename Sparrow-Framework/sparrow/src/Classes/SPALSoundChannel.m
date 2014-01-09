@@ -123,7 +123,10 @@
 {
     [self revokeSoundCompletedEvent];
     _startMoment = _pauseMoment = 0.0;
-    alSourceStop(_sourceID);
+    if (_sourceID != 0)
+    {
+        alSourceStop(_sourceID);
+    }
 }
 
 - (BOOL)isPlaying
