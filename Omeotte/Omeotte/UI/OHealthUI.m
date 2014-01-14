@@ -102,7 +102,7 @@
     {
         currentWidth = (_width/2)*0.542;
         currentX = ((_width/2) - currentWidth)/2;
-        imgTower = [[SXSimpleClippedImage alloc] initWithWidth:currentWidth height:currentHeight];
+        imgTower = [[SXSimpleClippedImage alloc] initWithWidth:currentWidth height:currentHeight*0.542];
         imgTower.x = currentX;
         imgTower.y = currentY;
         imgTower.texture = [OMedia texture:@"red tower" fromAtlas:atlas];
@@ -112,13 +112,13 @@
         lblTower = [[SPTextField alloc] initWithWidth:currentWidth height:TOWER_LABEL_HEIGHT];
         lblTower.color = WHITE_COLOR;
         lblTower.x = currentX;
-        lblTower.y = imgTower.height;
+        lblTower.y = currentHeight;
         lblTower.fontName = EXETER_FONT;
         [self addChild:lblTower];
         
         currentWidth = (_width/2)*0.445;
         currentX = _width/2;
-        imgWall = [[SXSimpleClippedImage alloc] initWithWidth:currentWidth height:currentHeight];
+        imgWall = [[SXSimpleClippedImage alloc] initWithWidth:currentWidth height:currentHeight*0.445];
         imgWall.x = currentX;
         imgWall.y = currentY;
         imgWall.texture = [OMedia texture:@"wall" fromAtlas:atlas];
@@ -127,7 +127,7 @@
         lblWall = [[SPTextField alloc] initWithWidth:currentWidth height:TOWER_LABEL_HEIGHT];
         lblWall.color = WHITE_COLOR;
         lblWall.x = currentX;
-        lblWall.y = imgTower.height;
+        lblWall.y = currentHeight;
         lblWall.fontName = EXETER_FONT;
         [self addChild:lblWall];
     }
