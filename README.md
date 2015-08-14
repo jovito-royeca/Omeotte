@@ -1,2 +1,1 @@
-# This is my README
-Editing... Nov 20, 2013
+Deck of Omeotte is  mobile game based on Arcomage, a mini-game in Might of Magic.

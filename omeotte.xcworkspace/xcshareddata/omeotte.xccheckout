@@ -10,29 +10,29 @@
 	<string>omeotte</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1D5E8108-D383-45F5-A23E-C8712BC6F9D7</key>
+		<key>A5DEDA37E54B37BB99C13B4CF23A291183164433</key>
 		<string>ssh://bitbucket.org/jovito/omeotte.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>omeotte.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1D5E8108-D383-45F5-A23E-C8712BC6F9D7</key>
+		<key>A5DEDA37E54B37BB99C13B4CF23A291183164433</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://bitbucket.org/jovito/omeotte.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1D5E8108-D383-45F5-A23E-C8712BC6F9D7</string>
+	<string>A5DEDA37E54B37BB99C13B4CF23A291183164433</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1D5E8108-D383-45F5-A23E-C8712BC6F9D7</string>
+			<string>A5DEDA37E54B37BB99C13B4CF23A291183164433</string>
 			<key>IDESourceControlWCCName</key>
 			<string>omeotte</string>
 		</dict>
